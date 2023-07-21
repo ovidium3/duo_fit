@@ -1,6 +1,7 @@
 # duo_fit
 
-A new Flutter project.
+A 2 in 1 fitness app built with Flutter, capable of running on iOS and Android.
+Inspiration taken from MyFitnessPal and Strong Workout apps.
 
 ## Getting Started
 
