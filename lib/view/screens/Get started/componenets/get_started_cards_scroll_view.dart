@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/view/screens/Get%20started/componenets/get_started_card.dart';
 
-import '../../../../config/getStarted/getStartedData.dart';
+import '../../../../constants/getStarted/getStartedData.dart';
 import '../../../../controller/get_started_controller/get_started_controller.dart';
 
 class GetStartedCardsScrollView extends GetView<GetStartedController> {

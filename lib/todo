@@ -5,3 +5,5 @@
 - import my workout data, exercise data, etc
 - implement my own strong-style workout data thing
 - implement my own calorie log stuff
+- replace workouts in workouts list with my own
+- continue adding to text constants, possibly break it down into multiple

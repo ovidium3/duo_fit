@@ -14,8 +14,8 @@ class ImgSrc {
   static String welcome = 'assets/images/welcomeOverlayImg.png';
   static String getStarted = 'assets/images/GetStartedOverlay.png';
   static String login = 'assets/images/loginOverlayImg.png';
-  static String primaryLaungage = "assets/images/en.png";
-  static String secondaryLaungage = "assets/images/fr.png";
+  static String primaryLanguage = "assets/images/en.png";
+  static String secondaryLanguage = "assets/images/fr.png";
   static String imgVerification = "assets/images/email_verif.png";
   static String homepageOverlay = 'assets/images/welcomePageOverlay.png';
 

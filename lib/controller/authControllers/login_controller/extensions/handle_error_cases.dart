@@ -1,6 +1,6 @@
 import 'package:duo_fit/controller/authControllers/login_controller/login_controller.dart';
 
-import '../../../../config/text.dart';
+import '../../../../constants/text.dart';
 import '../../../../helpers/string_methods.dart';
 
 extension ErrorHandlesExtension on LoginController {

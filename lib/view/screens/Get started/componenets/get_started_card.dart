@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/controller/functionsController.dart';
-import 'package:duo_fit/config/Colors.dart';
+import 'package:duo_fit/constants/Colors.dart';
 
 import '../../../../controller/get_started_controller/get_started_card_controller.dart';
 import '../../../../helpers/string_methods.dart';

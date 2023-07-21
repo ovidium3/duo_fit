@@ -4,7 +4,7 @@ import 'package:duo_fit/controller/authControllers/sign_up_controller/extensions
 import 'package:duo_fit/controller/authControllers/sign_up_controller/extensions/create_new_account/sign_up_catched_error.dart';
 import 'package:duo_fit/helpers/extension/user_info_validator_extension.dart';
 
-import '../../../../../config/text.dart';
+import '../../../../../constants/text.dart';
 import '../../../../../helpers/string_methods.dart';
 import '../../../../../view/screens/auth/EmailVerification.dart';
 import '../../sign_up_controller.dart';

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/controller/functionsController.dart';
 
-class ChooseLaungageBox extends StatelessWidget {
-  ChooseLaungageBox({
+class ChooseLanguageBox extends StatelessWidget {
+  ChooseLanguageBox({
     Key? key,
     required this.language,
     required this.languageImgPath,

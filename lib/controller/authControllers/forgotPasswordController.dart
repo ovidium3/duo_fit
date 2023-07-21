@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/controller/functionsController.dart';
 import 'package:duo_fit/controller/functionsController/dialogsAndLoadingController.dart';
-import 'package:duo_fit/config/text.dart';
+import 'package:duo_fit/constants/text.dart';
 
 import '../../helpers/string_methods.dart';
 

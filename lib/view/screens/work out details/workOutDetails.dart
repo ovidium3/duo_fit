@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import 'package:duo_fit/controller/functionsController.dart';
 
 import '../../../controller/tabs controllers/detailsTabController.dart';
-import '../../../config/Colors.dart';
-import '../../../config/text.dart';
+import '../../../constants/Colors.dart';
+import '../../../constants/text.dart';
 
 import '../../../helpers/string_methods.dart';
 import '../../widgets/general_widgets/actionButton.dart';

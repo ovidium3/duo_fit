@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../config/filteredList/filteres.dart';
-import '../config/text.dart';
+import '../constants/filteredList/filteres.dart';
+import '../constants/text.dart';
 import '../view/screens/homepage/componenets/ItemsSwitchTiles.dart';
 
 class FunctionsController extends GetxController {

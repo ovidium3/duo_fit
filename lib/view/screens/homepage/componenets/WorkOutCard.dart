@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/config/Colors.dart';
+import 'package:duo_fit/constants/Colors.dart';
 
 import '../../work out details/workOutDetails.dart';
 

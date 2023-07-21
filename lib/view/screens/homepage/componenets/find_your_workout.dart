@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/controller/functionsController.dart';
 
-import '../../../../config/text.dart';
+import '../../../../constants/text.dart';
 import '../../../../helpers/string_methods.dart';
 
 class FindYourWorkout extends GetView<FunctionsController> {

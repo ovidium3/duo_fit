@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/controller/functionsController.dart';
-import 'package:duo_fit/config/images%20sources.dart';
+import 'package:duo_fit/constants/images%20sources.dart';
 
-import '../../../../config/text.dart';
+import '../../../../constants/text.dart';
 import '../../../../helpers/string_methods.dart';
 import '../../workoutsPages/AllWorkoutsPage.dart';
 import 'WorkOutCard.dart';

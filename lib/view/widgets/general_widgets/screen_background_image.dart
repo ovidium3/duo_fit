@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../config/images sources.dart';
+import '../../../constants/images sources.dart';
 
 class BackgroundImage extends StatelessWidget {
   const BackgroundImage({
@@ -8,7 +8,6 @@ class BackgroundImage extends StatelessWidget {
     this.backgroundImage,
   }) : super(key: key);
 
-  
   final String? backgroundImage;
   @override
   Widget build(BuildContext context) {

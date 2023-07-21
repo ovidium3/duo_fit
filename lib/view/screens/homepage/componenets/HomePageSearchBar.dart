@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:duo_fit/config/text.dart';
+import 'package:duo_fit/constants/text.dart';
 
 class HomePageSearchBar extends StatelessWidget {
   const HomePageSearchBar({Key? key}) : super(key: key);

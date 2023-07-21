@@ -1,4 +1,3 @@
-
 // to-do: correct spells, search for more texts in app if I forget to add them here
 class AppTexts {
   static String error = "Error";
@@ -9,10 +8,10 @@ class AppTexts {
       "This is a workout app that will help you to get fit and stay fit.";
   static String getStarted = "get started";
   static String login = "login";
-  static String changeLaungage = "change laungage";
-  static String chooseLaungage = "choose laungage";
-  static String primaryLaungage = "en";
-  static String secondaryLaungage = "fr";
+  static String changeLanguage = "change language";
+  static String chooseLanguage = "choose language";
+  static String primaryLanguage = "en";
+  static String secondaryLanguage = "fr";
   static String aboutYou = "about you";
   static String getStartedDescription =
       "we want to know more about you, follow the next steps to complete the information";
@@ -74,12 +73,13 @@ class AppTexts {
   static String wrongPassword = "wrong password";
   static String invalidEmail = "Invalid email address, try again";
   static String enterPassword = "Please enter your password";
-  static String passwordMustBe5AtLeast = "Password must be at least 5 characters long";
+  static String passwordMustBe5AtLeast =
+      "Password must be at least 5 characters long";
   static String usernameMustBe5AtLeast =
       "username must be at least 5 characters long";
   static String weakPassword = "weak password, try with stronger one";
   static String emailAlreadyInUse = "this email is already in use";
-  static String fillFields =  "please, fill all fields";
+  static String fillFields = "please, fill all fields";
   // static String basedOnReviews = "based on users reviews";
   // static String basedOnReviews = "based on users reviews";
   // static String basedOnReviews = "based on users reviews";
@@ -95,5 +95,4 @@ class AppTexts {
   // static String basedOnReviews = "based on users reviews";
   // static String basedOnReviews = "based on users reviews";
   // static String basedOnReviews = "based on users reviews";
-
 }

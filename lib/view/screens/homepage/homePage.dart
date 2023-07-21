@@ -1,15 +1,15 @@
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/config/Colors.dart';
-import 'package:duo_fit/config/text.dart';
-import 'package:duo_fit/config/workouts%20lists/workouts%20Lists.dart';
+import 'package:duo_fit/constants/Colors.dart';
+import 'package:duo_fit/constants/text.dart';
+import 'package:duo_fit/constants/workouts%20lists/workouts%20Lists.dart';
 import 'package:duo_fit/view/screens/user%20profile/userProfil.dart';
 
 import '../../../controller/functionsController.dart';
 import '../../../controller/tabs controllers/workOutTabController.dart';
 import '../../../controller/userController/userController.dart';
-import '../../../config/images sources.dart';
+import '../../../constants/images sources.dart';
 import '../../../helpers/string_methods.dart';
 import '../../widgets/general_widgets/screen_background_image.dart';
 import 'componenets/HomePageSearchBar.dart';

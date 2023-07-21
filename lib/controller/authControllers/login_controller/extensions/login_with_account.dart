@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:duo_fit/controller/authControllers/login_controller/extensions/handle_error_cases.dart';
 import 'package:duo_fit/helpers/extension/user_info_validator_extension.dart';
 
-import '../../../../config/text.dart';
+import '../../../../constants/text.dart';
 import '../../../../helpers/string_methods.dart';
 import '../login_controller.dart';
 

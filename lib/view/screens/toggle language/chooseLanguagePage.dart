@@ -2,14 +2,14 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/controller/functionsController.dart';
-import 'package:duo_fit/config/Colors.dart';
-import 'package:duo_fit/config/images%20sources.dart';
-import 'package:duo_fit/config/text.dart';
+import 'package:duo_fit/constants/Colors.dart';
+import 'package:duo_fit/constants/images%20sources.dart';
+import 'package:duo_fit/constants/text.dart';
 import '../../../helpers/string_methods.dart';
-import 'componenets/ChooseLaungageBox.dart';
+import 'componenets/ChooseLanguageBox.dart';
 
-class ChooseLaungagePage extends StatelessWidget {
-  ChooseLaungagePage({Key? key}) : super(key: key);
+class ChooseLanguagePage extends StatelessWidget {
+  ChooseLanguagePage({Key? key}) : super(key: key);
   final FunctionsController controller = Get.put(FunctionsController());
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class ChooseLaungagePage extends StatelessWidget {
               delay: Duration(milliseconds: delay + 100),
               child: Center(
                 child: Text(
-                  capitalize(AppTexts.chooseLaungage),
+                  capitalize(AppTexts.chooseLanguage),
                   style: const TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
@@ -37,13 +37,13 @@ class ChooseLaungagePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  ChooseLaungageBox(
-                    language: AppTexts.primaryLaungage,
-                    languageImgPath: ImgSrc.primaryLaungage,
+                  ChooseLanguageBox(
+                    language: AppTexts.primaryLanguage,
+                    languageImgPath: ImgSrc.primaryLanguage,
                   ),
-                  ChooseLaungageBox(
-                    language: AppTexts.secondaryLaungage,
-                    languageImgPath: ImgSrc.secondaryLaungage,
+                  ChooseLanguageBox(
+                    language: AppTexts.secondaryLanguage,
+                    languageImgPath: ImgSrc.secondaryLanguage,
                   ),
                 ],
               ),

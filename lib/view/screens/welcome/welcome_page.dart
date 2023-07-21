@@ -1,13 +1,13 @@
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/config/Colors.dart';
-import 'package:duo_fit/config/images%20sources.dart';
-import 'package:duo_fit/config/text.dart';
+import 'package:duo_fit/constants/Colors.dart';
+import 'package:duo_fit/constants/images%20sources.dart';
+import 'package:duo_fit/constants/text.dart';
 import 'package:duo_fit/view/widgets/general_widgets/titleWithDescription.dart';
-import 'package:duo_fit/view/screens/toggle%20laungage/chooseLaungagePage.dart';
+import 'package:duo_fit/view/screens/toggle%20language/chooseLanguagePage.dart';
 import '../../../controller/functionsController.dart';
-import '../../../config/show_delay_mixin.dart';
+import '../../../constants/show_delay_mixin.dart';
 import '../../../helpers/string_methods.dart';
 import '../../widgets/general_widgets/button.dart';
 import '../../widgets/general_widgets/mainScreenTitle.dart';
@@ -93,12 +93,12 @@ class WelcomePage extends GetView<FunctionsController> with DelayHelperMixin {
                       Center(
                         child: GestureDetector(
                           onTap: () {
-                            Get.to(ChooseLaungagePage());
+                            Get.to(ChooseLanguagePage());
                           },
                           child: DelayedDisplay(
                             delay: getDelayDuration(),
                             child: Text(
-                              AppTexts.changeLaungage,
+                              AppTexts.changeLanguage,
                               style: TextStyle(
                                 decoration: TextDecoration.underline,
                                 fontSize: 14,
