@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "856971602175",
+    "project_id": "duofit---2-in-1-fitness-app",
+    "storage_bucket": "duofit---2-in-1-fitness-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856971602175:android:213094bc41b9afea7244ca",
+        "android_client_info": {
+          "package_name": "com.example.duo_fit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856971602175-i4sd1krvi68a4ea77jmbaljpqqd76p6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqwhXltu8_Smsqgza_1L4YmE1Nv-Zod4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856971602175-i4sd1krvi68a4ea77jmbaljpqqd76p6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
