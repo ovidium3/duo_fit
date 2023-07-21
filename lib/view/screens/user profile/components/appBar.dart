@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controller/functionsController.dart';
-import 'package:duo_fit/constants/Colors.dart';
+import 'package:duo_fit/controllers/functionsController.dart';
+import 'package:duo_fit/constants/color_constants.dart';
 import 'package:duo_fit/constants/text.dart';
 
-import '../../../../controller/authControllers/signOutController.dart';
+import '../../../../controllers/authControllers/signOutController.dart';
 import '../../../../helpers/string_methods.dart';
 
 class ProfileAppBar extends StatelessWidget {

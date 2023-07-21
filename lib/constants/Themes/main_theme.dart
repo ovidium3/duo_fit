@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../view/widgets/general_widgets/customMaterialColor.dart';
-import '../Colors.dart';
+import '../color_constants.dart';
 import 'inputDecoration.dart';
 
 class MainTheme {

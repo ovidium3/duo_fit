@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controller/authControllers/sign_up_controller/extensions/text_editing_controller_lifecycle.dart';
+import 'package:duo_fit/controllers/authControllers/sign_up_controller/extensions/text_editing_controller_lifecycle.dart';
 import '../../functionsController/dialogsAndLoadingController.dart';
 
 class SignUpController extends GetxController {

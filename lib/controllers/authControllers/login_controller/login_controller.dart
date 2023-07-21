@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controller/authControllers/login_controller/extensions/text.dart';
+import 'package:duo_fit/controllers/authControllers/login_controller/extensions/text.dart';
 
 import '../../functionsController/dialogsAndLoadingController.dart';
 

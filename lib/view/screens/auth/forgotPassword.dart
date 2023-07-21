@@ -1,11 +1,11 @@
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/constants/Colors.dart';
-import 'package:duo_fit/constants/images%20sources.dart';
+import 'package:duo_fit/constants/color_constants.dart';
+import 'package:duo_fit/constants/image_path_constants.dart';
 import 'package:duo_fit/constants/text.dart';
-import '../../../controller/authControllers/forgotPasswordController.dart';
-import '../../../controller/functionsController.dart';
+import '../../../controllers/authControllers/forgotPasswordController.dart';
+import '../../../controllers/functionsController.dart';
 import '../../../helpers/string_methods.dart';
 import '../../widgets/general_widgets/button.dart';
 import '../../widgets/general_widgets/text field.dart';

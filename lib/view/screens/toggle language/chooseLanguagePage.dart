@@ -1,9 +1,9 @@
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controller/functionsController.dart';
-import 'package:duo_fit/constants/Colors.dart';
-import 'package:duo_fit/constants/images%20sources.dart';
+import 'package:duo_fit/controllers/functionsController.dart';
+import 'package:duo_fit/constants/color_constants.dart';
+import 'package:duo_fit/constants/image_path_constants.dart';
 import 'package:duo_fit/constants/text.dart';
 import '../../../helpers/string_methods.dart';
 import 'componenets/ChooseLanguageBox.dart';

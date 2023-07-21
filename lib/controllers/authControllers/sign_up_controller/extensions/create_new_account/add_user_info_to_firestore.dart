@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:duo_fit/controller/authControllers/sign_up_controller/sign_up_controller.dart';
+import 'package:duo_fit/controllers/authControllers/sign_up_controller/sign_up_controller.dart';
 
 extension AddExtraInfoExt on SignUpController {
   /// This will add more info to the database about the use, note that you should not add the password, for the user privacy but you can add it if you want

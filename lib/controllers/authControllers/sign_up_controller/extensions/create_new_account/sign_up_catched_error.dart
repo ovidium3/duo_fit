@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:duo_fit/controller/authControllers/sign_up_controller/sign_up_controller.dart';
+import 'package:duo_fit/controllers/authControllers/sign_up_controller/sign_up_controller.dart';
 
 import '../../../../../constants/text.dart';
 import '../../../../../helpers/string_methods.dart';

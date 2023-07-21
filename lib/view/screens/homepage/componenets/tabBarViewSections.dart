@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controller/functionsController.dart';
-import 'package:duo_fit/constants/images%20sources.dart';
+import 'package:duo_fit/controllers/functionsController.dart';
+import 'package:duo_fit/constants/image_path_constants.dart';
 
 import '../../../../constants/text.dart';
 import '../../../../helpers/string_methods.dart';

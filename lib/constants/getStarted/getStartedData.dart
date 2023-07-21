@@ -1,7 +1,7 @@
 // Get started card options
 import 'dart:convert';
 
-import '../../model/get_started_page_card_choices_model.dart';
+import '../../models/get_started_page_card_choices_model.dart';
 
 String cardsJson = '''[
     {

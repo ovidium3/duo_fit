@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:duo_fit/helpers/extension/set_extension.dart';
 
-import '../../model/checked_get_started_card_info.dart';
+import '../../models/checked_get_started_card_info.dart';
 
 class GetStartedController extends GetxController {
   String rebuildId = "rebuildId";

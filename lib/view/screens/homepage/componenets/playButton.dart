@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controller/functionsController.dart';
+import 'package:duo_fit/controllers/functionsController.dart';
 
 class PlayButton extends StatelessWidget {
   PlayButton({

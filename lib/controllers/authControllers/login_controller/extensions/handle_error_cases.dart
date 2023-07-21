@@ -1,4 +1,4 @@
-import 'package:duo_fit/controller/authControllers/login_controller/login_controller.dart';
+import 'package:duo_fit/controllers/authControllers/login_controller/login_controller.dart';
 
 import '../../../../constants/text.dart';
 import '../../../../helpers/string_methods.dart';

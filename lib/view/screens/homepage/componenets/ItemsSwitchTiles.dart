@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controller/functionsController.dart';
+import 'package:duo_fit/controllers/functionsController.dart';
 
 class ItemsCheckboxTiles extends StatelessWidget {
   const ItemsCheckboxTiles({Key? key}) : super(key: key);

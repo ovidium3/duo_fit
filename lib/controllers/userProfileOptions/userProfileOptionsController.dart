@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controller/functionsController.dart';
+import 'package:duo_fit/controllers/functionsController.dart';
 import 'package:duo_fit/view/widgets/general_widgets/button.dart';
 import 'package:duo_fit/view/widgets/general_widgets/text%20field.dart';
 

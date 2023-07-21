@@ -1,18 +1,16 @@
 import 'package:flutter/widgets.dart';
-import 'package:duo_fit/controller/authControllers/sign_up_controller/sign_up_controller.dart';
+import 'package:duo_fit/controllers/authControllers/login_controller/login_controller.dart';
 
-extension TextEditingCtrlLifeCycleExt on SignUpController {
+extension TextEditingCtrlLifeCycleExt on LoginController {
   // This will dispose the text editing controller
   void _disposeTextEditingControllers() {
-    signUpEmailController.dispose();
-    signUpPasswordController.dispose();
-    signUpUserController.dispose();
+    loginEmailController.dispose();
+    loginPasswordController.dispose();
   }
 
   void _initializeTextEditingControllers() {
-    signUpUserController = TextEditingController();
-    signUpEmailController = TextEditingController();
-    signUpPasswordController = TextEditingController();
+    loginEmailController = TextEditingController();
+    loginPasswordController = TextEditingController();
   }
 
   /// this will initialize the text editing controllers

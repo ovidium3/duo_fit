@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:duo_fit/view/screens/Get%20started/componenets/get_started_card.dart';
 
 import '../../../../constants/getStarted/getStartedData.dart';
-import '../../../../controller/get_started_controller/get_started_controller.dart';
+import '../../../../controllers/get_started_controller/get_started_controller.dart';
 
 class GetStartedCardsScrollView extends GetView<GetStartedController> {
   const GetStartedCardsScrollView({

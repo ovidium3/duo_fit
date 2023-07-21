@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:duo_fit/controller/functionsController.dart';
+import 'package:duo_fit/controllers/functionsController.dart';
 
-import '../controller/authControllers/newAuthStateChangeListener.dart';
-import '../controller/functionsController/dialogsAndLoadingController.dart';
+import '../controllers/authControllers/newAuthStateChangeListener.dart';
+import '../controllers/functionsController/dialogsAndLoadingController.dart';
 
 class InitialBinding implements Bindings {
   @override

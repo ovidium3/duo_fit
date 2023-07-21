@@ -2,10 +2,10 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:duo_fit/controller/functionsController.dart';
+import 'package:duo_fit/controllers/functionsController.dart';
 
-import '../../../controller/tabs controllers/detailsTabController.dart';
-import '../../../constants/Colors.dart';
+import '../../../controllers/tabs controllers/detailsTabController.dart';
+import '../../../constants/color_constants.dart';
 import '../../../constants/text.dart';
 
 import '../../../helpers/string_methods.dart';

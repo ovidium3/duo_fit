@@ -1,8 +1,8 @@
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controller/functionsController.dart';
-import '../../../controller/userProfileOptions/userProfileOptionsController.dart';
+import 'package:duo_fit/controllers/functionsController.dart';
+import '../../../controllers/userProfileOptions/userProfileOptionsController.dart';
 import '../../../helpers/string_methods.dart';
 import 'components/appBar.dart';
 

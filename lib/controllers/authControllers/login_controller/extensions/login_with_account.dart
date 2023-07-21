@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controller/authControllers/login_controller/extensions/handle_error_cases.dart';
+import 'package:duo_fit/controllers/authControllers/login_controller/extensions/handle_error_cases.dart';
 import 'package:duo_fit/helpers/extension/user_info_validator_extension.dart';
 
 import '../../../../constants/text.dart';

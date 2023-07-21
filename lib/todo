@@ -7,3 +7,4 @@
 - implement my own calorie log stuff
 - replace workouts in workouts list with my own
 - continue adding to text constants, possibly break it down into multiple
+- fix naming conventions to correct case + logical names

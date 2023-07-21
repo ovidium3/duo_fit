@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controller/functionsController.dart';
-import 'package:duo_fit/constants/Colors.dart';
+import 'package:duo_fit/controllers/functionsController.dart';
+import 'package:duo_fit/constants/color_constants.dart';
 
-import '../../../../controller/get_started_controller/get_started_card_controller.dart';
+import '../../../../controllers/get_started_controller/get_started_card_controller.dart';
 import '../../../../helpers/string_methods.dart';
 import '../../../widgets/general_widgets/CheckMark.dart';
 import 'I_am_title.dart';

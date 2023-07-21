@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controller/authControllers/sign_up_controller/extensions/create_new_account/add_user_info_to_firestore.dart';
-import 'package:duo_fit/controller/authControllers/sign_up_controller/extensions/create_new_account/sign_up_catched_error.dart';
+import 'package:duo_fit/controllers/authControllers/sign_up_controller/extensions/create_new_account/add_user_info_to_firestore.dart';
+import 'package:duo_fit/controllers/authControllers/sign_up_controller/extensions/create_new_account/sign_up_catched_error.dart';
 import 'package:duo_fit/helpers/extension/user_info_validator_extension.dart';
 
 import '../../../../../constants/text.dart';

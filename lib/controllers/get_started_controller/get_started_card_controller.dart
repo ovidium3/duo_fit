@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:duo_fit/model/checked_get_started_card_info.dart';
+import 'package:duo_fit/models/checked_get_started_card_info.dart';
 
 import 'get_started_controller.dart';
 
