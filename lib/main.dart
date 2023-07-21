@@ -2,18 +2,16 @@ import "package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:duo_fit/bindings/initial_binding.dart';
 import 'package:duo_fit/constants/themes/main_theme.dart';
-import 'package:duo_fit/main_configurations/app_configurations.dart';
-import 'package:duo_fit/main_configurations/firebase_configurations.dart';
-import 'package:duo_fit/main_configurations/openfoodfacts_configurations.dart';
-import 'constants/routes.dart';
+import 'package:duo_fit/configurations/app_configurations.dart';
+import 'package:duo_fit/configurations/firebase_configurations.dart';
+import 'package:duo_fit/configurations/openfoodfacts_configurations.dart';
+import 'package:duo_fit/constants/route_constants.dart';
 
 void main() async {
   await AppConfigurations.init();
   await FirebaseConfigurations.init();
   OpenfoodfactsConfigurations.init();
-  runApp(
-    const FitnessApp(),
-  );
+  runApp(const FitnessApp());
 }
 
 class FitnessApp extends StatelessWidget {

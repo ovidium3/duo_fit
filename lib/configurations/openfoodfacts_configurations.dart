@@ -9,6 +9,6 @@ class OpenfoodfactsConfigurations {
       OpenFoodFactsLanguage.ENGLISH
     ];
 
-    OpenFoodAPIConfiguration.globalCountry = OpenFoodFactsCountry.FRANCE;
+    OpenFoodAPIConfiguration.globalCountry = OpenFoodFactsCountry.USA;
   }
 }
