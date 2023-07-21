@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 import 'package:duo_fit/constants/image_path_constants.dart';
-import 'package:duo_fit/constants/text.dart';
+import 'package:duo_fit/constants/text_constants.dart';
 import 'package:duo_fit/view/widgets/general_widgets/titleWithDescription.dart';
 import 'package:duo_fit/view/screens/toggle%20language/chooseLanguagePage.dart';
 import '../../../controllers/functionsController.dart';
@@ -38,8 +38,8 @@ class WelcomePage extends GetView<FunctionsController> with DelayHelperMixin {
                   DelayedDisplay(
                     delay: getDelayDuration(),
                     child: MainScreenTitle(
-                      mainWord: AppTexts.firstMainWord,
-                      secondaryWord: AppTexts.secondaryMainWord,
+                      mainWord: TextConstants.firstMainWord,
+                      secondaryWord: TextConstants.secondaryMainWord,
                     ),
                   ),
 
@@ -50,8 +50,8 @@ class WelcomePage extends GetView<FunctionsController> with DelayHelperMixin {
                   DelayedDisplay(
                     delay: getDelayDuration(),
                     child: TitleWithDescription(
-                      title: capitalize(AppTexts.welcome),
-                      description: AppTexts.welcomeDescription,
+                      title: capitalize(TextConstants.welcome),
+                      description: TextConstants.welcomeDescription,
                     ),
                   ),
                   const Spacer(
@@ -68,7 +68,7 @@ class WelcomePage extends GetView<FunctionsController> with DelayHelperMixin {
                           onPressed: () {
                             Get.toNamed("/getStarted");
                           },
-                          text: capitalize(AppTexts.getStarted),
+                          text: capitalize(TextConstants.getStarted),
                           isOutlined: false,
                         ),
                       ),
@@ -82,7 +82,7 @@ class WelcomePage extends GetView<FunctionsController> with DelayHelperMixin {
                           onPressed: () {
                             Get.toNamed("/login");
                           },
-                          text: capitalize(AppTexts.login),
+                          text: capitalize(TextConstants.login),
                           isOutlined: true,
                         ),
                       ),
@@ -98,7 +98,7 @@ class WelcomePage extends GetView<FunctionsController> with DelayHelperMixin {
                           child: DelayedDisplay(
                             delay: getDelayDuration(),
                             child: Text(
-                              AppTexts.changeLanguage,
+                              TextConstants.changeLanguage,
                               style: TextStyle(
                                 decoration: TextDecoration.underline,
                                 fontSize: 14,

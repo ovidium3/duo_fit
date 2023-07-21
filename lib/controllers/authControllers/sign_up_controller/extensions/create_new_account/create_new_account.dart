@@ -4,7 +4,7 @@ import 'package:duo_fit/controllers/authControllers/sign_up_controller/extension
 import 'package:duo_fit/controllers/authControllers/sign_up_controller/extensions/create_new_account/sign_up_catched_error.dart';
 import 'package:duo_fit/helpers/extension/user_info_validator_extension.dart';
 
-import '../../../../../constants/text.dart';
+import '../../../../../constants/text_constants.dart';
 import '../../../../../helpers/string_methods.dart';
 import '../../../../../view/screens/auth/EmailVerification.dart';
 import '../../sign_up_controller.dart';
@@ -58,25 +58,25 @@ extension CreateNewAccExtension on SignUpController {
     if (username.isEmpty || email.isEmpty || password.isEmpty) {
       dialogsAndLoadingController.showError(
         capitalize(
-          AppTexts.fillFields,
+          TextConstants.fillFields,
         ),
       );
     } else if (!username.isAcceptedUsername) {
       dialogsAndLoadingController.showError(
         capitalize(
-          AppTexts.usernameMustBe5AtLeast,
+          TextConstants.usernameMustBe5AtLeast,
         ),
       );
     } else if (!email.isValidEmail) {
       dialogsAndLoadingController.showError(
         capitalize(
-          AppTexts.invalidEmail,
+          TextConstants.invalidEmail,
         ),
       );
     } else if (!password.isValidPassword) {
       dialogsAndLoadingController.showError(
         capitalize(
-          AppTexts.passwordMustBe5AtLeast,
+          TextConstants.passwordMustBe5AtLeast,
         ),
       );
     }

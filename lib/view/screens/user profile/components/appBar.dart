@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/controllers/functionsController.dart';
 import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text.dart';
+import 'package:duo_fit/constants/text_constants.dart';
 
 import '../../../../controllers/authControllers/signOutController.dart';
 import '../../../../helpers/string_methods.dart';
@@ -16,7 +16,7 @@ class ProfileAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-        capitalize(AppTexts.profile),
+        capitalize(TextConstants.profile),
         style: const TextStyle(
           color: Colors.white,
           fontSize: 25,
@@ -32,7 +32,7 @@ class ProfileAppBar extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                     primary: AppColors.darkBlue, elevation: 0),
                 label: Text(
-                  capitalize(AppTexts.logOut),
+                  capitalize(TextConstants.logOut),
                   style: const TextStyle(color: Colors.red),
                 ),
                 onPressed: () {

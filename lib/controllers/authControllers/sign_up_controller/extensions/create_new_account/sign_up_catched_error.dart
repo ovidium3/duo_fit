@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:duo_fit/controllers/authControllers/sign_up_controller/sign_up_controller.dart';
 
-import '../../../../../constants/text.dart';
+import '../../../../../constants/text_constants.dart';
 import '../../../../../helpers/string_methods.dart';
 
 extension ErrorCasesHandler on SignUpController {
@@ -9,19 +9,19 @@ extension ErrorCasesHandler on SignUpController {
     if (e.code == 'network-request-failed') {
       dialogsAndLoadingController.showError(
         capitalize(
-          AppTexts.checkConnection,
+          TextConstants.checkConnection,
         ),
       );
     } else if (e.code == 'weak-password') {
       dialogsAndLoadingController.showError(
         capitalize(
-          AppTexts.weakPassword,
+          TextConstants.weakPassword,
         ),
       );
     } else if (e.code == 'email-already-in-use') {
       dialogsAndLoadingController.showError(
         capitalize(
-          AppTexts.emailAlreadyInUse,
+          TextConstants.emailAlreadyInUse,
         ),
       );
     }

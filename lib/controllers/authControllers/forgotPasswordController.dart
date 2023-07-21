@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/controllers/functionsController.dart';
 import 'package:duo_fit/controllers/functionsController/dialogsAndLoadingController.dart';
-import 'package:duo_fit/constants/text.dart';
+import 'package:duo_fit/constants/text_constants.dart';
 
 import '../../helpers/string_methods.dart';
 
@@ -37,7 +37,7 @@ class ForgotPasswordController extends GetxController {
 
         // Show success to user
         dialogsAndLoadingController
-            .showSuccess(capitalize(AppTexts.emailVerifSentText));
+            .showSuccess(capitalize(TextConstants.emailVerifSentText));
 
         //
       } on FirebaseAuthException catch (e) {
@@ -47,7 +47,7 @@ class ForgotPasswordController extends GetxController {
         // Error checks (if you want to be more specific make for each error a case) on this pattern
         if (e.code == "user-not-found") {
           dialogsAndLoadingController
-              .showError(capitalize(AppTexts.noUserText));
+              .showError(capitalize(TextConstants.noUserText));
         }
         // here your checks
         else {
@@ -61,10 +61,11 @@ class ForgotPasswordController extends GetxController {
     }
     // email checks ()
     else if (email == "") {
-      dialogsAndLoadingController.showError(capitalize(AppTexts.enterEmail));
+      dialogsAndLoadingController
+          .showError(capitalize(TextConstants.enterEmail));
     } else if (!isValidEmail) {
       dialogsAndLoadingController
-          .showError(capitalize(AppTexts.enterValidEmail));
+          .showError(capitalize(TextConstants.enterValidEmail));
     }
   }
 

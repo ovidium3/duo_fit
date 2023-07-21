@@ -2,7 +2,7 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text.dart';
+import 'package:duo_fit/constants/text_constants.dart';
 import 'package:duo_fit/constants/workouts%20lists/workouts%20Lists.dart';
 import 'package:duo_fit/view/screens/user%20profile/userProfil.dart';
 

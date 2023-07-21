@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:duo_fit/constants/text.dart';
+import 'package:duo_fit/constants/text_constants.dart';
 
 class HomePageSearchBar extends StatelessWidget {
   const HomePageSearchBar({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class HomePageSearchBar extends StatelessWidget {
             size: 20,
           ),
           isDense: true,
-          hintText: AppTexts.searchWorkout,
+          hintText: TextConstants.searchWorkout,
           hintStyle: TextStyle(
             color: Colors.white.withOpacity(0.5),
             fontSize: 14,

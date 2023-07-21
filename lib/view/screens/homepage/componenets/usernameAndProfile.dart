@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../constants/text.dart';
+import '../../../../constants/text_constants.dart';
 import 'avatar.dart';
 
 class ProfileAndUsername extends StatelessWidget {
@@ -22,7 +22,7 @@ class ProfileAndUsername extends StatelessWidget {
       children: [
         RichText(
           text: TextSpan(
-            text: AppTexts.hey,
+            text: TextConstants.hey,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Theme.of(context).primaryColor,

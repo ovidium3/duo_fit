@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/controllers/functionsController.dart';
 import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text.dart';
+import 'package:duo_fit/constants/text_constants.dart';
 import 'package:duo_fit/view/screens/homepage/componenets/avatar.dart';
 import '../../../controllers/userController/userController.dart';
 import '../../../constants/workouts lists/workouts Lists.dart';
@@ -72,8 +72,8 @@ class AllWorkoutsPage extends StatelessWidget {
               slidingBeginOffset: const Offset(0.0, 0.1),
               child: MainWorkoutCard(
                 isFavortite: false,
-                sectionTitle: AppTexts.workoutOfDay,
-                description: AppTexts.basedOnReviews,
+                sectionTitle: TextConstants.workoutOfDay,
+                description: TextConstants.basedOnReviews,
                 imagePath: controller.filterWorkoutWith(
                     Get.arguments[1], "isWorkoutOfDay", "true")["imagePath"],
                 cardTitle: controller.filterWorkoutWith(
@@ -109,7 +109,7 @@ class AllWorkoutsPage extends StatelessWidget {
               child: TabBarViewSection(
                 itemsToShow: WorkoutsList.allWorkoutsList.length,
                 title: capitalize(
-                  AppTexts.withDiscounts,
+                  TextConstants.withDiscounts,
                 ),
                 dataList: controller.filteredListwith(
                     Get.arguments[1], "isDiscounted", "true"),
@@ -124,8 +124,8 @@ class AllWorkoutsPage extends StatelessWidget {
               delay: Duration(milliseconds: delay + 200),
               child: MainWorkoutCard(
                 isFavortite: false,
-                sectionTitle: AppTexts.dailyFreeWorkout,
-                description: AppTexts.choosedCarefully,
+                sectionTitle: TextConstants.dailyFreeWorkout,
+                description: TextConstants.choosedCarefully,
                 imagePath: controller.filterWorkoutWith(
                     Get.arguments[1], "dailyFreeWorkout", "true")["imagePath"],
                 cardTitle: controller.filterWorkoutWith(Get.arguments[1],
@@ -161,7 +161,7 @@ class AllWorkoutsPage extends StatelessWidget {
               child: TabBarViewSection(
                 itemsToShow: WorkoutsList.allWorkoutsList.length,
                 title: capitalize(
-                  AppTexts.allWorkouts,
+                  TextConstants.allWorkouts,
                 ),
                 dataList: Get.arguments[1],
                 hasSeeAllButton: false,

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:duo_fit/controllers/authControllers/login_controller/extensions/handle_error_cases.dart';
 import 'package:duo_fit/helpers/extension/user_info_validator_extension.dart';
 
-import '../../../../constants/text.dart';
+import '../../../../constants/text_constants.dart';
 import '../../../../helpers/string_methods.dart';
 import '../login_controller.dart';
 
@@ -36,25 +36,25 @@ extension LoginWithAccountExtension on LoginController {
     // it describe itself
     if (email.isEmpty) {
       dialogsAndLoadingController.showError(
-        capitalize(AppTexts.enterEmail),
+        capitalize(TextConstants.enterEmail),
       );
     }
     //
     else if (!email.isValidEmail) {
       dialogsAndLoadingController.showError(
-        capitalize(AppTexts.invalidEmail),
+        capitalize(TextConstants.invalidEmail),
       );
     }
     //
     else if (password.isEmpty) {
       dialogsAndLoadingController.showError(
-        capitalize(AppTexts.enterPassword),
+        capitalize(TextConstants.enterPassword),
       );
     }
     //
     else if (!password.isValidPassword) {
       dialogsAndLoadingController.showError(
-        capitalize(AppTexts.passwordMustBe5AtLeast),
+        capitalize(TextConstants.passwordMustBe5AtLeast),
       );
     }
   }

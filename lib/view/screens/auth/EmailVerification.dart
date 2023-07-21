@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:duo_fit/controllers/authControllers/signOutController.dart';
 import 'package:duo_fit/controllers/functionsController.dart';
 import 'package:duo_fit/constants/image_path_constants.dart';
-import 'package:duo_fit/constants/text.dart';
+import 'package:duo_fit/constants/text_constants.dart';
 import 'package:duo_fit/view/widgets/general_widgets/button.dart';
 
 import '../../../controllers/authControllers/emailVerficationController.dart';
@@ -56,7 +56,7 @@ class EmailVerificatioPage extends StatelessWidget {
                         height: 30,
                       ),
                       Text(
-                        AppTexts.emailSentText,
+                        TextConstants.emailSentText,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 16,
@@ -69,7 +69,7 @@ class EmailVerificatioPage extends StatelessWidget {
               ),
               const Spacer(),
               CustomButton(
-                  text: capitalize(AppTexts.done),
+                  text: capitalize(TextConstants.done),
                   isOutlined: false,
                   onPressed: () {
                     emailVerificatioController.checkEmailVerified();
@@ -82,7 +82,7 @@ class EmailVerificatioPage extends StatelessWidget {
                   emailVerificatioController.sendVerificationEmail();
                 },
                 child: Text(
-                  capitalize(AppTexts.reSendEmailVerification),
+                  capitalize(TextConstants.reSendEmailVerification),
                   style: TextStyle(
                       decoration: TextDecoration.underline,
                       color: Theme.of(context).primaryColor),

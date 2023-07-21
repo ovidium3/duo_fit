@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:duo_fit/controllers/functionsController.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 import 'package:duo_fit/constants/image_path_constants.dart';
-import 'package:duo_fit/constants/text.dart';
+import 'package:duo_fit/constants/text_constants.dart';
 import '../../../helpers/string_methods.dart';
 import 'componenets/ChooseLanguageBox.dart';
 
@@ -23,7 +23,7 @@ class ChooseLanguagePage extends StatelessWidget {
               delay: Duration(milliseconds: delay + 100),
               child: Center(
                 child: Text(
-                  capitalize(AppTexts.chooseLanguage),
+                  capitalize(TextConstants.chooseLanguage),
                   style: const TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
@@ -38,11 +38,11 @@ class ChooseLanguagePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   ChooseLanguageBox(
-                    language: AppTexts.primaryLanguage,
+                    language: TextConstants.primaryLanguage,
                     languageImgPath: ImgSrc.primaryLanguage,
                   ),
                   ChooseLanguageBox(
-                    language: AppTexts.secondaryLanguage,
+                    language: TextConstants.secondaryLanguage,
                     languageImgPath: ImgSrc.secondaryLanguage,
                   ),
                 ],

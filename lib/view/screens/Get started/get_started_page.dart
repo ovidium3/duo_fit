@@ -2,7 +2,7 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text.dart';
+import 'package:duo_fit/constants/text_constants.dart';
 import 'package:duo_fit/view/widgets/general_widgets/screen_background_image.dart';
 import '../../../constants/getStarted/getStartedData.dart';
 import '../../../constants/show_delay_mixin.dart';
@@ -37,8 +37,8 @@ class GetStartedPage extends GetView<GetStartedController>
                   DelayedDisplay(
                     delay: getDelayDuration(),
                     child: MainScreenTitle(
-                      mainWord: AppTexts.firstMainWord,
-                      secondaryWord: AppTexts.secondaryMainWord,
+                      mainWord: TextConstants.firstMainWord,
+                      secondaryWord: TextConstants.secondaryMainWord,
                     ),
                   ),
                   const Spacer(
@@ -49,8 +49,8 @@ class GetStartedPage extends GetView<GetStartedController>
                     child: DelayedDisplay(
                       delay: getDelayDuration(),
                       child: TitleWithDescription(
-                        title: capitalize(AppTexts.aboutYou),
-                        description: AppTexts.getStartedDescription,
+                        title: capitalize(TextConstants.aboutYou),
+                        description: TextConstants.getStartedDescription,
                       ),
                     ),
                   ),
@@ -81,7 +81,7 @@ class GetStartedPage extends GetView<GetStartedController>
                         children: [
                           GestureDetector(
                             child: Text(
-                              capitalize(AppTexts.skipIntro),
+                              capitalize(TextConstants.skipIntro),
                               style: TextStyle(
                                 color:
                                     const Color(0xffffffff).withOpacity(0.42),
@@ -116,7 +116,8 @@ class GetStartedPage extends GetView<GetStartedController>
                                         padding: const EdgeInsets.symmetric(
                                           horizontal: 20,
                                         ),
-                                        primary: Theme.of(context).primaryColor,
+                                        backgroundColor:
+                                            Theme.of(context).primaryColor,
                                       ),
                                       onPressed: controller
                                               .hasUserChooserAtLeastOneChoice
@@ -125,7 +126,7 @@ class GetStartedPage extends GetView<GetStartedController>
                                             }
                                           : null,
                                       child: Text(
-                                        capitalize(AppTexts.next),
+                                        capitalize(TextConstants.next),
                                         style: const TextStyle(
                                           color: Colors.white,
                                         ),

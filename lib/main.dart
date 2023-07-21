@@ -1,12 +1,16 @@
 import "package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:duo_fit/bindings/initial_binding.dart';
-import 'package:duo_fit/constants/Themes/main_theme.dart';
-import 'package:duo_fit/constants/initial_main_methods/initial_main_methods.dart';
+import 'package:duo_fit/constants/themes/main_theme.dart';
+import 'package:duo_fit/main_configurations/app_configurations.dart';
+import 'package:duo_fit/main_configurations/firebase_configurations.dart';
+import 'package:duo_fit/main_configurations/openfoodfacts_configurations.dart';
 import 'constants/routes.dart';
 
 void main() async {
-  await MainMethods.init();
+  await AppConfigurations.init();
+  await FirebaseConfigurations.init();
+  OpenfoodfactsConfigurations.init();
   runApp(
     const FitnessApp(),
   );

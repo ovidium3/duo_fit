@@ -31,7 +31,6 @@ class Avatar extends StatelessWidget {
               color: Colors.red,
             );
           },
-          
           frameBuilder: (_, image, loadingBuilder, __) {
             if (loadingBuilder == null) {
               return SizedBox(

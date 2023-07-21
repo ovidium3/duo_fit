@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 import 'package:duo_fit/constants/image_path_constants.dart';
-import 'package:duo_fit/constants/text.dart';
+import 'package:duo_fit/constants/text_constants.dart';
 import '../../../controllers/authControllers/forgotPasswordController.dart';
 import '../../../controllers/functionsController.dart';
 import '../../../helpers/string_methods.dart';
 import '../../widgets/general_widgets/button.dart';
-import '../../widgets/general_widgets/text field.dart';
+import '../../widgets/general_widgets/text_field.dart';
 import '../../widgets/general_widgets/titleWithDescription.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
@@ -50,9 +50,10 @@ class ForgotPasswordPage extends StatelessWidget {
                   DelayedDisplay(
                     delay: Duration(milliseconds: delay + 100),
                     child: TitleWithDescription(
-                      title: capitalize(AppTexts.forgot),
-                      description: capitalize(
-                          AppTexts.forgotPasswordDesccription.toLowerCase()),
+                      title: capitalize(TextConstants.forgot),
+                      description: capitalize(TextConstants
+                          .forgotPasswordDesccription
+                          .toLowerCase()),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -62,7 +63,7 @@ class ForgotPasswordPage extends StatelessWidget {
                       controller:
                           forgotPasswordController.emailToRecoverPassword,
                       keyboardType: TextInputType.emailAddress,
-                      label: capitalize(AppTexts.yourEmail),
+                      label: capitalize(TextConstants.yourEmail),
                     ),
                   ),
                   const SizedBox(height: 50),
@@ -75,7 +76,7 @@ class ForgotPasswordPage extends StatelessWidget {
                                 .emailToRecoverPassword.text);
                       },
                       isRounded: false,
-                      text: capitalize(AppTexts.resetPassword),
+                      text: capitalize(TextConstants.resetPassword),
                       isOutlined: true,
                     ),
                   ),

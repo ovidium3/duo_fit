@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:duo_fit/controllers/functionsController.dart';
 import 'package:duo_fit/constants/image_path_constants.dart';
 
-import '../../../../constants/text.dart';
+import '../../../../constants/text_constants.dart';
 import '../../../../helpers/string_methods.dart';
 import '../../workoutsPages/AllWorkoutsPage.dart';
 import 'WorkOutCard.dart';
@@ -55,7 +55,7 @@ class TabBarViewSection extends StatelessWidget {
                     color: Colors.white.withOpacity(.1),
                   ),
                   child: Text(
-                    capitalize(AppTexts.seeAll),
+                    capitalize(TextConstants.seeAll),
                     style: TextStyle(color: Theme.of(context).primaryColor),
                   ),
                 ),
@@ -78,7 +78,7 @@ class TabBarViewSection extends StatelessWidget {
                     listCollection: dataList,
                     title: capitalize(
                       dataList[index]["workOutTitle"] ??
-                          AppTexts.somethingWrong,
+                          TextConstants.somethingWrong,
                     ),
                     imagePath:
                         dataList[index]["imagePath"] ?? ImgSrc.noImgAvailable),

@@ -2,7 +2,7 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/show_delay_mixin.dart';
-import 'package:duo_fit/constants/text.dart';
+import 'package:duo_fit/constants/text_constants.dart';
 import 'package:duo_fit/controllers/authControllers/login_controller/extensions/login_with_account.dart';
 import 'package:duo_fit/view/widgets/general_widgets/screen_background_image.dart';
 
@@ -11,7 +11,7 @@ import '../../../constants/color_constants.dart';
 import '../../../helpers/string_methods.dart';
 import '../../widgets/general_widgets/button.dart';
 import '../../widgets/general_widgets/mainScreenTitle.dart';
-import '../../widgets/general_widgets/text field.dart';
+import '../../widgets/general_widgets/text_field.dart';
 import '../../widgets/general_widgets/titleWithDescription.dart';
 import 'sign_up_page.dart';
 import 'forgotPassword.dart';
@@ -53,8 +53,8 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                       DelayedDisplay(
                         delay: Duration(milliseconds: delay),
                         child: MainScreenTitle(
-                            mainWord: AppTexts.firstMainWord,
-                            secondaryWord: AppTexts.secondaryMainWord),
+                            mainWord: TextConstants.firstMainWord,
+                            secondaryWord: TextConstants.secondaryMainWord),
                       ),
                       const Spacer(
                         flex: 3,
@@ -62,8 +62,8 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                       DelayedDisplay(
                         delay: getDelayDuration(),
                         child: TitleWithDescription(
-                          title: capitalize(AppTexts.signIn),
-                          description: AppTexts.loginDescription,
+                          title: capitalize(TextConstants.signIn),
+                          description: TextConstants.loginDescription,
                         ),
                       ),
                       const SizedBox(
@@ -74,7 +74,7 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                         child: CustomTextField(
                           keyboardType: TextInputType.emailAddress,
                           controller: controller.loginEmailController,
-                          label: capitalize(AppTexts.email),
+                          label: capitalize(TextConstants.email),
                         ),
                       ),
                       DelayedDisplay(
@@ -82,7 +82,7 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                         child: CustomTextField(
                           keyboardType: TextInputType.visiblePassword,
                           controller: controller.loginPasswordController,
-                          label: capitalize(AppTexts.password),
+                          label: capitalize(TextConstants.password),
                           obscureText: true,
                         ),
                       ),
@@ -98,7 +98,7 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                               },
                               child: Text(
                                 capitalize(
-                                  AppTexts.forgetPassword,
+                                  TextConstants.forgetPassword,
                                 ),
                                 style: const TextStyle(
                                     color: Colors.white,
@@ -126,7 +126,7 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                                 );
                               },
                               isRounded: false,
-                              text: capitalize(AppTexts.login),
+                              text: capitalize(TextConstants.login),
                               isOutlined: false,
                             ),
                           ),
@@ -140,7 +140,7 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                                 Get.to(() => SignUpPage());
                               },
                               isRounded: false,
-                              text: capitalize(AppTexts.signUp),
+                              text: capitalize(TextConstants.signUp),
                               isOutlined: true,
                             ),
                           ),

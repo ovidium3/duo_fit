@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../constants/filteredList/filteres.dart';
-import '../constants/text.dart';
+import '../constants/text_constants.dart';
 import '../view/screens/homepage/componenets/ItemsSwitchTiles.dart';
 
 class FunctionsController extends GetxController {
@@ -45,7 +45,7 @@ class FunctionsController extends GetxController {
         builder: (context) {
           return AlertDialog(
             actionsAlignment: MainAxisAlignment.center,
-            title: Text(AppTexts.filterBy),
+            title: Text(TextConstants.filterBy),
             content: const ItemsCheckboxTiles(),
             actions: [
               TextButton(
@@ -58,7 +58,7 @@ class FunctionsController extends GetxController {
                   ),
                 ),
                 child: Text(
-                  AppTexts.cancel,
+                  TextConstants.cancel,
                   style: const TextStyle(color: Colors.red),
                 ),
               ),
@@ -70,7 +70,7 @@ class FunctionsController extends GetxController {
                 ),
                 onPressed: () {},
                 child: Text(
-                  AppTexts.apply,
+                  TextConstants.apply,
                   style: const TextStyle(
                     color: Colors.black,
                   ),

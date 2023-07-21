@@ -5,13 +5,13 @@ import 'package:duo_fit/controllers/authControllers/sign_up_controller/extension
 import 'package:duo_fit/controllers/authControllers/sign_up_controller/extensions/handle_going_to_login_page.dart';
 import 'package:duo_fit/controllers/authControllers/sign_up_controller/sign_up_controller.dart';
 import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text.dart';
+import 'package:duo_fit/constants/text_constants.dart';
 import '../../../constants/show_delay_mixin.dart';
 import '../../../helpers/string_methods.dart';
 import '../../widgets/general_widgets/button.dart';
 import '../../widgets/general_widgets/mainScreenTitle.dart';
 import '../../widgets/general_widgets/screen_background_image.dart';
-import '../../widgets/general_widgets/text field.dart';
+import '../../widgets/general_widgets/text_field.dart';
 import '../../widgets/general_widgets/titleWithDescription.dart';
 
 class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
@@ -52,8 +52,8 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                       DelayedDisplay(
                         delay: getDelayDuration(),
                         child: MainScreenTitle(
-                            mainWord: AppTexts.firstMainWord,
-                            secondaryWord: AppTexts.secondaryMainWord),
+                            mainWord: TextConstants.firstMainWord,
+                            secondaryWord: TextConstants.secondaryMainWord),
                       ),
                       const Spacer(
                         flex: 2,
@@ -61,8 +61,8 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                       DelayedDisplay(
                         delay: getDelayDuration(),
                         child: TitleWithDescription(
-                          title: capitalize(AppTexts.signUp),
-                          description: AppTexts.signUpDescription,
+                          title: capitalize(TextConstants.signUp),
+                          description: TextConstants.signUpDescription,
                         ),
                       ),
                       DelayedDisplay(
@@ -70,7 +70,7 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                         child: CustomTextField(
                           keyboardType: TextInputType.name,
                           controller: controller.signUpUserController,
-                          label: capitalize(AppTexts.username),
+                          label: capitalize(TextConstants.username),
                         ),
                       ),
                       DelayedDisplay(
@@ -78,7 +78,7 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                         child: CustomTextField(
                           keyboardType: TextInputType.emailAddress,
                           controller: controller.signUpEmailController,
-                          label: capitalize(AppTexts.email),
+                          label: capitalize(TextConstants.email),
                         ),
                       ),
                       DelayedDisplay(
@@ -86,7 +86,7 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                         child: CustomTextField(
                           keyboardType: TextInputType.text,
                           controller: controller.signUpPasswordController,
-                          label: capitalize(AppTexts.password),
+                          label: capitalize(TextConstants.password),
                           obscureText: true,
                         ),
                       ),
@@ -108,7 +108,7 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                                 );
                               },
                               isRounded: false,
-                              text: capitalize(AppTexts.signUp),
+                              text: capitalize(TextConstants.signUp),
                               isOutlined: true,
                             ),
                           ),
@@ -122,7 +122,7 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                                 controller.handleGoingToLoginPage();
                               },
                               child: Text(
-                                capitalize(AppTexts.alreadyHaveAnAccount),
+                                capitalize(TextConstants.alreadyHaveAnAccount),
                                 style: TextStyle(
                                   fontSize: 14,
                                   color: Theme.of(context).primaryColor,
