@@ -1,4 +1,5 @@
 import 'package:delayed_display/delayed_display.dart';
+import 'package:duo_fit/controllers/authControllers/sign_up_controller/sign_up_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/show_delay_mixin.dart';
@@ -17,6 +18,7 @@ import 'sign_up_page.dart';
 import 'forgotPassword.dart';
 
 class LoginPage extends GetView<LoginController> with DelayHelperMixin {
+  final SignUpController signUpController = Get.put(SignUpController());
   LoginPage({super.key});
   @override
   Widget build(BuildContext context) {

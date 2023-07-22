@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:get/get.dart';
-import 'package:duo_fit/bindings/initial_binding.dart';
+import 'package:duo_fit/bindings/initial_bindings.dart';
 import 'package:duo_fit/constants/themes/main_theme.dart';
 import 'package:duo_fit/configurations/app_configurations.dart';
 import 'package:duo_fit/configurations/firebase_configurations.dart';

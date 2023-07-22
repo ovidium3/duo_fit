@@ -26,7 +26,7 @@ class WelcomePage extends GetView<FunctionsController> with DelayHelperMixin {
             backgroundImage: ImgSrc().randomFromAssetsList(),
           ),
           Container(
-            color: AppColors.darkBlue.withOpacity(0.69), // Nice
+            color: AppColors.darkBlue.withOpacity(0.69),
             width: double.infinity,
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
@@ -34,7 +34,7 @@ class WelcomePage extends GetView<FunctionsController> with DelayHelperMixin {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Spacer(),
-                  // Hard Element MainScreenTitle
+                  // app title display
                   DelayedDisplay(
                     delay: getDelayDuration(),
                     child: MainScreenTitle(
@@ -42,11 +42,9 @@ class WelcomePage extends GetView<FunctionsController> with DelayHelperMixin {
                       secondaryWord: TextConstants.secondaryMainWord,
                     ),
                   ),
+                  const Spacer(flex: 2),
 
-                  const Spacer(
-                    flex: 2,
-                  ),
-                  // Screen TitleWithDescription
+                  // welcome + description
                   DelayedDisplay(
                     delay: getDelayDuration(),
                     child: TitleWithDescription(
@@ -58,7 +56,7 @@ class WelcomePage extends GetView<FunctionsController> with DelayHelperMixin {
                     flex: 2,
                   ),
 
-                  // Buttons, change Language text
+                  // Sign up / sign in buttons
                   Column(
                     children: [
                       // Get Started button
@@ -86,28 +84,7 @@ class WelcomePage extends GetView<FunctionsController> with DelayHelperMixin {
                           isOutlined: true,
                         ),
                       ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      // Change Language txt
-                      Center(
-                        child: GestureDetector(
-                          onTap: () {
-                            Get.to(ChooseLanguagePage());
-                          },
-                          child: DelayedDisplay(
-                            delay: getDelayDuration(),
-                            child: Text(
-                              TextConstants.changeLanguage,
-                              style: TextStyle(
-                                decoration: TextDecoration.underline,
-                                fontSize: 14,
-                                color: Theme.of(context).primaryColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                      const SizedBox(height: 30),
                     ],
                   )
                 ],

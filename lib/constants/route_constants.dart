@@ -4,8 +4,7 @@ import 'package:duo_fit/view/screens/welcome/welcome_page.dart';
 
 import '../bindings/forgot_password_binding.dart';
 import '../bindings/get_started_binding.dart';
-import '../bindings/login_binding.dart';
-import '../bindings/sign_up_binding.dart';
+import '../bindings/auth_bindings.dart';
 import '../bindings/welcome_binding.dart';
 import '../view/screens/Get started/get_started_page.dart';
 import '../view/screens/auth/forgotPassword.dart';
@@ -26,12 +25,12 @@ class Routes {
     GetPage(
       name: "/signUp",
       page: () => SignUpPage(),
-      binding: SignUpBinding(),
+      binding: AuthBindings(),
     ),
     GetPage(
       name: "/login",
       page: () => LoginPage(),
-      binding: LoginBinding(),
+      binding: AuthBindings(),
     ),
     GetPage(
       name: "/forgotPassword",

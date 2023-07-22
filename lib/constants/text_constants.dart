@@ -1,13 +1,13 @@
 class TextConstants {
   static String error = "Error";
-  static String firstMainWord = "hard";
-  static String secondaryMainWord = "element";
+  static String firstMainWord = "duo";
+  static String secondaryMainWord = "fit";
   static String welcome = "welcome";
   static String welcomeDescription =
-      "This is a workout app that will help you to get fit and stay fit.";
+      "This 2 in 1 fitness app will help you get in the best shape of your life.";
   static String getStarted = "get started";
   static String login = "login";
-  static String changeLanguage = "change language";
+  //static String changeLanguage = "change language";
   static String chooseLanguage = "choose language";
   static String primaryLanguage = "en";
   static String secondaryLanguage = "fr";
@@ -79,19 +79,4 @@ class TextConstants {
   static String weakPassword = "weak password, try with stronger one";
   static String emailAlreadyInUse = "this email is already in use";
   static String fillFields = "please, fill all fields";
-  // static String basedOnReviews = "based on users reviews";
-  // static String basedOnReviews = "based on users reviews";
-  // static String basedOnReviews = "based on users reviews";
-  // static String basedOnReviews = "based on users reviews";
-  // static String basedOnReviews = "based on users reviews";
-  // static String basedOnReviews = "based on users reviews";
-  // static String basedOnReviews = "based on users reviews";
-  // static String basedOnReviews = "based on users reviews";
-  // static String basedOnReviews = "based on users reviews";
-  // static String basedOnReviews = "based on users reviews";
-  // static String basedOnReviews = "based on users reviews";
-  // static String basedOnReviews = "based on users reviews";
-  // static String basedOnReviews = "based on users reviews";
-  // static String basedOnReviews = "based on users reviews";
-  // static String basedOnReviews = "based on users reviews";
 }

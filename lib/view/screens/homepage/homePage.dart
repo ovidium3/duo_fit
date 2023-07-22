@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(
                       height: 15,
                     ),
-                    Container(
+                    SizedBox(
                       height: 40,
                       child: DelayedDisplay(
                         delay: Duration(

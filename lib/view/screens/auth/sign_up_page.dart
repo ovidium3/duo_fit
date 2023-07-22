@@ -13,8 +13,10 @@ import '../../widgets/general_widgets/mainScreenTitle.dart';
 import '../../widgets/general_widgets/screen_background_image.dart';
 import '../../widgets/general_widgets/text_field.dart';
 import '../../widgets/general_widgets/titleWithDescription.dart';
+import '../../../controllers/authControllers/login_controller/login_controller.dart';
 
 class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
+  final LoginController loginController = Get.put(LoginController());
   SignUpPage({super.key});
 
   @override

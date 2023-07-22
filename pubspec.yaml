@@ -39,8 +39,8 @@ dependencies:
   animated_text_kit: ^4.2.2
   animations: ^2.0.3
 
-  connectivity: ^3.0.6
-  connectivity_plus: ^2.3.6
+  #connectivity: ^3.0.6
+  #connectivity_plus: ^2.3.6
 
   cupertino_icons: ^1.0.2
   delayed_display: ^2.0.0
