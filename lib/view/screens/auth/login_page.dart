@@ -3,7 +3,7 @@ import 'package:duo_fit/controllers/authControllers/sign_up_controller/sign_up_c
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/show_delay_mixin.dart';
-import 'package:duo_fit/constants/text_constants.dart';
+import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 import 'package:duo_fit/controllers/authControllers/login_controller/extensions/login_with_account.dart';
 import 'package:duo_fit/view/widgets/general_widgets/screen_background_image.dart';
 
@@ -58,9 +58,7 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                             mainWord: TextConstants.firstMainWord,
                             secondaryWord: TextConstants.secondaryMainWord),
                       ),
-                      const Spacer(
-                        flex: 3,
-                      ),
+                      const Spacer(flex: 3),
                       DelayedDisplay(
                         delay: getDelayDuration(),
                         child: TitleWithDescription(
@@ -68,9 +66,7 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                           description: TextConstants.loginDescription,
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
+                      const SizedBox(height: 10),
                       DelayedDisplay(
                         delay: getDelayDuration(),
                         child: CustomTextField(
@@ -100,7 +96,7 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                               },
                               child: Text(
                                 capitalize(
-                                  TextConstants.forgetPassword,
+                                  TextConstants.forgotPassword,
                                 ),
                                 style: const TextStyle(
                                     color: Colors.white,
@@ -110,9 +106,7 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                           ),
                         ),
                       ),
-                      const Spacer(
-                        flex: 1,
-                      ),
+                      const Spacer(flex: 1),
                       Column(
                         children: [
                           DelayedDisplay(

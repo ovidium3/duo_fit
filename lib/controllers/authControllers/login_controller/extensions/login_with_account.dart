@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/controllers/authControllers/login_controller/extensions/handle_error_cases.dart';
-import 'package:duo_fit/helpers/extension/user_info_validator_extension.dart';
+import 'package:duo_fit/helpers/extension/auth_validation_extension.dart';
 
-import '../../../../constants/text_constants.dart';
+import '../../../../constants/text_constants/general_text_constants.dart';
 import '../../../../helpers/string_methods.dart';
 import '../login_controller.dart';
 
@@ -28,31 +28,28 @@ extension LoginWithAccountExtension on LoginController {
       } on FirebaseAuthException catch (e) {
         // on error, first pop the loading dialog
         Get.back();
-        handleErrorCases(e);
+        handleFirebaseErrors(e);
       }
     }
 
     // Now, let's check if the inputs aren't valid
-    // it describe itself
     if (email.isEmpty) {
+      print("empty email");
       dialogsAndLoadingController.showError(
         capitalize(TextConstants.enterEmail),
       );
-    }
-    //
-    else if (!email.isValidEmail) {
+    } else if (!email.isValidEmail) {
+      print("invalid email");
       dialogsAndLoadingController.showError(
         capitalize(TextConstants.invalidEmail),
       );
-    }
-    //
-    else if (password.isEmpty) {
+    } else if (password.isEmpty) {
+      print("empty pword");
       dialogsAndLoadingController.showError(
         capitalize(TextConstants.enterPassword),
       );
-    }
-    //
-    else if (!password.isValidPassword) {
+    } else if (!password.isValidPassword) {
+      print("invalid pword");
       dialogsAndLoadingController.showError(
         capitalize(TextConstants.passwordMustBe5AtLeast),
       );

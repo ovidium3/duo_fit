@@ -1,5 +1,5 @@
 class TextConstants {
-  static String error = "Error";
+  // Welcome page
   static String firstMainWord = "duo";
   static String secondaryMainWord = "fit";
   static String welcome = "welcome";
@@ -7,10 +7,10 @@ class TextConstants {
       "This 2 in 1 fitness app will help you get in the best shape of your life.";
   static String getStarted = "get started";
   static String login = "login";
-  //static String changeLanguage = "change language";
-  static String chooseLanguage = "choose language";
-  static String primaryLanguage = "en";
-  static String secondaryLanguage = "fr";
+
+  static String error = "Error";
+
+  // About you
   static String aboutYou = "about you";
   static String getStartedDescription =
       "we want to know more about you, follow the next steps to complete the information";
@@ -22,8 +22,9 @@ class TextConstants {
       "Train and live the new experience of exercising at home";
   static String email = "email";
   static String password = "password";
-  static String forgetPassword = "forgot password ?";
-  static String forgot = "forgot?";
+
+  // Forgot password page
+  static String forgotPassword = "forgot password ?";
   static String resetPassword = "reset $password";
   static String yourEmail = "your $email";
   static String forgotPasswordDesccription =

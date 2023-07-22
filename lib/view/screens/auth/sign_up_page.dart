@@ -5,7 +5,7 @@ import 'package:duo_fit/controllers/authControllers/sign_up_controller/extension
 import 'package:duo_fit/controllers/authControllers/sign_up_controller/extensions/handle_going_to_login_page.dart';
 import 'package:duo_fit/controllers/authControllers/sign_up_controller/sign_up_controller.dart';
 import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text_constants.dart';
+import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 import '../../../constants/show_delay_mixin.dart';
 import '../../../helpers/string_methods.dart';
 import '../../widgets/general_widgets/button.dart';

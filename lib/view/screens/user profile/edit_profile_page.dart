@@ -4,13 +4,10 @@ import 'package:get/get.dart';
 import 'package:duo_fit/controllers/functionsController.dart';
 import '../../../controllers/userProfileOptions/userProfileOptionsController.dart';
 import '../../../helpers/string_methods.dart';
-import 'components/appBar.dart';
+import 'components/profile_app_bar.dart';
 
 class CustomProfileSettings extends StatelessWidget {
-  CustomProfileSettings({Key? key})
-      : super(
-          key: key,
-        );
+  CustomProfileSettings({super.key});
   final FunctionsController controller = Get.find();
   final UserProfileOptionsController userProfileOptionsController =
       Get.put(UserProfileOptionsController());

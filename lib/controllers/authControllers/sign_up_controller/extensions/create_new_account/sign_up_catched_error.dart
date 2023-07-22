@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:duo_fit/controllers/authControllers/sign_up_controller/sign_up_controller.dart';
 
-import '../../../../../constants/text_constants.dart';
+import '../../../../../constants/text_constants/general_text_constants.dart';
 import '../../../../../helpers/string_methods.dart';
 
 extension ErrorCasesHandler on SignUpController {

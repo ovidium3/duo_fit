@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:duo_fit/controllers/authControllers/signOutController.dart';
 import 'package:duo_fit/controllers/functionsController.dart';
 import 'package:duo_fit/constants/image_path_constants.dart';
-import 'package:duo_fit/constants/text_constants.dart';
+import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 import 'package:duo_fit/view/widgets/general_widgets/button.dart';
 
 import '../../../controllers/authControllers/emailVerficationController.dart';

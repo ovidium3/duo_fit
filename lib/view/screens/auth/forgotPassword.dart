@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 import 'package:duo_fit/constants/image_path_constants.dart';
-import 'package:duo_fit/constants/text_constants.dart';
+import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 import '../../../controllers/authControllers/forgotPasswordController.dart';
 import '../../../controllers/functionsController.dart';
 import '../../../helpers/string_methods.dart';
@@ -12,17 +12,18 @@ import '../../widgets/general_widgets/text_field.dart';
 import '../../widgets/general_widgets/titleWithDescription.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
-  ForgotPasswordPage({Key? key}) : super(key: key);
+  ForgotPasswordPage({super.key});
   //depend. injection
   final FunctionsController controller = Get.put(FunctionsController());
   final ForgotPasswordController forgotPasswordController =
       Get.put(ForgotPasswordController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
+          SizedBox(
             width: double.infinity,
             child: Image.asset(
               ImgSrc().randomFromAssetsList(),
@@ -50,7 +51,7 @@ class ForgotPasswordPage extends StatelessWidget {
                   DelayedDisplay(
                     delay: Duration(milliseconds: delay + 100),
                     child: TitleWithDescription(
-                      title: capitalize(TextConstants.forgot),
+                      title: capitalize(TextConstants.forgotPassword),
                       description: capitalize(TextConstants
                           .forgotPasswordDesccription
                           .toLowerCase()),

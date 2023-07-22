@@ -2,7 +2,7 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text_constants.dart';
+import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 import 'package:duo_fit/view/widgets/general_widgets/screen_background_image.dart';
 import '../../../constants/onboarding/onboarding_cards.dart';
 import '../../../constants/show_delay_mixin.dart';

@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/controllers/functionsController.dart';
 import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text_constants.dart';
+import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 
 import '../../../../controllers/authControllers/signOutController.dart';
 import '../../../../helpers/string_methods.dart';
 
 class ProfileAppBar extends StatelessWidget {
-  ProfileAppBar({
-    Key? key,
-  }) : super(key: key);
-  FunctionsController controller = Get.find();
+  ProfileAppBar({super.key});
+  final FunctionsController controller = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -30,7 +29,7 @@ class ProfileAppBar extends StatelessWidget {
             builder: (signOutController) {
               return ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                    primary: AppColors.darkBlue, elevation: 0),
+                    backgroundColor: AppColors.darkBlue, elevation: 0),
                 label: Text(
                   capitalize(TextConstants.logOut),
                   style: const TextStyle(color: Colors.red),

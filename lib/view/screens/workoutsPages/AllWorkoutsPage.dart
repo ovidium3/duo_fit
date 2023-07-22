@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/controllers/functionsController.dart';
 import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text_constants.dart';
+import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 import 'package:duo_fit/view/screens/homepage/componenets/avatar.dart';
 import '../../../controllers/userController/userController.dart';
 import '../../../constants/workouts lists/workouts Lists.dart';
