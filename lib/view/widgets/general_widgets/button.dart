@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../helpers/string_methods.dart';
 
@@ -12,7 +11,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
   }) : super(key: key);
   final void Function()? onPressed;
-  String text;
+  final String text;
   bool isOutlined = false;
   bool isRounded = true;
   @override
@@ -33,10 +32,10 @@ class CustomButton extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(isRounded ? 30 : 10),
               ),
-              primary: isOutlined
+              backgroundColor: isOutlined
                   ? Colors.transparent
                   : Theme.of(context).primaryColor,
-              onPrimary: Theme.of(context).primaryColor),
+              foregroundColor: Theme.of(context).primaryColor),
           child: Text(
             text,
             style: const TextStyle(

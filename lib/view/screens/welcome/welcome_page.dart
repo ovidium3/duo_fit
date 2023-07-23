@@ -8,7 +8,7 @@ import 'package:duo_fit/view/widgets/general_widgets/titleWithDescription.dart';
 import '../../../constants/show_delay_mixin.dart';
 import '../../../helpers/string_methods.dart';
 import '../../widgets/general_widgets/button.dart';
-import '../../widgets/general_widgets/mainScreenTitle.dart';
+import '../../widgets/general_widgets/main_screen_title.dart';
 import '../../widgets/general_widgets/screen_background_image.dart';
 
 class WelcomePage extends StatelessWidget with DelayHelperMixin {

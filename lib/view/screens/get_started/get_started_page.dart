@@ -8,7 +8,7 @@ import '../../../constants/onboarding/onboarding_cards.dart';
 import '../../../constants/show_delay_mixin.dart';
 import '../../../controllers/get_started_controller/get_started_controller.dart';
 import '../../../helpers/string_methods.dart';
-import '../../widgets/general_widgets/mainScreenTitle.dart';
+import '../../widgets/general_widgets/main_screen_title.dart';
 import '../../widgets/general_widgets/titleWithDescription.dart';
 import 'componenets/get_started_cards_scroll_view.dart';
 

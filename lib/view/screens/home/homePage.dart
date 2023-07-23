@@ -7,7 +7,7 @@ import 'package:duo_fit/constants/workouts%20lists/workouts%20Lists.dart';
 import 'package:duo_fit/view/screens/user_profile/userProfil.dart';
 
 //import '../../../controllers/functionsController.dart';
-import '../../../controllers/tabs controllers/workOutTabController.dart';
+import '../../../controllers/tabs controllers/workout_tab_controller.dart';
 import '../../../controllers/userController/userController.dart';
 import '../../../constants/image_path_constants.dart';
 import '../../../helpers/string_methods.dart';

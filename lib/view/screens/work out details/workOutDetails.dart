@@ -2,7 +2,7 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controllers/tabs controllers/detailsTabController.dart';
+import '../../../controllers/tabs controllers/workout_details_controller.dart';
 import '../../../constants/color_constants.dart';
 import '../../../constants/text_constants/general_text_constants.dart';
 
@@ -40,7 +40,6 @@ class WorkOutDetails extends StatelessWidget {
       priceInDollars,
       hasFreeTrial;
   final DetailsTabController _tabx = Get.put(DetailsTabController());
-  //final FunctionsController _controller = Get.put(FunctionsController());
 
   @override
   Widget build(BuildContext context) {
