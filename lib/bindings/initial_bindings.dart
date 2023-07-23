@@ -6,8 +6,8 @@ import '../controllers/dialog_controller.dart';
 class InitialBinding implements Bindings {
   @override
   void dependencies() {
-    // inject the auth changes listener controller
+    // Dependency injections
     Get.put<NewAuthStateChangeListener>(NewAuthStateChangeListener());
-    Get.put<DialogsAndLoadingController>(DialogsAndLoadingController());
+    Get.put<DialogController>(DialogController());
   }
 }

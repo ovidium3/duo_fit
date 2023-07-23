@@ -4,9 +4,9 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
-import 'package:duo_fit/view/widgets/general_widgets/button.dart';
+import 'package:duo_fit/view/widgets/button.dart';
 import '../../../controllers/auth_controllers/sign_out_controller.dart';
-import '../../../controllers/userController/userController.dart';
+import '../../../controllers/user_controllers/user_info_controller.dart';
 import '../../../constants/user_profile_stats.dart';
 import '../../../helpers/string_methods.dart';
 import 'components/profile_app_bar.dart';
@@ -21,7 +21,6 @@ class UserProfile extends StatefulWidget {
 }
 
 class _UserProfileState extends State<UserProfile> {
-  //final FunctionsController controller = Get.put(FunctionsController());
   final UserInformationController userInformationController = Get.find();
   final SignOutController signOutController = Get.put(SignOutController());
   Color? scfldColor = AppColors.darkBlue;

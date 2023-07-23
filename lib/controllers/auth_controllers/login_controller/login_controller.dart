@@ -7,7 +7,7 @@ import '../../dialog_controller.dart';
 class LoginController extends GetxController {
   late TextEditingController loginEmailController, loginPasswordController;
 
-  DialogsAndLoadingController dialogsAndLoadingController = Get.find();
+  DialogController dialogsAndLoadingController = Get.find();
 
 // TODO: implement show/hide for the password field
 //   // showPassword(bool obscureText) {

@@ -9,7 +9,7 @@ class SignUpController extends GetxController {
   late TextEditingController signUpUserController,
       signUpEmailController,
       signUpPasswordController;
-  final DialogsAndLoadingController dialogsAndLoadingController = Get.find();
+  final DialogController dialogsAndLoadingController = Get.find();
   // Get moment time (in this case, get more info about user)
   FieldValue thisMomentTime = FieldValue.serverTimestamp();
 

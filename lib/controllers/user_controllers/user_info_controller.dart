@@ -11,11 +11,8 @@ import '../dialog_controller.dart';
 
 class UserInformationController extends GetxController {
   // Dependency injection
-  //FunctionsController controller = Get.put(FunctionsController());
-  DialogsAndLoadingController dialogsAndLoadingController =
-      Get.put(DialogsAndLoadingController());
+  DialogController dialogsAndLoadingController = Get.put(DialogController());
 
-  // Variables
   // Username if some problem happened getting the username from user himself
   late RxString username = "Anonym user".obs;
 
@@ -75,10 +72,8 @@ class UserInformationController extends GetxController {
   }
 
   Future<XFile?> getImgFromCamera() async {
-    // Get img from camera
     XFile? image = await picker.pickImage(source: ImageSource.camera);
 
-    // Check if there is img
     bool isImgPicked = image != null;
 
     // return it if there is img
@@ -96,7 +91,6 @@ class UserInformationController extends GetxController {
   }
 
   Future<XFile?> getImgFromDevice() async {
-    // Get img from device
     XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
     // Check if there is img
@@ -116,7 +110,6 @@ class UserInformationController extends GetxController {
 
   // Update profile img path to firestore
   updateProfile(XFile? image) async {
-    // Check if there is img
     bool isImgPickedFromDeviceOrCamera = image != null;
 
     // FB storage reference
@@ -130,7 +123,6 @@ class UserInformationController extends GetxController {
       File imgFile = File(image.path);
 
       try {
-        // Show loading
         dialogsAndLoadingController.showLoading();
 
         // Upload img to firebase storage

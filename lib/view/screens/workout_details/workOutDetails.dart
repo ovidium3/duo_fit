@@ -2,14 +2,14 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controllers/tabs controllers/workout_details_controller.dart';
+import '../../../controllers/tabs_controllers/workout_details_controller.dart';
 import '../../../constants/color_constants.dart';
 import '../../../constants/text_constants/general_text_constants.dart';
 
 import '../../../helpers/string_methods.dart';
-import '../../widgets/general_widgets/actionButton.dart';
+import '../../widgets/action_button.dart';
 import 'componenets/RatingStars.dart';
-import '../../widgets/general_widgets/button.dart';
+import '../../widgets/button.dart';
 
 class WorkOutDetails extends StatelessWidget {
   WorkOutDetails({

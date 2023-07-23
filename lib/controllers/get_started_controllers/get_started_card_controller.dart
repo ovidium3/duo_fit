@@ -4,14 +4,13 @@ import 'package:duo_fit/models/checked_get_started_card_info.dart';
 import 'get_started_controller.dart';
 
 class GetStartedCardController extends GetxController {
-  GetStartedCardController(
-    this.id,
-  );
-// Variables
+  GetStartedCardController(this.id);
+
   bool isTappedDown = false;
   bool isChecked = false;
   bool? previousIsChecked;
   final int id;
+
   void panDownMethod() {
     isTappedDown = true;
     update();

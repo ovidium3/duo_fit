@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 
-import '../../../../controllers/get_started_controller/get_started_card_controller.dart';
+import '../../../../controllers/get_started_controllers/get_started_card_controller.dart';
 import '../../../../helpers/string_methods.dart';
-import '../../../widgets/general_widgets/get_started_checkmark.dart';
+import '../../../widgets/get_started_checkmark.dart';
 import 'I_am_title.dart';
 
 class GetStartedCard extends GetView<GetStartedCardController> {

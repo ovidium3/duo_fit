@@ -5,21 +5,22 @@ import 'package:get/get.dart';
 import 'package:duo_fit/constants/show_delay_mixin.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 import 'package:duo_fit/controllers/auth_controllers/login_controller/extensions/login_with_account.dart';
-import 'package:duo_fit/view/widgets/general_widgets/screen_background_image.dart';
+import 'package:duo_fit/view/widgets/background_image.dart';
 
 import '../../../controllers/auth_controllers/login_controller/login_controller.dart';
 import '../../../constants/color_constants.dart';
 import '../../../helpers/string_methods.dart';
-import '../../widgets/general_widgets/button.dart';
-import '../../widgets/general_widgets/main_screen_title.dart';
-import '../../widgets/general_widgets/text_field.dart';
-import '../../widgets/general_widgets/titleWithDescription.dart';
+import '../../widgets/button.dart';
+import '../../widgets/main_screen_title.dart';
+import '../../widgets/text_field.dart';
+import '../../widgets/titleWithDescription.dart';
 import 'sign_up_page.dart';
-import 'forgotPassword.dart';
+import 'forgot_password_page.dart';
 
 class LoginPage extends GetView<LoginController> with DelayHelperMixin {
-  final SignUpController signUpController = Get.put(SignUpController());
   LoginPage({super.key});
+  final SignUpController signUpController = Get.put(SignUpController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

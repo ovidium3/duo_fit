@@ -8,16 +8,16 @@ import 'package:duo_fit/constants/color_constants.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 import '../../../constants/show_delay_mixin.dart';
 import '../../../helpers/string_methods.dart';
-import '../../widgets/general_widgets/button.dart';
-import '../../widgets/general_widgets/main_screen_title.dart';
-import '../../widgets/general_widgets/screen_background_image.dart';
-import '../../widgets/general_widgets/text_field.dart';
-import '../../widgets/general_widgets/titleWithDescription.dart';
+import '../../widgets/button.dart';
+import '../../widgets/main_screen_title.dart';
+import '../../widgets/background_image.dart';
+import '../../widgets/text_field.dart';
+import '../../widgets/titleWithDescription.dart';
 import '../../../controllers/auth_controllers/login_controller/login_controller.dart';
 
 class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
-  final LoginController loginController = Get.put(LoginController());
   SignUpPage({super.key});
+  final LoginController loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {

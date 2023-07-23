@@ -4,14 +4,14 @@ import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 import 'package:duo_fit/constants/workouts%20lists/workouts%20Lists.dart';
-import 'package:duo_fit/view/screens/user_profile/userProfil.dart';
+import 'package:duo_fit/view/screens/user_profile/user_profile_page.dart';
 
 //import '../../../controllers/functionsController.dart';
-import '../../../controllers/tabs controllers/workout_tab_controller.dart';
-import '../../../controllers/userController/userController.dart';
+import '../../../controllers/tabs_controllers/workout_tab_controller.dart';
+import '../../../controllers/user_controllers/user_info_controller.dart';
 import '../../../constants/image_path_constants.dart';
 import '../../../helpers/string_methods.dart';
-import '../../widgets/general_widgets/screen_background_image.dart';
+import '../../widgets/background_image.dart';
 import 'componenets/HomePageSearchBar.dart';
 //import 'componenets/ItemsSwitchTiles.dart';
 import 'componenets/find_your_workout.dart';

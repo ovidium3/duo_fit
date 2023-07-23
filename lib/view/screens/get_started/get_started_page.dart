@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
-import 'package:duo_fit/view/widgets/general_widgets/screen_background_image.dart';
+import 'package:duo_fit/view/widgets/background_image.dart';
 import '../../../constants/onboarding/onboarding_cards.dart';
 import '../../../constants/show_delay_mixin.dart';
-import '../../../controllers/get_started_controller/get_started_controller.dart';
+import '../../../controllers/get_started_controllers/get_started_controller.dart';
 import '../../../helpers/string_methods.dart';
-import '../../widgets/general_widgets/main_screen_title.dart';
-import '../../widgets/general_widgets/titleWithDescription.dart';
+import '../../widgets/main_screen_title.dart';
+import '../../widgets/titleWithDescription.dart';
 import 'componenets/get_started_cards_scroll_view.dart';
 
 class GetStartedPage extends GetView<GetStartedController>

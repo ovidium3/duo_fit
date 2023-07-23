@@ -8,25 +8,18 @@ import '../../helpers/string_methods.dart';
 
 class ForgotPasswordController extends GetxController {
   // Dependency injection
-  //FunctionsController controller = Get.put(FunctionsController());
-  DialogsAndLoadingController dialogsAndLoadingController =
-      Get.put(DialogsAndLoadingController());
+  DialogController dialogController = Get.put(DialogController());
 
   // Text Editing controllers
   late TextEditingController emailToRecoverPassword;
 
   // Recover password method
   recoverPassword(String email) async {
-    // Check if the email is valid
     bool isValidEmail = emailRegExp.hasMatch(email);
 
-    // if it's valid then
-
-    // email != '' is optional but I can't remove it (it's called perfection sickness)
-    if (isValidEmail && email != '') {
+    if (isValidEmail) {
       try {
-        // Show loading dialog
-        dialogsAndLoadingController.showLoading();
+        dialogController.showLoading();
 
         // Send request (no need to make independent instance)
         await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
@@ -35,7 +28,7 @@ class ForgotPasswordController extends GetxController {
         Get.back();
 
         // Show success to user
-        dialogsAndLoadingController
+        dialogController
             .showSuccess(capitalize(TextConstants.emailVerifSentText));
 
         //
@@ -45,26 +38,23 @@ class ForgotPasswordController extends GetxController {
 
         // Error checks (if you want to be more specific make for each error a case) on this pattern
         if (e.code == "user-not-found") {
-          dialogsAndLoadingController
-              .showError(capitalize(TextConstants.noUserText));
+          dialogController.showError(capitalize(TextConstants.noUserText));
         }
         // here your checks
         else {
-          dialogsAndLoadingController.showError("$e.message");
+          dialogController.showError("$e.message");
         }
       }
       // this is optional
       catch (e) {
-        dialogsAndLoadingController.showError(e.toString());
+        dialogController.showError(e.toString());
       }
     }
     // email checks ()
     else if (email == "") {
-      dialogsAndLoadingController
-          .showError(capitalize(TextConstants.enterEmail));
+      dialogController.showError(capitalize(TextConstants.enterEmail));
     } else if (!isValidEmail) {
-      dialogsAndLoadingController
-          .showError(capitalize(TextConstants.enterValidEmail));
+      dialogController.showError(capitalize(TextConstants.enterValidEmail));
     }
   }
 

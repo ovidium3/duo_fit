@@ -3,17 +3,16 @@ import 'package:get/get.dart';
 import 'package:duo_fit/controllers/auth_controllers/sign_out_controller.dart';
 import 'package:duo_fit/constants/image_path_constants.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
-import 'package:duo_fit/view/widgets/general_widgets/button.dart';
+import 'package:duo_fit/view/widgets/button.dart';
 
-import '../../../controllers/auth_controllers/emailVerficationController.dart';
+import '../../../controllers/auth_controllers/email_verfication_controller.dart';
 import '../../../helpers/string_methods.dart';
 
-class EmailVerificatioPage extends StatelessWidget {
-  EmailVerificatioPage({Key? key}) : super(key: key);
-  //depend. injection
-  //final FunctionsController controller = Get.put(FunctionsController());
-  final EmailVerificatioController emailVerificatioController =
-      Get.put(EmailVerificatioController());
+class EmailVerificationPage extends StatelessWidget {
+  EmailVerificationPage({super.key});
+  // Dependency injections
+  final EmailVerificationController emailVerificationController =
+      Get.put(EmailVerificationController());
   final SignOutController signOutController = Get.put(SignOutController());
 
   @override
@@ -71,14 +70,14 @@ class EmailVerificatioPage extends StatelessWidget {
                   text: capitalize(TextConstants.done),
                   isOutlined: false,
                   onPressed: () {
-                    emailVerificatioController.checkEmailVerified();
+                    emailVerificationController.checkEmailVerified();
                   }),
               const SizedBox(
                 height: 20,
               ),
               GestureDetector(
                 onTap: () {
-                  emailVerificatioController.sendVerificationEmail();
+                  emailVerificationController.sendVerificationEmail();
                 },
                 child: Text(
                   capitalize(TextConstants.reSendEmailVerification),

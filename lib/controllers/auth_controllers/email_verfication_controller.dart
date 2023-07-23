@@ -7,16 +7,14 @@ import '../../helpers/string_methods.dart';
 import '../../view/screens/home/homePage.dart';
 import '../dialog_controller.dart';
 
-class EmailVerificatioController extends GetxController {
+class EmailVerificationController extends GetxController {
   User? user = FirebaseAuth.instance.currentUser;
 
-  // dependency injections
-  DialogsAndLoadingController dialogsAndLoadingController =
-      Get.put(DialogsAndLoadingController());
-  //FunctionsController controller = Get.put(FunctionsController());
+  // Dependency injection
+  DialogController dialogController = Get.put(DialogController());
 
   sendVerificationEmail() async {
-    dialogsAndLoadingController.showLoading();
+    dialogController.showLoading();
 
     // Send verification email
     if (user != null) {
@@ -27,7 +25,7 @@ class EmailVerificatioController extends GetxController {
     Get.back();
 
     // Show success dialog
-    dialogsAndLoadingController.showSuccess(
+    dialogController.showSuccess(
       "Sent",
     );
   }
@@ -35,7 +33,7 @@ class EmailVerificatioController extends GetxController {
   // Check email if it s verified by user
   checkEmailVerified() async {
     // show loading
-    dialogsAndLoadingController.showLoading();
+    dialogController.showLoading();
 
     // Reload data under the hood to re-check of validity
     await FirebaseAuth.instance.currentUser?.reload();
@@ -64,8 +62,7 @@ class EmailVerificatioController extends GetxController {
       Get.back();
 
       // Show error to user
-      dialogsAndLoadingController
-          .showError(capitalize(TextConstants.pleaseVerifyEmail));
+      dialogController.showError(capitalize(TextConstants.pleaseVerifyEmail));
     }
   }
 

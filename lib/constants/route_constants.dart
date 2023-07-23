@@ -7,7 +7,7 @@ import '../bindings/get_started_binding.dart';
 import '../bindings/auth_bindings.dart';
 import '../bindings/welcome_binding.dart';
 import '../view/screens/get_started/get_started_page.dart';
-import '../view/screens/auth/forgotPassword.dart';
+import '../view/screens/auth/forgot_password_page.dart';
 import '../view/screens/auth/login_page.dart';
 
 class Routes {

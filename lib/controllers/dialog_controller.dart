@@ -3,7 +3,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 
-class DialogsAndLoadingController extends GetxController {
+class DialogController extends GetxController {
   // Loading dialog
   showLoading() {
     Get.defaultDialog(

@@ -5,8 +5,7 @@ import '../dialog_controller.dart';
 
 class SignOutController extends GetxController {
   // Dependency injection
-  DialogsAndLoadingController dialogsAndLoadingController =
-      Get.put(DialogsAndLoadingController());
+  DialogController dialogsAndLoadingController = Get.put(DialogController());
 
   // Sign out from app
   signOut() async {

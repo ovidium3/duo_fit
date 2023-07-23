@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 
-import '../../work out details/workOutDetails.dart';
+import '../../workout_details/workOutDetails.dart';
 
 class WorkOutCard extends StatelessWidget {
   WorkOutCard({

@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../../../helpers/string_methods.dart';
+import '../../helpers/string_methods.dart';
 
 class CustomButton extends StatelessWidget {
   CustomButton({
-    Key? key,
     required this.text,
     required this.isOutlined,
     this.isRounded = true,
     required this.onPressed,
-  }) : super(key: key);
+    super.key,
+  });
   final void Function()? onPressed;
   final String text;
   bool isOutlined = false;
   bool isRounded = true;
+
   @override
   Widget build(BuildContext context) {
     return Transform.scale(

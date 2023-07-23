@@ -1,20 +1,16 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/view/widgets/general_widgets/button.dart';
-import 'package:duo_fit/view/widgets/general_widgets/text_field.dart';
+import 'package:duo_fit/view/widgets/button.dart';
+import 'package:duo_fit/view/widgets/text_field.dart';
 
 import '../../helpers/string_methods.dart';
 import '../dialog_controller.dart';
-import '../userController/userController.dart';
+import 'user_info_controller.dart';
 
 class UserProfileOptionsController extends GetxController {
-  UserInformationController userInformationController = Get.put(
-    UserInformationController(),
-  );
-  DialogsAndLoadingController dialogsAndLoadingController =
-      Get.put(DialogsAndLoadingController());
+  UserInformationController userInformationController =
+      Get.put(UserInformationController());
+  DialogController dialogsAndLoadingController = Get.put(DialogController());
   TextEditingController newUserNameController = TextEditingController();
   TextEditingController newEmailController = TextEditingController();
   TextEditingController newPasswordController = TextEditingController();
@@ -62,14 +58,14 @@ class UserProfileOptionsController extends GetxController {
             Container(
               height: 200,
               width: double.infinity,
-              margin: EdgeInsets.symmetric(horizontal: 30),
+              margin: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     capitalize("Select an image"),
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    style: const TextStyle(color: Colors.white, fontSize: 20),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -114,7 +110,7 @@ class UserProfileOptionsController extends GetxController {
             Container(
               width: double.infinity,
               height: 200,
-              margin: EdgeInsets.symmetric(horizontal: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -149,7 +145,7 @@ class UserProfileOptionsController extends GetxController {
             Container(
               width: double.infinity,
               height: 200,
-              margin: EdgeInsets.symmetric(horizontal: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
