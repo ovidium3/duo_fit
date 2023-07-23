@@ -5,14 +5,13 @@ import 'package:duo_fit/constants/color_constants.dart';
 import 'package:duo_fit/constants/image_path_constants.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 import 'package:duo_fit/view/widgets/general_widgets/titleWithDescription.dart';
-import '../../../controllers/functionsController.dart';
 import '../../../constants/show_delay_mixin.dart';
 import '../../../helpers/string_methods.dart';
 import '../../widgets/general_widgets/button.dart';
 import '../../widgets/general_widgets/mainScreenTitle.dart';
 import '../../widgets/general_widgets/screen_background_image.dart';
 
-class WelcomePage extends GetView<FunctionsController> with DelayHelperMixin {
+class WelcomePage extends StatelessWidget with DelayHelperMixin {
   WelcomePage({Key? key}) : super(key: key);
 
   @override

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controllers/functionsController.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 
 import '../../../../controllers/get_started_controller/get_started_card_controller.dart';

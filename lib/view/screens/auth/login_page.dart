@@ -1,13 +1,13 @@
 import 'package:delayed_display/delayed_display.dart';
-import 'package:duo_fit/controllers/authControllers/sign_up_controller/sign_up_controller.dart';
+import 'package:duo_fit/controllers/auth_controllers/sign_up_controller/sign_up_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/show_delay_mixin.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
-import 'package:duo_fit/controllers/authControllers/login_controller/extensions/login_with_account.dart';
+import 'package:duo_fit/controllers/auth_controllers/login_controller/extensions/login_with_account.dart';
 import 'package:duo_fit/view/widgets/general_widgets/screen_background_image.dart';
 
-import '../../../controllers/authControllers/login_controller/login_controller.dart';
+import '../../../controllers/auth_controllers/login_controller/login_controller.dart';
 import '../../../constants/color_constants.dart';
 import '../../../helpers/string_methods.dart';
 import '../../widgets/general_widgets/button.dart';

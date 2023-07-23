@@ -4,8 +4,7 @@ import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 import 'package:duo_fit/constants/image_path_constants.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
-import '../../../controllers/authControllers/forgotPasswordController.dart';
-import '../../../controllers/functionsController.dart';
+import '../../../controllers/auth_controllers/forgotPasswordController.dart';
 import '../../../helpers/string_methods.dart';
 import '../../widgets/general_widgets/button.dart';
 import '../../widgets/general_widgets/text_field.dart';
@@ -14,7 +13,6 @@ import '../../widgets/general_widgets/titleWithDescription.dart';
 class ForgotPasswordPage extends StatelessWidget {
   ForgotPasswordPage({super.key});
   //depend. injection
-  final FunctionsController controller = Get.put(FunctionsController());
   final ForgotPasswordController forgotPasswordController =
       Get.put(ForgotPasswordController());
 

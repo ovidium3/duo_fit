@@ -1,9 +1,9 @@
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controllers/authControllers/sign_up_controller/extensions/create_new_account/create_new_account.dart';
-import 'package:duo_fit/controllers/authControllers/sign_up_controller/extensions/handle_going_to_login_page.dart';
-import 'package:duo_fit/controllers/authControllers/sign_up_controller/sign_up_controller.dart';
+import 'package:duo_fit/controllers/auth_controllers/sign_up_controller/extensions/create_new_account/create_new_account.dart';
+import 'package:duo_fit/controllers/auth_controllers/sign_up_controller/extensions/handle_going_to_login_page.dart';
+import 'package:duo_fit/controllers/auth_controllers/sign_up_controller/sign_up_controller.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 import '../../../constants/show_delay_mixin.dart';
@@ -13,7 +13,7 @@ import '../../widgets/general_widgets/mainScreenTitle.dart';
 import '../../widgets/general_widgets/screen_background_image.dart';
 import '../../widgets/general_widgets/text_field.dart';
 import '../../widgets/general_widgets/titleWithDescription.dart';
-import '../../../controllers/authControllers/login_controller/login_controller.dart';
+import '../../../controllers/auth_controllers/login_controller/login_controller.dart';
 
 class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
   final LoginController loginController = Get.put(LoginController());
