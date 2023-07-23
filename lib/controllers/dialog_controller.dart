@@ -9,9 +9,9 @@ class DialogController extends GetxController {
     Get.defaultDialog(
       title: "",
       backgroundColor: Colors.transparent,
-      content: SpinKitSpinningLines(
-        color: AppColors.green,
-        duration: const Duration(seconds: 1),
+      content: const SpinKitSpinningLines(
+        color: ColorConstants.green,
+        duration: Duration(seconds: 1),
       ),
     );
   }

@@ -34,8 +34,8 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
                 colors: [
-                  AppColors.darkBlue,
-                  AppColors.darkBlue.withOpacity(0.05),
+                  ColorConstants.darkBlue,
+                  ColorConstants.darkBlue.withOpacity(0.05),
                 ],
               ),
             ),

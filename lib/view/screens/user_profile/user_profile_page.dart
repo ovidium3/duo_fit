@@ -23,7 +23,7 @@ class UserProfile extends StatefulWidget {
 class _UserProfileState extends State<UserProfile> {
   final UserInformationController userInformationController = Get.find();
   final SignOutController signOutController = Get.put(SignOutController());
-  Color? scfldColor = AppColors.darkBlue;
+  Color? scfldColor = ColorConstants.darkBlue;
   Color? overlayedColor = const Color.fromARGB(255, 22, 23, 43);
 
   @override

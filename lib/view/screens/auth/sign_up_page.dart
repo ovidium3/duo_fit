@@ -17,6 +17,7 @@ import '../../../controllers/auth_controllers/login_controller/login_controller.
 
 class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
   SignUpPage({super.key});
+
   final LoginController loginController = Get.put(LoginController());
 
   @override
@@ -32,8 +33,8 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
                 colors: [
-                  AppColors.darkBlue,
-                  AppColors.darkBlue.withOpacity(0.05),
+                  ColorConstants.darkBlue,
+                  ColorConstants.darkBlue.withOpacity(0.05),
                 ],
               ),
             ),

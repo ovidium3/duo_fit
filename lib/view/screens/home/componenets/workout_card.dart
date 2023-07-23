@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 
-import '../../workout_details/workOutDetails.dart';
+import '../../workout_details/workout_details_page.dart';
 
-class WorkOutCard extends StatelessWidget {
-  WorkOutCard({
-    Key? key,
+class WorkoutCard extends StatelessWidget {
+  WorkoutCard({
     required this.title,
     required this.imagePath,
     required this.listCollection,
     required this.index,
-  }) : super(key: key);
+    super.key,
+  });
 
   String title;
   String imagePath;
@@ -21,7 +21,7 @@ class WorkOutCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(WorkOutDetails(
+        Get.to(WorkoutDetailsPage(
           workOutTitle: title,
           overlayedImg: imagePath,
           timeLeftInHour: listCollection[index]["timeLeftInHour"] ?? "?",
@@ -44,7 +44,7 @@ class WorkOutCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Container(
-                color: AppColors.darkBlue,
+                color: ColorConstants.darkBlue,
                 width: 130,
                 height: 130,
                 child: Image.asset(

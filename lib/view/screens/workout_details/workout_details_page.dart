@@ -11,9 +11,8 @@ import '../../widgets/action_button.dart';
 import 'componenets/RatingStars.dart';
 import '../../widgets/button.dart';
 
-class WorkOutDetails extends StatelessWidget {
-  WorkOutDetails({
-    Key? key,
+class WorkoutDetailsPage extends StatelessWidget {
+  WorkoutDetailsPage({
     required this.overlayedImg,
     required this.workOutTitle,
     required this.timeLeftInHour,
@@ -26,7 +25,8 @@ class WorkOutDetails extends StatelessWidget {
     required this.priceInDollars,
     required this.hasFreeTrial,
     required this.comments,
-  }) : super(key: key);
+    super.key,
+  });
   String overlayedImg,
       workOutTitle,
       setsNumber,
@@ -65,10 +65,10 @@ class WorkOutDetails extends StatelessWidget {
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
               colors: [
-                AppColors.darkBlue,
+                ColorConstants.darkBlue,
                 overlayedImg != null
-                    ? AppColors.darkBlue.withOpacity(0.05)
-                    : AppColors.darkBlue.withOpacity(0.8),
+                    ? ColorConstants.darkBlue.withOpacity(0.05)
+                    : ColorConstants.darkBlue.withOpacity(0.8),
               ],
             ),
           ),

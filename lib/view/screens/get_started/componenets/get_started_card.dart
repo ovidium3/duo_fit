@@ -40,7 +40,7 @@ class GetStartedCard extends GetView<GetStartedCardController> {
             margin: const EdgeInsets.only(right: 20),
             padding: const EdgeInsets.symmetric(horizontal: 20),
             decoration: BoxDecoration(
-              color: AppColors.darkBlue,
+              color: ColorConstants.darkBlue,
               borderRadius: BorderRadius.circular(10),
             ),
             width: 180,

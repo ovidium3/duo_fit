@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 // current colors - need more
-class AppColors {
-  static Color darkBlue = const Color(0xff131429);
-  static Color green = const Color(0xff40D876);
+class ColorConstants {
+  static const Color darkBlue = Color(0xff131429);
+  static const Color green = Color(0xff40D876);
 }
 
 // fitness app colors
-class ColorConstants {
+class OldColorConstants {
   // Main color scheme
   static const primaryColor = Colors.blue;
   static const backgroundColor = Colors.white;
@@ -27,7 +27,7 @@ class ColorConstants {
 
   // Workout colors
   static const warmUpSet = Colors.yellow;
-  static const regularSet = ColorConstants.primaryColor;
+  static const regularSet = OldColorConstants.primaryColor;
   static const failureSet = Colors.red;
 
   static const finish = Color.fromARGB(255, 52, 208, 65);

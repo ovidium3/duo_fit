@@ -24,7 +24,7 @@ class WelcomePage extends StatelessWidget with DelayHelperMixin {
             backgroundImage: ImgSrc().randomFromAssetsList(),
           ),
           Container(
-            color: AppColors.darkBlue.withOpacity(0.69),
+            color: ColorConstants.darkBlue.withOpacity(0.69),
             width: double.infinity,
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),

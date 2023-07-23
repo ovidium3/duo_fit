@@ -7,8 +7,7 @@ import '../../../../controllers/auth_controllers/sign_out_controller.dart';
 import '../../../../helpers/string_methods.dart';
 
 class ProfileAppBar extends StatelessWidget {
-  ProfileAppBar({super.key});
-  //final FunctionsController controller = Get.find();
+  const ProfileAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class ProfileAppBar extends StatelessWidget {
             builder: (signOutController) {
               return ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.darkBlue, elevation: 0),
+                    backgroundColor: ColorConstants.darkBlue, elevation: 0),
                 label: Text(
                   capitalize(TextConstants.logOut),
                   style: const TextStyle(color: Colors.red),

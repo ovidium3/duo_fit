@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-//import 'package:duo_fit/controllers/functionsController.dart';
 import 'package:duo_fit/constants/image_path_constants.dart';
 
 import '../../../../constants/text_constants/general_text_constants.dart';
 import '../../../../helpers/string_methods.dart';
 import '../../workoutsPages/AllWorkoutsPage.dart';
-import 'WorkOutCard.dart';
+import 'workout_card.dart';
 
 class TabBarViewSection extends StatelessWidget {
   TabBarViewSection({
-    Key? key,
     required this.title,
     required this.dataList,
     this.itemsToShow = 3,
     this.hasSeeAllButton = true,
-  }) : super(key: key);
+    super.key,
+  });
   String title;
   List dataList;
   bool hasSeeAllButton;
   int itemsToShow;
-  //final FunctionsController controller = Get.put(FunctionsController());
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -73,7 +72,7 @@ class TabBarViewSection extends StatelessWidget {
             children: [
               ...List.generate(
                 itemsToShow < dataList.length ? 3 : dataList.length,
-                (index) => WorkOutCard(
+                (index) => WorkoutCard(
                     index: index,
                     listCollection: dataList,
                     title: capitalize(

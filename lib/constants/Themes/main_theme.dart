@@ -18,6 +18,6 @@ class MainTheme {
       primarySwatch: colorCustom,
     ),
     inputDecorationTheme: MainTheme.inputDecoration,
-    primaryColor: AppColors.green,
+    primaryColor: ColorConstants.green,
   );
 }

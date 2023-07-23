@@ -99,9 +99,9 @@ class GetStartedPage extends GetView<GetStartedController>
                                       builder: (controller) {
                                         return Text(
                                           "${controller.checkedCardsIds.length} / ${handledCardsList.length}",
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            color: AppColors.green,
+                                            color: ColorConstants.green,
                                             fontSize: 12,
                                           ),
                                         );

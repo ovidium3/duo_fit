@@ -6,23 +6,18 @@ import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 import 'package:duo_fit/constants/workouts%20lists/workouts%20Lists.dart';
 import 'package:duo_fit/view/screens/user_profile/user_profile_page.dart';
 
-//import '../../../controllers/functionsController.dart';
 import '../../../controllers/tabs_controllers/workout_tab_controller.dart';
 import '../../../controllers/user_controllers/user_info_controller.dart';
 import '../../../constants/image_path_constants.dart';
 import '../../../helpers/string_methods.dart';
 import '../../widgets/background_image.dart';
 import 'componenets/HomePageSearchBar.dart';
-//import 'componenets/ItemsSwitchTiles.dart';
 import 'componenets/find_your_workout.dart';
-//import 'componenets/playButton.dart';
 import 'componenets/tabBarViewSections.dart';
 import 'componenets/usernameAndProfile.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({
-    Key? key,
-  }) : super(key: key);
+  HomePage({super.key});
 
   final String bgImg = ImgSrc().randomFromAssetsList();
   @override
@@ -30,8 +25,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // final FunctionsController controller = Get.put(FunctionsController());
-
   final UserInformationController userInformationController =
       Get.put(UserInformationController());
 
@@ -52,8 +45,8 @@ class _HomePageState extends State<HomePage> {
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
               colors: [
-                AppColors.darkBlue,
-                AppColors.darkBlue.withOpacity(0.05),
+                ColorConstants.darkBlue,
+                ColorConstants.darkBlue.withOpacity(0.05),
               ],
             ),
           ),
