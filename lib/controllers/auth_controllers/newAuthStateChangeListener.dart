@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/view/screens/auth/email_verification_page.dart';
-import 'package:duo_fit/view/screens/welcome/welcome_page.dart';
+import 'package:duo_fit/screens/auth/email_verification_page.dart';
+import 'package:duo_fit/screens/welcome/welcome_page.dart';
 
-import '../../view/screens/home/home_page.dart';
+import '../../screens/home/home_page.dart';
 
 class NewAuthStateChangeListener extends GetxController {
   // An observable that can bu null

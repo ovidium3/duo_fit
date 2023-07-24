@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 
 import '../../helpers/string_methods.dart';
-import '../../view/screens/home/home_page.dart';
+import '../../screens/home/home_page.dart';
 import '../dialog_controller.dart';
 
 class EmailVerificationController extends GetxController {

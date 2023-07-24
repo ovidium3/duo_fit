@@ -6,7 +6,7 @@ import 'package:duo_fit/helpers/extension/auth_validation_extension.dart';
 
 import '../../../../../constants/text_constants/general_text_constants.dart';
 import '../../../../../helpers/string_methods.dart';
-import '../../../../../view/screens/auth/email_verification_page.dart';
+import '../../../../../screens/auth/email_verification_page.dart';
 import '../../sign_up_controller.dart';
 
 extension CreateNewAccExtension on SignUpController {

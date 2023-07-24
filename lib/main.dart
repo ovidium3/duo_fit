@@ -5,7 +5,7 @@ import 'package:duo_fit/constants/themes/main_theme.dart';
 import 'package:duo_fit/configurations/app_configurations.dart';
 import 'package:duo_fit/configurations/firebase_configurations.dart';
 import 'package:duo_fit/configurations/openfoodfacts_configurations.dart';
-import 'package:duo_fit/constants/route_constants.dart';
+import 'package:duo_fit/constants/routes.dart';
 
 void main() async {
   await AppConfigurations.init();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../view/widgets/map_of_colors.dart';
+import '../../widgets/map_of_colors.dart';
 import '../color_constants.dart';
 import '../themes/input_decoration.dart';
 

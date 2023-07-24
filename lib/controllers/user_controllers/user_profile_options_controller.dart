@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/view/widgets/button.dart';
-import 'package:duo_fit/view/widgets/text_field.dart';
+import 'package:duo_fit/widgets/button_widgets/button.dart';
+import 'package:duo_fit/widgets/text_field.dart';
 
 import '../../helpers/string_methods.dart';
 import '../dialog_controller.dart';
