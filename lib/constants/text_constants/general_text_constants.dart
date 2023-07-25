@@ -33,13 +33,17 @@ class TextConstants {
       "We have sent you an email to verify your account. Please check your inbox and click the link to verify it";
   static String done = "done";
   static String reSendEmailVerification = "re-send email verification";
+
+  // Sign up page
   static String signUpDescription =
       "Join more than 100,000 warriors and train for the next big challenge";
   static String username = "username";
   static String alreadyHaveAnAccount = "Already have an account ?";
+
+  // Home page -> Find your workout
   static String find = "find";
   static String yourWorkout = 'your Workout';
-  static String filterBy = "Filter by :";
+
   static String cancel = "Cancel";
   static String apply = "Apply";
   static String configureSettings = "configure profile";
@@ -55,6 +59,7 @@ class TextConstants {
   static String somethingWrong = "something wrong";
   static String hey = "Hey,";
 
+  // User profile
   static String profile = "profile";
   static String logOut = "log out";
   static String workoutOfDay = "Workout of the day";
@@ -63,6 +68,8 @@ class TextConstants {
   static String dailyFreeWorkout = "Workout of the day";
   static String choosedCarefully = "choosed carefully";
   static String allWorkouts = 'all workouts';
+
+  // More auth stuff
   static String pleaseVerifyEmail = "Please verify your email first";
   static String enterEmail = "please enter your email";
   static String enterValidEmail = "please enter a valid email";

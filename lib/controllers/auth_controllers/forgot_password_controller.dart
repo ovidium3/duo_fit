@@ -5,19 +5,18 @@ import 'package:duo_fit/controllers/dialog_controller.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 
 import '../../helpers/string_methods.dart';
+import '/helpers/extension/auth_validation_extension.dart';
 
 class ForgotPasswordController extends GetxController {
   // Dependency injection
   DialogController dialogController = Get.put(DialogController());
 
   // Text Editing controllers
-  late TextEditingController emailToRecoverPassword;
+  late TextEditingController recoveryEmailController;
 
   // Recover password method
   recoverPassword(String email) async {
-    bool isValidEmail = emailRegExp.hasMatch(email);
-
-    if (isValidEmail) {
+    if (email.isValidEmail) {
       try {
         dialogController.showLoading();
 
@@ -49,11 +48,9 @@ class ForgotPasswordController extends GetxController {
       catch (e) {
         dialogController.showError(e.toString());
       }
-    }
-    // email checks ()
-    else if (email == "") {
+    } else if (email == "") {
       dialogController.showError(capitalize(TextConstants.enterEmail));
-    } else if (!isValidEmail) {
+    } else if (!email.isValidEmail) {
       dialogController.showError(capitalize(TextConstants.enterValidEmail));
     }
   }
@@ -61,14 +58,14 @@ class ForgotPasswordController extends GetxController {
   @override
   void onInit() {
     // Inputs controllers declarations
-    emailToRecoverPassword = TextEditingController();
+    recoveryEmailController = TextEditingController();
     super.onInit();
   }
 
   @override
   void onClose() {
     // Inputs controllers disposals
-    emailToRecoverPassword.dispose();
+    recoveryEmailController.dispose();
     super.onClose();
   }
 }

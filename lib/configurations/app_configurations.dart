@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class AppConfigurations {
-  static Future<void> init() async {
-    // init binding
+  // Initialize widgets & lock orientation to portrait mode
+  static void init() {
     WidgetsFlutterBinding.ensureInitialized();
 
-    // set device orientation to portrait only
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,

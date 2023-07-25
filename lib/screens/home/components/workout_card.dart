@@ -22,18 +22,18 @@ class WorkoutCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.to(WorkoutDetailsPage(
-          workOutTitle: title,
+          workoutTitle: title,
           overlayedImg: imagePath,
           timeLeftInHour: listCollection[index]["timeLeftInHour"] ?? "?",
           movesNumber: listCollection[index]["movesNumber"] ?? "?",
           setsNumber: listCollection[index]["setsNumber"] ?? "?",
           durationInMinutes: listCollection[index]["durationInMinutes"] ?? "?",
-          rating: listCollection[index]["rating"] ?? "?",
+          //rating: listCollection[index]["rating"] ?? "?",
           description: listCollection[index]["description"] ?? "?",
-          reviews: listCollection[index]["reviews"] ?? "?",
-          comments: listCollection[index]["comments"] ?? "?",
-          priceInDollars: listCollection[index]["priceInDollars"] ?? "?",
-          hasFreeTrial: listCollection[index]["hasFreeTrial"] ?? "?",
+          //reviews: listCollection[index]["reviews"] ?? "?",
+          //comments: listCollection[index]["comments"] ?? "?",
+          //priceInDollars: listCollection[index]["priceInDollars"] ?? "?",
+          //hasFreeTrial: listCollection[index]["hasFreeTrial"] ?? "?",
         ));
       },
       child: Container(

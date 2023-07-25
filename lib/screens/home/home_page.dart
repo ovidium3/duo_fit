@@ -3,22 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
-import 'package:duo_fit/constants/workouts%20lists/workouts%20Lists.dart';
+import 'package:duo_fit/constants/data_constants/workout_data_constants.dart';
 import 'package:duo_fit/screens/user_profile/user_profile_page.dart';
 
 import '../../controllers/tabs_controllers/workout_tab_controller.dart';
 import '../../controllers/user_controllers/user_info_controller.dart';
-import '../../constants/image_path_constants.dart';
+import '../../constants/media_constants.dart';
 import '../../helpers/string_methods.dart';
 import '../../widgets/background_image.dart';
-import 'componenets/find_your_workout.dart';
-import 'componenets/tab_bar_workout_view.dart';
-import 'componenets/username_and_profile.dart';
+import 'components/find_your_workout.dart';
+import 'components/tab_bar_workout_view.dart';
+import 'components/username_and_profile.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
 
-  final String bgImg = ImgSrc().randomFromAssetsList();
+  final String bgImg = MediaConstants().randomFromAssetsList();
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -118,40 +118,41 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Center(
                               child: TabBarViewSection(
-                                title: capitalize(
-                                  'All workouts',
-                                ),
-                                dataList: WorkoutsList.allWorkoutsList,
+                                title: 'Popular Workouts',
+                                dataList: [
+                                  WorkoutDataConstants.push,
+                                  WorkoutDataConstants.pull,
+                                  WorkoutDataConstants.legs
+                                ],
                               ),
                             ),
                             Center(
                               child: TabBarViewSection(
-                                title: capitalize(
-                                  'Popular',
-                                ),
-                                dataList: WorkoutsList.popularWorkoutsList,
+                                title: 'Upper Body Workouts',
+                                dataList: [
+                                  WorkoutDataConstants.upperBody,
+                                  WorkoutDataConstants.push,
+                                  WorkoutDataConstants.pull
+                                ],
                               ),
                             ),
                             Center(
                               child: TabBarViewSection(
-                                  title: capitalize(
-                                    'hard',
-                                  ),
-                                  dataList: WorkoutsList.hardWorkoutsList),
+                                  title: 'Lower Body Workouts',
+                                  dataList: [WorkoutDataConstants.legs]),
                             ),
                             Center(
                               child: TabBarViewSection(
-                                  title: capitalize(
-                                    'Full body',
-                                  ),
-                                  dataList: WorkoutsList.fullBodyWorkoutsList),
+                                  title: 'Full Body Workouts',
+                                  dataList: [WorkoutDataConstants.fullBody]),
                             ),
                             Center(
-                              child: TabBarViewSection(
-                                  title: capitalize(
-                                    'Crossfit',
-                                  ),
-                                  dataList: WorkoutsList.crossFit),
+                              child:
+                                  TabBarViewSection(title: 'Extras', dataList: [
+                                WorkoutDataConstants.arms,
+                                WorkoutDataConstants.abs,
+                                WorkoutDataConstants.shoulders
+                              ]),
                             ),
                           ],
                         ),

@@ -2,13 +2,13 @@ import 'package:get/get.dart';
 import 'package:duo_fit/screens/auth/sign_up_page.dart';
 import 'package:duo_fit/screens/welcome/welcome_page.dart';
 
-import '../bindings/forgot_password_binding.dart';
-import '../bindings/get_started_binding.dart';
-import '../bindings/auth_bindings.dart';
-import '../bindings/welcome_binding.dart';
-import '../screens/get_started/get_started_page.dart';
-import '../screens/auth/forgot_password_page.dart';
-import '../screens/auth/login_page.dart';
+import '/bindings/forgot_password_binding.dart';
+import '/bindings/get_started_binding.dart';
+import '/bindings/auth_bindings.dart';
+import '/bindings/welcome_binding.dart';
+import '/screens/get_started/get_started_page.dart';
+import '/screens/auth/forgot_password_page.dart';
+import '/screens/auth/login_page.dart';
 
 class Routes {
   static final List<GetPage> pages = [
@@ -34,8 +34,9 @@ class Routes {
     ),
     GetPage(
       name: "/forgotPassword",
-      page: () => ForgotPasswordPage(),
+      page: () => const ForgotPasswordPage(),
       binding: ForgotPasswordBinding(),
     ),
+    // GetPage(name: name, page: page, binding: CalorieTrackerBinding())
   ];
 }

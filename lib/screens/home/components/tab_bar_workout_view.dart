@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:duo_fit/constants/image_path_constants.dart';
+//import 'package:get/get.dart';
+import '/constants/media_constants.dart';
 
-import '../../../constants/text_constants/general_text_constants.dart';
+import '/constants/text_constants/general_text_constants.dart';
 import '../../../helpers/string_methods.dart';
 import 'workout_card.dart';
+import '/models/workout_model.dart';
 
 class TabBarViewSection extends StatelessWidget {
-  TabBarViewSection({
+  const TabBarViewSection({
     required this.title,
     required this.dataList,
     this.itemsToShow = 3,
-    this.hasSeeAllButton = true,
     super.key,
   });
-  String title;
-  List dataList;
-  bool hasSeeAllButton;
-  int itemsToShow;
+
+  final String title;
+  final List<WorkoutModel> dataList;
+  final int itemsToShow;
 
   @override
   Widget build(BuildContext context) {
@@ -49,16 +49,14 @@ class TabBarViewSection extends StatelessWidget {
           child: Wrap(
             children: [
               ...List.generate(
-                itemsToShow < dataList.length ? 3 : dataList.length,
+                dataList.length,
                 (index) => WorkoutCard(
                     index: index,
                     listCollection: dataList,
                     title: capitalize(
-                      dataList[index]["workOutTitle"] ??
-                          TextConstants.somethingWrong,
+                      dataList[index].title,
                     ),
-                    imagePath:
-                        dataList[index]["imagePath"] ?? ImgSrc.noImgAvailable),
+                    imagePath: dataList[index].image),
               )
             ],
           ),

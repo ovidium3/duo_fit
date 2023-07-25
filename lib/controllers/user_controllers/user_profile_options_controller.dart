@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/widgets/button_widgets/button.dart';
-import 'package:duo_fit/widgets/text_field.dart';
 
-import '../../helpers/string_methods.dart';
+import '/constants/color_constants.dart';
+import '/widgets/button_widgets/button.dart';
+import '/widgets/text_field.dart';
+import '/helpers/string_methods.dart';
 import '../dialog_controller.dart';
 import 'user_info_controller.dart';
 
@@ -23,7 +24,7 @@ class UserProfileOptionsController extends GetxController {
           Container(
             width: double.infinity,
             height: 200,
-            margin: EdgeInsets.symmetric(horizontal: 20),
+            margin: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,7 +47,7 @@ class UserProfileOptionsController extends GetxController {
               ],
             ),
           ),
-          backgroundColor: Color(0xff131429),
+          backgroundColor: ColorConstants.darkBlue,
         );
       }
     },
@@ -76,7 +77,7 @@ class UserProfileOptionsController extends GetxController {
                               await userInformationController
                                   .getImgFromDevice());
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.perm_media,
                           size: 55,
                           color: Color(0xff40D876),
@@ -88,7 +89,7 @@ class UserProfileOptionsController extends GetxController {
                               await userInformationController
                                   .getImgFromCamera());
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.camera_alt,
                           size: 55,
                           color: Color(0xff40D876),
@@ -99,7 +100,7 @@ class UserProfileOptionsController extends GetxController {
                 ],
               ),
             ),
-            backgroundColor: Color(0xff131429));
+            backgroundColor: ColorConstants.darkBlue);
       },
     },
     {
@@ -134,7 +135,7 @@ class UserProfileOptionsController extends GetxController {
                 ],
               ),
             ),
-            backgroundColor: Color(0xff131429));
+            backgroundColor: ColorConstants.darkBlue);
       }
     },
     {
@@ -169,7 +170,7 @@ class UserProfileOptionsController extends GetxController {
                 ],
               ),
             ),
-            backgroundColor: Color(0xff131429));
+            backgroundColor: ColorConstants.darkBlue);
       }
     },
     {

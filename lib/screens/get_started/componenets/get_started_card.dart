@@ -9,10 +9,10 @@ import 'I_am_title.dart';
 
 class GetStartedCard extends GetView<GetStartedCardController> {
   const GetStartedCard({
-    super.key,
     required this.text,
     required this.description,
     required this.id,
+    super.key,
   });
 
   final String text, description;

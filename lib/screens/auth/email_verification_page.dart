@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/controllers/auth_controllers/sign_out_controller.dart';
-import 'package:duo_fit/constants/image_path_constants.dart';
+import 'package:duo_fit/constants/media_constants.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 import 'package:duo_fit/widgets/button_widgets/button.dart';
 
@@ -48,7 +48,7 @@ class EmailVerificationPage extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 90,
-                        child: Image.asset(ImgSrc.imgVerification),
+                        child: Image.asset(MediaConstants.imgVerification),
                       ),
                       const SizedBox(
                         height: 30,

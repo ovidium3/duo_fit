@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/controllers/auth_controllers/sign_up_controller/extensions/create_new_account/add_user_info_to_firestore.dart';
-import 'package:duo_fit/controllers/auth_controllers/sign_up_controller/extensions/create_new_account/sign_up_catched_error.dart';
+import 'package:duo_fit/helpers/extension/auth_errors_extension.dart';
 import 'package:duo_fit/helpers/extension/auth_validation_extension.dart';
 
 import '../../../../../constants/text_constants/general_text_constants.dart';
@@ -43,12 +43,10 @@ extension CreateNewAccExtension on SignUpController {
         Get.to(() => EmailVerificationPage());
       } on FirebaseAuthException catch (e) {
         Get.back();
-        handleErrorCases(e);
+        handleAuthErrors(e);
       } catch (e) {
         dialogsAndLoadingController.showError(
-          capitalize(
-            e as String,
-          ),
+          capitalize(e as String),
         );
       }
     }

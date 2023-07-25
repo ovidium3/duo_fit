@@ -5,8 +5,8 @@ double btnScaleValue = 1;
 int delay = 300;
 
 // email RegExp
-RegExp emailRegExp = RegExp(
-    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+// RegExp emailRegExp = RegExp(
+//     r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 
 // Capitalize Strings in sentences
 capitalize(String text) {

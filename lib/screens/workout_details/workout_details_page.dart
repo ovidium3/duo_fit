@@ -14,31 +14,31 @@ import '../../widgets/button_widgets/button.dart';
 class WorkoutDetailsPage extends StatelessWidget {
   WorkoutDetailsPage({
     required this.overlayedImg,
-    required this.workOutTitle,
+    required this.workoutTitle,
     required this.timeLeftInHour,
     required this.movesNumber,
     required this.durationInMinutes,
     required this.setsNumber,
-    required this.rating,
+    //required this.rating,
     required this.description,
-    required this.reviews,
-    required this.priceInDollars,
-    required this.hasFreeTrial,
-    required this.comments,
+    //required this.reviews,
+    //required this.priceInDollars,
+    //required this.hasFreeTrial,
+    //required this.comments,
     super.key,
   });
   String overlayedImg,
-      workOutTitle,
+      workoutTitle,
       setsNumber,
       timeLeftInHour,
       movesNumber,
-      comments,
+      //comments,
       durationInMinutes,
-      rating,
-      description,
-      reviews,
-      priceInDollars,
-      hasFreeTrial;
+      //rating,
+      description;
+  //reviews,
+  //priceInDollars,
+  //hasFreeTrial;
   final DetailsTabController _tabx = Get.put(DetailsTabController());
 
   @override
@@ -193,7 +193,7 @@ class WorkoutDetailsPage extends StatelessWidget {
                 DelayedDisplay(
                   delay: Duration(milliseconds: delay + 300),
                   child: Text(
-                    capitalize(workOutTitle),
+                    capitalize(workoutTitle),
                     style: const TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
@@ -208,7 +208,7 @@ class WorkoutDetailsPage extends StatelessWidget {
                   delay: Duration(milliseconds: delay + 400),
                   child: RatingStars(
                     starsNumber: 5,
-                    filledStars: int.parse(rating != null ? rating : "0"),
+                    filledStars: 0,
                   ),
                 ),
                 const SizedBox(
@@ -243,24 +243,24 @@ class WorkoutDetailsPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Center(
-                          child: Text(
-                            reviews,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Text(
-                            comments,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                        // Center(
+                        //   child: Text(
+                        //     reviews,
+                        //     textAlign: TextAlign.center,
+                        //     style: const TextStyle(
+                        //       color: Colors.white,
+                        //     ),
+                        //   ),
+                        // ),
+                        // Center(
+                        //   child: Text(
+                        //     comments,
+                        //     textAlign: TextAlign.center,
+                        //     style: const TextStyle(
+                        //       color: Colors.white,
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -275,7 +275,7 @@ class WorkoutDetailsPage extends StatelessWidget {
                       child: CustomButton(
                         onPressed: () {},
                         isRounded: false,
-                        text: capitalize("\$ $priceInDollars"),
+                        text: capitalize("\$ 999"),
                         isOutlined: false,
                       ),
                     ),
@@ -285,9 +285,7 @@ class WorkoutDetailsPage extends StatelessWidget {
                       child: CustomButton(
                         onPressed: () {},
                         isRounded: false,
-                        text: hasFreeTrial.toLowerCase() == "true"
-                            ? capitalize(TextConstants.freeTrial)
-                            : capitalize(TextConstants.noFreeTrialAvailable),
+                        text: capitalize(TextConstants.noFreeTrialAvailable),
                         isOutlined: true,
                       ),
                     ),

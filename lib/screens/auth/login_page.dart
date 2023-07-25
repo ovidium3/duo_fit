@@ -19,6 +19,7 @@ import 'forgot_password_page.dart';
 
 class LoginPage extends GetView<LoginController> with DelayHelperMixin {
   LoginPage({super.key});
+
   final SignUpController signUpController = Get.put(SignUpController());
 
   @override

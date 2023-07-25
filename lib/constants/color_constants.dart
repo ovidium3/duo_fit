@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 
 // current colors - need more
 class ColorConstants {
+  // Dark mode colors
   static const Color darkBlue = Color(0xff131429);
   static const Color green = Color(0xff40D876);
+  static const Color textWhite = Colors.white;
+
+  // Light mode colors
+  static const Color textBlack = Colors.black;
+
+  // Other colors
+  static const Color error = Colors.red;
 }
 
 // fitness app colors

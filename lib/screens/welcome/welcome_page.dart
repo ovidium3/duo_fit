@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '/constants/image_path_constants.dart';
+import '../../constants/media_constants.dart';
 import '/constants/text_constants/general_text_constants.dart';
 import '/widgets/text_widgets/title_with_description.dart';
 import '/constants/show_delay_mixin.dart';
@@ -22,7 +22,7 @@ class WelcomePage extends StatelessWidget with DelayHelperMixin {
         fit: StackFit.expand,
         children: [
           BackgroundImage(
-            backgroundImage: ImgSrc().randomFromAssetsList(),
+            backgroundImage: MediaConstants().randomFromAssetsList(),
           ),
           Container(
             color: ColorConstants.darkBlue.withOpacity(0.69),

@@ -2,7 +2,7 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/image_path_constants.dart';
+import 'package:duo_fit/constants/media_constants.dart';
 import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
 import '../../controllers/auth_controllers/forgot_password_controller.dart';
 import '../../helpers/string_methods.dart';
@@ -10,12 +10,8 @@ import '../../widgets/button_widgets/button.dart';
 import '../../widgets/text_field.dart';
 import '../../widgets/text_widgets/title_with_description.dart';
 
-class ForgotPasswordPage extends StatelessWidget {
-  ForgotPasswordPage({super.key});
-
-  // Dependency injection
-  final ForgotPasswordController forgotPasswordController =
-      Get.put(ForgotPasswordController());
+class ForgotPasswordPage extends GetView<ForgotPasswordController> {
+  const ForgotPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +21,7 @@ class ForgotPasswordPage extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: Image.asset(
-              ImgSrc().randomFromAssetsList(),
+              MediaConstants().randomFromAssetsList(),
               fit: BoxFit.cover,
             ),
           ),
@@ -60,8 +56,8 @@ class ForgotPasswordPage extends StatelessWidget {
                   DelayedDisplay(
                     delay: Duration(milliseconds: delay + 200),
                     child: CustomTextField(
-                      controller:
-                          forgotPasswordController.emailToRecoverPassword,
+                      controller: controller.recoveryEmailController,
+                      //forgotPasswordController.recoveryEmailController,
                       keyboardType: TextInputType.emailAddress,
                       label: capitalize(TextConstants.yourEmail),
                     ),
@@ -71,9 +67,11 @@ class ForgotPasswordPage extends StatelessWidget {
                     delay: Duration(milliseconds: delay + 300),
                     child: CustomButton(
                       onPressed: () {
-                        forgotPasswordController.recoverPassword(
-                            forgotPasswordController
-                                .emailToRecoverPassword.text);
+                        controller.recoverPassword(
+                            controller.recoveryEmailController.text);
+                        // forgotPasswordController.recoverPassword(
+                        //     forgotPasswordController
+                        //         .recoveryEmailController.text);
                       },
                       isRounded: false,
                       text: capitalize(TextConstants.resetPassword),

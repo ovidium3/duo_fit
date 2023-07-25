@@ -3,15 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/screens/get_started/componenets/get_started_card.dart';
 
-import '../../../constants/onboarding/onboarding_cards.dart';
-import '../../../controllers/get_started_controllers/get_started_controller.dart';
+import '../../../constants/data_constants/general_data_constants.dart';
+import '/controllers/get_started_controllers/get_started_controller.dart';
 
 class GetStartedCardsScrollView extends GetView<GetStartedController> {
   const GetStartedCardsScrollView({
-    super.key,
     required this.delay,
+    super.key,
   });
+
   final Duration delay;
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

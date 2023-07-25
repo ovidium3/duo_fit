@@ -13,3 +13,4 @@
 - update temp profile values with firestore's
 - add openfoodfacts config
 - implement show/hide for password field (showeye)
+- update openfoodfacts config file
