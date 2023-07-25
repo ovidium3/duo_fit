@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-// current colors - need more
 class ColorConstants {
-  // Dark mode colors
+  // Main color scheme
   static const Color darkBlue = Color(0xff131429);
   static const Color green = Color(0xff40D876);
   static const Color textWhite = Colors.white;
 
-  // Light mode colors
+  // Text colors
   static const Color textBlack = Colors.black;
 
   // Other colors

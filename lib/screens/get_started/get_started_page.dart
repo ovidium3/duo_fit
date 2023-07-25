@@ -1,20 +1,24 @@
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
-import 'package:duo_fit/widgets/background_image.dart';
-import '../../constants/data_constants/general_data_constants.dart';
-import '../../constants/show_delay_mixin.dart';
-import '../../controllers/get_started_controllers/get_started_controller.dart';
-import '../../helpers/string_methods.dart';
-import '../../widgets/text_widgets/main_screen_title.dart';
-import '../../widgets/text_widgets/title_with_description.dart';
+
+import '/constants/color_constants.dart';
+import '/constants/text_constants/general_text_constants.dart';
+import '/widgets/background_image.dart';
+import '/constants/data_constants/general_data_constants.dart';
+import '/constants/show_delay_mixin.dart';
+import '/controllers/get_started_controllers/get_started_controller.dart';
+import '/helpers/string_methods.dart';
+import '/widgets/text_widgets/main_screen_title.dart';
+import '/widgets/text_widgets/title_with_description.dart';
 import 'componenets/get_started_cards_scroll_view.dart';
+import '/controllers/dialog_controller.dart';
 
 class GetStartedPage extends GetView<GetStartedController>
     with DelayHelperMixin {
   GetStartedPage({super.key});
+
+  //final DialogController dialogController = Get.put(DialogController());
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,7 @@ class GetStartedPage extends GetView<GetStartedController>
         children: [
           const BackgroundImage(),
           Container(
-            color: const Color(0xff0B183C).withOpacity(0.69),
+            color: ColorConstants.darkBlue.withOpacity(0.69),
             width: double.infinity,
             child: Container(
               margin: const EdgeInsets.symmetric(
@@ -36,7 +40,7 @@ class GetStartedPage extends GetView<GetStartedController>
                   const Spacer(),
                   DelayedDisplay(
                     delay: getDelayDuration(),
-                    child: MainScreenTitle(
+                    child: const MainScreenTitle(
                       mainWord: TextConstants.firstMainWord,
                       secondaryWord: TextConstants.secondaryMainWord,
                     ),
@@ -48,15 +52,13 @@ class GetStartedPage extends GetView<GetStartedController>
                     margin: const EdgeInsets.only(left: 20),
                     child: DelayedDisplay(
                       delay: getDelayDuration(),
-                      child: TitleWithDescription(
-                        title: capitalize(TextConstants.aboutYou),
+                      child: const TitleWithDescription(
+                        title: TextConstants.getStartedTitle,
                         description: TextConstants.getStartedDescription,
                       ),
                     ),
                   ),
-                  const Spacer(
-                    flex: 2,
-                  ),
+                  const Spacer(flex: 2),
                   Theme(
                     data: Theme.of(context).copyWith(
                       colorScheme: Theme.of(context).colorScheme.copyWith(
@@ -76,68 +78,57 @@ class GetStartedPage extends GetView<GetStartedController>
                         const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                     child: DelayedDisplay(
                       delay: getDelayDuration(),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          GestureDetector(
-                            child: Text(
-                              capitalize(TextConstants.skipIntro),
-                              style: TextStyle(
-                                color:
-                                    const Color(0xffffffff).withOpacity(0.42),
-                              ),
-                            ),
-                          ),
-                          IntrinsicHeight(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Align(
-                                    alignment: Alignment.center,
-                                    child: GetBuilder<GetStartedController>(
-                                      id: controller.rebuildId,
-                                      builder: (controller) {
-                                        return Text(
-                                          "${controller.checkedCardsIds.length} / ${handledCardsList.length}",
-                                          style: const TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: ColorConstants.green,
-                                            fontSize: 12,
-                                          ),
-                                        );
-                                      },
-                                    )),
-                                const SizedBox(width: 15),
-                                GetBuilder<GetStartedController>(
+                      child: IntrinsicHeight(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Align(
+                                alignment: Alignment.center,
+                                child: GetBuilder<GetStartedController>(
                                   id: controller.rebuildId,
                                   builder: (controller) {
-                                    return ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 20,
-                                        ),
-                                        backgroundColor:
-                                            Theme.of(context).primaryColor,
+                                    return Text(
+                                      "${controller.checkedCardsIds.length} / ${handledCardsList.length}",
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: ColorConstants.green,
+                                        fontSize: 12,
                                       ),
-                                      onPressed: controller
-                                              .hasUserChooserAtLeastOneChoice
+                                    );
+                                  },
+                                )),
+                            const SizedBox(width: 15),
+                            GetBuilder<GetStartedController>(
+                              id: controller.rebuildId,
+                              builder: (controller) {
+                                return ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 20,
+                                    ),
+                                    backgroundColor:
+                                        Theme.of(context).primaryColor,
+                                  ),
+                                  onPressed:
+                                      controller.hasUserChooserAtLeastOneChoice
                                           ? () {
                                               Get.toNamed("/signUp");
                                             }
                                           : null,
-                                      child: Text(
-                                        capitalize(TextConstants.next),
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ],
+                                  //: dialogController.showError('error'),
+                                  child: Text(
+                                    capitalize(TextConstants.next),
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                );
+                              },
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
+                        //),
+                        //],
                       ),
                     ),
                   )

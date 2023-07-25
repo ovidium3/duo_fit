@@ -1,31 +1,41 @@
 class TextConstants {
   // Welcome page
-  static String firstMainWord = "duo";
-  static String secondaryMainWord = "fit";
-  static String welcome = "welcome";
-  static String welcomeDescription =
-      "This 2 in 1 fitness app will help you get in the best shape of your life.";
-  static String getStarted = "get started";
-  static String login = "login";
+  static const String firstMainWord = 'duo';
+  static const String secondaryMainWord = 'fit';
+  static const String welcome = 'Welcome';
+  static const String welcomeDescription =
+      'This 2 in 1 fitness app will help you get in the best shape of your life.';
+  static const String getStarted = 'Get Started';
 
-  static String error = "Error";
+  static const String login = 'Login';
 
-  // About you
-  static String aboutYou = "about you";
-  static String getStartedDescription =
-      "we want to know more about you, follow the next steps to complete the information";
-  static String skipIntro = "Skip intro";
-  static String next = "Next";
-  static String signIn = "sign in";
-  static String signUp = "sign up";
+  // Get started page
+  static const String getStartedTitle = 'Your Goals';
+  static const String getStartedDescription =
+      'Select all the goals that you would like us to help you achieve';
+  static const String next = "Next";
+
+  static const String choiceCardTitle1 = "Lose fat";
+  static const String choiceCardDescription1 =
+      "Our fitness approach promotes fat loss";
+
+  // Auth -> Sign up page
+  static String signUp = "Sign Up";
+  static String signUpDescription =
+      "Join more than 100,000 warriors and train for the next big challenge";
+  static String username = "username";
+  static String alreadyHaveAnAccount = "Already have an account?";
+
+  // Auth -> Login page
+  static String signIn = "Login";
   static String loginDescription =
       "Train and live the new experience of exercising at home";
   static String email = "email";
   static String password = "password";
 
   // Forgot password page
-  static String forgotPassword = "forgot password ?";
-  static String resetPassword = "reset $password";
+  static String forgotPassword = "Forgot password?";
+  static String resetPassword = "Reset $password";
   static String yourEmail = "your $email";
   static String forgotPasswordDesccription =
       "DON'T WORRY, WE CAN HELP YOU TO RESET YOUR PASSWORD";
@@ -33,12 +43,6 @@ class TextConstants {
       "We have sent you an email to verify your account. Please check your inbox and click the link to verify it";
   static String done = "done";
   static String reSendEmailVerification = "re-send email verification";
-
-  // Sign up page
-  static String signUpDescription =
-      "Join more than 100,000 warriors and train for the next big challenge";
-  static String username = "username";
-  static String alreadyHaveAnAccount = "Already have an account ?";
 
   // Home page -> Find your workout
   static String find = "find";
@@ -87,4 +91,7 @@ class TextConstants {
   static String weakPassword = "weak password, try with stronger one";
   static String emailAlreadyInUse = "this email is already in use";
   static String fillFields = "please, fill all fields";
+
+  // Other
+  //static String error = "Error";
 }

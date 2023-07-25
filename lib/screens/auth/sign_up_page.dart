@@ -19,7 +19,7 @@ import '/controllers/auth_controllers/login_controller/login_controller.dart';
 class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
   SignUpPage({super.key});
 
-  final LoginController loginController = Get.put(LoginController());
+  final LoginController loginController = Get.find();
 
   @override
   Widget build(BuildContext context) {

@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '../../constants/media_constants.dart';
+import '/constants/media_constants.dart';
 import '/constants/text_constants/general_text_constants.dart';
 import '/widgets/text_widgets/title_with_description.dart';
 import '/constants/show_delay_mixin.dart';
-import '/helpers/string_methods.dart';
 import '/widgets/button_widgets/button.dart';
 import '/widgets/text_widgets/main_screen_title.dart';
 import '/widgets/background_image.dart';
@@ -33,10 +32,10 @@ class WelcomePage extends StatelessWidget with DelayHelperMixin {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Spacer(),
-                  // app title display
+                  // App title display
                   DelayedDisplay(
                     delay: getDelayDuration(),
-                    child: MainScreenTitle(
+                    child: const MainScreenTitle(
                       mainWord: TextConstants.firstMainWord,
                       secondaryWord: TextConstants.secondaryMainWord,
                     ),
@@ -46,40 +45,38 @@ class WelcomePage extends StatelessWidget with DelayHelperMixin {
                   // welcome + description
                   DelayedDisplay(
                     delay: getDelayDuration(),
-                    child: TitleWithDescription(
-                      title: capitalize(TextConstants.welcome),
+                    child: const TitleWithDescription(
+                      title: TextConstants.welcome,
                       description: TextConstants.welcomeDescription,
                     ),
                   ),
-                  const Spacer(
-                    flex: 2,
-                  ),
+                  const Spacer(flex: 2),
 
-                  // Sign up / sign in buttons
+                  // Get started / login buttons
                   Column(
                     children: [
-                      // Get Started button
+                      // Get started button
                       DelayedDisplay(
                         delay: getDelayDuration(),
                         child: CustomButton(
                           onPressed: () {
                             Get.toNamed("/getStarted");
                           },
-                          text: capitalize(TextConstants.getStarted),
+                          text: TextConstants.getStarted,
                           isOutlined: false,
                         ),
                       ),
                       const SizedBox(
                         height: 15,
                       ),
-                      // Login Button
+                      // Login button
                       DelayedDisplay(
                         delay: getDelayDuration(),
                         child: CustomButton(
                           onPressed: () {
                             Get.toNamed("/login");
                           },
-                          text: capitalize(TextConstants.login),
+                          text: TextConstants.login,
                           isOutlined: true,
                         ),
                       ),

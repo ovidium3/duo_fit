@@ -8,7 +8,7 @@ import '../../constants/text_constants/general_text_constants.dart';
 
 import '../../helpers/string_methods.dart';
 import '../../widgets/button_widgets/action_button.dart';
-import 'componenets/rating_stars.dart';
+import 'components/rating_stars.dart';
 import '../../widgets/button_widgets/button.dart';
 
 class WorkoutDetailsPage extends StatelessWidget {

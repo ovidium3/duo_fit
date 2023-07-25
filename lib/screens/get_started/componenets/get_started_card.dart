@@ -3,9 +3,7 @@ import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
 import '/controllers/get_started_controllers/get_started_card_controller.dart';
-import '/helpers/string_methods.dart';
 import '/widgets/get_started_checkmark.dart';
-import 'I_am_title.dart';
 
 class GetStartedCard extends GetView<GetStartedCardController> {
   const GetStartedCard({
@@ -58,8 +56,13 @@ class GetStartedCard extends GetView<GetStartedCardController> {
                 ),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: IamTitle(
-                    text: capitalize(text),
+                  child: Text(
+                    text,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 const SizedBox(
