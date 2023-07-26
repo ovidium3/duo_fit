@@ -2,8 +2,8 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
-import 'package:duo_fit/constants/data_constants/workout_data_constants.dart';
+import 'package:duo_fit/constants/text/general_texts.dart';
+import 'package:duo_fit/constants/data/workout_data.dart';
 import 'package:duo_fit/screens/user_profile/user_profile_page.dart';
 
 import '../../controllers/tabs_controllers/workout_tab_controller.dart';
@@ -34,9 +34,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         body: Stack(
       children: [
-        BackgroundImage(
-          backgroundImage: widget.bgImg,
-        ),
+        const BackgroundImage(),
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -62,9 +60,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    const SizedBox(
-                      height: 50,
-                    ),
+                    const SizedBox(height: 50),
                     Obx(
                       () => ProfileAndUsername(
                         onProfileImgTap: () {
@@ -75,20 +71,14 @@ class _HomePageState extends State<HomePage> {
                             userInformationController.userProfileImg.value,
                       ),
                     ),
-                    const SizedBox(
-                      height: 55,
-                    ),
+                    const SizedBox(height: 55),
                     //const CalorieCircle();
-                    const SizedBox(
-                      height: 55,
-                    ),
+                    const SizedBox(height: 55),
                     DelayedDisplay(
                       delay: Duration(milliseconds: delay + 200),
                       child: const FindYourWorkout(),
                     ),
-                    const SizedBox(
-                      height: 15,
-                    ),
+                    const SizedBox(height: 15),
                     SizedBox(
                       height: 40,
                       child: DelayedDisplay(
@@ -120,9 +110,9 @@ class _HomePageState extends State<HomePage> {
                               child: TabBarViewSection(
                                 title: 'Popular Workouts',
                                 dataList: [
-                                  WorkoutDataConstants.push,
-                                  WorkoutDataConstants.pull,
-                                  WorkoutDataConstants.legs
+                                  WorkoutData.push,
+                                  WorkoutData.pull,
+                                  WorkoutData.legs
                                 ],
                               ),
                             ),
@@ -130,29 +120,30 @@ class _HomePageState extends State<HomePage> {
                               child: TabBarViewSection(
                                 title: 'Upper Body Workouts',
                                 dataList: [
-                                  WorkoutDataConstants.upperBody,
-                                  WorkoutDataConstants.push,
-                                  WorkoutDataConstants.pull
+                                  WorkoutData.upperBody,
+                                  WorkoutData.push,
+                                  WorkoutData.pull
                                 ],
                               ),
                             ),
                             Center(
                               child: TabBarViewSection(
                                   title: 'Lower Body Workouts',
-                                  dataList: [WorkoutDataConstants.legs]),
+                                  dataList: [WorkoutData.legs]),
                             ),
                             Center(
                               child: TabBarViewSection(
                                   title: 'Full Body Workouts',
-                                  dataList: [WorkoutDataConstants.fullBody]),
+                                  dataList: [WorkoutData.fullBody]),
                             ),
                             Center(
-                              child:
-                                  TabBarViewSection(title: 'Extras', dataList: [
-                                WorkoutDataConstants.arms,
-                                WorkoutDataConstants.abs,
-                                WorkoutDataConstants.shoulders
-                              ]),
+                              child: TabBarViewSection(
+                                  title: 'Extras',
+                                  dataList: [
+                                    WorkoutData.arms,
+                                    WorkoutData.abs,
+                                    WorkoutData.shoulders
+                                  ]),
                             ),
                           ],
                         ),

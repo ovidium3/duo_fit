@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 //import 'package:get/get.dart';
 import '/constants/media_constants.dart';
 
-import '/constants/text_constants/general_text_constants.dart';
+import '../../../constants/text/general_texts.dart';
 import '../../../helpers/string_methods.dart';
 import 'workout_card.dart';
 import '/models/workout_model.dart';
@@ -53,9 +53,7 @@ class TabBarViewSection extends StatelessWidget {
                 (index) => WorkoutCard(
                     index: index,
                     listCollection: dataList,
-                    title: capitalize(
-                      dataList[index].title,
-                    ),
+                    title: dataList[index].title,
                     imagePath: dataList[index].image),
               )
             ],

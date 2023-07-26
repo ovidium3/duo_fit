@@ -2,11 +2,11 @@ import 'dart:math';
 
 class MediaConstants {
   // General Images
-  static String welcome = 'assets/images/welcomeOverlayImg.png';
-  static String getStarted = 'assets/images/GetStartedOverlay.png';
-  static String login = 'assets/images/loginOverlayImg.png';
-  static String imgVerification = "assets/images/email_verif.png";
-  static String homepageOverlay = 'assets/images/welcomePageOverlay.png';
+  static const String welcome = 'assets/images/welcomeOverlayImg.png';
+  static const String getStarted = 'assets/images/GetStartedOverlay.png';
+  static const String login = 'assets/images/loginOverlayImg.png';
+  static const String imgVerification = "assets/images/email_verif.png";
+  static const String homepageOverlay = 'assets/images/welcomePageOverlay.png';
   static const String noImgAvailable = "assets/images/No_image_available.png";
 
   // Workout Images
@@ -80,7 +80,7 @@ class MediaConstants {
   static const String crunchVideo = 'assets/videos/exercises/crunch.mp4';
 
   // Auth Image List
-  List<String> imageList = <String>[
+  static const List<String> imageList = <String>[
     MediaConstants.welcome,
     MediaConstants.getStarted,
     MediaConstants.login,

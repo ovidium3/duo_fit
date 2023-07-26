@@ -1,4 +1,4 @@
-class ErrorTextConstants {
+class ErrorTexts {
   // Firebase auth errors
   static const String invalidEmail = 'User email not valid, please try again.';
   static const String userDisabled =

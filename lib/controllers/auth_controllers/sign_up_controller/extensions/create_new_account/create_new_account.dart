@@ -4,13 +4,13 @@ import 'package:duo_fit/controllers/auth_controllers/sign_up_controller/extensio
 import 'package:duo_fit/helpers/extension/auth_errors_extension.dart';
 import 'package:duo_fit/helpers/extension/auth_validation_extension.dart';
 
-import '../../../../../constants/text_constants/general_text_constants.dart';
-import '../../../../../helpers/string_methods.dart';
-import '../../../../../screens/auth/email_verification_page.dart';
+import '../../../../../constants/text/general_texts.dart';
+import '/helpers/string_methods.dart';
+import '/screens/auth/email_verification_page.dart';
 import '../../sign_up_controller.dart';
 
 extension CreateNewAccExtension on SignUpController {
-  /// create new account in firebase auth, then add the  extra information such as credential, uid, time of creation, email verification status..
+  // Create new account in firebase
   Future<void> createNewAccount({
     required String email,
     required String password,
@@ -20,7 +20,7 @@ extension CreateNewAccExtension on SignUpController {
         password.isValidPassword &&
         username.isAcceptedUsername) {
       try {
-        dialogsAndLoadingController.showLoading();
+        dialogController.showLoading();
 
         // Firebase create account method, store the credential
         final UserCredential credential =
@@ -29,7 +29,7 @@ extension CreateNewAccExtension on SignUpController {
           password: password,
         );
 
-        // Here we created acc with firebase auth, the email and password only,  to collect and use more data, we need to store it
+        // Add info to firestore
         addUserInformationToFirestore(
           credential: credential,
           email: email,
@@ -45,37 +45,19 @@ extension CreateNewAccExtension on SignUpController {
         Get.back();
         handleAuthErrors(e);
       } catch (e) {
-        dialogsAndLoadingController.showError(
-          capitalize(e as String),
-        );
+        dialogController.showError(e as String);
       }
     }
 
     // Now, if something isn't valid, inform user about it
     if (username.isEmpty || email.isEmpty || password.isEmpty) {
-      dialogsAndLoadingController.showError(
-        capitalize(
-          TextConstants.fillFields,
-        ),
-      );
+      dialogController.showError(TextConstants.fillFields);
     } else if (!username.isAcceptedUsername) {
-      dialogsAndLoadingController.showError(
-        capitalize(
-          TextConstants.usernameMustBe5AtLeast,
-        ),
-      );
+      dialogController.showError(TextConstants.usernameMustBe5AtLeast);
     } else if (!email.isValidEmail) {
-      dialogsAndLoadingController.showError(
-        capitalize(
-          TextConstants.invalidEmail,
-        ),
-      );
+      dialogController.showError(TextConstants.invalidEmail);
     } else if (!password.isValidPassword) {
-      dialogsAndLoadingController.showError(
-        capitalize(
-          TextConstants.passwordMustBe5AtLeast,
-        ),
-      );
+      dialogController.showError(TextConstants.passwordMustBe5AtLeast);
     }
   }
 }

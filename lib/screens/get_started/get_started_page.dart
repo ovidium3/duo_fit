@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '/constants/text_constants/general_text_constants.dart';
+import '../../constants/text/general_texts.dart';
 import '/widgets/background_image.dart';
-import '/constants/data_constants/general_data_constants.dart';
+import '../../constants/data/general_data.dart';
 import '/constants/show_delay_mixin.dart';
 import '/controllers/get_started_controllers/get_started_controller.dart';
-import '/helpers/string_methods.dart';
-import '/widgets/text_widgets/main_screen_title.dart';
+import '../../widgets/text_widgets/app_title.dart';
 import '/widgets/text_widgets/title_with_description.dart';
 import 'componenets/get_started_cards_scroll_view.dart';
 import '/controllers/dialog_controller.dart';
@@ -40,10 +39,7 @@ class GetStartedPage extends GetView<GetStartedController>
                   const Spacer(),
                   DelayedDisplay(
                     delay: getDelayDuration(),
-                    child: const MainScreenTitle(
-                      mainWord: TextConstants.firstMainWord,
-                      secondaryWord: TextConstants.secondaryMainWord,
-                    ),
+                    child: const AppTitle(),
                   ),
                   const Spacer(
                     flex: 2,
@@ -116,8 +112,8 @@ class GetStartedPage extends GetView<GetStartedController>
                                             }
                                           : null,
                                   //: dialogController.showError('error'),
-                                  child: Text(
-                                    capitalize(TextConstants.next),
+                                  child: const Text(
+                                    (TextConstants.next),
                                     style: const TextStyle(
                                       color: Colors.white,
                                     ),

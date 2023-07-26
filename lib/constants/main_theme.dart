@@ -36,11 +36,11 @@ MaterialColor colorCustom = MaterialColor(0xff40D876, color);
 
 InputDecorationTheme? inputDecorationTheme = InputDecorationTheme(
   filled: true,
-  labelStyle: TextStyle(color: Colors.white.withOpacity(.7)),
+  labelStyle: TextStyle(color: ColorConstants.inputDecor.withOpacity(.7)),
   enabledBorder: const UnderlineInputBorder(
-    borderSide: BorderSide(color: Colors.white),
+    borderSide: BorderSide(color: ColorConstants.inputDecor),
   ),
   focusedBorder: const UnderlineInputBorder(
-    borderSide: BorderSide(color: Colors.white),
+    borderSide: BorderSide(color: ColorConstants.inputDecor),
   ),
 );

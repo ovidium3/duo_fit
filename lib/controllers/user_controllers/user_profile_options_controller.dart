@@ -4,17 +4,19 @@ import 'package:get/get.dart';
 import '/constants/color_constants.dart';
 import '/widgets/button_widgets/button.dart';
 import '/widgets/text_field.dart';
-import '/helpers/string_methods.dart';
-import '../dialog_controller.dart';
+import '/controllers/dialog_controller.dart';
 import 'user_info_controller.dart';
 
 class UserProfileOptionsController extends GetxController {
   UserInformationController userInformationController =
       Get.put(UserInformationController());
   DialogController dialogsAndLoadingController = Get.put(DialogController());
+
+  // Input controllers
   TextEditingController newUserNameController = TextEditingController();
   TextEditingController newEmailController = TextEditingController();
   TextEditingController newPasswordController = TextEditingController();
+
   late List userProfileOptionsList = [
     {
       "optionTitle": "change username",
@@ -30,13 +32,13 @@ class UserProfileOptionsController extends GetxController {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CustomTextField(
-                    label: capitalize("new username"),
+                    label: "new username",
                     controller: newUserNameController,
                     keyboardType: TextInputType.text),
                 SizedBox(
                   height: 50,
                   child: CustomButton(
-                      text: capitalize("update"),
+                      text: "update",
                       isOutlined: false,
                       onPressed: () {
                         Get.back();
@@ -64,9 +66,12 @@ class UserProfileOptionsController extends GetxController {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    capitalize("Select an image"),
-                    style: const TextStyle(color: Colors.white, fontSize: 20),
+                  const Text(
+                    "Select an image",
+                    style: TextStyle(
+                      color: ColorConstants.textWhite,
+                      fontSize: 20,
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -80,7 +85,7 @@ class UserProfileOptionsController extends GetxController {
                         child: const Icon(
                           Icons.perm_media,
                           size: 55,
-                          color: Color(0xff40D876),
+                          color: ColorConstants.green,
                         ),
                       ),
                       GestureDetector(
@@ -92,7 +97,7 @@ class UserProfileOptionsController extends GetxController {
                         child: const Icon(
                           Icons.camera_alt,
                           size: 55,
-                          color: Color(0xff40D876),
+                          color: ColorConstants.green,
                         ),
                       ),
                     ],
@@ -117,13 +122,13 @@ class UserProfileOptionsController extends GetxController {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CustomTextField(
-                      label: capitalize("new email"),
+                      label: "new email",
                       controller: newEmailController,
                       keyboardType: TextInputType.text),
                   SizedBox(
                     height: 50,
                     child: CustomButton(
-                        text: capitalize("update"),
+                        text: "update",
                         isOutlined: false,
                         onPressed: () async {
                           Get.back();
@@ -153,13 +158,13 @@ class UserProfileOptionsController extends GetxController {
                 children: [
                   CustomTextField(
                       obscureText: true,
-                      label: capitalize("new password"),
+                      label: "new password",
                       controller: newPasswordController,
                       keyboardType: TextInputType.visiblePassword),
                   SizedBox(
                     height: 50,
                     child: CustomButton(
-                        text: capitalize("update"),
+                        text: "update",
                         isOutlined: false,
                         onPressed: () async {
                           Get.back();
@@ -178,8 +183,8 @@ class UserProfileOptionsController extends GetxController {
       "optionIcon": Icons.delete,
       "optionFunction": () {
         dialogsAndLoadingController.showConfirmWithActions(
-          capitalize("are you sure you want to delete your account ?"),
-          capitalize("delete"),
+          "are you sure you want to delete your account ?",
+          "delete",
           () {
             Get.back();
             userInformationController.deleteUser();

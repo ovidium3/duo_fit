@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '../../controllers/tabs_controllers/workout_details_controller.dart';
 import '../../constants/color_constants.dart';
-import '../../constants/text_constants/general_text_constants.dart';
+import '../../constants/text/general_texts.dart';
 
 import '../../helpers/string_methods.dart';
 import '../../widgets/button_widgets/action_button.dart';
@@ -78,9 +78,7 @@ class WorkoutDetailsPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 40,
-                ),
+                const SizedBox(height: 40),
                 DelayedDisplay(
                   delay: Duration(milliseconds: delay + 100),
                   child: Row(
@@ -193,7 +191,7 @@ class WorkoutDetailsPage extends StatelessWidget {
                 DelayedDisplay(
                   delay: Duration(milliseconds: delay + 300),
                   child: Text(
-                    capitalize(workoutTitle),
+                    (workoutTitle),
                     style: const TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
@@ -275,7 +273,7 @@ class WorkoutDetailsPage extends StatelessWidget {
                       child: CustomButton(
                         onPressed: () {},
                         isRounded: false,
-                        text: capitalize("\$ 999"),
+                        text: ("\$ 999"),
                         isOutlined: false,
                       ),
                     ),
@@ -285,7 +283,7 @@ class WorkoutDetailsPage extends StatelessWidget {
                       child: CustomButton(
                         onPressed: () {},
                         isRounded: false,
-                        text: capitalize(TextConstants.noFreeTrialAvailable),
+                        text: (TextConstants.noFreeTrialAvailable),
                         isOutlined: true,
                       ),
                     ),

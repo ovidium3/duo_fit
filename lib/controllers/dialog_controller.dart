@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/constants/color_constants.dart';
+
+import '/constants/color_constants.dart';
+import '/constants/text/general_texts.dart';
 
 class DialogController extends GetxController {
   // Loading dialog
   showLoading() {
     Get.defaultDialog(
       title: "",
-      backgroundColor: Colors.transparent,
-      content: const SpinKitSpinningLines(
+      backgroundColor: ColorConstants.transparent,
+      content: const SpinKitThreeBounce(
         color: ColorConstants.green,
         duration: Duration(seconds: 1),
       ),
     );
   }
 
-  // dialog with Confirm
+  // Confirmation dialog
   showConfirmWithActions(
     String infoText,
     String actionButtonText,
@@ -29,7 +31,7 @@ class DialogController extends GetxController {
           children: [
             const Icon(
               Icons.warning,
-              color: Color(0xff40D876),
+              color: ColorConstants.green,
               size: 60,
             ),
             const SizedBox(height: 15),
@@ -38,7 +40,7 @@ class DialogController extends GetxController {
               child: Text(
                 infoText,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: ColorConstants.textWhite,
                   fontSize: 15,
                 ),
                 textAlign: TextAlign.center,
@@ -49,8 +51,8 @@ class DialogController extends GetxController {
         actions: [
           TextButton(
             child: const Text(
-              "Cancel",
-              style: TextStyle(color: Colors.white),
+              TextConstants.cancel,
+              style: TextStyle(color: ColorConstants.textWhite),
             ),
             onPressed: () {
               Get.back();
@@ -60,7 +62,7 @@ class DialogController extends GetxController {
             onPressed: function,
             child: Text(
               actionButtonText,
-              style: const TextStyle(color: Colors.red),
+              style: const TextStyle(color: ColorConstants.error),
             ),
           ),
         ]);
@@ -75,7 +77,7 @@ class DialogController extends GetxController {
           children: [
             const Icon(
               Icons.error,
-              color: Colors.red,
+              color: ColorConstants.error,
               size: 60,
             ),
             const SizedBox(height: 20),
@@ -84,7 +86,7 @@ class DialogController extends GetxController {
               child: Text(
                 errorText,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: ColorConstants.textWhite,
                   fontSize: 20,
                 ),
                 textAlign: TextAlign.center,
@@ -98,12 +100,12 @@ class DialogController extends GetxController {
   showSuccess(String successText) {
     Get.defaultDialog(
       title: "",
-      backgroundColor: const Color(0xff131429),
+      backgroundColor: ColorConstants.darkBlue,
       content: Column(
         children: [
           const Icon(
             Icons.done,
-            color: Color(0xff40D876),
+            color: ColorConstants.green,
             size: 60,
           ),
           const SizedBox(height: 20),
@@ -112,7 +114,7 @@ class DialogController extends GetxController {
             child: Text(
               successText,
               style: const TextStyle(
-                color: Colors.white,
+                color: ColorConstants.textWhite,
                 fontSize: 20,
               ),
               textAlign: TextAlign.center,

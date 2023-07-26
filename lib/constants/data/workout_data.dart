@@ -1,9 +1,9 @@
 import '../media_constants.dart';
-import '/constants/text_constants/workout_text_constants.dart';
+import '../text/workout_texts.dart';
 import '/models/workout_model.dart';
-import '/constants/data_constants/exercise_data_constants.dart';
+import 'exercise_data.dart';
 
-class WorkoutDataConstants {
+class WorkoutData {
   // Upper body
   static final upperBody = WorkoutModel(
     title: WorkoutTextConstants.upperTitle,
@@ -11,11 +11,11 @@ class WorkoutDataConstants {
     minutes: WorkoutTextConstants.upperMinutes,
     image: MediaConstants.upper,
     exerciseDataList: [
-      ExerciseDataConstants.shoulderPressExercise,
-      ExerciseDataConstants.pullUpExercise,
-      ExerciseDataConstants.inclineBenchExercise,
-      ExerciseDataConstants.seatedRowExercise,
-      ExerciseDataConstants.lateralRaiseExercise
+      ExerciseData.shoulderPressExercise,
+      ExerciseData.pullUpExercise,
+      ExerciseData.inclineBenchExercise,
+      ExerciseData.seatedRowExercise,
+      ExerciseData.lateralRaiseExercise
     ],
   );
 
@@ -26,10 +26,10 @@ class WorkoutDataConstants {
     minutes: WorkoutTextConstants.pushMinutes,
     image: MediaConstants.push,
     exerciseDataList: [
-      ExerciseDataConstants.shoulderPressExercise,
-      ExerciseDataConstants.inclineBenchExercise,
-      ExerciseDataConstants.tricepExtensionExercise,
-      ExerciseDataConstants.lateralRaiseExercise
+      ExerciseData.shoulderPressExercise,
+      ExerciseData.inclineBenchExercise,
+      ExerciseData.tricepExtensionExercise,
+      ExerciseData.lateralRaiseExercise
     ],
   );
 
@@ -40,10 +40,10 @@ class WorkoutDataConstants {
     minutes: WorkoutTextConstants.pullMinutes,
     image: MediaConstants.pull,
     exerciseDataList: [
-      ExerciseDataConstants.pullUpExercise,
-      ExerciseDataConstants.seatedRowExercise,
-      ExerciseDataConstants.bicepCurlExercise,
-      ExerciseDataConstants.reverseFlyExercise
+      ExerciseData.pullUpExercise,
+      ExerciseData.seatedRowExercise,
+      ExerciseData.bicepCurlExercise,
+      ExerciseData.reverseFlyExercise
     ],
   );
 
@@ -54,10 +54,10 @@ class WorkoutDataConstants {
     minutes: WorkoutTextConstants.legsMinutes,
     image: MediaConstants.legs,
     exerciseDataList: [
-      ExerciseDataConstants.squatExercise,
-      ExerciseDataConstants.legPressExercise,
-      ExerciseDataConstants.legExtensionExercise,
-      ExerciseDataConstants.hamstringCurlExercise
+      ExerciseData.squatExercise,
+      ExerciseData.legPressExercise,
+      ExerciseData.legExtensionExercise,
+      ExerciseData.hamstringCurlExercise
     ],
   );
 
@@ -68,11 +68,11 @@ class WorkoutDataConstants {
     minutes: WorkoutTextConstants.fullBodyMinutes,
     image: MediaConstants.fullBody,
     exerciseDataList: [
-      ExerciseDataConstants.shoulderPressExercise,
-      ExerciseDataConstants.squatExercise,
-      ExerciseDataConstants.pullUpExercise,
-      ExerciseDataConstants.inclineBenchExercise,
-      ExerciseDataConstants.seatedRowExercise
+      ExerciseData.shoulderPressExercise,
+      ExerciseData.squatExercise,
+      ExerciseData.pullUpExercise,
+      ExerciseData.inclineBenchExercise,
+      ExerciseData.seatedRowExercise
     ],
   );
 
@@ -83,10 +83,10 @@ class WorkoutDataConstants {
       minutes: WorkoutTextConstants.armsMinutes,
       image: MediaConstants.arms,
       exerciseDataList: [
-        ExerciseDataConstants.skullcrusherExercise,
-        ExerciseDataConstants.barbellCurlExercise,
-        ExerciseDataConstants.tricepExtensionExercise,
-        ExerciseDataConstants.bicepCurlExercise,
+        ExerciseData.skullcrusherExercise,
+        ExerciseData.barbellCurlExercise,
+        ExerciseData.tricepExtensionExercise,
+        ExerciseData.bicepCurlExercise,
       ]);
 
   // Abs
@@ -96,10 +96,10 @@ class WorkoutDataConstants {
       minutes: WorkoutTextConstants.absMinutes,
       image: MediaConstants.abs,
       exerciseDataList: [
-        ExerciseDataConstants.legRaiseExercise,
-        ExerciseDataConstants.kneeRaiseExercise,
-        ExerciseDataConstants.russianTwistExercise,
-        ExerciseDataConstants.crunchExercise,
+        ExerciseData.legRaiseExercise,
+        ExerciseData.kneeRaiseExercise,
+        ExerciseData.russianTwistExercise,
+        ExerciseData.crunchExercise,
       ]);
 
   // Shoulders
@@ -109,8 +109,8 @@ class WorkoutDataConstants {
       minutes: WorkoutTextConstants.shouldersMinutes,
       image: MediaConstants.shoulders,
       exerciseDataList: [
-        ExerciseDataConstants.shoulderPressExercise,
-        ExerciseDataConstants.lateralRaiseExercise,
-        ExerciseDataConstants.reverseFlyExercise,
+        ExerciseData.shoulderPressExercise,
+        ExerciseData.lateralRaiseExercise,
+        ExerciseData.reverseFlyExercise,
       ]);
 }

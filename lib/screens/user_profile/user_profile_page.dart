@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
+import 'package:duo_fit/constants/text/general_texts.dart';
 import 'package:duo_fit/widgets/button_widgets/button.dart';
 import '../../controllers/auth_controllers/sign_out_controller.dart';
 import '../../controllers/user_controllers/user_info_controller.dart';
@@ -21,10 +21,12 @@ class UserProfile extends StatefulWidget {
 }
 
 class _UserProfileState extends State<UserProfile> {
+  // Dependency injections
   final UserInformationController userInformationController = Get.find();
   final SignOutController signOutController = Get.put(SignOutController());
+
   Color? scfldColor = ColorConstants.darkBlue;
-  Color? overlayedColor = const Color.fromARGB(255, 22, 23, 43);
+  Color? overlayedColor = const Color.fromARGB(255, 21, 22, 45);
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +66,7 @@ class _UserProfileState extends State<UserProfile> {
                                     height: 300,
                                     child: Center(
                                       child: SpinKitSpinningLines(
-                                        color: Color(0xff40D876),
+                                        color: ColorConstants.green,
                                         duration: Duration(seconds: 1),
                                         size: 60,
                                       ),
@@ -78,17 +80,13 @@ class _UserProfileState extends State<UserProfile> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 DelayedDisplay(
                   delay: Duration(milliseconds: delay + 400),
                   child: Obx(
                     () => DelayedDisplay(
                       child: Text(
-                        capitalize(
-                          userInformationController.username.value,
-                        ),
+                        userInformationController.username.value,
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 25,
@@ -98,15 +96,13 @@ class _UserProfileState extends State<UserProfile> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 DelayedDisplay(
                   delay: Duration(milliseconds: delay + 300),
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Text(
-                      "this take the place of description, it's not implemented yet like the row below, it's desactivated for now",
+                      TextConstants.profileDescription,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,
@@ -115,9 +111,7 @@ class _UserProfileState extends State<UserProfile> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 40,
-                ),
+                const SizedBox(height: 40),
                 DelayedDisplay(
                   delay: Duration(milliseconds: delay + 400),
                   child: Row(
@@ -126,11 +120,8 @@ class _UserProfileState extends State<UserProfile> {
                       ...List.generate(
                         UserProfileStats.stats.length,
                         (i) => Stat(
-                          statValue:
-                              capitalize(UserProfileStats.stats[i]["value"]),
-                          statTitle: capitalize(
-                            UserProfileStats.stats[i]["title"],
-                          ),
+                          statValue: (UserProfileStats.stats[i]["value"]),
+                          statTitle: UserProfileStats.stats[i]["title"],
                         ),
                       ),
                     ],
@@ -138,13 +129,11 @@ class _UserProfileState extends State<UserProfile> {
                 ),
               ],
             ),
-            const Spacer(
-              flex: 2,
-            ),
+            const Spacer(flex: 2),
             DelayedDisplay(
               delay: Duration(milliseconds: delay + 500),
               child: CustomButton(
-                  text: capitalize(TextConstants.configureSettings),
+                  text: (TextConstants.configureSettings),
                   isOutlined: true,
                   onPressed: () {
                     Get.to(() => CustomProfileSettings(), arguments: [

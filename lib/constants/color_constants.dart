@@ -5,12 +5,14 @@ class ColorConstants {
   static const Color darkBlue = Color(0xff131429);
   static const Color green = Color(0xff40D876);
   static const Color textWhite = Colors.white;
+  static const Color inputDecor = Colors.white;
 
   // Text colors
   static const Color textBlack = Colors.black;
 
   // Other colors
   static const Color error = Colors.red;
+  static const Color transparent = Colors.transparent;
 }
 
 // fitness app colors

@@ -40,8 +40,8 @@ class CustomProfileSettings extends StatelessWidget {
                         .userProfileOptionsList[i]["optionFunction"],
                     child: ListTile(
                       title: Text(
-                        capitalize(userProfileOptionsController
-                            .userProfileOptionsList[i]["optionTitle"]),
+                        (userProfileOptionsController.userProfileOptionsList[i]
+                            ["optionTitle"]),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: i ==

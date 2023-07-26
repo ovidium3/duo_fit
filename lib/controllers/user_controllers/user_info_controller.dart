@@ -83,9 +83,7 @@ class UserInformationController extends GetxController {
 
     // Show error if there is no img
     dialogsAndLoadingController.showError(
-      capitalize(
-        "operation canceled",
-      ),
+      "Operation canceled",
     );
     return null;
   }
@@ -101,9 +99,7 @@ class UserInformationController extends GetxController {
       return image;
     }
     dialogsAndLoadingController.showError(
-      capitalize(
-        "operation canceled",
-      ),
+      "Operation canceled",
     );
     return null;
   }
@@ -147,9 +143,7 @@ class UserInformationController extends GetxController {
 
         // show success msg to user
         dialogsAndLoadingController.showSuccess(
-          capitalize(
-            "profile image updated successfully",
-          ),
+          "Profile image updated successfully",
         );
       } on firebasecore.FirebaseException catch (e) {
         // On Error, pop first loading
@@ -169,7 +163,7 @@ class UserInformationController extends GetxController {
     // Show loading
     dialogsAndLoadingController.showLoading();
 
-    /// checks on String is necessary to avoid weird results
+    // checks on String is necessary to avoid weird results
     try {
       // Update username in firestore
       await _firestore
@@ -186,8 +180,7 @@ class UserInformationController extends GetxController {
       username.value = newUsername;
 
       // Show success msg to user
-      dialogsAndLoadingController
-          .showSuccess(capitalize("username updates successfully"));
+      dialogsAndLoadingController.showSuccess("Username updated successfully");
     } on FirebaseException catch (e) {
       /// Need more checks
       // Show error to user
@@ -218,9 +211,8 @@ class UserInformationController extends GetxController {
 
       // Show success msg to user
       dialogsAndLoadingController.showSuccess(
-        capitalize(
-          "email updates successfully",
-        ),
+        //capitalize(
+        "Email updated successfully",
       );
     } on FirebaseAuthException catch (e) {
       // pop loading
@@ -229,8 +221,8 @@ class UserInformationController extends GetxController {
       // Firebase rules: if you want to update it, you should re-login to verify that your the owner, you can do it programitically, re-autenticate and u^date it without letting user to know, but since it make since to ask a to re-auth
       if (e.code == 'requires-recent-login') {
         dialogsAndLoadingController.showConfirmWithActions(
-            "due to safety reasons, you need a recent re-login to your account in order to get permission to change email",
-            capitalize("re-login"), () {
+            "Due to safety reasons, you need a recent re-login to your account in order to get permission to change email",
+            "re-login", () {
           _auth.signOut();
         });
       } else {
@@ -261,9 +253,8 @@ class UserInformationController extends GetxController {
 
       // Show success msg to user
       dialogsAndLoadingController.showSuccess(
-        capitalize(
-          "password updates successfully",
-        ),
+        //capitalize(
+        "Password updated successfully",
       );
     } on FirebaseAuthException catch (e) {
       // Pop loading
@@ -273,13 +264,13 @@ class UserInformationController extends GetxController {
       if (e.code == 'requires-recent-login') {
         dialogsAndLoadingController.showConfirmWithActions(
             "due to safety reasons, you need a recent re-login to your account in order to get permission to change password",
-            capitalize("re-login"), () {
+            "re-login", () {
           _auth.signOut();
         });
       }
       // other checks
       else if (e.code == 'weak-password') {
-        dialogsAndLoadingController.showError(capitalize("weak password"));
+        dialogsAndLoadingController.showError("Weak password");
       } else {
         dialogsAndLoadingController.showError(e.toString());
       }
@@ -299,7 +290,7 @@ class UserInformationController extends GetxController {
       /// Delete user from firestore (to-do)
 
       // show success msg to user
-      dialogsAndLoadingController.showSuccess(capitalize("user deleted"));
+      dialogsAndLoadingController.showSuccess("User deleted");
     } on FirebaseException catch (e) {
       // pop loading
       Get.back();
@@ -308,13 +299,13 @@ class UserInformationController extends GetxController {
       if (e.code == 'requires-recent-login') {
         dialogsAndLoadingController.showConfirmWithActions(
             "due to safety reasons, you need a recent re-login to your account in order to get permission to change password",
-            capitalize("re-login"), () {
+            "re-login", () {
           _auth.signOut();
         });
       }
       // Other checks
       else if (e.code == 'weak-password') {
-        dialogsAndLoadingController.showError(capitalize("weak password"));
+        dialogsAndLoadingController.showError("weak password");
       } else {
         dialogsAndLoadingController.showError(e.toString());
       }

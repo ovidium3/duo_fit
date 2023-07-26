@@ -6,7 +6,6 @@ import '/screens/welcome/welcome_page.dart';
 import '/screens/home/home_page.dart';
 
 class AuthStateController extends GetxController {
-  // An observable that can bu null
   Rxn<User?> user = Rxn<User?>(null);
 
   // Auth state handler
@@ -15,10 +14,8 @@ class AuthStateController extends GetxController {
       Get.offAll(WelcomePage());
     } else {
       if (!user.emailVerified) {
-        // print("user is signed in but not verified");
         Get.offAll(EmailVerificationPage());
       } else {
-        // print("user is signed in");
         Get.offAll(HomePage());
       }
     }

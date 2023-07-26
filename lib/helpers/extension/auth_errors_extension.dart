@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import '/constants/text_constants/error_text_constants.dart';
+import '../../constants/text/error_texts.dart';
 import 'package:duo_fit/controllers/dialog_controller.dart';
 
 extension HandleAuthErrors on GetxController {
@@ -11,17 +11,17 @@ extension HandleAuthErrors on GetxController {
         .substring(e.message!.indexOf('(') + 1, e.message!.indexOf(')'));
     switch (specificErrorMessage) {
       case 'auth/invalid-email':
-        dialogController.showError(ErrorTextConstants.invalidEmail);
+        dialogController.showError(ErrorTexts.invalidEmail);
       case 'auth/user-disabled':
-        dialogController.showError(ErrorTextConstants.userDisabled);
+        dialogController.showError(ErrorTexts.userDisabled);
       case 'auth/user-not-found':
-        dialogController.showError(ErrorTextConstants.userNotFound);
+        dialogController.showError(ErrorTexts.userNotFound);
       case 'auth/email-already-in-use':
-        dialogController.showError(ErrorTextConstants.emailInUse);
+        dialogController.showError(ErrorTexts.emailInUse);
       case 'auth/wrong-password':
-        dialogController.showError(ErrorTextConstants.wrongPassword);
+        dialogController.showError(ErrorTexts.wrongPassword);
       case 'auth/weak-password':
-        dialogController.showError(ErrorTextConstants.weakPassword);
+        dialogController.showError(ErrorTexts.weakPassword);
       default:
         e.message ?? 'Error';
     }

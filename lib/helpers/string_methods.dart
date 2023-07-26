@@ -5,17 +5,17 @@ double btnScaleValue = 1;
 int delay = 300;
 
 // Capitalize Strings in sentences
-capitalize(String text) {
-  if (text.isEmpty) {
-    return text;
-  }
-  // in case of last letter is " " it makes an error so first :
-  if (text[text.length - 1] == " ") {
-    return text.trim().split(' ').map((word) {
-      return "${word[0].toUpperCase()}${word.substring(1)} ";
-    }).join(' ');
-  }
-  return text.split(' ').map((word) {
-    return word[0].toUpperCase() + word.substring(1);
-  }).join(' ');
-}
+// capitalize(String text) {
+//   if (text.isEmpty) {
+//     return text;
+//   }
+//   // in case of last letter is " " it makes an error so first :
+//   if (text[text.length - 1] == " ") {
+//     return text.trim().split(' ').map((word) {
+//       return "${word[0].toUpperCase()}${word.substring(1)} ";
+//     }).join(' ');
+//   }
+//   return text.split(' ').map((word) {
+//     return word[0].toUpperCase() + word.substring(1);
+//   }).join(' ');
+// }

@@ -1,27 +1,36 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controllers/auth_controllers/sign_up_controller/extensions/text_editing_controller_lifecycle.dart';
+
 import '../../dialog_controller.dart';
 
 class SignUpController extends GetxController {
+  // Dependency injection
+  final DialogController dialogController = Get.find();
+
+  // Input controllers
   late TextEditingController signUpUserController,
       signUpEmailController,
       signUpPasswordController;
-  final DialogController dialogsAndLoadingController = Get.find();
-  // Get moment time (in this case, get more info about user)
+
+  // Get current time to mark the program's start date
   FieldValue thisMomentTime = FieldValue.serverTimestamp();
 
   @override
   void onInit() {
-    initializeTextEditingControllers();
+    // Input controller creation
+    signUpUserController = TextEditingController();
+    signUpEmailController = TextEditingController();
+    signUpPasswordController = TextEditingController();
     super.onInit();
   }
 
   @override
   void onClose() {
-    disposeTextEditingControllers();
+    // Input controller disposal
+    signUpEmailController.dispose();
+    signUpPasswordController.dispose();
+    signUpUserController.dispose();
     super.onClose();
   }
 }

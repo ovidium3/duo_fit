@@ -11,14 +11,10 @@ extension AddExtraInfoExt on SignUpController {
     required String profileImgPath,
     required String uid,
     required bool isEmailVerified,
-    String? password,
   }) async {
     // Add by uid
     await FirebaseFirestore.instance.collection("aboutUsers").doc(uid).set({
       "email": email,
-
-      // there is no reason to get the password, for users privacy, don't store it in the database
-      "password": password ?? "",
       "username": username,
       "profileImgPath": profileImgPath,
       "uid": credential.user!.uid,

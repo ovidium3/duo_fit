@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
 import '/constants/media_constants.dart';
-import '/constants/text_constants/general_text_constants.dart';
+import '../../constants/text/general_texts.dart';
 import '/widgets/text_widgets/title_with_description.dart';
 import '/constants/show_delay_mixin.dart';
 import '/widgets/button_widgets/button.dart';
-import '/widgets/text_widgets/main_screen_title.dart';
+import '../../widgets/text_widgets/app_title.dart';
 import '/widgets/background_image.dart';
 
 class WelcomePage extends StatelessWidget with DelayHelperMixin {
@@ -20,9 +20,7 @@ class WelcomePage extends StatelessWidget with DelayHelperMixin {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          BackgroundImage(
-            backgroundImage: MediaConstants().randomFromAssetsList(),
-          ),
+          const BackgroundImage(),
           Container(
             color: ColorConstants.darkBlue.withOpacity(0.69),
             width: double.infinity,
@@ -35,10 +33,7 @@ class WelcomePage extends StatelessWidget with DelayHelperMixin {
                   // App title display
                   DelayedDisplay(
                     delay: getDelayDuration(),
-                    child: const MainScreenTitle(
-                      mainWord: TextConstants.firstMainWord,
-                      secondaryWord: TextConstants.secondaryMainWord,
-                    ),
+                    child: const AppTitle(),
                   ),
                   const Spacer(flex: 2),
 
@@ -66,9 +61,7 @@ class WelcomePage extends StatelessWidget with DelayHelperMixin {
                           isOutlined: false,
                         ),
                       ),
-                      const SizedBox(
-                        height: 15,
-                      ),
+                      const SizedBox(height: 15),
                       // Login button
                       DelayedDisplay(
                         delay: getDelayDuration(),

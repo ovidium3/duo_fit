@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controllers/auth_controllers/sign_out_controller.dart';
-import 'package:duo_fit/constants/media_constants.dart';
-import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
-import 'package:duo_fit/widgets/button_widgets/button.dart';
 
-import '../../controllers/auth_controllers/email_verfication_controller.dart';
-import '../../helpers/string_methods.dart';
+import '/controllers/auth_controllers/sign_out_controller.dart';
+import '/constants/media_constants.dart';
+import '/constants/text/general_texts.dart';
+import '/constants/color_constants.dart';
+import '/widgets/button_widgets/button.dart';
+import '/controllers/auth_controllers/email_verification_controller.dart';
 
-class EmailVerificationPage extends StatelessWidget {
+class EmailVerificationPage extends GetView<EmailVerificationController> {
   EmailVerificationPage({super.key});
+
   // Dependency injections
-  final EmailVerificationController emailVerificationController =
-      Get.put(EmailVerificationController());
+  // final EmailVerificationController emailVerificationController =
+  //     Get.put(EmailVerificationController());
   final SignOutController signOutController = Get.put(SignOutController());
 
   @override
@@ -31,7 +32,7 @@ class EmailVerificationPage extends StatelessWidget {
                 onPressed: () {
                   signOutController.signOut();
                 },
-                child: const Text("sign out test"),
+                child: const Text(TextConstants.logOut),
               ),
               const Spacer(),
               Container(
@@ -50,15 +51,13 @@ class EmailVerificationPage extends StatelessWidget {
                         width: 90,
                         child: Image.asset(MediaConstants.imgVerification),
                       ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Text(
+                      const SizedBox(height: 30),
+                      const Text(
                         TextConstants.emailSentText,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 16,
-                          color: Colors.white,
+                          color: ColorConstants.textWhite,
                         ),
                       ),
                     ],
@@ -67,20 +66,21 @@ class EmailVerificationPage extends StatelessWidget {
               ),
               const Spacer(),
               CustomButton(
-                  text: capitalize(TextConstants.done),
+                  text: TextConstants.done,
                   isOutlined: false,
                   onPressed: () {
-                    emailVerificationController.checkEmailVerified();
+                    print("hit");
+                    controller.checkEmailVerified();
                   }),
               const SizedBox(
                 height: 20,
               ),
               GestureDetector(
                 onTap: () {
-                  emailVerificationController.sendVerificationEmail();
+                  controller.sendVerificationEmail();
                 },
                 child: Text(
-                  capitalize(TextConstants.reSendEmailVerification),
+                  TextConstants.reSendEmailVerification,
                   style: TextStyle(
                       decoration: TextDecoration.underline,
                       color: Theme.of(context).primaryColor),

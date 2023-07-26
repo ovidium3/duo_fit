@@ -6,7 +6,6 @@ class FirebaseConfigurations {
   // Initialize firebase
   static Future<void> init() async {
     await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+        options: DefaultFirebaseOptions.currentPlatform);
   }
 }

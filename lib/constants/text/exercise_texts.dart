@@ -164,11 +164,11 @@ class ExerciseTextConstants {
       "Lower the barbell back down slowly to the starting position.";
 
   // Leg Raise
-  static const String legRaise = "Leg Raise (Hanging or on Parallel Bars)";
+  static const String legRaise = "Leg Raise (Hanging)";
   static const String legRaiseDescription =
       "The Leg Raise targets the lower abdominal muscles, contributing to core strength and definition for the V-taper aesthetic physique.";
   static const String legRaiseStep1 =
-      "Hang from a pull-up bar or parallel bars with arms extended.";
+      "Hang from a pull-up bar if you can, or lay on the ground.";
   static const String legRaiseStep2 =
       "Lift your legs by bending at the hips, bringing them towards your chest.";
   static const String legRaiseStep3 =

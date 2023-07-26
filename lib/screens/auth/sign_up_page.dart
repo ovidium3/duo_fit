@@ -3,23 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/controllers/auth_controllers/sign_up_controller/extensions/create_new_account/create_new_account.dart';
-import '/controllers/auth_controllers/sign_up_controller/extensions/handle_going_to_login_page.dart';
 import '/controllers/auth_controllers/sign_up_controller/sign_up_controller.dart';
 import '/constants/color_constants.dart';
-import '/constants/text_constants/general_text_constants.dart';
+import '/constants/text/general_texts.dart';
 import '/constants/show_delay_mixin.dart';
-import '/helpers/string_methods.dart';
 import '/widgets/button_widgets/button.dart';
-import '/widgets/text_widgets/main_screen_title.dart';
+import '../../widgets/text_widgets/app_title.dart';
 import '/widgets/background_image.dart';
 import '/widgets/text_field.dart';
 import '/widgets/text_widgets/title_with_description.dart';
-import '/controllers/auth_controllers/login_controller/login_controller.dart';
+import '/screens/auth/login_page.dart';
 
 class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
   SignUpPage({super.key});
-
-  final LoginController loginController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -55,17 +51,13 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                       const Spacer(),
                       DelayedDisplay(
                         delay: getDelayDuration(),
-                        child: MainScreenTitle(
-                            mainWord: TextConstants.firstMainWord,
-                            secondaryWord: TextConstants.secondaryMainWord),
+                        child: const AppTitle(),
                       ),
-                      const Spacer(
-                        flex: 2,
-                      ),
+                      const Spacer(flex: 2),
                       DelayedDisplay(
                         delay: getDelayDuration(),
-                        child: TitleWithDescription(
-                          title: capitalize(TextConstants.signUp),
+                        child: const TitleWithDescription(
+                          title: TextConstants.signUp,
                           description: TextConstants.signUpDescription,
                         ),
                       ),
@@ -74,7 +66,7 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                         child: CustomTextField(
                           keyboardType: TextInputType.name,
                           controller: controller.signUpUserController,
-                          label: capitalize(TextConstants.username),
+                          label: TextConstants.username,
                         ),
                       ),
                       DelayedDisplay(
@@ -82,7 +74,7 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                         child: CustomTextField(
                           keyboardType: TextInputType.emailAddress,
                           controller: controller.signUpEmailController,
-                          label: capitalize(TextConstants.email),
+                          label: TextConstants.email,
                         ),
                       ),
                       DelayedDisplay(
@@ -90,7 +82,7 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                         child: CustomTextField(
                           keyboardType: TextInputType.text,
                           controller: controller.signUpPasswordController,
-                          label: capitalize(TextConstants.password),
+                          label: TextConstants.password,
                           obscureText: true,
                         ),
                       ),
@@ -112,21 +104,21 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                                 );
                               },
                               isRounded: false,
-                              text: capitalize(TextConstants.signUp),
+                              text: (TextConstants.signUp),
                               isOutlined: true,
                             ),
                           ),
-                          const SizedBox(
-                            height: 20,
-                          ),
+                          const SizedBox(height: 20),
                           DelayedDisplay(
                             delay: getDelayDuration(),
                             child: GestureDetector(
                               onTap: () {
-                                controller.handleGoingToLoginPage();
+                                Get.previousRoute == "/getStarted"
+                                    ? Get.to(LoginPage())
+                                    : Get.back();
                               },
                               child: Text(
-                                capitalize(TextConstants.alreadyHaveAnAccount),
+                                TextConstants.alreadyHaveAnAccount,
                                 style: TextStyle(
                                   fontSize: 14,
                                   color: Theme.of(context).primaryColor,
@@ -137,9 +129,7 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
+                      const SizedBox(height: 10),
                     ],
                   ),
                 ),

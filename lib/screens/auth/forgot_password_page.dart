@@ -1,14 +1,15 @@
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/media_constants.dart';
-import 'package:duo_fit/constants/text_constants/general_text_constants.dart';
-import '../../controllers/auth_controllers/forgot_password_controller.dart';
-import '../../helpers/string_methods.dart';
-import '../../widgets/button_widgets/button.dart';
-import '../../widgets/text_field.dart';
-import '../../widgets/text_widgets/title_with_description.dart';
+
+import '/constants/color_constants.dart';
+import 'package:duo_fit/constants/text/general_texts.dart';
+import '/controllers/auth_controllers/forgot_password_controller.dart';
+import '/helpers/string_methods.dart';
+import '/widgets/button_widgets/button.dart';
+import '/widgets/text_field.dart';
+import '/widgets/text_widgets/title_with_description.dart';
+import '/widgets/background_image.dart';
 
 class ForgotPasswordPage extends GetView<ForgotPasswordController> {
   const ForgotPasswordPage({super.key});
@@ -18,13 +19,7 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
     return Scaffold(
       body: Stack(
         children: [
-          SizedBox(
-            width: double.infinity,
-            child: Image.asset(
-              MediaConstants().randomFromAssetsList(),
-              fit: BoxFit.cover,
-            ),
-          ),
+          const BackgroundImage(),
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -45,11 +40,9 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
                 children: [
                   DelayedDisplay(
                     delay: Duration(milliseconds: delay + 100),
-                    child: TitleWithDescription(
-                      title: capitalize(TextConstants.forgotPassword),
-                      description: capitalize(TextConstants
-                          .forgotPasswordDesccription
-                          .toLowerCase()),
+                    child: const TitleWithDescription(
+                      title: TextConstants.forgotPassword,
+                      description: TextConstants.forgotPasswordDesccription,
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -57,9 +50,8 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
                     delay: Duration(milliseconds: delay + 200),
                     child: CustomTextField(
                       controller: controller.recoveryEmailController,
-                      //forgotPasswordController.recoveryEmailController,
                       keyboardType: TextInputType.emailAddress,
-                      label: capitalize(TextConstants.yourEmail),
+                      label: (TextConstants.yourEmail),
                     ),
                   ),
                   const SizedBox(height: 50),
@@ -69,12 +61,9 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
                       onPressed: () {
                         controller.recoverPassword(
                             controller.recoveryEmailController.text);
-                        // forgotPasswordController.recoverPassword(
-                        //     forgotPasswordController
-                        //         .recoveryEmailController.text);
                       },
                       isRounded: false,
-                      text: capitalize(TextConstants.resetPassword),
+                      text: TextConstants.resetPassword,
                       isOutlined: true,
                     ),
                   ),
