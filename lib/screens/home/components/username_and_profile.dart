@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants/text/general_texts.dart';
+import '/constants/text/general_texts.dart';
+import '/constants/color_constants.dart';
 import 'avatar.dart';
 
 class ProfileAndUsername extends StatelessWidget {
@@ -32,7 +33,7 @@ class ProfileAndUsername extends StatelessWidget {
               TextSpan(
                 text: ' $username',
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: ColorConstants.textWhite,
                   fontWeight: FontWeight.normal,
                 ),
               ),

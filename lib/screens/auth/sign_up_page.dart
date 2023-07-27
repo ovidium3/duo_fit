@@ -2,12 +2,12 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '/controllers/auth_controllers/sign_up_controller/extensions/create_new_account/create_new_account.dart';
-import '/controllers/auth_controllers/sign_up_controller/sign_up_controller.dart';
+import '../../controllers/auth/sign_up_controller/extensions/create_new_account.dart';
+import '../../controllers/auth/sign_up_controller/sign_up_controller.dart';
 import '/constants/color_constants.dart';
 import '/constants/text/general_texts.dart';
 import '/constants/show_delay_mixin.dart';
-import '/widgets/button_widgets/button.dart';
+import '../../widgets/button_widgets/auth_button.dart';
 import '../../widgets/text_widgets/app_title.dart';
 import '/widgets/background_image.dart';
 import '/widgets/text_field.dart';
@@ -91,7 +91,7 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                         children: [
                           DelayedDisplay(
                             delay: getDelayDuration(),
-                            child: CustomButton(
+                            child: AuthButton(
                               onPressed: () {
                                 controller.createNewAccount(
                                   email: controller.signUpEmailController.text

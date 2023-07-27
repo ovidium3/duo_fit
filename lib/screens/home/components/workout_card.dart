@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/constants/color_constants.dart';
 
+import '/constants/color_constants.dart';
 import '../../workout_details/workout_details_page.dart';
 
 class WorkoutCard extends StatelessWidget {
@@ -17,6 +17,7 @@ class WorkoutCard extends StatelessWidget {
   String imagePath;
   List listCollection;
   int index;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -28,12 +29,7 @@ class WorkoutCard extends StatelessWidget {
           movesNumber: listCollection[index]["movesNumber"] ?? "?",
           setsNumber: listCollection[index]["setsNumber"] ?? "?",
           durationInMinutes: listCollection[index]["durationInMinutes"] ?? "?",
-          //rating: listCollection[index]["rating"] ?? "?",
           description: listCollection[index]["description"] ?? "?",
-          //reviews: listCollection[index]["reviews"] ?? "?",
-          //comments: listCollection[index]["comments"] ?? "?",
-          //priceInDollars: listCollection[index]["priceInDollars"] ?? "?",
-          //hasFreeTrial: listCollection[index]["hasFreeTrial"] ?? "?",
         ));
       },
       child: Container(
@@ -53,13 +49,11 @@ class WorkoutCard extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             Text(
               title,
               style: TextStyle(
-                color: Colors.white.withOpacity(0.75),
+                color: ColorConstants.textWhite.withOpacity(0.75),
                 fontSize: 13,
               ),
             ),

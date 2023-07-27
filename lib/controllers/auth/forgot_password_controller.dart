@@ -2,14 +2,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-import '../../constants/text/general_texts.dart';
+import '/constants/text/general_texts.dart';
 import '/controllers/dialog_controller.dart';
-import '/helpers/extension/auth_validation_extension.dart';
 import '/helpers/extension/auth_errors_extension.dart';
+import '/helpers/extension/auth_validation_extension.dart';
+import '/screens/auth/login_page.dart';
 
 class ForgotPasswordController extends GetxController {
   // Dependency injection
-  DialogController dialogController = Get.put(DialogController());
+  DialogController dialogController = Get.find();
 
   // Input controller
   late TextEditingController recoveryEmailController;
@@ -18,10 +19,10 @@ class ForgotPasswordController extends GetxController {
   recoverPassword(String email) async {
     if (email.isValidEmail) {
       try {
+        // Send reset password email, navigate to login page, show success dialog
         dialogController.showLoading();
         await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-        // Pop loading and show success dialog
-        Get.back();
+        Get.to(LoginPage());
         dialogController.showSuccess(TextConstants.emailVerifSentText);
       } on FirebaseAuthException catch (e) {
         // Pop loading and show error message

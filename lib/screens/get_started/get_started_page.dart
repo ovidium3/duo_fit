@@ -7,7 +7,7 @@ import '../../constants/text/general_texts.dart';
 import '/widgets/background_image.dart';
 import '../../constants/data/general_data.dart';
 import '/constants/show_delay_mixin.dart';
-import '/controllers/get_started_controllers/get_started_controller.dart';
+import '../../controllers/get_started/get_started_controller.dart';
 import '../../widgets/text_widgets/app_title.dart';
 import '/widgets/text_widgets/title_with_description.dart';
 import 'componenets/get_started_cards_scroll_view.dart';
@@ -58,8 +58,8 @@ class GetStartedPage extends GetView<GetStartedController>
                   Theme(
                     data: Theme.of(context).copyWith(
                       colorScheme: Theme.of(context).colorScheme.copyWith(
-                            primary: Colors.transparent,
-                            secondary: Colors.transparent,
+                            primary: ColorConstants.transparent,
+                            secondary: ColorConstants.transparent,
                           ),
                     ),
                     child: GetStartedCardsScrollView(
@@ -105,17 +105,16 @@ class GetStartedPage extends GetView<GetStartedController>
                                     backgroundColor:
                                         Theme.of(context).primaryColor,
                                   ),
-                                  onPressed:
-                                      controller.hasUserChooserAtLeastOneChoice
-                                          ? () {
-                                              Get.toNamed("/signUp");
-                                            }
-                                          : null,
+                                  onPressed: controller.anyCardTapped
+                                      ? () {
+                                          Get.toNamed("/signUp");
+                                        }
+                                      : null,
                                   //: dialogController.showError('error'),
                                   child: const Text(
                                     (TextConstants.next),
-                                    style: const TextStyle(
-                                      color: Colors.white,
+                                    style: TextStyle(
+                                      color: ColorConstants.textWhite,
                                     ),
                                   ),
                                 );

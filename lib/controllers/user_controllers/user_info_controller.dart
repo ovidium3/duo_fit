@@ -2,16 +2,15 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:firebase_core/firebase_core.dart' as firebasecore;
-import '../../helpers/string_methods.dart';
+
 import '../dialog_controller.dart';
 
 class UserInformationController extends GetxController {
   // Dependency injection
-  DialogController dialogsAndLoadingController = Get.put(DialogController());
+  DialogController dialogController = Get.find();
 
   // Username if some problem happened getting the username from user himself
   late RxString username = "Anonym user".obs;
@@ -23,14 +22,10 @@ class UserInformationController extends GetxController {
 // profile img path getted from firestore
   String? newGettedPath;
 
-  // firestore instance
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
-  // firebase auth instance
+  // Firebase instances of auth, firestore and storage
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
-  // storage instance
-  final storage = FirebaseStorage.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseStorage _storage = FirebaseStorage.instance;
 
   // ImgPicker instance
   ImagePicker picker = ImagePicker();
@@ -82,7 +77,7 @@ class UserInformationController extends GetxController {
     }
 
     // Show error if there is no img
-    dialogsAndLoadingController.showError(
+    dialogController.showError(
       "Operation canceled",
     );
     return null;
@@ -98,7 +93,7 @@ class UserInformationController extends GetxController {
     if (isImgPicked) {
       return image;
     }
-    dialogsAndLoadingController.showError(
+    dialogController.showError(
       "Operation canceled",
     );
     return null;
@@ -110,7 +105,7 @@ class UserInformationController extends GetxController {
 
     // FB storage reference
     final Reference userProfileImgReference =
-        storage.ref("usersProfileImgs/${_auth.currentUser!.uid}");
+        _storage.ref("usersProfileImgs/${_auth.currentUser!.uid}");
 
     late String imageDownloadURL;
     //
@@ -119,7 +114,7 @@ class UserInformationController extends GetxController {
       File imgFile = File(image.path);
 
       try {
-        dialogsAndLoadingController.showLoading();
+        dialogController.showLoading();
 
         // Upload img to firebase storage
         await userProfileImgReference.putFile(imgFile);
@@ -142,15 +137,15 @@ class UserInformationController extends GetxController {
         Get.back();
 
         // show success msg to user
-        dialogsAndLoadingController.showSuccess(
+        dialogController.showSuccess(
           "Profile image updated successfully",
         );
-      } on firebasecore.FirebaseException catch (e) {
+      } on FirebaseException catch (e) {
         // On Error, pop first loading
         Get.back();
 
         // Then show it to user (you can here set case for each error type, (in case you want to help, set some if checks here))
-        dialogsAndLoadingController.showError("$e");
+        dialogController.showError("$e");
       }
     } else {
       // Show error if there is no img (not necessary to show it to user)
@@ -161,7 +156,7 @@ class UserInformationController extends GetxController {
   // Update username in firestore and set new one in the view (lifecycle)
   updateUsername(String newUsername) async {
     // Show loading
-    dialogsAndLoadingController.showLoading();
+    dialogController.showLoading();
 
     // checks on String is necessary to avoid weird results
     try {
@@ -180,18 +175,18 @@ class UserInformationController extends GetxController {
       username.value = newUsername;
 
       // Show success msg to user
-      dialogsAndLoadingController.showSuccess("Username updated successfully");
+      dialogController.showSuccess("Username updated successfully");
     } on FirebaseException catch (e) {
       /// Need more checks
       // Show error to user
-      dialogsAndLoadingController.showError("${e.message}");
+      dialogController.showError("${e.message}");
     }
   }
 
   // Update login email with FirebaseAuth
   updateEmail(String newEmail) async {
     // Show loading
-    dialogsAndLoadingController.showLoading();
+    dialogController.showLoading();
 
     try {
       // Update email in firebase auth
@@ -210,7 +205,7 @@ class UserInformationController extends GetxController {
       Get.back();
 
       // Show success msg to user
-      dialogsAndLoadingController.showSuccess(
+      dialogController.showSuccess(
         //capitalize(
         "Email updated successfully",
       );
@@ -220,14 +215,14 @@ class UserInformationController extends GetxController {
 
       // Firebase rules: if you want to update it, you should re-login to verify that your the owner, you can do it programitically, re-autenticate and u^date it without letting user to know, but since it make since to ask a to re-auth
       if (e.code == 'requires-recent-login') {
-        dialogsAndLoadingController.showConfirmWithActions(
+        dialogController.showConfirmWithActions(
             "Due to safety reasons, you need a recent re-login to your account in order to get permission to change email",
             "re-login", () {
           _auth.signOut();
         });
       } else {
         // Show other error to user if happened
-        dialogsAndLoadingController.showError(e.toString());
+        dialogController.showError(e.toString());
       }
     }
   }
@@ -235,7 +230,7 @@ class UserInformationController extends GetxController {
 // Update password with FirebaseAuth and update it in firestore
   updatePassword(String newPassword) async {
     // Show loading
-    dialogsAndLoadingController.showLoading();
+    dialogController.showLoading();
     try {
       // Update password in firebase auth
       await _auth.currentUser!.updatePassword(newPassword);
@@ -252,7 +247,7 @@ class UserInformationController extends GetxController {
       Get.back();
 
       // Show success msg to user
-      dialogsAndLoadingController.showSuccess(
+      dialogController.showSuccess(
         //capitalize(
         "Password updated successfully",
       );
@@ -262,7 +257,7 @@ class UserInformationController extends GetxController {
 
       // Same as above updateEmail method
       if (e.code == 'requires-recent-login') {
-        dialogsAndLoadingController.showConfirmWithActions(
+        dialogController.showConfirmWithActions(
             "due to safety reasons, you need a recent re-login to your account in order to get permission to change password",
             "re-login", () {
           _auth.signOut();
@@ -270,9 +265,9 @@ class UserInformationController extends GetxController {
       }
       // other checks
       else if (e.code == 'weak-password') {
-        dialogsAndLoadingController.showError("Weak password");
+        dialogController.showError("Weak password");
       } else {
-        dialogsAndLoadingController.showError(e.toString());
+        dialogController.showError(e.toString());
       }
     }
   }
@@ -280,7 +275,7 @@ class UserInformationController extends GetxController {
   // Delete user
   deleteUser() async {
     // Show loading
-    dialogsAndLoadingController.showLoading();
+    dialogController.showLoading();
     try {
       // Delete user from firebase auth
       await _auth.currentUser?.delete();
@@ -290,14 +285,14 @@ class UserInformationController extends GetxController {
       /// Delete user from firestore (to-do)
 
       // show success msg to user
-      dialogsAndLoadingController.showSuccess("User deleted");
+      dialogController.showSuccess("User deleted");
     } on FirebaseException catch (e) {
       // pop loading
       Get.back();
 
 // Same as above updateEmail method
       if (e.code == 'requires-recent-login') {
-        dialogsAndLoadingController.showConfirmWithActions(
+        dialogController.showConfirmWithActions(
             "due to safety reasons, you need a recent re-login to your account in order to get permission to change password",
             "re-login", () {
           _auth.signOut();
@@ -305,9 +300,9 @@ class UserInformationController extends GetxController {
       }
       // Other checks
       else if (e.code == 'weak-password') {
-        dialogsAndLoadingController.showError("weak password");
+        dialogController.showError("weak password");
       } else {
-        dialogsAndLoadingController.showError(e.toString());
+        dialogController.showError(e.toString());
       }
     }
   }

@@ -7,7 +7,7 @@ import '/constants/media_constants.dart';
 import '../../constants/text/general_texts.dart';
 import '/widgets/text_widgets/title_with_description.dart';
 import '/constants/show_delay_mixin.dart';
-import '/widgets/button_widgets/button.dart';
+import '../../widgets/button_widgets/auth_button.dart';
 import '../../widgets/text_widgets/app_title.dart';
 import '/widgets/background_image.dart';
 
@@ -53,7 +53,7 @@ class WelcomePage extends StatelessWidget with DelayHelperMixin {
                       // Get started button
                       DelayedDisplay(
                         delay: getDelayDuration(),
-                        child: CustomButton(
+                        child: AuthButton(
                           onPressed: () {
                             Get.toNamed("/getStarted");
                           },
@@ -65,7 +65,7 @@ class WelcomePage extends StatelessWidget with DelayHelperMixin {
                       // Login button
                       DelayedDisplay(
                         delay: getDelayDuration(),
-                        child: CustomButton(
+                        child: AuthButton(
                           onPressed: () {
                             Get.toNamed("/login");
                           },

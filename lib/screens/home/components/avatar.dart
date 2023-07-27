@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+import '/constants/color_constants.dart';
+
 class Avatar extends StatelessWidget {
   Avatar({
     required this.onProfileImgTap,
@@ -28,7 +30,7 @@ class Avatar extends StatelessWidget {
           fit: BoxFit.cover,
           errorBuilder: (context, error, stackTrace) {
             return Container(
-              color: Colors.red,
+              color: ColorConstants.error,
             );
           },
           frameBuilder: (_, image, loadingBuilder, __) {

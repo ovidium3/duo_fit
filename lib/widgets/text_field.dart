@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '/constants/color_constants.dart';
+
+// Custom text field widget used for
 class CustomTextField extends StatelessWidget {
   CustomTextField({
     required this.label,
@@ -8,10 +11,12 @@ class CustomTextField extends StatelessWidget {
     required this.keyboardType,
     super.key,
   });
+
   String label;
   bool obscureText;
-  TextEditingController controller;
-  TextInputType keyboardType;
+  final TextEditingController controller;
+  final TextInputType keyboardType;
+
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -19,7 +24,7 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       obscuringCharacter: '•',
       obscureText: obscureText,
-      style: const TextStyle(color: Colors.white),
+      style: const TextStyle(color: ColorConstants.textWhite),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(vertical: 15),
         filled: true,

@@ -5,13 +5,13 @@ import 'package:get/get.dart';
 //import '/controllers/auth_controllers/sign_up_controller/sign_up_controller.dart';
 import '/constants/show_delay_mixin.dart';
 import '../../constants/text/general_texts.dart';
-import '/controllers/auth_controllers/login_controller/extensions/login_with_account.dart';
+import '../../controllers/auth/login_controller/extensions/login_with_account.dart';
 import '/widgets/background_image.dart';
 
-import '/controllers/auth_controllers/login_controller/login_controller.dart';
+import '../../controllers/auth/login_controller/login_controller.dart';
 import '/constants/color_constants.dart';
 import '/helpers/string_methods.dart';
-import '/widgets/button_widgets/button.dart';
+import '../../widgets/button_widgets/auth_button.dart';
 import '../../widgets/text_widgets/app_title.dart';
 import '/widgets/text_field.dart';
 import '/widgets/text_widgets/title_with_description.dart';
@@ -96,7 +96,7 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                               child: const Text(
                                 TextConstants.forgotPassword,
                                 style: TextStyle(
-                                    color: Colors.white,
+                                    color: ColorConstants.textWhite,
                                     decoration: TextDecoration.underline),
                               ),
                             ),
@@ -108,7 +108,7 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                         children: [
                           DelayedDisplay(
                             delay: getDelayDuration(),
-                            child: CustomButton(
+                            child: AuthButton(
                               onPressed: () {
                                 controller.loginWithAccount(
                                   email: controller.loginEmailController.text
@@ -126,7 +126,7 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                           const SizedBox(height: 10),
                           DelayedDisplay(
                             delay: getDelayDuration(),
-                            child: CustomButton(
+                            child: AuthButton(
                               onPressed: () {
                                 Get.to(() => SignUpPage());
                               },

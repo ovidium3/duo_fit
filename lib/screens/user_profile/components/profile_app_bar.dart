@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text/general_texts.dart';
 
-import '../../../controllers/auth_controllers/sign_out_controller.dart';
-import '../../../helpers/string_methods.dart';
+import '/constants/color_constants.dart';
+import '/constants/text/general_texts.dart';
+import '/controllers/auth/sign_out_controller.dart';
 
 class ProfileAppBar extends StatelessWidget {
   const ProfileAppBar({super.key});
@@ -12,15 +11,15 @@ class ProfileAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(
-        (TextConstants.profile),
-        style: const TextStyle(
-          color: Colors.white,
+      title: const Text(
+        TextConstants.profile,
+        style: TextStyle(
+          color: ColorConstants.textWhite,
           fontSize: 25,
         ),
       ),
       toolbarHeight: 80,
-      iconTheme: const IconThemeData(color: Colors.white),
+      iconTheme: const IconThemeData(color: ColorConstants.iconWhite),
       actions: [
         GetBuilder<SignOutController>(
             init: SignOutController(),
@@ -28,21 +27,21 @@ class ProfileAppBar extends StatelessWidget {
               return ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: ColorConstants.darkBlue, elevation: 0),
-                label: Text(
+                label: const Text(
                   (TextConstants.logOut),
-                  style: const TextStyle(color: Colors.red),
+                  style: TextStyle(color: ColorConstants.error),
                 ),
                 onPressed: () {
                   signOutController.signOut();
                 },
                 icon: const Icon(
                   Icons.logout,
-                  color: Colors.red,
+                  color: ColorConstants.error,
                 ),
               );
             }),
       ],
-      backgroundColor: Colors.transparent,
+      backgroundColor: ColorConstants.transparent,
       elevation: 0,
     );
   }

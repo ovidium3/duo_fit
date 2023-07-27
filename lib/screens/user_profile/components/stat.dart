@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '/constants/color_constants.dart';
+
 class Stat extends StatelessWidget {
   Stat({
     required this.statTitle,
@@ -8,7 +10,6 @@ class Stat extends StatelessWidget {
     super.key,
   });
 
-  //final FunctionsController controller = Get.put(FunctionsController());
   String statTitle, statValue;
 
   @override
@@ -19,7 +20,7 @@ class Stat extends StatelessWidget {
           statValue,
           style: const TextStyle(
             fontSize: 23,
-            color: Colors.white,
+            color: ColorConstants.textWhite,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -28,7 +29,10 @@ class Stat extends StatelessWidget {
         ),
         Text(
           statTitle,
-          style: const TextStyle(fontSize: 14, color: Colors.white),
+          style: const TextStyle(
+            fontSize: 14,
+            color: ColorConstants.textWhite,
+          ),
         ),
       ],
     );

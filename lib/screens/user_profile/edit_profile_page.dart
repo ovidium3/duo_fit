@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../controllers/user_controllers/user_profile_options_controller.dart';
 import '../../helpers/string_methods.dart';
 import 'components/profile_app_bar.dart';
+import '/constants/color_constants.dart';
 
 class CustomProfileSettings extends StatelessWidget {
   CustomProfileSettings({super.key});
@@ -48,7 +49,7 @@ class CustomProfileSettings extends StatelessWidget {
                                     userProfileOptionsController
                                             .userProfileOptionsList.length -
                                         1
-                                ? Colors.red
+                                ? ColorConstants.error
                                 : Theme.of(context).primaryColor,
                             fontSize: 20),
                       ),
@@ -59,7 +60,7 @@ class CustomProfileSettings extends StatelessWidget {
                                 userProfileOptionsController
                                         .userProfileOptionsList.length -
                                     1
-                            ? Colors.red
+                            ? ColorConstants.error
                             : Theme.of(context).primaryColor,
                       ),
                     ),

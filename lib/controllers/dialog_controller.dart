@@ -26,7 +26,7 @@ class DialogController extends GetxController {
   ) {
     Get.defaultDialog(
         title: "",
-        backgroundColor: const Color(0xff131429),
+        backgroundColor: ColorConstants.darkBlue,
         content: Column(
           children: [
             const Icon(
@@ -72,7 +72,7 @@ class DialogController extends GetxController {
   showError(String errorText) {
     Get.defaultDialog(
         title: "",
-        backgroundColor: const Color(0xff131429),
+        backgroundColor: ColorConstants.darkBlue,
         content: Column(
           children: [
             const Icon(

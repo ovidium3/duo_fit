@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '/widgets/button_widgets/button.dart';
+import '../../widgets/button_widgets/auth_button.dart';
 import '/widgets/text_field.dart';
 import '/controllers/dialog_controller.dart';
 import 'user_info_controller.dart';
@@ -37,7 +37,7 @@ class UserProfileOptionsController extends GetxController {
                     keyboardType: TextInputType.text),
                 SizedBox(
                   height: 50,
-                  child: CustomButton(
+                  child: AuthButton(
                       text: "update",
                       isOutlined: false,
                       onPressed: () {
@@ -127,7 +127,7 @@ class UserProfileOptionsController extends GetxController {
                       keyboardType: TextInputType.text),
                   SizedBox(
                     height: 50,
-                    child: CustomButton(
+                    child: AuthButton(
                         text: "update",
                         isOutlined: false,
                         onPressed: () async {
@@ -163,7 +163,7 @@ class UserProfileOptionsController extends GetxController {
                       keyboardType: TextInputType.visiblePassword),
                   SizedBox(
                     height: 50,
-                    child: CustomButton(
+                    child: AuthButton(
                         text: "update",
                         isOutlined: false,
                         onPressed: () async {

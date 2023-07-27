@@ -6,6 +6,12 @@ class ColorConstants {
   static const Color green = Color(0xff40D876);
   static const Color textWhite = Colors.white;
   static const Color inputDecor = Colors.white;
+  static const Color tabBar = Colors.white;
+  static const Color iconWhite = Colors.white;
+  static const Color iconBlack = Colors.black;
+
+  static const Color starFilled = Colors.yellow;
+  static const Color starEmpty = Colors.white;
 
   // Text colors
   static const Color textBlack = Colors.black;

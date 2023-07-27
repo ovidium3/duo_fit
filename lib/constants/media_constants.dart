@@ -8,6 +8,7 @@ class MediaConstants {
   static const String imgVerification = "assets/images/email_verif.png";
   static const String homepageOverlay = 'assets/images/welcomePageOverlay.png';
   static const String noImgAvailable = "assets/images/No_image_available.png";
+  static const String defaultProfile = 'assets/images/noprofile.png';
 
   // Workout Images
   static const String upper = 'assets/icons/workouts/upper.png';

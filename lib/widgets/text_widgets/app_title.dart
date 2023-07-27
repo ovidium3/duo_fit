@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '/constants/color_constants.dart';
 import '/constants/text/general_texts.dart';
 
+// Text display widget for a dual color app title
 class AppTitle extends StatelessWidget {
   const AppTitle({super.key});
 
@@ -11,6 +12,7 @@ class AppTitle extends StatelessWidget {
     return Align(
       alignment: Alignment.center,
       child: RichText(
+        // First word in primary color
         text: TextSpan(
           text: TextConstants.duo.toUpperCase(),
           style: TextStyle(
@@ -19,7 +21,9 @@ class AppTitle extends StatelessWidget {
             letterSpacing: 3,
           ),
           children: [
+            // Gap between words
             const TextSpan(text: ' '),
+            // Second word in white
             TextSpan(
               text: TextConstants.fit.toUpperCase(),
               style: const TextStyle(

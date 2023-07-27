@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                           milliseconds: delay + 400,
                         ),
                         child: TabBar(
-                          labelColor: Colors.white,
+                          labelColor: ColorConstants.tabBar,
                           isScrollable: true,
                           indicator: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           controller: _tabx.workOutTabController,
-                          tabs: _tabx.workOutTabs,
+                          tabs: _tabx.workoutTabs,
                         ),
                       ),
                     ),

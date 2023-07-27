@@ -9,7 +9,7 @@ import '../../constants/text/general_texts.dart';
 import '../../helpers/string_methods.dart';
 import '../../widgets/button_widgets/action_button.dart';
 import 'components/rating_stars.dart';
-import '../../widgets/button_widgets/button.dart';
+import '../../widgets/button_widgets/auth_button.dart';
 
 class WorkoutDetailsPage extends StatelessWidget {
   WorkoutDetailsPage({
@@ -97,12 +97,14 @@ class WorkoutDetailsPage extends StatelessWidget {
                           children: [
                             const Icon(
                               Icons.schedule,
-                              color: Colors.white,
+                              color: ColorConstants.iconWhite,
                               size: 16,
                             ),
                             Text(
                               "$timeLeftInHour ${TextConstants.hours}",
-                              style: const TextStyle(color: Colors.white),
+                              style: const TextStyle(
+                                color: ColorConstants.textWhite,
+                              ),
                             ),
                           ],
                         ),
@@ -125,7 +127,7 @@ class WorkoutDetailsPage extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
-                          color: Colors.white.withOpacity(.4),
+                          color: ColorConstants.inputDecor.withOpacity(.4),
                           width: .5,
                         ),
                       ),
@@ -134,35 +136,37 @@ class WorkoutDetailsPage extends StatelessWidget {
                         children: [
                           RichText(
                             text: TextSpan(
-                                text: movesNumber,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                                children: [
-                                  TextSpan(
-                                    text: " ${TextConstants.moves}",
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                    ),
+                              text: movesNumber,
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              children: const [
+                                TextSpan(
+                                  text: " ${TextConstants.moves}",
+                                  style: TextStyle(
+                                    color: ColorConstants.textWhite,
                                   ),
-                                ]),
+                                ),
+                              ],
+                            ),
                           ),
                           RichText(
                             text: TextSpan(
-                                text: setsNumber,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                                children: [
-                                  TextSpan(
-                                    text: " ${TextConstants.sets}",
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                    ),
+                              text: setsNumber,
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              children: const [
+                                TextSpan(
+                                  text: " ${TextConstants.sets}",
+                                  style: TextStyle(
+                                    color: ColorConstants.textWhite,
                                   ),
-                                ]),
+                                ),
+                              ],
+                            ),
                           ),
                           RichText(
                             text: TextSpan(
@@ -171,11 +175,11 @@ class WorkoutDetailsPage extends StatelessWidget {
                                   fontSize: 18,
                                   color: Theme.of(context).primaryColor,
                                 ),
-                                children: [
+                                children: const [
                                   TextSpan(
                                     text: " ${TextConstants.minutes}",
-                                    style: const TextStyle(
-                                      color: Colors.white,
+                                    style: TextStyle(
+                                      color: ColorConstants.textWhite,
                                     ),
                                   ),
                                 ]),
@@ -185,23 +189,19 @@ class WorkoutDetailsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 DelayedDisplay(
                   delay: Duration(milliseconds: delay + 300),
                   child: Text(
-                    (workoutTitle),
+                    workoutTitle,
                     style: const TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: ColorConstants.textWhite,
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
+                const SizedBox(height: 5),
                 DelayedDisplay(
                   delay: Duration(milliseconds: delay + 400),
                   child: RatingStars(
@@ -209,17 +209,18 @@ class WorkoutDetailsPage extends StatelessWidget {
                     filledStars: 0,
                   ),
                 ),
-                const SizedBox(
-                  height: 30,
-                ),
+                const SizedBox(height: 30),
                 DelayedDisplay(
                   delay: Duration(milliseconds: delay + 500),
                   child: SizedBox(
                     height: 30,
                     child: TabBar(
-                      unselectedLabelColor: Colors.white.withOpacity(.5),
-                      indicator: const BoxDecoration(color: Colors.transparent),
-                      labelColor: Colors.white,
+                      unselectedLabelColor:
+                          ColorConstants.tabBar.withOpacity(.5),
+                      indicator: const BoxDecoration(
+                        color: ColorConstants.transparent,
+                      ),
+                      labelColor: ColorConstants.tabBar,
                       controller: _tabx.detailsTabController,
                       tabs: _tabx.detailsTabs,
                     ),
@@ -237,7 +238,7 @@ class WorkoutDetailsPage extends StatelessWidget {
                             description,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                              color: Colors.white,
+                              color: ColorConstants.textWhite,
                             ),
                           ),
                         ),
@@ -263,14 +264,12 @@ class WorkoutDetailsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 Column(
                   children: [
                     DelayedDisplay(
                       delay: Duration(milliseconds: delay + 700),
-                      child: CustomButton(
+                      child: AuthButton(
                         onPressed: () {},
                         isRounded: false,
                         text: ("\$ 999"),
@@ -280,10 +279,10 @@ class WorkoutDetailsPage extends StatelessWidget {
                     const SizedBox(height: 10),
                     DelayedDisplay(
                       delay: Duration(milliseconds: delay + 800),
-                      child: CustomButton(
+                      child: AuthButton(
                         onPressed: () {},
                         isRounded: false,
-                        text: (TextConstants.noFreeTrialAvailable),
+                        text: TextConstants.noFreeTrialAvailable,
                         isOutlined: true,
                       ),
                     ),

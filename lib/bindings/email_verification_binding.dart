@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '/controllers/auth_controllers/email_verification_controller.dart';
+import '../controllers/auth/email_verification_controller.dart';
 
 class EmailVerificationBinding implements Bindings {
   @override

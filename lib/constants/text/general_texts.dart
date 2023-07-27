@@ -41,53 +41,54 @@ class TextConstants {
   static const String done = 'done';
   static const String reSendEmailVerification = 're-send email verification';
 
+  // Home page -> general
+  static const String hey = 'Hey,';
+
   // Home page -> Workouts
   static const String find = 'Find';
   static const String yourWorkout = 'Your Workout';
 
   static const String apply = 'Apply';
-  static const String configureSettings = 'configure profile';
 
-  static const String hours = "hours";
-  static const String moves = "moves";
-  static const String sets = "sets";
-  static const String minutes = "min";
-  static const String freeTrial = "free trial";
-  static const String noFreeTrialAvailable = "No preview available";
-  static const String searchWorkout = "Search workout";
-  static const String seeAll = 'see all';
-  static const String somethingWrong = "something wrong";
-  static const String hey = "Hey,";
+  // Workout details
+
+  static const String hours = 'hours';
+  static const String moves = 'moves';
+  static const String sets = 'sets';
+  static const String minutes = 'min';
+  static const String noFreeTrialAvailable = 'No preview available';
 
   // Home page -> User profile
-  static const String profile = "profile";
-  static const String logOut = "log out";
+  static const String profile = 'profile';
+  static const String logOut = 'Log Out';
   static const String profileDescription =
       'This is the user profile description';
+  static const String editProfile = 'Edit Profile';
+  static const String accountDeleted = 'Account deleted';
 
   // More auth stuff
-  static const String pleaseVerifyEmail = "Please verify your email first";
-  static const String enterEmail = "please enter your email";
-  static const String enterValidEmail = "please enter a valid email";
+  static const String pleaseVerifyEmail = 'Please verify your email first';
+  static const String enterEmail = 'please enter your email';
+  static const String enterValidEmail = 'please enter a valid email';
   static const String emailVerifSentText =
-      "we've sent you an email to reset your password, check your inbox";
-  static const String noUserText = "there is no user with this email";
+      'we\'ve sent you an email to reset your password, check your inbox';
+  static const String noUserText = 'there is no user with this email';
   static const String checkConnection = 'check your internet connection';
-  static const String wrongPassword = "wrong password";
-  static const String invalidEmail = "Invalid email address, try again";
-  static const String enterPassword = "Please enter your password";
+  static const String wrongPassword = 'wrong password';
+  static const String invalidEmail = 'Invalid email address, try again';
+  static const String enterPassword = 'Please enter your password';
   static const String passwordMustBe5AtLeast =
-      "Password must be at least 5 characters long";
+      'Password must be at least 5 characters long';
   static const String usernameMustBe5AtLeast =
-      "username must be at least 5 characters long";
-  static const String weakPassword = "weak password, try with stronger one";
-  static const String emailAlreadyInUse = "this email is already in use";
-  static const String fillFields = "please, fill all fields";
+      'username must be at least 5 characters long';
+  static const String weakPassword = 'weak password, try with stronger one';
+  static const String emailAlreadyInUse = 'this email is already in use';
+  static const String fillFields = 'please, fill all fields';
 
   // Common
   static const String duo = 'duo';
   static const String fit = 'fit';
   static const String login = 'Login';
   static const String cancel = 'Cancel';
-  //static const String error = "Error";
+  static const String error = 'Error';
 }

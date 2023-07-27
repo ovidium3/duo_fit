@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 
 class CustomTabBarController extends GetxController
     with GetSingleTickerProviderStateMixin {
-  // TabController
+  // Tab controller
   late TabController workOutTabController;
 
   // Tabs to show
-  final List<Tab> workOutTabs = <Tab>[
+  final List<Tab> workoutTabs = <Tab>[
     const Tab(text: 'Popular'),
     const Tab(text: 'Upper Body'),
     const Tab(text: 'Lower Body'),
@@ -17,14 +17,15 @@ class CustomTabBarController extends GetxController
 
   @override
   void onInit() {
+    // Initialize tab controller
     workOutTabController =
-        TabController(vsync: this, length: workOutTabs.length);
+        TabController(vsync: this, length: workoutTabs.length);
     super.onInit();
   }
 
   @override
   void onClose() {
-    // dispose
+    // Dispose tab controller
     workOutTabController.dispose();
     super.onClose();
   }

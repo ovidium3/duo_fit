@@ -1,16 +1,8 @@
-- add routes to screens - for example, choose language page has no routing
-- integrate color constants into code
-- change up color scheme
-- reorganize folders
-- import my workout data, exercise data, etc
+- add routes to screens
 - implement my own strong-style workout data thing
 - implement my own calorie log stuff
-- replace workouts in workouts list with my own
-- continue adding to text constants, possibly break it down into multiple
+- continue adding to text constants
 - fix naming conventions to correct case + logical names
-- ideas: make the home page resemble the calorie log page in the sense that the all workouts tab can be minimized or pushed down hte page, adn remove the search bar.
-- add error parsing helper thing from old fit app
+- ideas: make the home page resemble the calorie log page in the sense that the all workouts tab can be minimized or pushed down hte page
 - update temp profile values with firestore's
-- add openfoodfacts config
 - implement show/hide for password field (showeye)
-- update openfoodfacts config file

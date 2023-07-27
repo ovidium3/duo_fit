@@ -1,13 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/controllers/auth_controllers/sign_up_controller/extensions/create_new_account/add_user_info_to_firestore.dart';
+import 'package:duo_fit/controllers/auth/sign_up_controller/extensions/add_user_info_to_firestore.dart';
 import 'package:duo_fit/helpers/extension/auth_errors_extension.dart';
 import 'package:duo_fit/helpers/extension/auth_validation_extension.dart';
 
-import '../../../../../constants/text/general_texts.dart';
+import '../../../../constants/text/general_texts.dart';
 import '/helpers/string_methods.dart';
 import '/screens/auth/email_verification_page.dart';
-import '../../sign_up_controller.dart';
+import '../sign_up_controller.dart';
 
 extension CreateNewAccExtension on SignUpController {
   // Create new account in firebase
@@ -39,8 +39,8 @@ extension CreateNewAccExtension on SignUpController {
           profileImgPath: "",
         );
 
-        // On sign up, we should verify our user email (no need to unnecessary checks)
-        Get.to(() => EmailVerificationPage());
+        // On sign up, we should verify our user email
+        Get.toNamed('/emailVerification');
       } on FirebaseAuthException catch (e) {
         Get.back();
         handleAuthErrors(e);

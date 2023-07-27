@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
 import 'package:duo_fit/constants/text/general_texts.dart';
-import '/controllers/auth_controllers/forgot_password_controller.dart';
+import '../../controllers/auth/forgot_password_controller.dart';
 import '/helpers/string_methods.dart';
-import '/widgets/button_widgets/button.dart';
+import '../../widgets/button_widgets/auth_button.dart';
 import '/widgets/text_field.dart';
 import '/widgets/text_widgets/title_with_description.dart';
 import '/widgets/background_image.dart';
@@ -57,7 +57,7 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
                   const SizedBox(height: 50),
                   DelayedDisplay(
                     delay: Duration(milliseconds: delay + 300),
-                    child: CustomButton(
+                    child: AuthButton(
                       onPressed: () {
                         controller.recoverPassword(
                             controller.recoveryEmailController.text);

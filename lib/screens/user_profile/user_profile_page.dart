@@ -2,13 +2,14 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text/general_texts.dart';
-import 'package:duo_fit/widgets/button_widgets/button.dart';
-import '../../controllers/auth_controllers/sign_out_controller.dart';
-import '../../controllers/user_controllers/user_info_controller.dart';
-import '../../constants/user_profile_stats.dart';
-import '../../helpers/string_methods.dart';
+
+import '/constants/color_constants.dart';
+import '/constants/text/general_texts.dart';
+import '/widgets/button_widgets/auth_button.dart';
+import '/controllers/auth/sign_out_controller.dart';
+import '/controllers/user_controllers/user_info_controller.dart';
+import '/constants/user_profile_stats.dart';
+import '/helpers/string_methods.dart';
 import 'components/profile_app_bar.dart';
 import 'components/stat.dart';
 import 'edit_profile_page.dart';
@@ -27,6 +28,8 @@ class _UserProfileState extends State<UserProfile> {
 
   Color? scfldColor = ColorConstants.darkBlue;
   Color? overlayedColor = const Color.fromARGB(255, 21, 22, 45);
+
+  //final bool hasProfilePic = false;
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +62,7 @@ class _UserProfileState extends State<UserProfile> {
                         (() => Image(
                               image: NetworkImage(userInformationController
                                   .userProfileImg.value),
+                              // : NetworkImage(MediaConstants.defaultProfile),
                               fit: BoxFit.cover,
                               frameBuilder: (_, image, loadingBuilder, __) {
                                 if (loadingBuilder == null) {
@@ -88,7 +92,7 @@ class _UserProfileState extends State<UserProfile> {
                       child: Text(
                         userInformationController.username.value,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: ColorConstants.textWhite,
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                         ),
@@ -106,7 +110,7 @@ class _UserProfileState extends State<UserProfile> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,
-                        color: Colors.white.withOpacity(.8),
+                        color: ColorConstants.textWhite.withOpacity(.8),
                       ),
                     ),
                   ),
@@ -132,8 +136,8 @@ class _UserProfileState extends State<UserProfile> {
             const Spacer(flex: 2),
             DelayedDisplay(
               delay: Duration(milliseconds: delay + 500),
-              child: CustomButton(
-                  text: (TextConstants.configureSettings),
+              child: AuthButton(
+                  text: TextConstants.editProfile,
                   isOutlined: true,
                   onPressed: () {
                     Get.to(() => CustomProfileSettings(), arguments: [
@@ -142,9 +146,7 @@ class _UserProfileState extends State<UserProfile> {
                     ]);
                   }),
             ),
-            const SizedBox(
-              height: 30,
-            )
+            const SizedBox(height: 30)
           ],
         ),
       ),

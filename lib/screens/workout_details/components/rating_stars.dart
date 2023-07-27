@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '/constants/color_constants.dart';
+
 class RatingStars extends StatelessWidget {
   RatingStars({
     this.size = 18,
@@ -7,6 +9,7 @@ class RatingStars extends StatelessWidget {
     required this.filledStars,
     super.key,
   });
+
   int starsNumber, filledStars;
   double size;
 
@@ -20,8 +23,8 @@ class RatingStars extends StatelessWidget {
             Icons.star,
             size: size,
             color: orderIndex < filledStars
-                ? Colors.yellow
-                : Colors.white.withOpacity(.45),
+                ? ColorConstants.starFilled
+                : ColorConstants.starEmpty.withOpacity(.45),
           ),
         );
       }),

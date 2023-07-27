@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '/controllers/get_started_controllers/get_started_card_controller.dart';
+import '../../../controllers/get_started/get_started_card_controller.dart';
 import '/widgets/get_started_checkmark.dart';
 
 class GetStartedCard extends GetView<GetStartedCardController> {
@@ -15,6 +15,7 @@ class GetStartedCard extends GetView<GetStartedCardController> {
 
   final String text, description;
   final int id;
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<GetStartedCardController>(
@@ -59,7 +60,7 @@ class GetStartedCard extends GetView<GetStartedCardController> {
                   child: Text(
                     text,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: ColorConstants.textWhite,
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
                     ),
@@ -73,7 +74,7 @@ class GetStartedCard extends GetView<GetStartedCardController> {
                   child: Text(
                     description,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: ColorConstants.textWhite,
                       fontSize: 13,
                     ),
                   ),

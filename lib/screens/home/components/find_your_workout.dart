@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../../constants/text/general_texts.dart';
-import '../../../helpers/string_methods.dart';
+import '/constants/text/general_texts.dart';
+import '/constants/color_constants.dart';
 
 class FindYourWorkout extends StatelessWidget {
   const FindYourWorkout({super.key});
@@ -17,13 +16,13 @@ class FindYourWorkout extends StatelessWidget {
           color: Theme.of(context).primaryColor,
           fontSize: 25,
         ),
-        children: [
-          const TextSpan(text: " "),
+        children: const [
+          TextSpan(text: " "),
           TextSpan(
             text: (TextConstants.yourWorkout),
-            style: const TextStyle(
+            style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: ColorConstants.textWhite,
             ),
           ),
         ],

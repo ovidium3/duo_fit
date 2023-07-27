@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '/controllers/auth_controllers/sign_out_controller.dart';
+import '../../controllers/auth/sign_out_controller.dart';
 import '/constants/media_constants.dart';
 import '/constants/text/general_texts.dart';
 import '/constants/color_constants.dart';
-import '/widgets/button_widgets/button.dart';
-import '/controllers/auth_controllers/email_verification_controller.dart';
+import '../../widgets/button_widgets/auth_button.dart';
+import '../../controllers/auth/email_verification_controller.dart';
 
 class EmailVerificationPage extends GetView<EmailVerificationController> {
   EmailVerificationPage({super.key});
@@ -65,7 +65,7 @@ class EmailVerificationPage extends GetView<EmailVerificationController> {
                 ),
               ),
               const Spacer(),
-              CustomButton(
+              AuthButton(
                   text: TextConstants.done,
                   isOutlined: false,
                   onPressed: () {
@@ -77,6 +77,7 @@ class EmailVerificationPage extends GetView<EmailVerificationController> {
               ),
               GestureDetector(
                 onTap: () {
+                  print("resent");
                   controller.sendVerificationEmail();
                 },
                 child: Text(

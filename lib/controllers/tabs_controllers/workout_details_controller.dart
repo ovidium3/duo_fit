@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class DetailsTabController extends GetxController
     with GetSingleTickerProviderStateMixin {
-  // TabController
+  // Tab controller
   late TabController detailsTabController;
 
   // Tabs to show
@@ -15,8 +15,7 @@ class DetailsTabController extends GetxController
 
   @override
   void onInit() {
-    
-    // init on init hah
+    // Initialize tab controller
     detailsTabController =
         TabController(vsync: this, length: detailsTabs.length);
     super.onInit();
@@ -24,7 +23,7 @@ class DetailsTabController extends GetxController
 
   @override
   void onClose() {
-    // dispose
+    // Dispose tab controller
     detailsTabController.dispose();
     super.onClose();
   }

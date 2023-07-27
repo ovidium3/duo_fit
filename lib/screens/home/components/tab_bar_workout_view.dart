@@ -1,3 +1,4 @@
+import 'package:duo_fit/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 //import 'package:get/get.dart';
 import '/constants/media_constants.dart';
@@ -35,7 +36,7 @@ class TabBarViewSection extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 33,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: ColorConstants.textWhite,
               ),
             ),
           ],

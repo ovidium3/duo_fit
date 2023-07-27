@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Checkmark symbol widget that appears on a ChoiceCard when tapped
 class CheckMark extends StatelessWidget {
   const CheckMark({
     required this.isChecked,
@@ -7,8 +8,10 @@ class CheckMark extends StatelessWidget {
     required this.isTappedDown,
     super.key,
   });
+
   final bool isChecked, isTappedDown;
   final double opacity;
+
   @override
   Widget build(BuildContext context) {
     return Opacity(

@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import '../../constants/text/general_texts.dart';
+import '/constants/text/general_texts.dart';
 import '/screens/home/home_page.dart';
 import '../dialog_controller.dart';
 
