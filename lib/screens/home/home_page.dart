@@ -1,24 +1,23 @@
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_fit/constants/color_constants.dart';
-import 'package:duo_fit/constants/text/general_texts.dart';
-import 'package:duo_fit/constants/data/workout_data.dart';
-import 'package:duo_fit/screens/user_profile/user_profile_page.dart';
 
-import '../../controllers/tabs_controllers/workout_tab_controller.dart';
-import '../../controllers/user_controllers/user_info_controller.dart';
-import '../../constants/media_constants.dart';
-import '../../helpers/string_methods.dart';
-import '../../widgets/background_image.dart';
+import '/constants/color_constants.dart';
+import '/constants/text/general_texts.dart';
+import '/constants/data/workout_data.dart';
+import '/screens/user_profile/user_profile_page.dart';
+
+import '/controllers/tabs_controllers/workout_tab_controller.dart';
+import '/controllers/user_controllers/user_info_controller.dart';
+import '/helpers/string_methods.dart';
+import '/widgets/background_image.dart';
 import 'components/find_your_workout.dart';
 import 'components/tab_bar_workout_view.dart';
 import 'components/username_and_profile.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
-  final String bgImg = MediaConstants().randomFromAssetsList();
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -128,22 +127,25 @@ class _HomePageState extends State<HomePage> {
                             ),
                             Center(
                               child: TabBarViewSection(
-                                  title: 'Lower Body Workouts',
-                                  dataList: [WorkoutData.legs]),
+                                title: 'Lower Body Workouts',
+                                dataList: [WorkoutData.legs],
+                              ),
                             ),
                             Center(
                               child: TabBarViewSection(
-                                  title: 'Full Body Workouts',
-                                  dataList: [WorkoutData.fullBody]),
+                                title: 'Full Body Workouts',
+                                dataList: [WorkoutData.fullBody],
+                              ),
                             ),
                             Center(
                               child: TabBarViewSection(
-                                  title: 'Extras',
-                                  dataList: [
-                                    WorkoutData.arms,
-                                    WorkoutData.abs,
-                                    WorkoutData.shoulders
-                                  ]),
+                                title: 'Extras',
+                                dataList: [
+                                  WorkoutData.arms,
+                                  WorkoutData.abs,
+                                  WorkoutData.shoulders
+                                ],
+                              ),
                             ),
                           ],
                         ),

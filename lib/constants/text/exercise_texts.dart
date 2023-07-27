@@ -1,4 +1,4 @@
-class ExerciseTextConstants {
+class ExerciseTexts {
   // Shoulder Press
   static const String shoulderPress = "Shoulder Press (Barbell)";
   static const String shoulderPressDescription =

@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 //import 'package:get/get.dart';
 import '/constants/media_constants.dart';
 
-import '../../../constants/text/general_texts.dart';
-import '../../../helpers/string_methods.dart';
+import '/constants/text/general_texts.dart';
 import 'workout_card.dart';
 import '/models/workout_model.dart';
 
@@ -24,9 +23,7 @@ class TabBarViewSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(
-          height: 10,
-        ),
+        const SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -41,9 +38,7 @@ class TabBarViewSection extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
-          height: 20,
-        ),
+        const SizedBox(height: 20),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           physics: const BouncingScrollPhysics(),

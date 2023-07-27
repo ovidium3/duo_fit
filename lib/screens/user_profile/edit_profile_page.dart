@@ -1,8 +1,9 @@
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../controllers/user_controllers/user_profile_options_controller.dart';
-import '../../helpers/string_methods.dart';
+
+import '/controllers/user_controllers/user_profile_options_controller.dart';
+import '/helpers/string_methods.dart';
 import 'components/profile_app_bar.dart';
 import '/constants/color_constants.dart';
 

@@ -25,11 +25,11 @@ class WorkoutCard extends StatelessWidget {
         Get.to(WorkoutDetailsPage(
           workoutTitle: title,
           overlayedImg: imagePath,
-          timeLeftInHour: listCollection[index]["timeLeftInHour"] ?? "?",
-          movesNumber: listCollection[index]["movesNumber"] ?? "?",
-          setsNumber: listCollection[index]["setsNumber"] ?? "?",
-          durationInMinutes: listCollection[index]["durationInMinutes"] ?? "?",
-          description: listCollection[index]["description"] ?? "?",
+          timeLeftInHour: "?",
+          movesNumber: "?",
+          setsNumber: "?",
+          durationInMinutes: "?",
+          description: "?",
         ));
       },
       child: Container(

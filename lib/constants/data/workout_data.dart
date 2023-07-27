@@ -6,9 +6,9 @@ import 'exercise_data.dart';
 class WorkoutData {
   // Upper body
   static final upperBody = WorkoutModel(
-    title: WorkoutTextConstants.upperTitle,
-    exercises: WorkoutTextConstants.upperExercises,
-    minutes: WorkoutTextConstants.upperMinutes,
+    title: WorkoutTexts.upperTitle,
+    exercises: WorkoutTexts.upperExercises,
+    minutes: WorkoutTexts.upperMinutes,
     image: MediaConstants.upper,
     exerciseDataList: [
       ExerciseData.shoulderPressExercise,
@@ -21,9 +21,9 @@ class WorkoutData {
 
   // Push
   static final push = WorkoutModel(
-    title: WorkoutTextConstants.pushTitle,
-    exercises: WorkoutTextConstants.pushExercises,
-    minutes: WorkoutTextConstants.pushMinutes,
+    title: WorkoutTexts.pushTitle,
+    exercises: WorkoutTexts.pushExercises,
+    minutes: WorkoutTexts.pushMinutes,
     image: MediaConstants.push,
     exerciseDataList: [
       ExerciseData.shoulderPressExercise,
@@ -35,9 +35,9 @@ class WorkoutData {
 
   // Pull
   static final pull = WorkoutModel(
-    title: WorkoutTextConstants.pullTitle,
-    exercises: WorkoutTextConstants.pullExercises,
-    minutes: WorkoutTextConstants.pullMinutes,
+    title: WorkoutTexts.pullTitle,
+    exercises: WorkoutTexts.pullExercises,
+    minutes: WorkoutTexts.pullMinutes,
     image: MediaConstants.pull,
     exerciseDataList: [
       ExerciseData.pullUpExercise,
@@ -49,9 +49,9 @@ class WorkoutData {
 
   // Legs
   static final legs = WorkoutModel(
-    title: WorkoutTextConstants.legsTitle,
-    exercises: WorkoutTextConstants.legsExercises,
-    minutes: WorkoutTextConstants.legsMinutes,
+    title: WorkoutTexts.legsTitle,
+    exercises: WorkoutTexts.legsExercises,
+    minutes: WorkoutTexts.legsMinutes,
     image: MediaConstants.legs,
     exerciseDataList: [
       ExerciseData.squatExercise,
@@ -63,9 +63,9 @@ class WorkoutData {
 
   // Full body
   static final fullBody = WorkoutModel(
-    title: WorkoutTextConstants.fullBodyTitle,
-    exercises: WorkoutTextConstants.fullBodyExercises,
-    minutes: WorkoutTextConstants.fullBodyMinutes,
+    title: WorkoutTexts.fullBodyTitle,
+    exercises: WorkoutTexts.fullBodyExercises,
+    minutes: WorkoutTexts.fullBodyMinutes,
     image: MediaConstants.fullBody,
     exerciseDataList: [
       ExerciseData.shoulderPressExercise,
@@ -78,9 +78,9 @@ class WorkoutData {
 
   // Arms
   static final arms = WorkoutModel(
-      title: WorkoutTextConstants.armsTitle,
-      exercises: WorkoutTextConstants.armsExercises,
-      minutes: WorkoutTextConstants.armsMinutes,
+      title: WorkoutTexts.armsTitle,
+      exercises: WorkoutTexts.armsExercises,
+      minutes: WorkoutTexts.armsMinutes,
       image: MediaConstants.arms,
       exerciseDataList: [
         ExerciseData.skullcrusherExercise,
@@ -91,9 +91,9 @@ class WorkoutData {
 
   // Abs
   static final abs = WorkoutModel(
-      title: WorkoutTextConstants.absTitle,
-      exercises: WorkoutTextConstants.absExercises,
-      minutes: WorkoutTextConstants.absMinutes,
+      title: WorkoutTexts.absTitle,
+      exercises: WorkoutTexts.absExercises,
+      minutes: WorkoutTexts.absMinutes,
       image: MediaConstants.abs,
       exerciseDataList: [
         ExerciseData.legRaiseExercise,
@@ -104,9 +104,9 @@ class WorkoutData {
 
   // Shoulders
   static final shoulders = WorkoutModel(
-      title: WorkoutTextConstants.shouldersTitle,
-      exercises: WorkoutTextConstants.shouldersExercises,
-      minutes: WorkoutTextConstants.shouldersMinutes,
+      title: WorkoutTexts.shouldersTitle,
+      exercises: WorkoutTexts.shouldersExercises,
+      minutes: WorkoutTexts.shouldersMinutes,
       image: MediaConstants.shoulders,
       exerciseDataList: [
         ExerciseData.shoulderPressExercise,

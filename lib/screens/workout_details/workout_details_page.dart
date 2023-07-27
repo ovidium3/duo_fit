@@ -2,14 +2,14 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controllers/tabs_controllers/workout_details_controller.dart';
-import '../../constants/color_constants.dart';
-import '../../constants/text/general_texts.dart';
+import '/controllers/tabs_controllers/workout_details_controller.dart';
+import '/constants/color_constants.dart';
+import '/constants/text/general_texts.dart';
 
-import '../../helpers/string_methods.dart';
-import '../../widgets/button_widgets/action_button.dart';
+import '/helpers/string_methods.dart';
+import '/widgets/button_widgets/action_button.dart';
 import 'components/rating_stars.dart';
-import '../../widgets/button_widgets/auth_button.dart';
+import '/widgets/button_widgets/auth_button.dart';
 
 class WorkoutDetailsPage extends StatelessWidget {
   WorkoutDetailsPage({
@@ -19,26 +19,18 @@ class WorkoutDetailsPage extends StatelessWidget {
     required this.movesNumber,
     required this.durationInMinutes,
     required this.setsNumber,
-    //required this.rating,
     required this.description,
-    //required this.reviews,
-    //required this.priceInDollars,
-    //required this.hasFreeTrial,
-    //required this.comments,
     super.key,
   });
-  String overlayedImg,
+
+  final String overlayedImg,
       workoutTitle,
       setsNumber,
       timeLeftInHour,
       movesNumber,
-      //comments,
       durationInMinutes,
-      //rating,
       description;
-  //reviews,
-  //priceInDollars,
-  //hasFreeTrial;
+
   final DetailsTabController _tabx = Get.put(DetailsTabController());
 
   @override
@@ -66,9 +58,7 @@ class WorkoutDetailsPage extends StatelessWidget {
               end: Alignment.topCenter,
               colors: [
                 ColorConstants.darkBlue,
-                overlayedImg != null
-                    ? ColorConstants.darkBlue.withOpacity(0.05)
-                    : ColorConstants.darkBlue.withOpacity(0.8),
+                ColorConstants.darkBlue.withOpacity(0.05)
               ],
             ),
           ),

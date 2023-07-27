@@ -59,7 +59,7 @@ class TextConstants {
   static const String noFreeTrialAvailable = 'No preview available';
 
   // Home page -> User profile
-  static const String profile = 'profile';
+  static const String profile = 'Profile';
   static const String logOut = 'Log Out';
   static const String profileDescription =
       'This is the user profile description';

@@ -1,4 +1,4 @@
-class WorkoutTextConstants {
+class WorkoutTexts {
   // Workouts -> Upper
   static const String upperTitle = 'Upper Body';
   static const String upperExercises = '5 Exercises';
