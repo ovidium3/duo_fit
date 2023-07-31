@@ -2,19 +2,21 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controllers/auth/sign_up_controller/extensions/create_new_account.dart';
-import '../../controllers/auth/sign_up_controller/sign_up_controller.dart';
+import '/controllers/auth/sign_up_controller.dart';
 import '/constants/color_constants.dart';
 import '/constants/text/general_texts.dart';
-import '/constants/show_delay_mixin.dart';
-import '../../widgets/button_widgets/auth_button.dart';
-import '../../widgets/text_widgets/app_title.dart';
+import '/helpers/show_delay_mixin.dart';
 import '/widgets/background_image.dart';
+import '../../widgets/buttons/auth_button.dart';
 import '/widgets/text_field.dart';
-import '/widgets/text_widgets/title_with_description.dart';
-import '/screens/auth/login_page.dart';
+import '../../widgets/text/app_title.dart';
+import '../../widgets/text/title_with_description.dart';
 
-class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
+import 'login_page.dart';
+
+// Sign up page where user can also jump to login page
+// ignore: must_be_immutable
+class SignUpPage extends GetView<SignUpController> with ShowDelayMixin {
   SignUpPage({super.key});
 
   @override
@@ -48,37 +50,50 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      // Space above app title
                       const Spacer(),
+
+                      // App title
                       DelayedDisplay(
-                        delay: getDelayDuration(),
+                        delay: showDelay(),
                         child: const AppTitle(),
                       ),
+
+                      // Space between app title and sign up / sign up description
                       const Spacer(flex: 2),
+
+                      // Sign up / sign up description
                       DelayedDisplay(
-                        delay: getDelayDuration(),
+                        delay: showDelay(),
                         child: const TitleWithDescription(
                           title: TextConstants.signUp,
                           description: TextConstants.signUpDescription,
                         ),
                       ),
+
+                      // Username text field
                       DelayedDisplay(
-                        delay: getDelayDuration(),
+                        delay: showDelay(),
                         child: CustomTextField(
                           keyboardType: TextInputType.name,
                           controller: controller.signUpUserController,
                           label: TextConstants.username,
                         ),
                       ),
+
+                      // Email text field
                       DelayedDisplay(
-                        delay: getDelayDuration(),
+                        delay: showDelay(),
                         child: CustomTextField(
                           keyboardType: TextInputType.emailAddress,
                           controller: controller.signUpEmailController,
                           label: TextConstants.email,
                         ),
                       ),
+
+                      // Password text field
                       DelayedDisplay(
-                        delay: getDelayDuration(),
+                        delay: showDelay(),
                         child: CustomTextField(
                           keyboardType: TextInputType.text,
                           controller: controller.signUpPasswordController,
@@ -86,31 +101,36 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                           obscureText: true,
                         ),
                       ),
+
+                      // Space between password text field and auth buttons
                       const Spacer(),
+
+                      // Auth buttons
                       Column(
                         children: [
+                          // Sign up button
                           DelayedDisplay(
-                            delay: getDelayDuration(),
+                            delay: showDelay(),
                             child: AuthButton(
                               onPressed: () {
                                 controller.createNewAccount(
-                                  email: controller.signUpEmailController.text
+                                  controller.signUpEmailController.text.trim(),
+                                  controller.signUpPasswordController.text
                                       .trim(),
-                                  password: controller
-                                      .signUpPasswordController.text
-                                      .trim(),
-                                  username: controller.signUpUserController.text
-                                      .trim(),
+                                  controller.signUpUserController.text.trim(),
                                 );
                               },
-                              isRounded: false,
-                              text: (TextConstants.signUp),
+                              text: TextConstants.signUp,
                               isOutlined: true,
                             ),
                           ),
+
+                          // Space between sign up button and login page button
                           const SizedBox(height: 20),
+
+                          // Login page button
                           DelayedDisplay(
-                            delay: getDelayDuration(),
+                            delay: showDelay(),
                             child: GestureDetector(
                               onTap: () {
                                 Get.previousRoute == "/getStarted"
@@ -129,6 +149,8 @@ class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
                           ),
                         ],
                       ),
+
+                      // Bottom padding
                       const SizedBox(height: 10),
                     ],
                   ),

@@ -5,11 +5,12 @@ import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
 import '/constants/text/general_texts.dart';
-import '/widgets/button_widgets/auth_button.dart';
-import '/controllers/auth/sign_out_controller.dart';
-import '/controllers/user_controllers/user_info_controller.dart';
 import '/constants/user_profile_stats.dart';
-import '/helpers/string_methods.dart';
+import '/controllers/auth/sign_out_controller.dart';
+import '/controllers/user_info/user_info_controller.dart';
+import '/helpers/show_delay_mixin.dart';
+import '../../widgets/buttons/auth_button.dart';
+
 import 'components/profile_app_bar.dart';
 import 'components/stat.dart';
 import 'edit_profile_page.dart';
@@ -21,24 +22,21 @@ class UserProfile extends StatefulWidget {
   State<UserProfile> createState() => _UserProfileState();
 }
 
-class _UserProfileState extends State<UserProfile> {
+class _UserProfileState extends State<UserProfile> with ShowDelayMixin {
   // Dependency injections
   final UserInformationController userInformationController = Get.find();
   final SignOutController signOutController = Get.put(SignOutController());
-
-  Color? scfldColor = ColorConstants.darkBlue;
-  Color? overlayedColor = const Color.fromARGB(255, 21, 22, 45);
 
   //final bool hasProfilePic = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: scfldColor,
+      backgroundColor: ColorConstants.darkBlue,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
         child: DelayedDisplay(
-          delay: Duration(milliseconds: delay),
+          delay: showDelay(),
           child: const ProfileAppBar(),
         ),
       ),
@@ -52,7 +50,7 @@ class _UserProfileState extends State<UserProfile> {
             Column(
               children: [
                 DelayedDisplay(
-                  delay: Duration(milliseconds: delay + 100),
+                  delay: showDelay(),
                   child: SizedBox(
                     width: 120,
                     height: 120,
@@ -61,7 +59,7 @@ class _UserProfileState extends State<UserProfile> {
                       child: Obx(
                         (() => Image(
                               image: NetworkImage(userInformationController
-                                  .userProfileImg.value),
+                                  .userProfileImage.value),
                               // : NetworkImage(MediaConstants.defaultProfile),
                               fit: BoxFit.cover,
                               frameBuilder: (_, image, loadingBuilder, __) {
@@ -86,7 +84,7 @@ class _UserProfileState extends State<UserProfile> {
                 ),
                 const SizedBox(height: 20),
                 DelayedDisplay(
-                  delay: Duration(milliseconds: delay + 400),
+                  delay: showDelay(),
                   child: Obx(
                     () => DelayedDisplay(
                       child: Text(
@@ -102,7 +100,7 @@ class _UserProfileState extends State<UserProfile> {
                 ),
                 const SizedBox(height: 20),
                 DelayedDisplay(
-                  delay: Duration(milliseconds: delay + 300),
+                  delay: showDelay(),
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Text(
@@ -117,13 +115,13 @@ class _UserProfileState extends State<UserProfile> {
                 ),
                 const SizedBox(height: 40),
                 DelayedDisplay(
-                  delay: Duration(milliseconds: delay + 400),
+                  delay: showDelay(),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       ...List.generate(
                         UserProfileStats.stats.length,
-                        (i) => Stat(
+                        (i) => UserStatistic(
                           statValue: (UserProfileStats.stats[i]["value"]),
                           statTitle: UserProfileStats.stats[i]["title"],
                         ),
@@ -135,18 +133,16 @@ class _UserProfileState extends State<UserProfile> {
             ),
             const Spacer(flex: 2),
             DelayedDisplay(
-              delay: Duration(milliseconds: delay + 500),
+              delay: showDelay(),
               child: AuthButton(
-                  text: TextConstants.editProfile,
-                  isOutlined: true,
-                  onPressed: () {
-                    Get.to(() => CustomProfileSettings(), arguments: [
-                      scfldColor,
-                      overlayedColor,
-                    ]);
-                  }),
+                text: TextConstants.editProfile,
+                isOutlined: true,
+                onPressed: () {
+                  Get.to(EditProfilePage());
+                },
+              ),
             ),
-            const SizedBox(height: 30)
+            const SizedBox(height: 30),
           ],
         ),
       ),

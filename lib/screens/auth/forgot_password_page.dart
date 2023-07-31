@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import 'package:duo_fit/constants/text/general_texts.dart';
-import '../../controllers/auth/forgot_password_controller.dart';
-import '/helpers/string_methods.dart';
-import '../../widgets/button_widgets/auth_button.dart';
+import '/constants/text/general_texts.dart';
+import '/controllers/auth/forgot_password_controller.dart';
+import '/helpers/show_delay_mixin.dart';
+import '../../widgets/buttons/auth_button.dart';
 import '/widgets/text_field.dart';
-import '/widgets/text_widgets/title_with_description.dart';
+import '../../widgets/text/title_with_description.dart';
 import '/widgets/background_image.dart';
 
-class ForgotPasswordPage extends GetView<ForgotPasswordController> {
-  const ForgotPasswordPage({super.key});
+// Page where user can reset password from login page
+// ignore: must_be_immutable
+class ForgotPasswordPage extends GetView<ForgotPasswordController>
+    with ShowDelayMixin {
+  ForgotPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,25 +41,34 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
+                  // Forgot password / forgot password description
                   DelayedDisplay(
-                    delay: Duration(milliseconds: delay + 100),
+                    delay: showDelay(),
                     child: const TitleWithDescription(
                       title: TextConstants.forgotPassword,
                       description: TextConstants.forgotPasswordDesccription,
                     ),
                   ),
+
+                  // Space between forgot password / forgot password description and email text field
                   const SizedBox(height: 10),
+
+                  // Email text field
                   DelayedDisplay(
-                    delay: Duration(milliseconds: delay + 200),
+                    delay: showDelay(),
                     child: CustomTextField(
                       controller: controller.recoveryEmailController,
                       keyboardType: TextInputType.emailAddress,
                       label: (TextConstants.yourEmail),
                     ),
                   ),
+
+                  // Space between email text field and reset password button
                   const SizedBox(height: 50),
+
+                  // Reset password button
                   DelayedDisplay(
-                    delay: Duration(milliseconds: delay + 300),
+                    delay: showDelay(),
                     child: AuthButton(
                       onPressed: () {
                         controller.recoverPassword(
@@ -67,6 +79,8 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
                       isOutlined: true,
                     ),
                   ),
+
+                  // Bottom padding
                   const SizedBox(height: 20),
                 ],
               ),

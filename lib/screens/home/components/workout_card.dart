@@ -2,34 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '../../workout_details/workout_details_page.dart';
+import '/models/workout_model.dart';
+import '/screens/workout_details/workout_details_page.dart';
 
 class WorkoutCard extends StatelessWidget {
-  WorkoutCard({
-    required this.title,
-    required this.imagePath,
-    required this.listCollection,
-    required this.index,
+  const WorkoutCard({
+    required this.workout,
     super.key,
   });
 
-  String title;
-  String imagePath;
-  List listCollection;
-  int index;
+  final WorkoutModel workout;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Get.to(WorkoutDetailsPage(
-          workoutTitle: title,
-          overlayedImg: imagePath,
-          timeLeftInHour: "?",
-          movesNumber: "?",
-          setsNumber: "?",
-          durationInMinutes: "?",
-          description: "?",
+          workout: workout,
         ));
       },
       child: Container(
@@ -44,14 +33,14 @@ class WorkoutCard extends StatelessWidget {
                 width: 130,
                 height: 130,
                 child: Image.asset(
-                  imagePath,
+                  workout.image,
                   fit: BoxFit.cover,
                 ),
               ),
             ),
             const SizedBox(height: 10),
             Text(
-              title,
+              workout.title,
               style: TextStyle(
                 color: ColorConstants.textWhite.withOpacity(0.75),
                 fontSize: 13,

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
 
-class Stat extends StatelessWidget {
-  Stat({
+// Class that displays custom user stats such as lbs lost and workouts completed
+class UserStatistic extends StatelessWidget {
+  const UserStatistic({
     required this.statTitle,
     required this.statValue,
     super.key,
   });
 
-  String statTitle, statValue;
+  final String statTitle, statValue;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +24,7 @@ class Stat extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(
-          height: 10,
-        ),
+        const SizedBox(height: 10),
         Text(
           statTitle,
           style: const TextStyle(

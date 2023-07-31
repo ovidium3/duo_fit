@@ -3,21 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '../../constants/text/general_texts.dart';
+import '/constants/text/general_texts.dart';
+import '/constants/data/general_data.dart';
+import '/controllers/get_started/get_started_controller.dart';
+import '/helpers/show_delay_mixin.dart';
 import '/widgets/background_image.dart';
-import '../../constants/data/general_data.dart';
-import '/constants/show_delay_mixin.dart';
-import '../../controllers/get_started/get_started_controller.dart';
-import '../../widgets/text_widgets/app_title.dart';
-import '/widgets/text_widgets/title_with_description.dart';
-import 'componenets/get_started_cards_scroll_view.dart';
-import '/controllers/dialog_controller.dart';
+import '../../widgets/text/app_title.dart';
+import '../../widgets/text/title_with_description.dart';
 
-class GetStartedPage extends GetView<GetStartedController>
-    with DelayHelperMixin {
+import 'components/goal_cards_scroll_view.dart';
+
+// Page where user can select their goals from a list of cards
+// ignore: must_be_immutable
+class GetStartedPage extends GetView<GetStartedController> with ShowDelayMixin {
   GetStartedPage({super.key});
-
-  //final DialogController dialogController = Get.put(DialogController());
 
   @override
   Widget build(BuildContext context) {
@@ -30,31 +29,38 @@ class GetStartedPage extends GetView<GetStartedController>
             color: ColorConstants.darkBlue.withOpacity(0.69),
             width: double.infinity,
             child: Container(
-              margin: const EdgeInsets.symmetric(
-                vertical: 15,
-              ),
+              margin: const EdgeInsets.symmetric(vertical: 15),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
+                  // Space above app title
                   const Spacer(),
+
+                  // App title
                   DelayedDisplay(
-                    delay: getDelayDuration(),
+                    delay: showDelay(),
                     child: const AppTitle(),
                   ),
-                  const Spacer(
-                    flex: 2,
-                  ),
+
+                  // Space between app title and your goal / goal description
+                  const Spacer(flex: 2),
+
+                  // Your goal / goal description
                   Container(
                     margin: const EdgeInsets.only(left: 20),
                     child: DelayedDisplay(
-                      delay: getDelayDuration(),
+                      delay: showDelay(),
                       child: const TitleWithDescription(
                         title: TextConstants.getStartedTitle,
                         description: TextConstants.getStartedDescription,
                       ),
                     ),
                   ),
-                  const Spacer(flex: 2),
+
+                  // Space between your goal / goal description and goal cards
+                  const Spacer(),
+
+                  // Goal cards
                   Theme(
                     data: Theme.of(context).copyWith(
                       colorScheme: Theme.of(context).colorScheme.copyWith(
@@ -62,18 +68,18 @@ class GetStartedPage extends GetView<GetStartedController>
                             secondary: ColorConstants.transparent,
                           ),
                     ),
-                    child: GetStartedCardsScrollView(
-                      delay: getDelayDuration(),
-                    ),
+                    child: GoalCardsScrollView(delay: showDelay()),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+
+                  // Space between goal cards and cards tapped / next button
+                  const SizedBox(height: 20),
+
+                  // Cards tapped / next button
                   Container(
                     margin:
                         const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                     child: DelayedDisplay(
-                      delay: getDelayDuration(),
+                      delay: showDelay(),
                       child: IntrinsicHeight(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -84,7 +90,7 @@ class GetStartedPage extends GetView<GetStartedController>
                                   id: controller.rebuildId,
                                   builder: (controller) {
                                     return Text(
-                                      "${controller.checkedCardsIds.length} / ${handledCardsList.length}",
+                                      '${controller.checkedCardsIds.length} / ${DataConstants.goalCardsList.length}',
                                       style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: ColorConstants.green,
@@ -110,7 +116,6 @@ class GetStartedPage extends GetView<GetStartedController>
                                           Get.toNamed("/signUp");
                                         }
                                       : null,
-                                  //: dialogController.showError('error'),
                                   child: const Text(
                                     (TextConstants.next),
                                     style: TextStyle(
@@ -122,8 +127,6 @@ class GetStartedPage extends GetView<GetStartedController>
                             ),
                           ],
                         ),
-                        //),
-                        //],
                       ),
                     ),
                   )

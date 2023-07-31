@@ -1,7 +1,8 @@
+import 'package:duo_fit/helpers/handle_errors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import '/controllers/dialog_controller.dart';
+import '../dialog_controller.dart';
 
 class SignOutController extends GetxController {
   // Dependency injection
@@ -9,16 +10,18 @@ class SignOutController extends GetxController {
 
   // Sign out from the app
   signOut() async {
+    dialogController.showLoading();
     try {
-      // Show loading until signed out
-      // dialogController.showConfirmWithActions(
-      //     'are you sure you wanna log out', 'log out', () {});
-      dialogController.showLoading();
+      // Sign out
       await FirebaseAuth.instance.signOut();
     } on FirebaseAuthException catch (e) {
-      // Pop loading and show error
+      // Pop loading and handle auth error
       Get.back();
-      dialogController.showError("Error: ${e.code}");
+      handleAuthErrors(e);
+    } catch (e) {
+      // Pop loading and show other error
+      Get.back();
+      dialogController.showError(e as String);
     }
   }
 }

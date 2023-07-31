@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '/constants/color_constants.dart';
 import '/constants/text/general_texts.dart';
 
+// A controller dedicated to displaying dialogs like loading and showing errors
 class DialogController extends GetxController {
   // Loading dialog
   showLoading() {

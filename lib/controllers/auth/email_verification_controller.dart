@@ -2,56 +2,71 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import '/constants/text/general_texts.dart';
-import '/screens/home/home_page.dart';
+import '/constants/text/error_texts.dart';
 import '../dialog_controller.dart';
+import '/helpers/handle_errors.dart';
+import '/screens/home/home_page.dart';
 
 class EmailVerificationController extends GetxController {
-  User? user = FirebaseAuth.instance.currentUser;
-
   // Dependency injection
   final DialogController dialogController = Get.find();
+
+  // Get current user
+  User? user = FirebaseAuth.instance.currentUser;
 
   sendVerificationEmail() async {
     dialogController.showLoading();
 
-    // Send verification email
-    if (user != null) {
-      await user!.sendEmailVerification();
-    }
+    try {
+      // Send verification email
+      if (user != null) {
+        await user!.sendEmailVerification();
+      }
 
-    // Pop loading and show success
-    Get.back();
-    dialogController.showSuccess(
-      "Sent",
-    );
+      // Pop loading and show success
+      Get.back();
+      dialogController.showSuccess(ErrorTexts.sent);
+    } on FirebaseAuthException catch (e) {
+      // Pop loading and handle auth error
+      Get.back();
+      handleAuthErrors(e);
+    } catch (e) {
+      // Pop loading and handle other errors
+      Get.back();
+      dialogController.showError(e as String);
+    }
   }
 
-  checkEmailVerified() async {
+  checkEmailVerification() async {
     dialogController.showLoading();
-    await user?.reload();
-    bool? emailVerifiedAfterReload = user?.emailVerified;
+
+    // Reload and check if user is verified
+    await FirebaseAuth.instance.currentUser?.reload();
+    bool? emailVerifiedAfterReload =
+        FirebaseAuth.instance.currentUser?.emailVerified;
 
     if (emailVerifiedAfterReload == true) {
-      // Update verif in firestore and load home page
+      // Update verification in firestore and load home page
       await FirebaseFirestore.instance
-          .collection("aboutUsers")
+          .collection('Users')
           .doc(user!.uid)
           .update({
-        "verified": emailVerifiedAfterReload,
+        'verified': emailVerifiedAfterReload,
       });
-      Get.offAll(HomePage());
+      Get.offAll(const HomePage());
     } else if (emailVerifiedAfterReload == false) {
       // Pop loading and show error
       Get.back();
-      dialogController.showError(TextConstants.pleaseVerifyEmail);
+      dialogController.showError(ErrorTexts.verifyEmail);
     }
   }
 
   @override
   void onInit() async {
-    // send verification email before page is loading
-    await user!.sendEmailVerification();
+    // Send verification email before page loads
+    if (user != null && !user!.emailVerified) {
+      await user!.sendEmailVerification();
+    }
     super.onInit();
   }
 }

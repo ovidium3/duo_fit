@@ -34,56 +34,60 @@ class TextConstants {
   static const String yourEmail = 'Your email';
   static const String forgotPasswordDesccription =
       'Enter your email below to reset your password';
+  static const String passwordResetEmailSent =
+      'We have sent you an email to reset your password';
 
   // Auth -> Verify account page
   static const String emailSentText =
       'We have sent you an email to verify your account. Please check your inbox and click the link to verify it';
-  static const String done = 'done';
-  static const String reSendEmailVerification = 're-send email verification';
+  static const String done = 'Done';
+  static const String reSendEmailVerification = 'Re-send email verification';
+  static const String sent = 'sent';
 
-  // Home page -> general
-  static const String hey = 'Hey,';
-
-  // Home page -> Workouts
+  // Home page
+  static const String hey = 'Hey, ';
   static const String find = 'Find';
   static const String yourWorkout = 'Your Workout';
 
-  static const String apply = 'Apply';
-
-  // Workout details
-
-  static const String hours = 'hours';
-  static const String moves = 'moves';
-  static const String sets = 'sets';
-  static const String minutes = 'min';
-  static const String noFreeTrialAvailable = 'No preview available';
-
-  // Home page -> User profile
+  // User profile
   static const String profile = 'Profile';
   static const String logOut = 'Log Out';
   static const String profileDescription =
       'This is the user profile description';
   static const String editProfile = 'Edit Profile';
-  static const String accountDeleted = 'Account deleted';
 
-  // More auth stuff
-  static const String pleaseVerifyEmail = 'Please verify your email first';
-  static const String enterEmail = 'please enter your email';
-  static const String enterValidEmail = 'please enter a valid email';
-  static const String emailVerifSentText =
-      'we\'ve sent you an email to reset your password, check your inbox';
-  static const String noUserText = 'there is no user with this email';
-  static const String checkConnection = 'check your internet connection';
-  static const String wrongPassword = 'wrong password';
-  static const String invalidEmail = 'Invalid email address, try again';
-  static const String enterPassword = 'Please enter your password';
-  static const String passwordMustBe5AtLeast =
-      'Password must be at least 5 characters long';
-  static const String usernameMustBe5AtLeast =
-      'username must be at least 5 characters long';
-  static const String weakPassword = 'weak password, try with stronger one';
-  static const String emailAlreadyInUse = 'this email is already in use';
-  static const String fillFields = 'please, fill all fields';
+  // Edit profile
+  static const String update = 'Update';
+
+  static const String changeUsername = 'Change Username';
+  static const String usernameLabel = 'Username';
+  static const String usernameUpdated = 'Username updated successfully!';
+
+  static const String changeProfilePicture = 'Change Profile Picture';
+  static const String selectImage = 'Select an Image';
+  static const String profilePictureUpdated =
+      'Profile picture updated successfully!';
+
+  static const String changeEmailAddress = 'Change Email Address';
+  static const String emailLabel = 'Email';
+  static const String emailUpdated = 'Email updated successfully!';
+
+  static const String changePassword = 'Change Password';
+  static const String passwordLabel = 'Password';
+  static const String passwordUpdated = 'Password updated successfully!';
+
+  static const String deleteAccount = 'Delete Account';
+  static const String confirmDeleteAccount =
+      'Are you sure you want to delete your account?';
+  static const String delete = 'Delete';
+  static const String accountDeleted = 'Account deleted successfully';
+
+  // Workout
+  static const String workoutDetails = 'Workout Details';
+  static const String exerciseDetails = 'Exercise Details';
+  static const String startWorkout = 'Start Workout';
+  static const String finish = 'Finish';
+  static const String cancelWorkout = 'Cancel Workout';
 
   // Common
   static const String duo = 'duo';

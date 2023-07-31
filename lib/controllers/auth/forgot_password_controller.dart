@@ -3,9 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '/constants/text/general_texts.dart';
-import '/controllers/dialog_controller.dart';
-import '/helpers/extension/auth_errors_extension.dart';
-import '/helpers/extension/auth_validation_extension.dart';
+import '../dialog_controller.dart';
+import '/helpers/auth_validation.dart';
+import '/helpers/handle_errors.dart';
 import '/screens/auth/login_page.dart';
 
 class ForgotPasswordController extends GetxController {
@@ -15,27 +15,30 @@ class ForgotPasswordController extends GetxController {
   // Input controller
   late TextEditingController recoveryEmailController;
 
+  // Firebase auth instance
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
   // Recover password method
-  recoverPassword(String email) async {
-    if (email.isValidEmail) {
+  recoverPassword(String userEmail) async {
+    if (userEmail.isValidEmail) {
+      dialogController.showLoading();
+
       try {
         // Send reset password email, navigate to login page, show success dialog
-        dialogController.showLoading();
-        await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+        await auth.sendPasswordResetEmail(email: userEmail);
         Get.to(LoginPage());
-        dialogController.showSuccess(TextConstants.emailVerifSentText);
+        dialogController.showSuccess(TextConstants.passwordResetEmailSent);
       } on FirebaseAuthException catch (e) {
         // Pop loading and show error message
         Get.back();
         handleAuthErrors(e);
       } catch (e) {
         // Show other error message, shouldn't hit though
-        dialogController.showError(e.toString());
+        dialogController.showError(e as String);
       }
-    } else if (email == "") {
-      dialogController.showError(TextConstants.enterEmail);
-    } else if (!email.isValidEmail) {
-      dialogController.showError(TextConstants.enterValidEmail);
+    } else {
+      // Handle validation errors
+      handleValidationErrors(email: userEmail);
     }
   }
 

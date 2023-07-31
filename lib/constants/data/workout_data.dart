@@ -1,6 +1,7 @@
-import '../media_constants.dart';
-import '../text/workout_texts.dart';
+import '/constants/media_constants.dart';
+import '/constants/text/workout_texts.dart';
 import '/models/workout_model.dart';
+
 import 'exercise_data.dart';
 
 class WorkoutData {
@@ -8,7 +9,7 @@ class WorkoutData {
   static final upperBody = WorkoutModel(
     title: WorkoutTexts.upperTitle,
     exercises: WorkoutTexts.upperExercises,
-    minutes: WorkoutTexts.upperMinutes,
+    duration: WorkoutTexts.upperDuration,
     image: MediaConstants.upper,
     exerciseDataList: [
       ExerciseData.shoulderPressExercise,
@@ -23,7 +24,7 @@ class WorkoutData {
   static final push = WorkoutModel(
     title: WorkoutTexts.pushTitle,
     exercises: WorkoutTexts.pushExercises,
-    minutes: WorkoutTexts.pushMinutes,
+    duration: WorkoutTexts.pushDuration,
     image: MediaConstants.push,
     exerciseDataList: [
       ExerciseData.shoulderPressExercise,
@@ -37,7 +38,7 @@ class WorkoutData {
   static final pull = WorkoutModel(
     title: WorkoutTexts.pullTitle,
     exercises: WorkoutTexts.pullExercises,
-    minutes: WorkoutTexts.pullMinutes,
+    duration: WorkoutTexts.pullDuration,
     image: MediaConstants.pull,
     exerciseDataList: [
       ExerciseData.pullUpExercise,
@@ -51,7 +52,7 @@ class WorkoutData {
   static final legs = WorkoutModel(
     title: WorkoutTexts.legsTitle,
     exercises: WorkoutTexts.legsExercises,
-    minutes: WorkoutTexts.legsMinutes,
+    duration: WorkoutTexts.legsDuration,
     image: MediaConstants.legs,
     exerciseDataList: [
       ExerciseData.squatExercise,
@@ -65,7 +66,7 @@ class WorkoutData {
   static final fullBody = WorkoutModel(
     title: WorkoutTexts.fullBodyTitle,
     exercises: WorkoutTexts.fullBodyExercises,
-    minutes: WorkoutTexts.fullBodyMinutes,
+    duration: WorkoutTexts.fullBodyDuration,
     image: MediaConstants.fullBody,
     exerciseDataList: [
       ExerciseData.shoulderPressExercise,
@@ -78,39 +79,42 @@ class WorkoutData {
 
   // Arms
   static final arms = WorkoutModel(
-      title: WorkoutTexts.armsTitle,
-      exercises: WorkoutTexts.armsExercises,
-      minutes: WorkoutTexts.armsMinutes,
-      image: MediaConstants.arms,
-      exerciseDataList: [
-        ExerciseData.skullcrusherExercise,
-        ExerciseData.barbellCurlExercise,
-        ExerciseData.tricepExtensionExercise,
-        ExerciseData.bicepCurlExercise,
-      ]);
+    title: WorkoutTexts.armsTitle,
+    exercises: WorkoutTexts.armsExercises,
+    duration: WorkoutTexts.armsDuration,
+    image: MediaConstants.arms,
+    exerciseDataList: [
+      ExerciseData.skullcrusherExercise,
+      ExerciseData.barbellCurlExercise,
+      ExerciseData.tricepExtensionExercise,
+      ExerciseData.bicepCurlExercise,
+    ],
+  );
 
   // Abs
   static final abs = WorkoutModel(
-      title: WorkoutTexts.absTitle,
-      exercises: WorkoutTexts.absExercises,
-      minutes: WorkoutTexts.absMinutes,
-      image: MediaConstants.abs,
-      exerciseDataList: [
-        ExerciseData.legRaiseExercise,
-        ExerciseData.kneeRaiseExercise,
-        ExerciseData.russianTwistExercise,
-        ExerciseData.crunchExercise,
-      ]);
+    title: WorkoutTexts.absTitle,
+    exercises: WorkoutTexts.absExercises,
+    duration: WorkoutTexts.absDuration,
+    image: MediaConstants.abs,
+    exerciseDataList: [
+      ExerciseData.legRaiseExercise,
+      ExerciseData.kneeRaiseExercise,
+      ExerciseData.russianTwistExercise,
+      ExerciseData.crunchExercise,
+    ],
+  );
 
   // Shoulders
   static final shoulders = WorkoutModel(
-      title: WorkoutTexts.shouldersTitle,
-      exercises: WorkoutTexts.shouldersExercises,
-      minutes: WorkoutTexts.shouldersMinutes,
-      image: MediaConstants.shoulders,
-      exerciseDataList: [
-        ExerciseData.shoulderPressExercise,
-        ExerciseData.lateralRaiseExercise,
-        ExerciseData.reverseFlyExercise,
-      ]);
+    title: WorkoutTexts.shouldersTitle,
+    exercises: WorkoutTexts.shouldersExercises,
+    duration: WorkoutTexts.shouldersDuration,
+    image: MediaConstants.shoulders,
+    exerciseDataList: [
+      ExerciseData.shoulderPressExercise,
+      ExerciseData.lateralRaiseExercise,
+      ExerciseData.reverseFlyExercise,
+    ],
+  );
 }

@@ -2,23 +2,21 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-//import '/controllers/auth_controllers/sign_up_controller/sign_up_controller.dart';
-import '/constants/show_delay_mixin.dart';
-import '../../constants/text/general_texts.dart';
-import '../../controllers/auth/login_controller/extensions/login_with_account.dart';
-import '/widgets/background_image.dart';
-
-import '../../controllers/auth/login_controller/login_controller.dart';
 import '/constants/color_constants.dart';
-import '/helpers/string_methods.dart';
-import '../../widgets/button_widgets/auth_button.dart';
-import '../../widgets/text_widgets/app_title.dart';
+import '/constants/text/general_texts.dart';
+import '../../controllers/auth/login_controller.dart';
+import '/helpers/show_delay_mixin.dart';
+import '/widgets/background_image.dart';
+import '../../widgets/buttons/auth_button.dart';
 import '/widgets/text_field.dart';
-import '/widgets/text_widgets/title_with_description.dart';
-import 'sign_up_page.dart';
-import 'forgot_password_page.dart';
+import '../../widgets/text/app_title.dart';
+import '../../widgets/text/title_with_description.dart';
 
-class LoginPage extends GetView<LoginController> with DelayHelperMixin {
+import 'sign_up_page.dart';
+
+// Login page where user can also jump to sign up page or reset password
+// ignore: must_be_immutable
+class LoginPage extends GetView<LoginController> with ShowDelayMixin {
   LoginPage({super.key});
 
   @override
@@ -52,30 +50,43 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+                      // Space above app title
                       const Spacer(),
+
+                      // App title
                       DelayedDisplay(
-                        delay: Duration(milliseconds: delay),
+                        delay: showDelay(),
                         child: const AppTitle(),
                       ),
+
+                      // Space between app title and login / login description
                       const Spacer(flex: 3),
+
+                      // Login / login description
                       DelayedDisplay(
-                        delay: getDelayDuration(),
+                        delay: showDelay(),
                         child: const TitleWithDescription(
                           title: TextConstants.login,
                           description: TextConstants.loginDescription,
                         ),
                       ),
+
+                      // Space between login / login description and email text field
                       const SizedBox(height: 10),
+
+                      // Email text field
                       DelayedDisplay(
-                        delay: getDelayDuration(),
+                        delay: showDelay(),
                         child: CustomTextField(
                           keyboardType: TextInputType.emailAddress,
                           controller: controller.loginEmailController,
                           label: TextConstants.email,
                         ),
                       ),
+
+                      // Password text field
                       DelayedDisplay(
-                        delay: getDelayDuration(),
+                        delay: showDelay(),
                         child: CustomTextField(
                           keyboardType: TextInputType.visiblePassword,
                           controller: controller.loginPasswordController,
@@ -83,12 +94,14 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                           obscureText: true,
                         ),
                       ),
+
+                      // Forgot password page link
                       Align(
                         alignment: Alignment.centerRight,
                         child: Padding(
                           padding: const EdgeInsets.only(top: 15),
                           child: DelayedDisplay(
-                            delay: getDelayDuration(),
+                            delay: showDelay(),
                             child: GestureDetector(
                               onTap: () {
                                 Get.toNamed("/forgotPassword");
@@ -103,38 +116,45 @@ class LoginPage extends GetView<LoginController> with DelayHelperMixin {
                           ),
                         ),
                       ),
+
+                      // Space between forgot password page link and auth buttons
                       const Spacer(flex: 1),
+
+                      // Auth buttons
                       Column(
                         children: [
+                          // Login button
                           DelayedDisplay(
-                            delay: getDelayDuration(),
+                            delay: showDelay(),
                             child: AuthButton(
                               onPressed: () {
-                                controller.loginWithAccount(
-                                  email: controller.loginEmailController.text
-                                      .trim(),
-                                  password: controller
-                                      .loginPasswordController.text
+                                controller.loginToAccount(
+                                  controller.loginEmailController.text.trim(),
+                                  controller.loginPasswordController.text
                                       .trim(),
                                 );
                               },
-                              isRounded: false,
                               text: TextConstants.login,
                               isOutlined: false,
                             ),
                           ),
+
+                          // Space between login button and sign up button
                           const SizedBox(height: 10),
+
+                          // Sign up button
                           DelayedDisplay(
-                            delay: getDelayDuration(),
+                            delay: showDelay(),
                             child: AuthButton(
                               onPressed: () {
                                 Get.to(() => SignUpPage());
                               },
-                              isRounded: false,
                               text: TextConstants.signUp,
                               isOutlined: true,
                             ),
                           ),
+
+                          // Bottom padding
                           const SizedBox(height: 10),
                         ],
                       )

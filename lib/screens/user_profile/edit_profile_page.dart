@@ -2,13 +2,16 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '/controllers/user_controllers/user_profile_options_controller.dart';
-import '/helpers/string_methods.dart';
-import 'components/profile_app_bar.dart';
+import '/controllers/user_info/user_profile_options_controller.dart';
 import '/constants/color_constants.dart';
+import '/helpers/show_delay_mixin.dart';
 
-class CustomProfileSettings extends StatelessWidget {
-  CustomProfileSettings({super.key});
+import 'components/profile_app_bar.dart';
+
+// Page where user can make changes to their information
+// ignore: must_be_immutable
+class EditProfilePage extends StatelessWidget with ShowDelayMixin {
+  EditProfilePage({super.key});
 
   final UserProfileOptionsController userProfileOptionsController =
       Get.put(UserProfileOptionsController());
@@ -20,46 +23,46 @@ class CustomProfileSettings extends StatelessWidget {
         preferredSize: Size.fromHeight(80),
         child: ProfileAppBar(),
       ),
-      backgroundColor: Get.arguments[0],
+      backgroundColor: ColorConstants.darkBlue,
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ...List.generate(
-              userProfileOptionsController.userProfileOptionsList.length,
+              userProfileOptionsController.profileOptionsList.length,
               (i) => DelayedDisplay(
-                delay: Duration(milliseconds: delay + 100 * i),
+                delay: showDelay(),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Get.arguments[1],
+                      color: ColorConstants.overlayBlue,
                       borderRadius: BorderRadius.circular(10)),
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: InkWell(
-                    onTap: userProfileOptionsController
-                        .userProfileOptionsList[i]["optionFunction"],
+                    onTap: userProfileOptionsController.profileOptionsList[i]
+                        ["optionFunction"],
                     child: ListTile(
                       title: Text(
-                        (userProfileOptionsController.userProfileOptionsList[i]
-                            ["optionTitle"]),
+                        userProfileOptionsController.profileOptionsList[i]
+                            ["optionTitle"],
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: i ==
                                     userProfileOptionsController
-                                            .userProfileOptionsList.length -
+                                            .profileOptionsList.length -
                                         1
                                 ? ColorConstants.error
                                 : Theme.of(context).primaryColor,
                             fontSize: 20),
                       ),
                       leading: Icon(
-                        userProfileOptionsController.userProfileOptionsList[i]
+                        userProfileOptionsController.profileOptionsList[i]
                             ["optionIcon"],
                         color: i ==
                                 userProfileOptionsController
-                                        .userProfileOptionsList.length -
+                                        .profileOptionsList.length -
                                     1
                             ? ColorConstants.error
                             : Theme.of(context).primaryColor,

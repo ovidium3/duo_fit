@@ -3,22 +3,37 @@ import 'package:flutter/material.dart';
 class ColorConstants {
   // Main color scheme
   static const Color darkBlue = Color(0xff131429);
+  static const Color overlayBlue = Color.fromARGB(255, 32, 34, 69);
   static const Color green = Color(0xff40D876);
-  static const Color textWhite = Colors.white;
   static const Color inputDecor = Colors.white;
   static const Color tabBar = Colors.white;
+
+  // Text colors
+  static const Color textWhite = Colors.white;
+
+  // Icon colors
   static const Color iconWhite = Colors.white;
   static const Color iconBlack = Colors.black;
 
-  static const Color starFilled = Colors.yellow;
-  static const Color starEmpty = Colors.white;
+  // Calorie circle colors
+  static const overCount = Colors.yellow;
+  static const wayOverCount = Colors.orange;
+  static const wayWayOverCount = Colors.red;
 
-  // Text colors
-  static const Color textBlack = Colors.black;
+  static final closeFood = Colors.grey[300];
+  static const confirmRemoveFood = Colors.red;
+
+  // Workout colors
+  static const warmUpSet = Colors.yellow;
+  static const regularSet = ColorConstants.green;
+  static const failureSet = Colors.red;
 
   // Other colors
+  static const Color starFilled = Colors.yellow;
+  static const Color starEmpty = Colors.white;
   static const Color error = Colors.red;
   static const Color transparent = Colors.transparent;
+  static const Color disabled = Color(0xFFE1E1E5);
 }
 
 // fitness app colors

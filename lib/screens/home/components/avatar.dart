@@ -3,17 +3,17 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '/constants/color_constants.dart';
 
+// Profile picture display
 class Avatar extends StatelessWidget {
-  Avatar({
+  const Avatar({
     required this.onProfileImgTap,
     required this.networkImage,
     super.key,
   });
 
-  // final UserInformationController userInformationController =
-  //     Get.put(UserInformationController());
   final void Function()? onProfileImgTap;
-  String networkImage;
+  final String networkImage;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

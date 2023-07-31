@@ -6,3 +6,6 @@
 - ideas: make the home page resemble the calorie log page in the sense that the all workouts tab can be minimized or pushed down hte page
 - update temp profile values with firestore's
 - implement show/hide for password field (showeye)
+- merge app bars into one widget and have ternary ops for diff placings like profile and wrkout
+- fix inconsistent bottom padding
+- email verif resend email not working

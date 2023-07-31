@@ -1,23 +1,20 @@
 import 'package:get/get.dart';
 
-import '/screens/auth/sign_up_page.dart';
-import '/screens/welcome/welcome_page.dart';
-import '/bindings/forgot_password_binding.dart';
-import '/bindings/get_started_binding.dart';
-import '/bindings/auth_bindings.dart';
-import '/bindings/welcome_binding.dart';
-import '/screens/get_started/get_started_page.dart';
+import '../configurations/bindings/auth_bindings.dart';
+import '../configurations/bindings/get_started_binding.dart';
+import '/screens/auth/email_verification_page.dart';
 import '/screens/auth/forgot_password_page.dart';
 import '/screens/auth/login_page.dart';
-import '/bindings/email_verification_binding.dart';
-import '/screens/auth/email_verification_page.dart';
+import '/screens/auth/sign_up_page.dart';
+import '/screens/get_started/get_started_page.dart';
+import '/screens/get_started/welcome_page.dart';
 
 class Routes {
   static final List<GetPage> pages = [
     GetPage(
       name: '/',
       page: () => WelcomePage(),
-      binding: WelcomePageBinding(),
+      // No binding required
     ),
     GetPage(
       name: '/getStarted',
@@ -36,7 +33,7 @@ class Routes {
     ),
     GetPage(
       name: '/forgotPassword',
-      page: () => const ForgotPasswordPage(),
+      page: () => ForgotPasswordPage(),
       binding: ForgotPasswordBinding(),
     ),
     GetPage(

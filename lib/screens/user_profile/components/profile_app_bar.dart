@@ -5,6 +5,7 @@ import '/constants/color_constants.dart';
 import '/constants/text/general_texts.dart';
 import '/controllers/auth/sign_out_controller.dart';
 
+// App bar used for navigating back / logging out from profile pages
 class ProfileAppBar extends StatelessWidget {
   const ProfileAppBar({super.key});
 

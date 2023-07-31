@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import '/constants/color_constants.dart';
 
-// Custom text field widget used for
+// Custom text field widget used for taking user input
 class CustomTextField extends StatelessWidget {
-  CustomTextField({
+  const CustomTextField({
     required this.label,
     this.obscureText = false,
     required this.controller,
@@ -12,8 +12,8 @@ class CustomTextField extends StatelessWidget {
     super.key,
   });
 
-  String label;
-  bool obscureText;
+  final String label;
+  final bool obscureText;
   final TextEditingController controller;
   final TextInputType keyboardType;
 
@@ -28,9 +28,7 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(vertical: 15),
         filled: true,
-        alignLabelWithHint: true,
         labelText: label,
-        hintText: label,
       ),
     );
   }

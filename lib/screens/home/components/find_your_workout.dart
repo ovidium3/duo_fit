@@ -10,14 +10,14 @@ class FindYourWorkout extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: (TextConstants.find),
+        text: TextConstants.find,
         style: TextStyle(
           fontWeight: FontWeight.bold,
           color: Theme.of(context).primaryColor,
           fontSize: 25,
         ),
         children: const [
-          TextSpan(text: " "),
+          TextSpan(text: ' '),
           TextSpan(
             text: (TextConstants.yourWorkout),
             style: TextStyle(
