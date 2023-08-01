@@ -40,11 +40,6 @@ class SignUpController extends GetxController {
           password: signUpPassword,
         );
 
-        // doc ref
-        // final userDocRef = FirebaseFirestore.instance
-        //     .collection('Users')
-        //     .doc(credential.user!.uid);
-
         // Add info to firestore
         await firestore.collection('Users').doc(credential.user!.uid).set({
           'email': signUpEmail,
@@ -53,10 +48,46 @@ class SignUpController extends GetxController {
           'profileImagePath': '',
           'verified': auth.currentUser!.emailVerified,
           'createdAt': thisMomentTime,
-          // 'calorieLog': userDocRef.collection('calorieLog'),
-          // 'customWorkouts': userDocRef.collection('customWorkouts'),
-          // 'foodItems': userDocRef.collection('foodItems'),
-          // 'statistics': userDocRef.collection('statistics'),
+        });
+
+        // Initialize calorie log collection
+        await firestore
+            .collection('Users')
+            .doc(credential.user!.uid)
+            .collection('calorieLog')
+            .doc('log')
+            .set({'Start date': thisMomentTime});
+
+        // Initialize user workouts collection
+        await firestore
+            .collection('Users')
+            .doc(credential.user!.uid)
+            .collection('userWorkouts')
+            .doc('workouts')
+            .set({'First workout': thisMomentTime});
+
+        // Initialize food items collection
+        await firestore
+            .collection('Users')
+            .doc(credential.user!.uid)
+            .collection('foodItems')
+            .doc('items')
+            .set({
+          'foods': [
+            {'name': 'Protein Bar', 'calories': 200}
+          ]
+        });
+
+        // Initialize user statistics collection
+        await firestore
+            .collection('Users')
+            .doc(credential.user!.uid)
+            .collection('userStatistics')
+            .doc('stats')
+            .set({
+          'Target Calories': 2000,
+          'Program Length': 12,
+          'Workouts Completed': 0,
         });
 
         // Send user to email verification page

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '/constants/color_constants.dart';
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({required this.text, super.key});
+class DetailsAppBar extends StatelessWidget {
+  const DetailsAppBar({required this.text, super.key});
 
   final String text;
 

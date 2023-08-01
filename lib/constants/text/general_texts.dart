@@ -88,6 +88,11 @@ class TextConstants {
   static const String startWorkout = 'Start Workout';
   static const String finish = 'Finish';
   static const String cancelWorkout = 'Cancel Workout';
+  static const String finishedWorkout = 'Are you ready to finish your workout?';
+  static const String incompleteWorkout =
+      'Are you sure you want to finish your workout? Only complete sets will be logged';
+  static const String cancelWorkoutText =
+      'Are you sure you want to cancel your workout? All progress will be lost';
 
   // Common
   static const String duo = 'duo';

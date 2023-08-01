@@ -117,4 +117,33 @@ class WorkoutData {
       ExerciseData.reverseFlyExercise,
     ],
   );
+
+  // Placeholder
+  static final placeholder = WorkoutModel(
+    title: WorkoutTexts.placeholderTitle,
+    exercises: WorkoutTexts.placeholderExercises,
+    duration: WorkoutTexts.placeholderDuration,
+    image: MediaConstants.noImgAvailable,
+    exerciseDataList: [],
+  );
+
+  List<WorkoutModel> workouts = [
+    upperBody,
+    push,
+    pull,
+    legs,
+    fullBody,
+    arms,
+    abs,
+    shoulders,
+  ];
+
+  WorkoutModel getWorkoutByName(String name) {
+    for (WorkoutModel workout in workouts) {
+      if (workout.title == name) {
+        return workout;
+      }
+    }
+    return placeholder; // Arbitrary workout to return signifying error
+  }
 }

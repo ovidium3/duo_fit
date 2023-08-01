@@ -25,7 +25,7 @@ class ColorConstants {
 
   // Workout colors
   static const warmUpSet = Colors.yellow;
-  static const regularSet = ColorConstants.green;
+  static const workingSet = ColorConstants.green;
   static const failureSet = Colors.red;
 
   // Other colors

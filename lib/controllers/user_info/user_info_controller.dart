@@ -237,7 +237,8 @@ class UserInformationController extends GetxController {
 
     try {
       // Operation to catch sensitive auth errors like requires recent login
-      await updateUsername(username.value);
+      // If password update goes thru, account gets deleted too so doesnt matter
+      await _auth.currentUser!.updatePassword('Randomjunk');
 
       // Safely delete user from firestore then firebase auth **order matters**
       await _firestore.collection('Users').doc(_auth.currentUser?.uid).delete();

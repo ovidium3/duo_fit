@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '/constants/color_constants.dart';
+
 class WorkoutTimer extends StatefulWidget {
-  const WorkoutTimer({Key? key}) : super(key: key);
+  const WorkoutTimer({super.key});
 
   @override
   WorkoutTimerState createState() => WorkoutTimerState();
@@ -40,6 +42,7 @@ class WorkoutTimerState extends State<WorkoutTimer> {
       style: const TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.bold,
+        color: ColorConstants.textWhite,
       ),
     );
   }

@@ -4,13 +4,13 @@ import '/constants/text/general_texts.dart';
 
 class FinishButton extends StatelessWidget {
   final String title;
-  final Function() onTap;
+  final Function() onFinish;
 
   const FinishButton({
     this.title = TextConstants.finish,
-    required this.onTap,
-    Key? key,
-  }) : super(key: key);
+    required this.onFinish,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class FinishButton extends StatelessWidget {
         color: ColorConstants.transparent,
         child: InkWell(
           borderRadius: BorderRadius.circular(10),
-          onTap: onTap,
+          onTap: onFinish,
           child: Center(
             child: Text(
               title,

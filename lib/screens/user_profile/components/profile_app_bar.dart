@@ -23,24 +23,25 @@ class ProfileAppBar extends StatelessWidget {
       iconTheme: const IconThemeData(color: ColorConstants.iconWhite),
       actions: [
         GetBuilder<SignOutController>(
-            init: SignOutController(),
-            builder: (signOutController) {
-              return ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: ColorConstants.darkBlue, elevation: 0),
-                label: const Text(
-                  TextConstants.logOut,
-                  style: TextStyle(color: ColorConstants.error),
-                ),
-                onPressed: () {
-                  signOutController.signOut();
-                },
-                icon: const Icon(
-                  Icons.logout,
-                  color: ColorConstants.error,
-                ),
-              );
-            }),
+          init: SignOutController(),
+          builder: (signOutController) {
+            return ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: ColorConstants.darkBlue, elevation: 0),
+              label: const Text(
+                TextConstants.logOut,
+                style: TextStyle(color: ColorConstants.error),
+              ),
+              onPressed: () {
+                signOutController.signOut();
+              },
+              icon: const Icon(
+                Icons.logout,
+                color: ColorConstants.error,
+              ),
+            );
+          },
+        ),
       ],
       backgroundColor: ColorConstants.transparent,
       elevation: 0,

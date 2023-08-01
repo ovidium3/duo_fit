@@ -1,11 +1,11 @@
 - add routes to screens
-- implement my own strong-style workout data thing
+- fix workout page
 - implement my own calorie log stuff
 - continue adding to text constants
-- fix naming conventions to correct case + logical names
 - ideas: make the home page resemble the calorie log page in the sense that the all workouts tab can be minimized or pushed down hte page
 - update temp profile values with firestore's
 - implement show/hide for password field (showeye)
 - merge app bars into one widget and have ternary ops for diff placings like profile and wrkout
 - fix inconsistent bottom padding
-- email verif resend email not working
+- check email verif resend email
+- fix chewie video player

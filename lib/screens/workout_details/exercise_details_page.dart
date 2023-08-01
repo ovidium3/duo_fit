@@ -4,7 +4,7 @@ import '/constants/color_constants.dart';
 import '/constants/text/general_texts.dart';
 import '/models/exercise_model.dart';
 
-import 'components/app_bar.dart';
+import 'components/details_app_bar.dart';
 //import 'components/exercise_details_video.dart';
 import 'components/exercise_step.dart';
 
@@ -19,7 +19,7 @@ class ExerciseDetailsPage extends StatelessWidget {
       backgroundColor: ColorConstants.darkBlue,
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(60),
-        child: CustomAppBar(text: TextConstants.exerciseDetails),
+        child: DetailsAppBar(text: TextConstants.exerciseDetails),
       ),
       body: Container(
         height: double.infinity,

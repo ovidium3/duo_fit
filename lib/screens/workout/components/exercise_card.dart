@@ -1,10 +1,13 @@
-import '/models/exercise_model.dart';
-import 'package:flutter/material.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+
+import '../../../controllers/workout_controller.dart';
 import '/constants/color_constants.dart';
-import '/models/set_model.dart';
 import '/helpers/time_service.dart';
+import '/models/exercise_model.dart';
+import '/models/set_model.dart';
 
 class ExerciseCard extends StatefulWidget {
   final ExerciseModel exercise;
@@ -13,8 +16,8 @@ class ExerciseCard extends StatefulWidget {
   const ExerciseCard({
     required this.exercise,
     required this.setDataList,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   ExerciseCardState createState() => ExerciseCardState();
@@ -26,20 +29,29 @@ class ExerciseCardState extends State<ExerciseCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: ColorConstants.darkBlue,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Exercise title
           ListTile(
             title: Text(
               widget.exercise.title,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: ColorConstants.textWhite,
+              ),
             ),
           ),
+
+          // Row containing set data headers like set, reps, etc.
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                // Set header
                 Expanded(
                   flex: 1,
                   child: Text(
@@ -48,9 +60,12 @@ class ExerciseCardState extends State<ExerciseCard> {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
+                      color: ColorConstants.textWhite,
                     ),
                   ),
                 ),
+
+                // Previous data header
                 Expanded(
                   flex: 2,
                   child: Text(
@@ -59,9 +74,12 @@ class ExerciseCardState extends State<ExerciseCard> {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
+                      color: ColorConstants.textWhite,
                     ),
                   ),
                 ),
+
+                // Load header
                 Expanded(
                   flex: 1,
                   child: Text(
@@ -70,9 +88,12 @@ class ExerciseCardState extends State<ExerciseCard> {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
+                      color: ColorConstants.textWhite,
                     ),
                   ),
                 ),
+
+                // Reps header
                 Expanded(
                   flex: 1,
                   child: Text(
@@ -81,14 +102,26 @@ class ExerciseCardState extends State<ExerciseCard> {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
+                      color: ColorConstants.textWhite,
                     ),
                   ),
                 ),
-                Expanded(flex: 1, child: Icon(Icons.check)),
+
+                // Check mark box
+                Expanded(
+                    flex: 1,
+                    child: Icon(
+                      Icons.check,
+                      color: ColorConstants.iconWhite,
+                    )),
               ],
             ),
           ),
+
+          // Space between set data headers and set data rows
           const SizedBox(height: 8),
+
+          // Set data rows
           for (final setData in widget.setDataList) ...[
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -124,18 +157,24 @@ class SetRow extends StatefulWidget {
     required this.setData,
     required this.onSetCompleteChanged,
     required this.addToSetList,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   SetRowState createState() => SetRowState();
 }
 
 class SetRowState extends State<SetRow> {
+  // Dependency injection
+  final WorkoutController workoutController = Get.put(WorkoutController());
+
   bool isSetComplete = false;
 
+  // Input controllers
   final TextEditingController _loadController = TextEditingController();
   final TextEditingController _repsController = TextEditingController();
+
+  // Input focus nodes
   FocusNode loadFocusNode = FocusNode();
   FocusNode repsFocusNode = FocusNode();
 
@@ -165,9 +204,10 @@ class SetRowState extends State<SetRow> {
       },
       child: ListTile(
         //contentPadding: const EdgeInsets.only(left: 30, right: 15),
+        // Set type
         leading: InkWell(
           onTap: () {
-            _showExerciseTypePopup(context);
+            workoutController.showSetType();
           },
           child: SizedBox.square(
             dimension: 20,
@@ -183,19 +223,27 @@ class SetRowState extends State<SetRow> {
             ),
           ),
         ),
+
+        // Remainder of set row
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            // Previous data
             Expanded(
               flex: 2,
               child: Text(
                 (widget.setData.previousData.contains("-"))
                     ? "-"
                     : widget.setData.previousData,
-                style: const TextStyle(fontSize: 12),
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: ColorConstants.textWhite,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),
+
+            // Load
             Expanded(
               flex: 1,
               child: Container(
@@ -215,7 +263,10 @@ class SetRowState extends State<SetRow> {
                         RegExp(r'^\d+\.?\d{0,2}')),
                     LengthLimitingTextInputFormatter(5),
                   ],
-                  style: const TextStyle(fontSize: 12),
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: ColorConstants.textWhite,
+                  ),
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
                     hintText: widget.setData.previousData
@@ -228,6 +279,8 @@ class SetRowState extends State<SetRow> {
                 ),
               ),
             ),
+
+            // Reps
             Expanded(
               flex: 1,
               child: Container(
@@ -245,7 +298,10 @@ class SetRowState extends State<SetRow> {
                     FilteringTextInputFormatter.digitsOnly,
                     LengthLimitingTextInputFormatter(4),
                   ],
-                  style: const TextStyle(fontSize: 12),
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: ColorConstants.textWhite,
+                  ),
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
                     hintText: widget.setData.previousData.contains('(')
@@ -262,6 +318,8 @@ class SetRowState extends State<SetRow> {
                 ),
               ),
             ),
+
+            // Check mark button
             RawMaterialButton(
               onPressed: () {
                 if (_repsController.text.isNotEmpty &&
@@ -282,8 +340,9 @@ class SetRowState extends State<SetRow> {
                       ],
                     };
                     if (isSetComplete) {
-                      _showTimerPopup(context);
-                      widget.addToSetList(setData);
+                      workoutController.completeSet(setData);
+                      // _showTimerPopup(context);
+                      // widget.addToSetList(setData);
                     }
                   });
                 }
@@ -304,7 +363,7 @@ class SetRowState extends State<SetRow> {
                 ),
                 child: const Icon(
                   Icons.check,
-                  color: Colors.white,
+                  color: ColorConstants.iconWhite,
                 ),
               ),
             ),
@@ -462,11 +521,11 @@ class SetRowState extends State<SetRow> {
   Color _getSetTypeColor(String setType) {
     switch (setType) {
       case 'W':
-        return Colors.yellow;
+        return ColorConstants.warmUpSet;
       case 'F':
-        return Colors.red;
+        return ColorConstants.failureSet;
       default:
-        return Colors.blue;
+        return ColorConstants.workingSet;
     }
   }
 }

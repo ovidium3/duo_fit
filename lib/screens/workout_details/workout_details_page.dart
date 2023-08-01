@@ -9,7 +9,7 @@ import '/models/workout_model.dart';
 import '/screens/workout/workout_page.dart';
 import '/widgets/buttons/auth_button.dart';
 
-import 'components/app_bar.dart';
+import 'components/details_app_bar.dart';
 import 'components/exercise_list.dart';
 import 'components/workout_detail_display_widget.dart';
 
@@ -29,7 +29,7 @@ class WorkoutDetailsPage extends StatelessWidget with ShowDelayMixin {
       backgroundColor: ColorConstants.darkBlue,
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(40),
-        child: CustomAppBar(text: TextConstants.workoutDetails),
+        child: DetailsAppBar(text: TextConstants.workoutDetails),
       ),
       body: Stack(
         children: [
@@ -118,21 +118,18 @@ class WorkoutDetailsPage extends StatelessWidget with ShowDelayMixin {
                   const SizedBox(height: 20),
 
                   // Start workout button
-                  Column(
-                    children: [
-                      DelayedDisplay(
-                        delay: showDelay(),
-                        child: AuthButton(
-                          onPressed: () {
-                            // controller.startWorkout(workout);
-                            Get.to(const WorkoutPage());
-                          },
-                          text: TextConstants.startWorkout,
-                          isOutlined: false,
-                        ),
-                      ),
-                    ],
+                  DelayedDisplay(
+                    delay: showDelay(),
+                    child: AuthButton(
+                      onPressed: () {
+                        print('button pressed');
+                        Get.to(WorkoutPage(workout: workout));
+                      },
+                      text: TextConstants.startWorkout,
+                      isOutlined: false,
+                    ),
                   ),
+
                   // Bottom padding
                   const SizedBox(height: 20),
                 ],

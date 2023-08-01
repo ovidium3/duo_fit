@@ -1,7 +1,9 @@
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
+import '../helpers/time_service.dart';
 import '/constants/color_constants.dart';
 import '/constants/text/general_texts.dart';
 
@@ -121,6 +123,114 @@ class DialogController extends GetxController {
               textAlign: TextAlign.center,
             ),
           )
+        ],
+      ),
+    );
+  }
+
+  // Set type dialog
+  void showSetType(void Function(String setType) updateSetType) {
+    Get.defaultDialog(
+      title: '',
+      backgroundColor: ColorConstants.darkBlue,
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ListTile(
+            title: const Text('Warm-Up'),
+            onTap: () {
+              updateSetType('W');
+            },
+          ),
+          ListTile(
+            title: const Text('Failure'),
+            onTap: () {
+              updateSetType('F');
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Timer dialog
+  void showTimer() {
+    final ValueNotifier<int> timerDuration = ValueNotifier(120);
+    // ignore: no_leading_underscores_for_local_identifiers
+    final CountDownController _controller = CountDownController();
+
+    void skipTimer() {
+      Get.back();
+    }
+
+    void addTime(int seconds) {
+      var currDuration = MinutesSeconds(minutes: 0, seconds: 0);
+      try {
+        currDuration = MinutesSeconds(
+            minutes: int.parse(_controller.getTime()!.substring(0, 2)),
+            seconds: int.parse(_controller.getTime()!.substring(3)));
+      } catch (e) {
+        // if timer < 60 seconds
+        currDuration = MinutesSeconds(
+            seconds: int.parse(_controller.getTime()!), minutes: 0);
+      }
+      final currentDuration =
+          Duration(seconds: currDuration.seconds + (currDuration.minutes * 60));
+      final newDuration = currentDuration + Duration(seconds: seconds);
+      if (newDuration.inSeconds >= 0 &&
+          newDuration.inSeconds <= timerDuration.value) {
+        _controller.restart(duration: newDuration.inSeconds);
+      } else if (newDuration.inSeconds < 0) {
+        _controller.restart(duration: 0);
+      } else {
+        _controller.restart(duration: timerDuration.value);
+      }
+    }
+
+    Get.defaultDialog(
+      title: '',
+      backgroundColor: ColorConstants.darkBlue,
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          CircularCountDownTimer(
+            width: 150,
+            height: 150,
+            strokeWidth: 10,
+            fillColor: ColorConstants.green,
+            ringColor: ColorConstants.disabled,
+            duration: timerDuration.value,
+            isReverse: true,
+            isReverseAnimation: true,
+            controller: _controller,
+            textStyle: const TextStyle(
+              fontSize: 36,
+              color: ColorConstants.textWhite,
+              fontWeight: FontWeight.bold,
+            ),
+            onComplete: () {
+              Get.back();
+            },
+          ),
+          const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: () => addTime(-9),
+                child: const Text('-10s'),
+              ),
+              ElevatedButton(
+                onPressed: () => addTime(11),
+                child: const Text('+10s'),
+              ),
+              ElevatedButton(
+                onPressed: skipTimer,
+                child: const Text('Skip'),
+              ),
+            ],
+          ),
         ],
       ),
     );
