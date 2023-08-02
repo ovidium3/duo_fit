@@ -1,8 +1,6 @@
-import 'package:duo_fit/controllers/auth_state_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
 import '/constants/color_constants.dart';
 import '/constants/text/general_texts.dart';
@@ -24,7 +22,7 @@ class WorkoutPage extends GetView<WorkoutController> {
     // Update workout info in firestore
     controller.currentWorkout.value = workout;
     controller.isInWorkout.value = true;
-    controller.modifyWorkoutStatus();
+    controller.updateWorkoutStatus();
 
     return Scaffold(
       backgroundColor: ColorConstants.darkBlue,

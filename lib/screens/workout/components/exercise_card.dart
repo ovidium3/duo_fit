@@ -1,11 +1,9 @@
-import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-import '../../../controllers/workout_controller.dart';
+import '/controllers/workout_controller.dart';
 import '/constants/color_constants.dart';
-import '/helpers/time_service.dart';
 import '/models/exercise_model.dart';
 import '/models/set_model.dart';
 
@@ -132,7 +130,6 @@ class ExerciseCardState extends State<ExerciseCard> {
                     isSetComplete = value;
                   });
                 },
-                addToSetList: addToSetList,
               ),
             ),
             const SizedBox(height: 8),
@@ -141,22 +138,15 @@ class ExerciseCardState extends State<ExerciseCard> {
       ),
     );
   }
-
-  void addToSetList(Map<String, dynamic> formattedData) {
-    final setListData = SetListData();
-    setListData.addToSetList(formattedData);
-  }
 }
 
 class SetRow extends StatefulWidget {
   final SetModel setData;
   final Function(bool) onSetCompleteChanged;
-  final Function(Map<String, dynamic>) addToSetList;
 
   const SetRow({
     required this.setData,
     required this.onSetCompleteChanged,
-    required this.addToSetList,
     super.key,
   });
 
@@ -197,178 +187,164 @@ class SetRowState extends State<SetRow> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context)
-            .unfocus(); // Clears focus from any focused input field
-      },
-      child: ListTile(
-        //contentPadding: const EdgeInsets.only(left: 30, right: 15),
-        // Set type
-        leading: InkWell(
-          onTap: () {
-            workoutController.showSetType();
-          },
-          child: SizedBox.square(
-            dimension: 20,
-            child: Center(
-              child: Text(
-                widget.setData.setType,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: _getSetTypeColor(widget.setData.setType),
+    return ListTile(
+      //contentPadding: const EdgeInsets.only(left: 30, right: 15),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // Set type
+          Expanded(
+            flex: 1,
+            child: SizedBox.square(
+              dimension: 20,
+              child: Center(
+                child: Text(
+                  widget.setData.setType,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: _getSetTypeColor(widget.setData.setType),
+                  ),
                 ),
               ),
             ),
           ),
-        ),
 
-        // Remainder of set row
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            // Previous data
-            Expanded(
-              flex: 2,
-              child: Text(
-                (widget.setData.previousData.contains("-"))
-                    ? "-"
-                    : widget.setData.previousData,
+          // Previous data
+          Expanded(
+            flex: 2,
+            child: Text(
+              (widget.setData.previousData.contains("-"))
+                  ? "-"
+                  : widget.setData.previousData,
+              style: const TextStyle(
+                fontSize: 12,
+                color: ColorConstants.textWhite,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+
+          // Load
+          Expanded(
+            flex: 1,
+            child: Container(
+              height: 24,
+              width: 50,
+              margin: const EdgeInsets.symmetric(horizontal: 4.0),
+              child: TextField(
+                controller: _loadController,
+                focusNode: loadFocusNode,
+                onChanged: (value) {
+                  widget.setData.load = double.tryParse(value);
+                },
+                keyboardType:
+                    const TextInputType.numberWithOptions(decimal: true),
+                inputFormatters: [
+                  FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}')),
+                  LengthLimitingTextInputFormatter(5),
+                ],
                 style: const TextStyle(
                   fontSize: 12,
                   color: ColorConstants.textWhite,
                 ),
                 textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                  hintText: widget.setData.previousData
+                      .substring(0, widget.setData.previousData.indexOf('x')),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  hintStyle: const TextStyle(color: ColorConstants.textWhite),
+                ),
               ),
             ),
+          ),
 
-            // Load
-            Expanded(
-              flex: 1,
-              child: Container(
-                height: 24,
-                width: 50,
-                margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                child: TextField(
-                  controller: _loadController,
-                  focusNode: loadFocusNode,
-                  onChanged: (value) {
-                    widget.setData.load = double.tryParse(value);
-                  },
-                  keyboardType:
-                      const TextInputType.numberWithOptions(decimal: true),
-                  inputFormatters: [
-                    FilteringTextInputFormatter.allow(
-                        RegExp(r'^\d+\.?\d{0,2}')),
-                    LengthLimitingTextInputFormatter(5),
-                  ],
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: ColorConstants.textWhite,
+          // Reps
+          Expanded(
+            flex: 1,
+            child: Container(
+              height: 24,
+              width: 50,
+              margin: const EdgeInsets.symmetric(horizontal: 4.0),
+              child: TextField(
+                controller: _repsController,
+                focusNode: repsFocusNode,
+                onChanged: (value) {
+                  widget.setData.reps = int.tryParse(value);
+                },
+                keyboardType: TextInputType.number,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  LengthLimitingTextInputFormatter(4),
+                ],
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: ColorConstants.textWhite,
+                ),
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                  hintText: widget.setData.previousData.contains('(')
+                      ? widget.setData.previousData.substring(
+                          widget.setData.previousData.indexOf('x') + 1,
+                          widget.setData.previousData.indexOf('('))
+                      : widget.setData.previousData.substring(
+                          widget.setData.previousData.indexOf('x') + 1),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                  textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                    hintText: widget.setData.previousData
-                        .substring(0, widget.setData.previousData.indexOf('x')),
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                  ),
+                  hintStyle: const TextStyle(color: ColorConstants.textWhite),
                 ),
               ),
             ),
+          ),
 
-            // Reps
-            Expanded(
-              flex: 1,
-              child: Container(
-                height: 24,
-                width: 50,
-                margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                child: TextField(
-                  controller: _repsController,
-                  focusNode: repsFocusNode,
-                  onChanged: (value) {
-                    widget.setData.reps = int.tryParse(value);
-                  },
-                  keyboardType: TextInputType.number,
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                    LengthLimitingTextInputFormatter(4),
-                  ],
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: ColorConstants.textWhite,
-                  ),
-                  textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                    hintText: widget.setData.previousData.contains('(')
-                        ? widget.setData.previousData.substring(
-                            widget.setData.previousData.indexOf('x') + 1,
-                            widget.setData.previousData.indexOf('('))
-                        : widget.setData.previousData.substring(
-                            widget.setData.previousData.indexOf('x') + 1),
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                  ),
-                ),
+          // Check mark button
+          RawMaterialButton(
+            onPressed: () {
+              if (_repsController.text.isNotEmpty &&
+                  _loadController.text.isNotEmpty) {
+                setState(() {
+                  isSetComplete = !isSetComplete;
+                  widget.onSetCompleteChanged(isSetComplete);
+                  final setData = {
+                    'id': widget.setData.exerciseTitle,
+                    'setDataList': [
+                      {
+                        'previousData': _createUpdatedData(_loadController.text,
+                            _repsController.text, widget.setData.setType),
+                        'setType': widget.setData.setType,
+                      }
+                    ],
+                  };
+                  if (isSetComplete) {
+                    workoutController.completeSet(setData);
+                  }
+                });
+              }
+            },
+            constraints: const BoxConstraints.tightFor(
+              width: 32,
+              height: 24,
+            ),
+            child: Container(
+              width: 32,
+              height: 24,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
+                shape: BoxShape.rectangle,
+                color: isSetComplete
+                    ? ColorConstants.green
+                    : ColorConstants.disabled,
+              ),
+              child: const Icon(
+                Icons.check,
+                color: ColorConstants.iconWhite,
               ),
             ),
-
-            // Check mark button
-            RawMaterialButton(
-              onPressed: () {
-                if (_repsController.text.isNotEmpty &&
-                    _loadController.text.isNotEmpty) {
-                  setState(() {
-                    isSetComplete = !isSetComplete;
-                    widget.onSetCompleteChanged(isSetComplete);
-                    final setData = {
-                      'id': widget.setData.exerciseTitle,
-                      'setDataList': [
-                        {
-                          'previousData': _createUpdatedData(
-                              _loadController.text,
-                              _repsController.text,
-                              widget.setData.setType),
-                          'setType': widget.setData.setType,
-                        }
-                      ],
-                    };
-                    if (isSetComplete) {
-                      workoutController.completeSet(setData);
-                      // _showTimerPopup(context);
-                      // widget.addToSetList(setData);
-                    }
-                  });
-                }
-              },
-              constraints: const BoxConstraints.tightFor(
-                width: 32,
-                height: 24,
-              ),
-              child: Container(
-                width: 32,
-                height: 24,
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(8)),
-                  shape: BoxShape.rectangle,
-                  color: isSetComplete
-                      ? ColorConstants.green
-                      : ColorConstants.disabled,
-                ),
-                child: const Icon(
-                  Icons.check,
-                  color: ColorConstants.iconWhite,
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -381,171 +357,12 @@ class SetRowState extends State<SetRow> {
     }
   }
 
-  void _showExerciseTypePopup(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ListTile(
-                title: const Text('Warm-Up'),
-                onTap: () {
-                  setState(() {
-                    widget.setData.setType = 'W';
-                  });
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: const Text('Failure'),
-                onTap: () {
-                  setState(() {
-                    widget.setData.setType = 'F';
-                  });
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
-  void _showTimerPopup(BuildContext context) {
-    final ValueNotifier<int> timerDuration = ValueNotifier(120);
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        // ignore: no_leading_underscores_for_local_identifiers
-        final CountDownController _controller = CountDownController();
-
-        return StatefulBuilder(
-          builder: (BuildContext context, StateSetter setState) {
-            void skipTimer() {
-              setState(() {
-                isSetComplete = true;
-                widget.setData.isComplete = true;
-              });
-              Navigator.of(context).pop();
-            }
-
-            void addTime(int seconds) {
-              var currDuration = MinutesSeconds(minutes: 0, seconds: 0);
-              try {
-                currDuration = MinutesSeconds(
-                    minutes: int.parse(_controller.getTime()!.substring(0, 2)),
-                    seconds: int.parse(_controller.getTime()!.substring(3)));
-              } catch (e) {
-                // if timer < 60 seconds
-                currDuration = MinutesSeconds(
-                    seconds: int.parse(_controller.getTime()!), minutes: 0);
-              }
-              final currentDuration = Duration(
-                  seconds: currDuration.seconds + (currDuration.minutes * 60));
-              final newDuration = currentDuration + Duration(seconds: seconds);
-              if (newDuration.inSeconds >= 0 &&
-                  newDuration.inSeconds <= timerDuration.value) {
-                _controller.restart(duration: newDuration.inSeconds);
-              } else if (newDuration.inSeconds < 0) {
-                _controller.restart(duration: 0);
-              } else {
-                _controller.restart(duration: timerDuration.value);
-              }
-            }
-
-            _controller.restart(duration: timerDuration.value);
-
-            return AlertDialog(
-              title: const Center(child: Text('Rest Timer')),
-              content: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CircularCountDownTimer(
-                    width: 150,
-                    height: 150,
-                    strokeWidth: 10,
-                    fillColor: ColorConstants.green,
-                    ringColor: ColorConstants.disabled,
-                    duration: timerDuration.value,
-                    isReverse: true,
-                    isReverseAnimation: true,
-                    controller: _controller,
-                    textStyle: const TextStyle(
-                      fontSize: 36,
-                      color: ColorConstants.textWhite,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    onComplete: () {
-                      setState(() {
-                        isSetComplete = true;
-                        widget.setData.isComplete = true;
-                      });
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () => addTime(-9),
-                        child: const Text('-10s'),
-                      ),
-                      ElevatedButton(
-                        onPressed: () => addTime(11),
-                        child: const Text('+10s'),
-                      ),
-                      ElevatedButton(
-                        onPressed: skipTimer,
-                        child: const Text('Skip'),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-      },
-    );
-  }
-
   Color _getSetTypeColor(String setType) {
     switch (setType) {
       case 'W':
         return ColorConstants.warmUpSet;
-      case 'F':
-        return ColorConstants.failureSet;
       default:
         return ColorConstants.workingSet;
     }
-  }
-}
-
-class SetListData {
-  static final SetListData _instance = SetListData._internal();
-
-  factory SetListData() {
-    return _instance;
-  }
-
-  SetListData._internal();
-
-  List<Map<String, dynamic>> masterSetList = [];
-
-  void addToSetList(Map<String, dynamic> setData) {
-    masterSetList.add(setData);
-  }
-
-  List<Map<String, dynamic>> getSetList() {
-    return masterSetList;
   }
 }

@@ -122,7 +122,6 @@ class WorkoutDetailsPage extends StatelessWidget with ShowDelayMixin {
                     delay: showDelay(),
                     child: AuthButton(
                       onPressed: () {
-                        print('button pressed');
                         Get.to(WorkoutPage(workout: workout));
                       },
                       text: TextConstants.startWorkout,

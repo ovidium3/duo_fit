@@ -1,21 +1,33 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:duo_fit/screens/home/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '/constants/data/workout_data.dart';
 import '/constants/text/general_texts.dart';
 import '/controllers/dialog_controller.dart';
-// import '/models/set_model.dart';
 import '/models/workout_model.dart';
-import '/constants/data/workout_data.dart';
+import '/screens/home/home_page.dart';
 
 class WorkoutController extends GetxController {
   // Dependency injection
   final DialogController dialogController = Get.put(DialogController());
 
-  // Firebase instances
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  // Firebase user instance
+  final User? _user = FirebaseAuth.instance.currentUser;
+
+  // Firebase doc reference for user stats
+  final DocumentReference statsDocRef = FirebaseFirestore.instance
+      .collection('Users')
+      .doc(FirebaseAuth.instance.currentUser?.uid)
+      .collection('userStatistics')
+      .doc('stats');
+
+  // Firebase collection reference for user workouts
+  final CollectionReference workoutCollectionRef = FirebaseFirestore.instance
+      .collection('Users')
+      .doc(FirebaseAuth.instance.currentUser?.uid)
+      .collection('userWorkouts');
 
   final String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
 
@@ -27,59 +39,46 @@ class WorkoutController extends GetxController {
   Rx<List<Map<String, dynamic>>> setListData =
       Rx<List<Map<String, dynamic>>>([]);
 
+  RxMap<String, dynamic> currentSetData = RxMap<String, dynamic>({});
+
   RxBool isInWorkout = false.obs;
 
-  // Add your GetX state update methods here, if needed
-  // Example:
-  // void updateIsInWorkout(bool value) => isInWorkout.value = value;
-  // void updateCurrentWorkout(String workoutName) => currentWorkout.value = workoutName;
-
-  Future<void> modifyWorkoutStatus() async {
-    //authStateController.isInWorkout.value = isInWorkout;
-    print('in mod workout status');
-    final currentUser = FirebaseAuth.instance.currentUser;
-    if (currentUser != null) {
-      print('in user');
+  // Update workout status in Firestore
+  Future<void> updateWorkoutStatus() async {
+    if (_user != null) {
       try {
-        final docRef = _firestore
-            .collection('Users')
-            .doc(currentUser.uid)
-            .collection('userStatistics')
-            .doc('stats');
-
-        await docRef.update({
+        // Update statistics document with workout status and workout title
+        await statsDocRef.update({
           'isInWorkout': isInWorkout.value,
           'currentWorkout': currentWorkout.value.title == 'Placeholder'
               ? ''
               : currentWorkout.value.title,
         });
-        print('doc ref updated');
-      } catch (error) {
-        print('error');
-        print(error);
-        throw Exception(error);
+      } catch (e) {
+        // Not many errors to catch here, no need for complex error handling
+        throw Exception(e);
       }
     }
   }
 
+  // Get previous data for each exercise from Firestore to build workout page
   Future<List<Map<String, dynamic>>> fetchPreviousWorkoutData(
       String exerciseId) async {
-    final currentUser = FirebaseAuth.instance.currentUser;
     List<Map<String, dynamic>> previousDataList = [];
 
-    if (currentUser != null) {
+    if (_user != null) {
       try {
-        String mostRecentWorkoutDate = await getMostRecentWorkoutDate();
+        // Get most recent workout date
+        String mostRecentWorkoutDate = await getMostRecentWorkout();
         if (mostRecentWorkoutDate != "") {
-          final snapshot = await _firestore
-              .collection('Users')
-              .doc(currentUser.uid)
-              .collection('userWorkouts')
-              .doc(mostRecentWorkoutDate)
-              .get();
+          final snapshot =
+              await workoutCollectionRef.doc(mostRecentWorkoutDate).get();
           if (snapshot.exists) {
+            // Extract snapshot data as a Map of String, List
             final data = snapshot.data() as Map<String, dynamic>;
             final dataList = data.values.first;
+
+            // Extract data from dataList to add to previousDataList
             for (Map<String, dynamic> prevData in dataList) {
               if (prevData.values.first.contains(exerciseId)) {
                 for (Map<String, dynamic> actualPrevData
@@ -90,121 +89,105 @@ class WorkoutController extends GetxController {
             }
           }
         } else {
+          // Return empty list if no previous data exists
           return previousDataList;
         }
       } catch (e) {
+        // Not many errors to catch here, no need for complex error handling
         throw Exception(e);
       }
     }
+    // If this hits, you probably have bigger problems than this list
     return previousDataList;
   }
 
-  Future<List<Map<String, dynamic>>> getSetData() async {
-    final currentUser = FirebaseAuth.instance.currentUser;
-    List<Map<String, dynamic>> data = [];
-    if (currentUser != null) {
-      try {
-        String mostRecentWorkoutDate = await getMostRecentWorkoutDate();
-        if (mostRecentWorkoutDate != "") {
-          final snapshot = await _firestore
-              .collection('Users')
-              .doc(currentUser.uid)
-              .collection('userWorkouts')
-              .doc(mostRecentWorkoutDate)
-              .get();
-          if (snapshot.exists) {
-            data = snapshot.data() as List<Map<String, dynamic>>;
-          }
-        }
-      } catch (e) {
-        throw Exception(e);
-      }
-    }
-    return data;
-  }
+  // Set data list getter, not implemented yet as still buggy
+  // Future<List<Map<String, dynamic>>> getSetData() async {
+  //   final currentUser = FirebaseAuth.instance.currentUser;
+  //   List<Map<String, dynamic>> data = [];
+  //   if (currentUser != null) {
+  //     try {
+  //       String mostRecentWorkoutDate = await getMostRecentWorkout();
+  //       if (mostRecentWorkoutDate != "") {
+  //         final snapshot = await _firestore
+  //             .collection('Users')
+  //             .doc(currentUser.uid)
+  //             .collection('userWorkouts')
+  //             .doc(mostRecentWorkoutDate)
+  //             .get();
+  //         if (snapshot.exists) {
+  //           data = snapshot.data() as List<Map<String, dynamic>>;
+  //         }
+  //       }
+  //     } catch (e) {
+  //       throw Exception(e);
+  //     }
+  //   }
+  //   return data;
+  // }
 
+  // Get the current workout, called only when user is in workout
   Future<WorkoutModel> getCurrentWorkout() async {
     String userWorkout = '';
-    final currentUser = FirebaseAuth.instance.currentUser;
-    if (currentUser != null) {
-      final snapshot = await _firestore
-          .collection('Users')
-          .doc(currentUser.uid)
-          .collection('userStatistics')
-          .doc('stats')
-          .get();
+    if (_user != null) {
+      // Get user stats doc snapshot
+      final snapshot = await statsDocRef.get();
       if (snapshot.exists) {
+        // Extract current workout from Firestore
         final data = snapshot.data() as Map<String, dynamic>;
         userWorkout = data['currentWorkout'];
       }
     }
+    // Turns string of workout name to workout model by looping through a list
     return WorkoutData().getWorkoutByName(userWorkout);
   }
 
+  // Check if user is in workout, called on init
   Future<bool> isUserInWorkout() async {
-    print('in user isUserInWorkout');
-    final currentUser = FirebaseAuth.instance.currentUser;
-    if (currentUser != null) {
-      final snapshot = await _firestore
-          .collection('Users')
-          .doc(currentUser.uid)
-          .collection('userStatistics')
-          .doc('stats')
-          .get();
+    if (_user != null) {
+      // Get user stats doc snapshot
+      final snapshot = await statsDocRef.get();
       if (snapshot.exists) {
+        // Extract bool isInWorkout from firestore
         final data = snapshot.data() as Map<String, dynamic>;
         return data['isInWorkout'];
       }
     }
+    // Hits if user is not signed in
     return false;
   }
 
-  Future<String> getMostRecentWorkoutDate() async {
-    String mostRecent = "";
-    final currentUser = FirebaseAuth.instance.currentUser;
-    if (currentUser != null) {
-      final snapshot = await _firestore
-          .collection('Users')
-          .doc(currentUser.uid)
-          .collection('userStatistics')
-          .doc('stats')
-          .get();
+  // Get most recent workout date
+  Future<String> getMostRecentWorkout() async {
+    //String mostRecent = '';
+    if (_user != null) {
+      // Get user stats doc snapshot
+      final snapshot = await statsDocRef.get();
       if (snapshot.exists) {
+        // Extract most recent workout date as string and return it
         final data = snapshot.data() as Map<String, dynamic>;
-        mostRecent =
-            data['mostRecent${currentWorkout.value.title}Workout'] ?? '';
+        return data['mostRecent${currentWorkout.value.title}Workout'] ?? '';
       }
     }
-    return mostRecent;
+    // If no recent workout exists, return empty string
+    return '';
   }
 
-  Future<void> showSetType() async {
-    dialogController.showSetType((setType) async {
-      await updateSet();
-    });
-  }
-
-  Future<void> updateSet() async {}
-
+  // Events that trigger upon marking a set as complete
   Future<void> completeSet(Map<String, dynamic> setData) async {
+    // Open up rest timer dialog, add set data to list, update current set data
     dialogController.showTimer();
     setListData.value.add(setData);
+    //currentSetData.value = setData; // Not integrated fully yet
   }
 
+  // Save all workout data to firestore
   Future<void> saveWorkoutData() async {
-    print('saving workout data');
-    final currentUser = FirebaseAuth.instance.currentUser;
-    if (currentUser != null) {
-      print('user aint null');
-      //final setListData = setDataList.value;
+    if (_user != null) {
+      // Extract data from controller RxList
       final List<Map<dynamic, dynamic>> setList = setListData.value;
-      print('set list data value: $setListData');
-      final docRef = _firestore
-          .collection('Users')
-          .doc(currentUser.uid)
-          .collection('userWorkouts')
-          .doc(formattedDate);
 
+      // Map out data for each exercise, and turn it into a list
       final exercisesData = setList.map((exercise) {
         final setDataList = exercise['setDataList'].map((setData) {
           return {
@@ -213,89 +196,72 @@ class WorkoutController extends GetxController {
           };
         }).toList();
 
-        print('toList success');
-
         return {
           'id': exercise['id'],
           'setDataList': setDataList,
         };
       }).toList();
 
-      print('id and exercise toLIst');
+      // Set data from list into a list of exercise data
+      await workoutCollectionRef
+          .doc(formattedDate)
+          .set({'exercises': exercisesData});
 
-      await docRef.set({
-        'exercises': exercisesData,
-      });
-
-      print('docref.set');
       try {
-        final snapshot = await _firestore
-            .collection('Users')
-            .doc(currentUser.uid)
-            .collection('userStatistics')
-            .doc('stats')
-            .get();
+        // Get stats doc ref snapshot
+        final snapshot = await statsDocRef.get();
 
         if (snapshot.exists) {
-          print('snapshot exists');
-          final workoutName = currentWorkout;
-
-          await _firestore
-              .collection('Users')
-              .doc(currentUser.uid)
-              .collection('userStatistics')
-              .doc('stats')
+          // Update most recent workout in Firestore stats doc
+          final workoutName = currentWorkout.value.title;
+          await statsDocRef
               .update({'mostRecent${workoutName}Workout': formattedDate});
-
-          print('stuff updated');
         }
       } catch (error) {
+        // Not many errors to catch here, no need for complex error handling
         throw Exception(error);
       }
     }
   }
 
-  bool allSetsComplete() {
-    return true;
-  }
-
   Future<void> finishWorkout() async {
-    print('finish button tapped');
+    // Ask user to confirm finishing workout
     dialogController.showConfirmWithActions(
-        allSetsComplete()
-            ? TextConstants.finishedWorkout
-            : TextConstants.incompleteWorkout,
-        TextConstants.finish, () async {
+        TextConstants.finishedWorkout, TextConstants.finish, () async {
+      // Save workout data to Firestore, update workout status, go to home page
+      await saveWorkoutData();
       isInWorkout.value = false;
       currentWorkout.value = WorkoutData.placeholder;
-      await modifyWorkoutStatus();
-      await saveWorkoutData();
+      await updateWorkoutStatus();
       Get.offAll(const HomePage());
     });
   }
 
   Future<void> cancelWorkout() async {
+    // Ask user to confirm canceling workout
     dialogController.showConfirmWithActions(
         TextConstants.cancelWorkoutText, TextConstants.cancelWorkout, () async {
+      // Update variables to reflect non-workout status and send to home page
       isInWorkout.value = false;
       currentWorkout.value = WorkoutData.placeholder;
-      await modifyWorkoutStatus();
+      await updateWorkoutStatus();
       Get.offAll(const HomePage());
     });
   }
 
   Future<void> setWorkoutInfo() async {
-    print('setting workout info');
+    // Update workout status
     isInWorkout.value = await isUserInWorkout();
     if (isInWorkout.value == true) {
-      print('user is in workout');
+      // Get current workout from firestore and any existing set data
       currentWorkout.value = await getCurrentWorkout();
-      setListData.value = await getSetData();
+      //setListData.value = await getSetData();
     }
   }
 
   @override
   void onInit() async {
+    // Get workout info to set up workout page accordingly
     await setWorkoutInfo();
     super.onInit();
   }

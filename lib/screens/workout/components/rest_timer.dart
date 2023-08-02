@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '/constants/color_constants.dart';
 
+// Not implemented fully yet, currently appears in a disabled state
 class RestTimerPopup extends StatefulWidget {
   final ValueNotifier<int> timerValueNotifier;
   final Function(int) onTimerChanged;
@@ -8,8 +9,8 @@ class RestTimerPopup extends StatefulWidget {
   const RestTimerPopup({
     required this.timerValueNotifier,
     required this.onTimerChanged,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   RestTimerPopupState createState() => RestTimerPopupState();
@@ -61,8 +62,8 @@ class RestTimerButton extends StatefulWidget {
     this.disabledIcon = Icons.timer,
     this.isEnabled = true,
     required this.onTimerChanged,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   RestTimerButtonState createState() => RestTimerButtonState();

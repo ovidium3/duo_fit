@@ -128,32 +128,6 @@ class DialogController extends GetxController {
     );
   }
 
-  // Set type dialog
-  void showSetType(void Function(String setType) updateSetType) {
-    Get.defaultDialog(
-      title: '',
-      backgroundColor: ColorConstants.darkBlue,
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ListTile(
-            title: const Text('Warm-Up'),
-            onTap: () {
-              updateSetType('W');
-            },
-          ),
-          ListTile(
-            title: const Text('Failure'),
-            onTap: () {
-              updateSetType('F');
-            },
-          ),
-        ],
-      ),
-    );
-  }
-
   // Timer dialog
   void showTimer() {
     final ValueNotifier<int> timerDuration = ValueNotifier(120);
