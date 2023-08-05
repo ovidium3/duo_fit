@@ -5,9 +5,10 @@ import 'package:intl/intl.dart';
 
 import '/constants/data/workout_data.dart';
 import '/constants/text/general_texts.dart';
-import '/controllers/dialog_controller.dart';
 import '/models/workout_model.dart';
 import '/screens/home/home_page.dart';
+
+import 'dialog_controller.dart';
 
 class WorkoutController extends GetxController {
   // Dependency injection
@@ -23,25 +24,24 @@ class WorkoutController extends GetxController {
       .collection('userStatistics')
       .doc('stats');
 
-  // Firebase collection reference for user workouts
-  final CollectionReference workoutCollectionRef = FirebaseFirestore.instance
+  // Firebase doc reference for user workouts
+  final DocumentReference workoutDocRef = FirebaseFirestore.instance
       .collection('Users')
       .doc(FirebaseAuth.instance.currentUser?.uid)
-      .collection('userWorkouts');
+      .collection('userWorkouts')
+      .doc(DateFormat('yyyy-MM-dd').format(DateTime.now()));
 
+  // Formatted date for Firestore most recent workout logging
   final String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
 
   // GetX state variables
+  RxBool isInWorkout = false.obs;
   Rx<WorkoutModel> currentWorkout = Rx<WorkoutModel>(WorkoutData.placeholder);
-
-  RxBool allDone = false.obs;
-
   Rx<List<Map<String, dynamic>>> setListData =
       Rx<List<Map<String, dynamic>>>([]);
 
-  RxMap<String, dynamic> currentSetData = RxMap<String, dynamic>({});
-
-  RxBool isInWorkout = false.obs;
+  // Not implemented yet
+  //RxMap<String, dynamic> currentSetData = RxMap<String, dynamic>({});
 
   // Update workout status in Firestore
   Future<void> updateWorkoutStatus() async {
@@ -71,8 +71,7 @@ class WorkoutController extends GetxController {
         // Get most recent workout date
         String mostRecentWorkoutDate = await getMostRecentWorkout();
         if (mostRecentWorkoutDate != "") {
-          final snapshot =
-              await workoutCollectionRef.doc(mostRecentWorkoutDate).get();
+          final snapshot = await workoutDocRef.get();
           if (snapshot.exists) {
             // Extract snapshot data as a Map of String, List
             final data = snapshot.data() as Map<String, dynamic>;
@@ -139,7 +138,17 @@ class WorkoutController extends GetxController {
       }
     }
     // Turns string of workout name to workout model by looping through a list
-    return WorkoutData().getWorkoutByName(userWorkout);
+    return getWorkoutByName(userWorkout);
+  }
+
+  // Returns a workout model accessed by name
+  WorkoutModel getWorkoutByName(String name) {
+    for (WorkoutModel workout in WorkoutData.workouts) {
+      if (workout.title == name) {
+        return workout;
+      }
+    }
+    return WorkoutData.placeholder; // Arbitrary workout signifying error
   }
 
   // Check if user is in workout, called on init
@@ -176,7 +185,7 @@ class WorkoutController extends GetxController {
   // Events that trigger upon marking a set as complete
   Future<void> completeSet(Map<String, dynamic> setData) async {
     // Open up rest timer dialog, add set data to list, update current set data
-    dialogController.showTimer();
+    dialogController.showRestTimer();
     setListData.value.add(setData);
     //currentSetData.value = setData; // Not integrated fully yet
   }
@@ -203,9 +212,7 @@ class WorkoutController extends GetxController {
       }).toList();
 
       // Set data from list into a list of exercise data
-      await workoutCollectionRef
-          .doc(formattedDate)
-          .set({'exercises': exercisesData});
+      await workoutDocRef.set({'exercises': exercisesData});
 
       try {
         // Get stats doc ref snapshot

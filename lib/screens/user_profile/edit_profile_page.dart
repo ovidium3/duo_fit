@@ -23,7 +23,7 @@ class EditProfilePage extends StatelessWidget with ShowDelayMixin {
         preferredSize: Size.fromHeight(80),
         child: ProfileAppBar(),
       ),
-      backgroundColor: ColorConstants.darkBlue,
+      backgroundColor: ColorConstants.backgroundColor,
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
@@ -35,7 +35,7 @@ class EditProfilePage extends StatelessWidget with ShowDelayMixin {
                 delay: showDelay(),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: ColorConstants.overlayBlue,
+                      color: ColorConstants.backgroundOverlay,
                       borderRadius: BorderRadius.circular(10)),
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   padding:

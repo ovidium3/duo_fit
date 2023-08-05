@@ -32,7 +32,7 @@ class _UserProfileState extends State<UserProfile> with ShowDelayMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstants.darkBlue,
+      backgroundColor: ColorConstants.backgroundColor,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
         child: DelayedDisplay(
@@ -68,7 +68,7 @@ class _UserProfileState extends State<UserProfile> with ShowDelayMixin {
                                     height: 300,
                                     child: Center(
                                       child: SpinKitSpinningLines(
-                                        color: ColorConstants.green,
+                                        color: ColorConstants.primaryColor,
                                         duration: Duration(seconds: 1),
                                         size: 60,
                                       ),

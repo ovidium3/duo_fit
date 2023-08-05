@@ -2,11 +2,22 @@ import 'package:flutter/material.dart';
 
 import '/constants/color_constants.dart';
 
+// Main theme colorations and input decoration
 class MainTheme {
+  late BuildContext context;
+
   MainTheme(this.context);
 
-  static final inputDecoration = inputDecorationTheme;
-  late BuildContext context;
+  static final inputDecoration = InputDecorationTheme(
+    filled: true,
+    labelStyle: TextStyle(color: ColorConstants.inputDecor.withOpacity(0.7)),
+    enabledBorder: const UnderlineInputBorder(
+      borderSide: BorderSide(color: ColorConstants.inputDecor),
+    ),
+    focusedBorder: const UnderlineInputBorder(
+      borderSide: BorderSide(color: ColorConstants.inputDecor),
+    ),
+  );
 
   late ThemeData themeData = ThemeData(
     textTheme: Theme.of(context).textTheme,
@@ -15,7 +26,7 @@ class MainTheme {
       primarySwatch: colorCustom,
     ),
     inputDecorationTheme: MainTheme.inputDecoration,
-    primaryColor: ColorConstants.green,
+    primaryColor: ColorConstants.primaryColor,
   );
 }
 
@@ -33,14 +44,3 @@ Map<int, Color> color = {
 };
 
 MaterialColor colorCustom = MaterialColor(0xff40D876, color);
-
-InputDecorationTheme? inputDecorationTheme = InputDecorationTheme(
-  filled: true,
-  labelStyle: TextStyle(color: ColorConstants.inputDecor.withOpacity(.7)),
-  enabledBorder: const UnderlineInputBorder(
-    borderSide: BorderSide(color: ColorConstants.inputDecor),
-  ),
-  focusedBorder: const UnderlineInputBorder(
-    borderSide: BorderSide(color: ColorConstants.inputDecor),
-  ),
-);

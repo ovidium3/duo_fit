@@ -29,7 +29,7 @@ class WorkoutCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Container(
-                color: ColorConstants.darkBlue,
+                color: ColorConstants.backgroundColor,
                 width: 130,
                 height: 130,
                 child: Image.asset(

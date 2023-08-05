@@ -23,7 +23,7 @@ class WelcomePage extends StatelessWidget with ShowDelayMixin {
         children: [
           const BackgroundImage(),
           Container(
-            color: ColorConstants.darkBlue.withOpacity(0.69),
+            color: ColorConstants.backgroundColor.withOpacity(0.69),
             width: double.infinity,
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),

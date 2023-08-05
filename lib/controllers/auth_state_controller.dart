@@ -43,6 +43,7 @@ class AuthStateController extends GetxController {
 
   @override
   void onReady() {
+    // Binds controller to user auth state changes
     ever(user, handleUserState);
     user.bindStream(_auth.authStateChanges());
     super.onReady();

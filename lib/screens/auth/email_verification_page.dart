@@ -18,7 +18,7 @@ class EmailVerificationPage extends GetView<EmailVerificationController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstants.darkBlue,
+      backgroundColor: ColorConstants.backgroundColor,
       body: Center(
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 30),
@@ -41,7 +41,7 @@ class EmailVerificationPage extends GetView<EmailVerificationController> {
               // Email verification message
               Container(
                 decoration: BoxDecoration(
-                  color: ColorConstants.overlayBlue,
+                  color: ColorConstants.backgroundOverlay,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 padding: const EdgeInsets.all(30),
@@ -53,7 +53,7 @@ class EmailVerificationPage extends GetView<EmailVerificationController> {
                     children: [
                       SizedBox(
                         width: 90,
-                        child: Image.asset(MediaConstants.imgVerification),
+                        child: Image.asset(MediaConstants.emailVerification),
                       ),
                       const SizedBox(height: 30),
                       const Text(

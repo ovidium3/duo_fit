@@ -6,10 +6,11 @@ import 'finish_button.dart';
 import 'rest_timer.dart';
 import 'workout_timer.dart';
 
+// App bar that displays workout timer, rest timer, and finish button
 class WorkoutAppBar extends StatelessWidget {
-  const WorkoutAppBar({required this.onTap, super.key});
-
   final Function() onTap;
+
+  const WorkoutAppBar({required this.onTap, super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,12 @@
+// Contains text constants for all constant pages and other fixed texts
 class TextConstants {
+  // Common
+  static const String duo = 'duo';
+  static const String fit = 'fit';
+  static const String login = 'Login';
+  static const String cancel = 'Cancel';
+  static const String error = 'Error';
+
   // Welcome page
   static const String welcome = 'Welcome';
   static const String welcomeDescription =
@@ -11,9 +19,15 @@ class TextConstants {
       'Select all the goals that you would like us to help you achieve';
   static const String next = 'Next';
 
-  static const String choiceCardTitle1 = 'Lose fat';
-  static const String choiceCardDescription1 =
-      'Our fitness approach promotes fat loss';
+  static const String goalCardTitle1 = 'Build Muscle';
+  static const String goalCardDescription1 =
+      'Our workout routines will help you build muscle';
+  static const String goalCardTitle2 = 'Lose Weight';
+  static const String goalCardDescription2 =
+      'Our customized diet plans will support your weight loss journey';
+  static const String goalCardTitle3 = 'Look Your Best';
+  static const String goalCardDescription3 =
+      'Together, we will help you achieve your best physique';
 
   // Auth -> Sign up page
   static const String signUp = 'Sign Up';
@@ -37,15 +51,26 @@ class TextConstants {
   static const String passwordResetEmailSent =
       'We have sent you an email to reset your password';
 
-  // Auth -> Verify account page
+  // Auth -> Email verification page
   static const String emailSentText =
       'We have sent you an email to verify your account. Please check your inbox and click the link to verify it';
   static const String done = 'Done';
   static const String reSendEmailVerification = 'Re-send email verification';
-  static const String sent = 'sent';
+  static const String sent = 'Sent';
+  static const String verifyEmail = 'Please verify your email first';
 
   // Home page
   static const String hey = 'Hey, ';
+
+  static const String caloriesRemaining = 'Calories Remaining:';
+  static const String addFoodPlaceholder = 'Add a food to get started!';
+  static const String remove = 'Remove Food';
+  static const String add = 'Add Food';
+  static const String foodAdded = 'has been added to your foods';
+  static const String foodRemoved = 'has been removed from your foods';
+  static const String confirmRemoveFood =
+      'Are you sure you want to permanently remove this food item?';
+
   static const String find = 'Find';
   static const String yourWorkout = 'Your Workout';
 
@@ -89,15 +114,6 @@ class TextConstants {
   static const String finish = 'Finish';
   static const String cancelWorkout = 'Cancel Workout';
   static const String finishedWorkout = 'Are you ready to finish your workout?';
-  static const String incompleteWorkout =
-      'Are you sure you want to finish your workout? Only complete sets will be logged';
   static const String cancelWorkoutText =
       'Are you sure you want to cancel your workout? All progress will be lost';
-
-  // Common
-  static const String duo = 'duo';
-  static const String fit = 'fit';
-  static const String login = 'Login';
-  static const String cancel = 'Cancel';
-  static const String error = 'Error';
 }

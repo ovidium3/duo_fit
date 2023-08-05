@@ -18,7 +18,7 @@ class ExerciseStep extends StatelessWidget {
           width: 25,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: ColorConstants.green.withOpacity(0.12),
+            color: ColorConstants.primaryColor.withOpacity(0.12),
           ),
           child: Center(
             child: Text(
@@ -26,7 +26,7 @@ class ExerciseStep extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
-                color: ColorConstants.green,
+                color: ColorConstants.primaryColor,
               ),
             ),
           ),

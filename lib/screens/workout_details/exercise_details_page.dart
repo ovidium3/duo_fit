@@ -16,7 +16,7 @@ class ExerciseDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstants.darkBlue,
+      backgroundColor: ColorConstants.backgroundColor,
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: DetailsAppBar(text: TextConstants.exerciseDetails),
@@ -24,7 +24,7 @@ class ExerciseDetailsPage extends StatelessWidget {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        color: ColorConstants.darkBlue,
+        color: ColorConstants.backgroundColor,
         child: SafeArea(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -37,7 +37,7 @@ class ExerciseDetailsPage extends StatelessWidget {
                 //   width: double.infinity,
                 //   decoration: BoxDecoration(
                 //       borderRadius: BorderRadius.circular(20),
-                //       color: ColorConstants.darkBlue),
+                //       color: ColorConstants.backgroundColor),
                 //   child: ExerciseDetailsVideo(
                 //     exercise: exercise,
                 //   ),

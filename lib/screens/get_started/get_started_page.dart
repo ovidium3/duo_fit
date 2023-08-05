@@ -26,7 +26,7 @@ class GetStartedPage extends GetView<GetStartedController> with ShowDelayMixin {
         children: [
           const BackgroundImage(),
           Container(
-            color: ColorConstants.darkBlue.withOpacity(0.69),
+            color: ColorConstants.backgroundColor.withOpacity(0.69),
             width: double.infinity,
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 15),
@@ -93,7 +93,7 @@ class GetStartedPage extends GetView<GetStartedController> with ShowDelayMixin {
                                       '${controller.checkedCardsIds.length} / ${DataConstants.goalCardsList.length}',
                                       style: const TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        color: ColorConstants.green,
+                                        color: ColorConstants.primaryColor,
                                         fontSize: 12,
                                       ),
                                     );

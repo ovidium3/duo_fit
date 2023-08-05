@@ -4,6 +4,7 @@ import '/models/workout_model.dart';
 
 import 'exercise_data.dart';
 
+// A class that represents all components of a workout, including a placeholder
 class WorkoutData {
   // Upper body
   static final upperBody = WorkoutModel(
@@ -123,11 +124,12 @@ class WorkoutData {
     title: WorkoutTexts.placeholderTitle,
     exercises: WorkoutTexts.placeholderExercises,
     duration: WorkoutTexts.placeholderDuration,
-    image: MediaConstants.noImgAvailable,
+    image: MediaConstants.noImageAvailable,
     exerciseDataList: [],
   );
 
-  List<WorkoutModel> workouts = [
+  // List of all valid workouts
+  static final List<WorkoutModel> workouts = [
     upperBody,
     push,
     pull,
@@ -137,13 +139,4 @@ class WorkoutData {
     abs,
     shoulders,
   ];
-
-  WorkoutModel getWorkoutByName(String name) {
-    for (WorkoutModel workout in workouts) {
-      if (workout.title == name) {
-        return workout;
-      }
-    }
-    return placeholder; // Arbitrary workout to return signifying error
-  }
 }

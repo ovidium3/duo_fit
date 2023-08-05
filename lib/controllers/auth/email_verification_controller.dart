@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import '/constants/text/error_texts.dart';
-import '../dialog_controller.dart';
+import '/constants/text/general_texts.dart';
+import '/controllers/dialog_controller.dart';
 import '/helpers/handle_errors.dart';
 import '/screens/home/home_page.dart';
 
@@ -25,7 +25,7 @@ class EmailVerificationController extends GetxController {
 
       // Pop loading and show success
       Get.back();
-      dialogController.showSuccess(ErrorTexts.sent);
+      dialogController.showSuccess(TextConstants.sent);
     } on FirebaseAuthException catch (e) {
       // Pop loading and handle auth error
       Get.back();
@@ -57,7 +57,7 @@ class EmailVerificationController extends GetxController {
     } else if (emailVerifiedAfterReload == false) {
       // Pop loading and show error
       Get.back();
-      dialogController.showError(ErrorTexts.verifyEmail);
+      dialogController.showError(TextConstants.verifyEmail);
     }
   }
 

@@ -34,7 +34,7 @@ class ExerciseDetailsVideoState extends State<ExerciseDetailsVideo> {
         aspectRatio: 15 / 10,
         placeholder: const Center(child: CupertinoActivityIndicator()),
         materialProgressColors:
-            ChewieProgressColors(playedColor: ColorConstants.green));
+            ChewieProgressColors(playedColor: ColorConstants.primaryColor));
     super.initState();
   }
 

@@ -16,7 +16,7 @@ class ExerciseList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScrollbarTheme(
       data: ScrollbarThemeData(
-        thumbColor: MaterialStateProperty.all(ColorConstants.green),
+        thumbColor: MaterialStateProperty.all(ColorConstants.primaryColor),
       ),
       child: ListView.separated(
         padding: const EdgeInsets.all(5),
@@ -51,7 +51,7 @@ class ExerciseCell extends StatelessWidget {
         padding:
             const EdgeInsets.only(left: 10, right: 25, top: 10, bottom: 10),
         decoration: BoxDecoration(
-          color: ColorConstants.overlayBlue,
+          color: ColorConstants.backgroundOverlay,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(
@@ -101,7 +101,8 @@ class ExerciseCell extends StatelessWidget {
             const SizedBox(width: 10),
 
             // Right arrow
-            const Icon(Icons.arrow_forward_ios, color: ColorConstants.green),
+            const Icon(Icons.arrow_forward_ios,
+                color: ColorConstants.primaryColor),
           ],
         ),
       ),

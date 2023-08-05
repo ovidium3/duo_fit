@@ -1,3 +1,4 @@
+// Contains text constants specific to exercises and their steps
 class ExerciseTexts {
   // Shoulder Press
   static const String shoulderPress = "Shoulder Press (Barbell)";

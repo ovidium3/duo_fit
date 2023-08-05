@@ -25,7 +25,7 @@ class WorkoutPage extends GetView<WorkoutController> {
     controller.updateWorkoutStatus();
 
     return Scaffold(
-      backgroundColor: ColorConstants.darkBlue,
+      backgroundColor: ColorConstants.backgroundColor,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(40),
         child: WorkoutAppBar(onTap: () {
@@ -35,7 +35,7 @@ class WorkoutPage extends GetView<WorkoutController> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        color: ColorConstants.darkBlue,
+        color: ColorConstants.backgroundColor,
         child: SafeArea(
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 20),

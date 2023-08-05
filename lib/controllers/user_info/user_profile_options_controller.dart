@@ -53,7 +53,7 @@ class UserProfileOptionsController extends GetxController {
               ],
             ),
           ),
-          backgroundColor: ColorConstants.darkBlue,
+          backgroundColor: ColorConstants.backgroundColor,
         );
       }
     },
@@ -89,7 +89,7 @@ class UserProfileOptionsController extends GetxController {
                       child: const Icon(
                         Icons.perm_media,
                         size: 55,
-                        color: ColorConstants.green,
+                        color: ColorConstants.primaryColor,
                       ),
                     ),
                     GestureDetector(
@@ -101,7 +101,7 @@ class UserProfileOptionsController extends GetxController {
                       child: const Icon(
                         Icons.camera_alt,
                         size: 55,
-                        color: ColorConstants.green,
+                        color: ColorConstants.primaryColor,
                       ),
                     ),
                   ],
@@ -109,7 +109,7 @@ class UserProfileOptionsController extends GetxController {
               ],
             ),
           ),
-          backgroundColor: ColorConstants.darkBlue,
+          backgroundColor: ColorConstants.backgroundColor,
         );
       },
     },
@@ -145,7 +145,7 @@ class UserProfileOptionsController extends GetxController {
               ],
             ),
           ),
-          backgroundColor: ColorConstants.darkBlue,
+          backgroundColor: ColorConstants.backgroundColor,
         );
       }
     },
@@ -182,7 +182,7 @@ class UserProfileOptionsController extends GetxController {
               ],
             ),
           ),
-          backgroundColor: ColorConstants.darkBlue,
+          backgroundColor: ColorConstants.backgroundColor,
         );
       }
     },

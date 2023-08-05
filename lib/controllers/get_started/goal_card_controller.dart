@@ -2,8 +2,9 @@
 
 import 'package:get/get.dart';
 
-import 'get_started_controller.dart';
 import '/models/goal_card_info.dart';
+
+import 'get_started_controller.dart';
 
 class GoalCardController extends GetxController {
   GoalCardController(this.id);

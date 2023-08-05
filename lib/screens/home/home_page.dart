@@ -10,6 +10,7 @@ import '/helpers/show_delay_mixin.dart';
 import '/screens/user_profile/user_profile_page.dart';
 import '/widgets/background_image.dart';
 
+import 'components/calorie_log.dart';
 import 'components/find_your_workout.dart';
 import 'components/workout_tab_bar.dart';
 import 'components/profile_and_username.dart';
@@ -41,8 +42,8 @@ class _HomePageState extends State<HomePage> with ShowDelayMixin {
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
                 colors: [
-                  ColorConstants.darkBlue,
-                  ColorConstants.darkBlue.withOpacity(0.05),
+                  ColorConstants.backgroundColor,
+                  ColorConstants.backgroundColor.withOpacity(0.05),
                 ],
               ),
             ),
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> with ShowDelayMixin {
             child: SingleChildScrollView(
               child: ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxHeight: MediaQuery.of(context).size.height,
+                  maxHeight: MediaQuery.of(context).size.height * 2,
                   maxWidth: MediaQuery.of(context).size.width,
                 ),
                 child: Container(
@@ -74,17 +75,14 @@ class _HomePageState extends State<HomePage> with ShowDelayMixin {
                         ),
                       ),
 
-                      // Space between username / profile picture and calorie circle
-                      const SizedBox(height: 55),
-
-                      // Calorie circle
-                      // DelayedDisplay(
-                      //   delay: showDelay(),
-                      //   child: CalorieCircle,
-                      // ),
+                      // Calorie log
+                      DelayedDisplay(
+                        delay: showDelay(),
+                        child: CalorieLog(),
+                      ),
 
                       // Space between calorie circle and find your workout
-                      const SizedBox(height: 55),
+                      const SizedBox(height: 50),
 
                       // Find your workout
                       DelayedDisplay(

@@ -18,7 +18,7 @@ class FinishButton extends StatelessWidget {
       width: 80,
       height: 40,
       decoration: BoxDecoration(
-        color: ColorConstants.green,
+        color: ColorConstants.primaryColor,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Material(

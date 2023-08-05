@@ -30,8 +30,8 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController>
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
                 colors: [
-                  ColorConstants.darkBlue,
-                  ColorConstants.darkBlue.withOpacity(0.05),
+                  ColorConstants.backgroundColor,
+                  ColorConstants.backgroundColor.withOpacity(0.05),
                 ],
               ),
             ),

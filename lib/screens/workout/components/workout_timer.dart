@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '/constants/color_constants.dart';
 
+// Workout timer that displays length of workout
 class WorkoutTimer extends StatefulWidget {
   const WorkoutTimer({super.key});
 

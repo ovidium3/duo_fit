@@ -26,7 +26,7 @@ class WorkoutDetailsPage extends StatelessWidget with ShowDelayMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstants.darkBlue,
+      backgroundColor: ColorConstants.backgroundColor,
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(40),
         child: DetailsAppBar(text: TextConstants.workoutDetails),
@@ -52,10 +52,10 @@ class WorkoutDetailsPage extends StatelessWidget with ShowDelayMixin {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  ColorConstants.darkBlue,
-                  ColorConstants.darkBlue.withOpacity(0.05),
-                  ColorConstants.darkBlue,
-                  ColorConstants.darkBlue,
+                  ColorConstants.backgroundColor,
+                  ColorConstants.backgroundColor.withOpacity(0.05),
+                  ColorConstants.backgroundColor,
+                  ColorConstants.backgroundColor,
                 ],
               ),
             ),

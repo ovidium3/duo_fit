@@ -1,3 +1,4 @@
+// Contains text constants specific to workouts
 class WorkoutTexts {
   // Upper body
   static const String upperTitle = 'Upper Body';

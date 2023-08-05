@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '/constants/color_constants.dart';
 
 // Not implemented fully yet, currently appears in a disabled state
+// Rest timer that can be activated either on tapping or on set completion
 class RestTimerPopup extends StatefulWidget {
   final ValueNotifier<int> timerValueNotifier;
   final Function(int) onTimerChanged;
@@ -90,8 +92,9 @@ class RestTimerButtonState extends State<RestTimerButton> {
       width: 80,
       height: 40,
       decoration: BoxDecoration(
-        color:
-            widget.isEnabled ? ColorConstants.green : ColorConstants.disabled,
+        color: widget.isEnabled
+            ? ColorConstants.primaryColor
+            : ColorConstants.disabled,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Material(

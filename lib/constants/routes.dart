@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import '../configurations/bindings/auth_bindings.dart';
-import '../configurations/bindings/get_started_binding.dart';
+import '/configurations/bindings/auth_bindings.dart';
+import '/configurations/bindings/get_started_binding.dart';
 import '/screens/auth/email_verification_page.dart';
 import '/screens/auth/forgot_password_page.dart';
 import '/screens/auth/login_page.dart';
