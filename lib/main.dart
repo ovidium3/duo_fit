@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/configurations/bindings/initial_bindings.dart';
@@ -26,8 +26,8 @@ class FitnessApp extends StatelessWidget {
       defaultTransition: Transition.fade,
       theme: MainTheme(context).themeData,
       debugShowCheckedModeBanner: false,
-      getPages: Routes.pages,
-      initialRoute: "/",
+      getPages: AuthRoutes.pages,
+      initialRoute: '/',
     );
   }
 }

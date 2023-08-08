@@ -1,11 +1,15 @@
 import 'package:get/get.dart';
 
+import '/constants/text/app_texts.dart';
 import '/models/goal_card_info.dart';
 
+// Controller for goal cards on get started page
 class GetStartedController extends GetxController {
-  String rebuildId = "rebuildId";
+  // Set default state for cards
   Set<GoalCardInfo> checkedCardsIds = {};
   bool anyCardTapped = false;
+
+  String rebuildId = TextConstants.rebuildId;
 
   // This method is called when user taps on a card
   handleCardTap(GoalCardInfo checkedCard) {

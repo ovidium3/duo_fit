@@ -4,15 +4,19 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '/constants/data/workout_data.dart';
-import '/constants/text/general_texts.dart';
+import '/constants/text/dialog_texts.dart';
+import '/controllers/user/user_info_controller.dart';
 import '/models/workout_model.dart';
 import '/screens/home/home_page.dart';
 
 import 'dialog_controller.dart';
 
+// Controller for handling workout functions like logging sets
 class WorkoutController extends GetxController {
-  // Dependency injection
+  // Dependency injections
   final DialogController dialogController = Get.put(DialogController());
+  final UserInformationController userInfoController =
+      Get.put(UserInformationController());
 
   // Firebase user instance
   final User? _user = FirebaseAuth.instance.currentUser;
@@ -70,7 +74,7 @@ class WorkoutController extends GetxController {
       try {
         // Get most recent workout date
         String mostRecentWorkoutDate = await getMostRecentWorkout();
-        if (mostRecentWorkoutDate != "") {
+        if (mostRecentWorkoutDate != '') {
           final snapshot = await workoutDocRef.get();
           if (snapshot.exists) {
             // Extract snapshot data as a Map of String, List
@@ -107,7 +111,7 @@ class WorkoutController extends GetxController {
   //   if (currentUser != null) {
   //     try {
   //       String mostRecentWorkoutDate = await getMostRecentWorkout();
-  //       if (mostRecentWorkoutDate != "") {
+  //       if (mostRecentWorkoutDate != '') {
   //         final snapshot = await _firestore
   //             .collection('Users')
   //             .doc(currentUser.uid)
@@ -143,7 +147,7 @@ class WorkoutController extends GetxController {
 
   // Returns a workout model accessed by name
   WorkoutModel getWorkoutByName(String name) {
-    for (WorkoutModel workout in WorkoutData.workouts) {
+    for (WorkoutModel workout in WorkoutData.allWorkouts) {
       if (workout.title == name) {
         return workout;
       }
@@ -231,28 +235,37 @@ class WorkoutController extends GetxController {
     }
   }
 
+  Future<void> updateWorkoutsCompleted() async {
+    await statsDocRef.update(
+        {'Workouts Completed': (userInfoController.userProfileStats[2] + 1)});
+  }
+
   Future<void> finishWorkout() async {
     // Ask user to confirm finishing workout
     dialogController.showConfirmWithActions(
-        TextConstants.finishedWorkout, TextConstants.finish, () async {
-      // Save workout data to Firestore, update workout status, go to home page
+        DialogTexts.finishedWorkout, DialogTexts.finish, () async {
+      // Save workout data to Firestore, update workout status
       await saveWorkoutData();
       isInWorkout.value = false;
       currentWorkout.value = WorkoutData.placeholder;
       await updateWorkoutStatus();
-      Get.offAll(const HomePage());
+
+      // Update workouts completed in firestore and go to home page
+      await updateWorkoutsCompleted();
+      Get.to(const HomePage());
     });
   }
 
   Future<void> cancelWorkout() async {
     // Ask user to confirm canceling workout
     dialogController.showConfirmWithActions(
-        TextConstants.cancelWorkoutText, TextConstants.cancelWorkout, () async {
+        DialogTexts.cancelWorkoutText, DialogTexts.cancelWorkout, () async {
       // Update variables to reflect non-workout status and send to home page
       isInWorkout.value = false;
       currentWorkout.value = WorkoutData.placeholder;
       await updateWorkoutStatus();
-      Get.offAll(const HomePage());
+
+      Get.to(const HomePage());
     });
   }
 

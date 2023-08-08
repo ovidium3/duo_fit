@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '/constants/text/general_texts.dart';
-import '../../controllers/auth/login_controller.dart';
+import '/constants/text/app_texts.dart';
+import '/controllers/auth/login_controller.dart';
 import '/helpers/show_delay_mixin.dart';
 import '/widgets/background_image.dart';
-import '../../widgets/buttons/auth_button.dart';
+import '/widgets/action_button.dart';
 import '/widgets/text_field.dart';
-import '../../widgets/text/app_title.dart';
-import '../../widgets/text/title_with_description.dart';
+import '/widgets/app_title.dart';
+import '/widgets/title_with_description.dart';
 
 import 'sign_up_page.dart';
 
@@ -104,7 +104,7 @@ class LoginPage extends GetView<LoginController> with ShowDelayMixin {
                             delay: showDelay(),
                             child: GestureDetector(
                               onTap: () {
-                                Get.toNamed("/forgotPassword");
+                                Get.toNamed('/forgotPassword');
                               },
                               child: const Text(
                                 TextConstants.forgotPassword,
@@ -126,7 +126,7 @@ class LoginPage extends GetView<LoginController> with ShowDelayMixin {
                           // Login button
                           DelayedDisplay(
                             delay: showDelay(),
-                            child: AuthButton(
+                            child: ActionButton(
                               onPressed: () {
                                 controller.loginToAccount(
                                   controller.loginEmailController.text.trim(),
@@ -139,18 +139,24 @@ class LoginPage extends GetView<LoginController> with ShowDelayMixin {
                             ),
                           ),
 
-                          // Space between login button and sign up button
+                          // Space between login button and sign up page link
                           const SizedBox(height: 10),
 
-                          // Sign up button
+                          // Sign up page link
                           DelayedDisplay(
                             delay: showDelay(),
-                            child: AuthButton(
-                              onPressed: () {
-                                Get.to(() => SignUpPage());
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.to(SignUpPage());
                               },
-                              text: TextConstants.signUp,
-                              isOutlined: true,
+                              child: Text(
+                                TextConstants.doNotHaveAccount,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Theme.of(context).primaryColor,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
                             ),
                           ),
 

@@ -1,42 +1,23 @@
 -- GENERAL
-- tweaks to constants class: text and color mainly, perhaps data
-- user info controller: update temp profile values with actual user data
-- iOS simulator - fix padding issues on bottom and workout page
 - check email verification: resend email link crashes app
 - default home page has some spacing above the first element in the food lists, enough for another element (???)
-- adjust gradient to make it so that more of the home page is covered by dark blue background color
-- missing media assets for arms, abs and shoulders
-- when home page loads, it sometimes loads the wrong page for a second before loading the right one, so you can see the other page like welcome screen for a split sec before seeing home page
-
--- CLEANLINESS
-- check constants for comment thoroughness
-- check controllers for commetn thoroughness
-- check helpers for comments
-- check models for comments
-- check screens for comments
-- check widgets for comments
-
--- CALORIE LOG
-- too much padding on the sides for the calorie log stuff, default padding from the home page should be enough
-- edit foods button is a bit big, can cut down a bit on the button padding perhaps or make it a textbutton instead of elevated button
-- calorie circle could be a bit larger
+- foods tab bar has a lot of foods in it that are centered on vertical axis as well as horizontal, want to start from top of axis not center in case of foods not fillign entire list
+- when you remove a food, quantity doesnt update unless food is removed
 
 -- WORKOUT STUFF
-- in tab bar workout display, the third workout is cut in half, merging with the start of the next in the set of three. perhaps make it so that each is 
-0.3 * screen size or something
-- fix chewie video player on exercise details page: doesnt work at all
 - workout page refreshing and saving prev data
 - workout page keeping workout timer consistent even after reopening
 - workout page potential issues relating to workouts spanning multiple days
-- after completing a workout, tab bar morphs and throws error but still works, perhaps trigger a reload of the home page after navigating to it
 - align set data rows (not headers, just data)
 - implement custom rest timer
 - adjust workout app bar to make timer have left padding
-- start workout button could have a bit more padding on the bottom
-- hint autofill when tap checkmark
 - way to un-do check tap add to list, so that it can update a set if accidentally tapped on
+- hint autofill when tapping checkmark for a set in a workout
 
 -- BONUS
 - implement show/hide for password field (showeye)
 - add more customization to edit profile vs profile app bar
 - add more workouts for legs and lower body especially
+- add in routes for workout page and user profile page and such
+- when home page loads, it sometimes loads the wrong page for a second before loading the right one, so you can see the other page like welcome screen for a split sec before seeing home page
+- let user update own calories limit

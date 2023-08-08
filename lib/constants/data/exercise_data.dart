@@ -1,6 +1,6 @@
 import '/constants/media_constants.dart';
 import '/constants/text/exercise_texts.dart';
-import '../../helpers/create_set_data.dart';
+import '/helpers/create_set_data.dart';
 import '/models/exercise_model.dart';
 
 // A class that represents all components of each exercise

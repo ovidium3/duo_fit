@@ -2,11 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
-import '../dialog_controller.dart';
+import '/controllers/dialog_controller.dart';
 import '/helpers/handle_errors.dart';
 import '/helpers/auth_validation.dart';
 
+// Controller that handles the sign up process for the app
 class SignUpController extends GetxController {
   // Dependency injections
   final DialogController dialogController = Get.find();
@@ -16,8 +18,8 @@ class SignUpController extends GetxController {
       signUpEmailController,
       signUpPasswordController;
 
-  // Get current time to mark the program's start date
-  FieldValue thisMomentTime = FieldValue.serverTimestamp();
+  // Formatted date for Firestore program time remaining
+  String thisMomentTime = DateFormat('yyyy-MM-dd').format(DateTime.now());
 
   // Create new account in firebase
   Future<void> createNewAccount(
@@ -88,6 +90,7 @@ class SignUpController extends GetxController {
           'Target Calories': 2000,
           'Program Length': 12,
           'Workouts Completed': 0,
+          'Join Date': thisMomentTime,
         });
 
         // Send user to email verification page

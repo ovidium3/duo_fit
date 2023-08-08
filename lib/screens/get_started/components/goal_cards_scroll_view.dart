@@ -6,13 +6,14 @@ import '/constants/data/general_data.dart';
 import '/controllers/get_started/get_started_controller.dart';
 import '/screens/get_started/components/goal_card.dart';
 
+// Generates a sideways scrollable view of goal cards
 class GoalCardsScrollView extends GetView<GetStartedController> {
+  final Duration delay;
+
   const GoalCardsScrollView({
     required this.delay,
     super.key,
   });
-
-  final Duration delay;
 
   @override
   Widget build(BuildContext context) {

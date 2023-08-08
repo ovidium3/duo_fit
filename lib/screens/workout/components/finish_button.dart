@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import '/constants/color_constants.dart';
-import '/constants/text/general_texts.dart';
 
+import '/constants/color_constants.dart';
+import '/constants/text/app_texts.dart';
+
+// Button to finish workout
 class FinishButton extends StatelessWidget {
   final String title;
   final Function() onFinish;

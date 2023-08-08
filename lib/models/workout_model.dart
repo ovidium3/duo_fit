@@ -1,5 +1,6 @@
 import '/models/exercise_model.dart';
 
+// A class that represents a collection of exercises and other information
 class WorkoutModel {
   final String title;
   final String exercises;

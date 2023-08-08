@@ -86,8 +86,8 @@ class SetRowState extends State<SetRow> {
           Expanded(
             flex: 2,
             child: Text(
-              (widget.setData.previousData.contains("-"))
-                  ? "-"
+              (widget.setData.previousData.contains('-'))
+                  ? '-'
                   : widget.setData.previousData,
               style: const TextStyle(
                 fontSize: 12,

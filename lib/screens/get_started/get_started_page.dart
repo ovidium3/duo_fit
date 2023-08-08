@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '/constants/text/general_texts.dart';
+import '/constants/text/app_texts.dart';
 import '/constants/data/general_data.dart';
 import '/controllers/get_started/get_started_controller.dart';
 import '/helpers/show_delay_mixin.dart';
 import '/widgets/background_image.dart';
-import '../../widgets/text/app_title.dart';
-import '../../widgets/text/title_with_description.dart';
+import '/widgets/app_title.dart';
+import '/widgets/title_with_description.dart';
 
 import 'components/goal_cards_scroll_view.dart';
 
@@ -113,7 +113,7 @@ class GetStartedPage extends GetView<GetStartedController> with ShowDelayMixin {
                                   ),
                                   onPressed: controller.anyCardTapped
                                       ? () {
-                                          Get.toNamed("/signUp");
+                                          Get.toNamed('/signUp');
                                         }
                                       : null,
                                   child: const Text(

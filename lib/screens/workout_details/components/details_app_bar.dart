@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '/constants/color_constants.dart';
 
+// App bar for workout details page that only has a back button
 class DetailsAppBar extends StatelessWidget {
   const DetailsAppBar({required this.text, super.key});
 

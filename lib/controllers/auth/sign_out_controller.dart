@@ -2,8 +2,9 @@ import 'package:duo_fit/helpers/handle_errors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import '../dialog_controller.dart';
+import '/controllers/dialog_controller.dart';
 
+// Controller that handles signing out from the app
 class SignOutController extends GetxController {
   // Dependency injection
   DialogController dialogController = Get.find();

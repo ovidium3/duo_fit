@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '/constants/text/general_texts.dart';
+import '/constants/text/app_texts.dart';
 import '/models/goal_card_model.dart';
 import '/models/workout_model.dart';
 
@@ -26,43 +26,48 @@ class DataConstants {
     ),
   ];
 
-  // Workout tab titles
-  static final List<Tab> workoutTabs = <Tab>[
-    const Tab(text: 'Popular'),
-    const Tab(text: 'Upper Body'),
-    const Tab(text: 'Lower Body'),
-    const Tab(text: 'Full Body'),
-    const Tab(text: 'Extras'),
+  // User profile statistic titles
+  static final List<String> profileStatTitles = [
+    TextConstants.profileStat1,
+    TextConstants.profileStat2,
+    TextConstants.profileStat3,
   ];
 
-  // List of top 3 popular workouts
+  // Food tab titles
+  static final List<Tab> foodTabs = <Tab>[
+    const Tab(text: TextConstants.yourFoods),
+    const Tab(text: TextConstants.foodsEaten),
+  ];
+
+  // Workout tab titles
+  static final List<Tab> workoutTabs = <Tab>[
+    const Tab(text: TextConstants.workoutTab1),
+    const Tab(text: TextConstants.workoutTab2),
+    const Tab(text: TextConstants.workoutTab3),
+    const Tab(text: TextConstants.workoutTab4),
+  ];
+
+  // List of 2 popular workouts
   static final List<WorkoutModel> popularWorkouts = [
     WorkoutData.push,
     WorkoutData.pull,
-    WorkoutData.legs,
   ];
 
-  // List of top 3 upper body workouts
-  static final List<WorkoutModel> upperBodyWorkouts = [
-    WorkoutData.upperBody,
-    WorkoutData.push,
-    WorkoutData.pull,
-  ];
-
-  // List of lower body workouts
-  static final List<WorkoutModel> lowerBodyWorkouts = [
-    WorkoutData.legs,
-  ];
-
-  // List of full body workouts
-  static final List<WorkoutModel> fullBodyWorkouts = [
+  // List of 2 minimalistic workouts
+  static final List<WorkoutModel> minimalisticWorkouts = [
     WorkoutData.fullBody,
+    WorkoutData.shoulders,
   ];
 
-  // List of extra workouts
+  // List of 2 essential workouts
+  static final List<WorkoutModel> essentialWorkouts = [
+    WorkoutData.upperBody,
+    WorkoutData.legs,
+  ];
+
+  // List of 2 extra workouts
   static final List<WorkoutModel> extraWorkouts = [
     WorkoutData.arms,
     WorkoutData.abs,
-    WorkoutData.shoulders,
   ];
 }

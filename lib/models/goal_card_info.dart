@@ -1,11 +1,12 @@
-class GoalCardInfo extends Object {
+// A class that represents a specific goal card's current state
+class GoalCardInfo {
+  final int id;
+  final bool isChecked;
+
   GoalCardInfo({
     required this.id,
     required this.isChecked,
   });
-
-  final int id;
-  final bool isChecked;
 
   @override
   bool operator ==(Object other) {

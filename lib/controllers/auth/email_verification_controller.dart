@@ -2,18 +2,20 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import '/constants/text/general_texts.dart';
+import '/constants/text/dialog_texts.dart';
 import '/controllers/dialog_controller.dart';
 import '/helpers/handle_errors.dart';
 import '/screens/home/home_page.dart';
 
+// Controller that handles user's email verification
 class EmailVerificationController extends GetxController {
   // Dependency injection
   final DialogController dialogController = Get.find();
 
-  // Get current user
+  // Get instance of current user
   User? user = FirebaseAuth.instance.currentUser;
 
+  // Send verification email to user's current email
   sendVerificationEmail() async {
     dialogController.showLoading();
 
@@ -25,7 +27,7 @@ class EmailVerificationController extends GetxController {
 
       // Pop loading and show success
       Get.back();
-      dialogController.showSuccess(TextConstants.sent);
+      dialogController.showSuccess(DialogTexts.sent);
     } on FirebaseAuthException catch (e) {
       // Pop loading and handle auth error
       Get.back();
@@ -37,6 +39,7 @@ class EmailVerificationController extends GetxController {
     }
   }
 
+  // Check if user verified their email
   checkEmailVerification() async {
     dialogController.showLoading();
 
@@ -57,7 +60,7 @@ class EmailVerificationController extends GetxController {
     } else if (emailVerifiedAfterReload == false) {
       // Pop loading and show error
       Get.back();
-      dialogController.showError(TextConstants.verifyEmail);
+      dialogController.showError(DialogTexts.verifyEmail);
     }
   }
 

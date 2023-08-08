@@ -1,3 +1,4 @@
+// A class that represents a specific set of a given exercise
 class SetModel {
   String exerciseTitle;
   String setType;

@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '/constants/color_constants.dart';
+import '/constants/media_constants.dart';
 
-// Profile picture display
+// Profile picture avatar on home page
 class Avatar extends StatelessWidget {
+  final void Function()? onProfileImgTap;
+  final String networkImage;
+
   const Avatar({
     required this.onProfileImgTap,
     required this.networkImage,
     super.key,
   });
-
-  final void Function()? onProfileImgTap;
-  final String networkImage;
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +29,16 @@ class Avatar extends StatelessWidget {
         child: Image(
           image: NetworkImage(networkImage),
           fit: BoxFit.cover,
+
+          // If image not available, show default profile
           errorBuilder: (context, error, stackTrace) {
             return Container(
               color: ColorConstants.error,
+              child: Image.asset(MediaConstants.defaultProfile),
             );
           },
+
+          // While image loads, show loading animation
           frameBuilder: (_, image, loadingBuilder, __) {
             if (loadingBuilder == null) {
               return SizedBox(

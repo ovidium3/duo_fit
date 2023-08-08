@@ -1,3 +1,4 @@
+// Contains classes that convert time for the rest timer dialog
 class MinutesSeconds {
   final int minutes;
   final int seconds;

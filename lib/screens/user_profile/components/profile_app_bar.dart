@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '/constants/text/general_texts.dart';
+import '/constants/text/app_texts.dart';
 import '/controllers/auth/sign_out_controller.dart';
 
 // App bar used for navigating back / logging out from profile pages
@@ -22,6 +22,7 @@ class ProfileAppBar extends StatelessWidget {
       toolbarHeight: 80,
       iconTheme: const IconThemeData(color: ColorConstants.iconWhite),
       actions: [
+        // Sign out button
         GetBuilder<SignOutController>(
           init: SignOutController(),
           builder: (signOutController) {
@@ -30,7 +31,7 @@ class ProfileAppBar extends StatelessWidget {
                   backgroundColor: ColorConstants.backgroundColor,
                   elevation: 0),
               label: const Text(
-                TextConstants.logOut,
+                TextConstants.signOut,
                 style: TextStyle(color: ColorConstants.error),
               ),
               onPressed: () {

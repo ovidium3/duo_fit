@@ -4,18 +4,18 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '/constants/text/general_texts.dart';
+import '/constants/text/dialog_texts.dart';
 import '/helpers/food_validation.dart';
 import '/helpers/time_service.dart';
 import '/models/food_model.dart';
 import '/widgets/text_field.dart';
 
-// A controller dedicated to displaying dialogs like loading and showing errors
+// Controller for displaying dialogs like loading and showing errors
 class DialogController extends GetxController {
   // Displays loading animation
   showLoading() {
     Get.defaultDialog(
-      title: "",
+      title: '',
       backgroundColor: ColorConstants.transparent,
       content: const SpinKitThreeBounce(
         color: ColorConstants.primaryColor,
@@ -31,16 +31,21 @@ class DialogController extends GetxController {
     void Function()? function,
   ) {
     Get.defaultDialog(
-      title: "",
+      title: '',
       backgroundColor: ColorConstants.backgroundColor,
       content: Column(
         children: [
+          // Warning symbol
           const Icon(
             Icons.warning,
             color: ColorConstants.primaryColor,
             size: 60,
           ),
+
+          // Space between warning symbol and error info text
           const SizedBox(height: 15),
+
+          // Error info text
           SizedBox(
             width: 200,
             child: Text(
@@ -55,15 +60,18 @@ class DialogController extends GetxController {
         ],
       ),
       actions: [
+        // Cancel button
         TextButton(
           child: const Text(
-            TextConstants.cancel,
+            DialogTexts.cancel,
             style: TextStyle(color: ColorConstants.textWhite),
           ),
           onPressed: () {
             Get.back();
           },
         ),
+
+        // Confirm button with function
         TextButton(
           onPressed: function,
           child: Text(
@@ -78,16 +86,21 @@ class DialogController extends GetxController {
   // Displays custom error message, mostly firebase auth errors
   showError(String errorText) {
     Get.defaultDialog(
-      title: "",
+      title: '',
       backgroundColor: ColorConstants.backgroundColor,
       content: Column(
         children: [
+          // Error icon
           const Icon(
             Icons.error,
             color: ColorConstants.error,
             size: 60,
           ),
+
+          // Space between error icon and error info text
           const SizedBox(height: 20),
+
+          // Error info text
           SizedBox(
             width: 200,
             child: Text(
@@ -107,16 +120,21 @@ class DialogController extends GetxController {
   // Displays custom success message
   showSuccess(String successText) {
     Get.defaultDialog(
-      title: "",
+      title: '',
       backgroundColor: ColorConstants.backgroundColor,
       content: Column(
         children: [
+          // Check mark icon
           const Icon(
             Icons.done,
             color: ColorConstants.primaryColor,
             size: 60,
           ),
+
+          // Space between check mark icon and message text
           const SizedBox(height: 20),
+
+          // Message text
           SizedBox(
             width: 200,
             child: Text(
@@ -141,7 +159,7 @@ class DialogController extends GetxController {
       Function(FoodModel) removeCustomFoodItem,
       List<FoodModel> foods) {
     Get.defaultDialog(
-      title: "Edit Foods",
+      title: DialogTexts.editFoods,
       titlePadding: const EdgeInsets.only(top: 20),
       titleStyle: const TextStyle(color: ColorConstants.textWhite),
       backgroundColor: ColorConstants.backgroundColor,
@@ -158,7 +176,7 @@ class DialogController extends GetxController {
                     foodNameController, caloriesController, addCustomFoodItem);
               },
               child: const Text(
-                'Add Food',
+                DialogTexts.addFood,
                 style: TextStyle(
                   color: ColorConstants.textWhite,
                 ),
@@ -178,7 +196,7 @@ class DialogController extends GetxController {
                     MaterialStatePropertyAll(ColorConstants.iconRed),
               ),
               child: const Text(
-                'Remove Food',
+                DialogTexts.removeFood,
                 style: TextStyle(
                   color: ColorConstants.textWhite,
                 ),
@@ -194,7 +212,7 @@ class DialogController extends GetxController {
   void showAddCustomFood(TextEditingController foodNameController,
       TextEditingController caloriesController, Function() addCustomFoodItem) {
     Get.defaultDialog(
-      title: 'Add a Custom Food',
+      title: DialogTexts.addCustomFood,
       titlePadding: const EdgeInsets.only(top: 20),
       titleStyle: const TextStyle(color: ColorConstants.textWhite),
       backgroundColor: ColorConstants.backgroundColor,
@@ -208,14 +226,14 @@ class DialogController extends GetxController {
             CustomTextField(
               controller: foodNameController,
               keyboardType: TextInputType.text,
-              label: 'Food Name',
+              label: DialogTexts.foodName,
             ),
 
             // Calories input text field
             CustomTextField(
               controller: caloriesController,
               keyboardType: TextInputType.number,
-              label: 'Calories',
+              label: DialogTexts.calories,
             ),
 
             // Space between calories input text field and action buttons
@@ -223,16 +241,18 @@ class DialogController extends GetxController {
           ],
         ),
       ),
-
-      // Action buttons
       actions: [
         // Cancel button
         TextButton(
           child: const Text(
-            TextConstants.cancel,
+            DialogTexts.cancel,
             style: TextStyle(color: ColorConstants.textWhite),
           ),
           onPressed: () {
+            // Clear controllers and pop dialogs
+            foodNameController.clear();
+            caloriesController.clear();
+            Get.back();
             Get.back();
           },
         ),
@@ -245,20 +265,23 @@ class DialogController extends GetxController {
           onPressed: () {
             if (foodNameController.text.isValidFoodName &&
                 caloriesController.text.isValidCalories) {
+              // First, pop dialogs to not interfere with controller functions
+              Get.back();
+              Get.back();
+
+              // Add food item and show snackbar success
               addCustomFoodItem();
               showSnackbar(true, foodNameController.text);
             } else {
-              showError('Unable to add food');
+              showError(DialogTexts.unableToAddFood);
             }
 
-            // Clear controllers and pop dialogs
+            // Clear controllers
             foodNameController.clear();
             caloriesController.clear();
-            Get.back();
-            Get.back();
           },
           child: const Text(
-            'Add Food',
+            DialogTexts.addFood,
             style: TextStyle(color: ColorConstants.primaryColor),
           ),
         ),
@@ -269,9 +292,9 @@ class DialogController extends GetxController {
   // Displays snackbar message to confirm addition or removal of a food
   void showSnackbar(bool isAddFood, String foodName) {
     String descriptionText =
-        isAddFood ? TextConstants.foodAdded : TextConstants.foodRemoved;
+        isAddFood ? DialogTexts.foodAdded : DialogTexts.foodRemoved;
     Get.snackbar(
-      'Success!',
+      DialogTexts.success,
       '$foodName $descriptionText',
       backgroundColor: ColorConstants.backgroundColor,
       colorText: ColorConstants.textWhite,
@@ -282,12 +305,12 @@ class DialogController extends GetxController {
   void showRemoveCustomFood(
       List<FoodModel> foods, Function(FoodModel) removeCustomFoodItem) {
     Get.defaultDialog(
-      title: 'Remove a Custom Food',
+      title: DialogTexts.removeCustomFood,
       titlePadding: const EdgeInsets.only(top: 20),
       titleStyle: const TextStyle(color: ColorConstants.textWhite),
       backgroundColor: ColorConstants.backgroundColor,
       content: SizedBox(
-        width: 200,
+        width: 250,
         height: 250,
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -305,14 +328,15 @@ class DialogController extends GetxController {
                     trailing: IconButton(
                       onPressed: () {
                         showConfirmWithActions(
-                          TextConstants.confirmRemoveFood,
-                          TextConstants.remove,
+                          DialogTexts.confirmRemoveFood,
+                          DialogTexts.delete,
                           () {
+                            // Pop dialogs before removing food
+                            Get.back();
+                            Get.back();
+                            Get.back();
                             removeCustomFoodItem(food);
                             showSnackbar(false, food.name);
-                            Navigator.of(context).pop();
-                            Navigator.of(context).pop();
-                            Navigator.of(context).pop();
                           },
                         );
                       },
@@ -340,10 +364,11 @@ class DialogController extends GetxController {
         // Cancel button
         TextButton(
           child: const Text(
-            TextConstants.cancel,
+            DialogTexts.cancel,
             style: TextStyle(color: ColorConstants.textWhite),
           ),
           onPressed: () {
+            // Pop dialogs
             Get.back();
             Get.back();
           },
@@ -354,35 +379,43 @@ class DialogController extends GetxController {
 
   // Temporary rest timer display with limited features
   void showRestTimer() {
+    // Initial rest time
     final ValueNotifier<int> timerDuration = ValueNotifier(120);
-    // ignore: no_leading_underscores_for_local_identifiers
-    final CountDownController _controller = CountDownController();
 
+    // Timer controller
+    final CountDownController timerController = CountDownController();
+
+    // Function that closes out / skips timer completely
     void skipTimer() {
       Get.back();
     }
 
     void addTime(int seconds) {
+      // Get current time
       var currDuration = MinutesSeconds(minutes: 0, seconds: 0);
       try {
         currDuration = MinutesSeconds(
-            minutes: int.parse(_controller.getTime()!.substring(0, 2)),
-            seconds: int.parse(_controller.getTime()!.substring(3)));
+            minutes: int.parse(timerController.getTime()!.substring(0, 2)),
+            seconds: int.parse(timerController.getTime()!.substring(3)));
       } catch (e) {
-        // if timer < 60 seconds
+        // Case where timer < 60 seconds
         currDuration = MinutesSeconds(
-            seconds: int.parse(_controller.getTime()!), minutes: 0);
+            seconds: int.parse(timerController.getTime()!), minutes: 0);
       }
+
+      // Update current time with new time
       final currentDuration =
           Duration(seconds: currDuration.seconds + (currDuration.minutes * 60));
       final newDuration = currentDuration + Duration(seconds: seconds);
+
+      // Reflect changes in timer
       if (newDuration.inSeconds >= 0 &&
           newDuration.inSeconds <= timerDuration.value) {
-        _controller.restart(duration: newDuration.inSeconds);
+        timerController.restart(duration: newDuration.inSeconds);
       } else if (newDuration.inSeconds < 0) {
-        _controller.restart(duration: 0);
+        timerController.restart(duration: 0);
       } else {
-        _controller.restart(duration: timerDuration.value);
+        timerController.restart(duration: timerDuration.value);
       }
     }
 
@@ -392,6 +425,7 @@ class DialogController extends GetxController {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          // Timer
           CircularCountDownTimer(
             width: 150,
             height: 150,
@@ -401,7 +435,7 @@ class DialogController extends GetxController {
             duration: timerDuration.value,
             isReverse: true,
             isReverseAnimation: true,
-            controller: _controller,
+            controller: timerController,
             textStyle: const TextStyle(
               fontSize: 36,
               color: ColorConstants.textWhite,
@@ -411,21 +445,27 @@ class DialogController extends GetxController {
               Get.back();
             },
           ),
+
+          // Space between timer and timer functions
           const SizedBox(height: 16),
+
+          // Timer functions
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
+                // Add 9 to account for time it takes to tap button
                 onPressed: () => addTime(-9),
-                child: const Text('-10s'),
+                child: const Text(DialogTexts.minusTen),
               ),
               ElevatedButton(
+                // Add 11 to account for time it takes to tap button
                 onPressed: () => addTime(11),
-                child: const Text('+10s'),
+                child: const Text(DialogTexts.plusTen),
               ),
               ElevatedButton(
                 onPressed: skipTimer,
-                child: const Text('Skip'),
+                child: const Text(DialogTexts.skip),
               ),
             ],
           ),

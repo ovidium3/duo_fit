@@ -5,13 +5,14 @@ import '/constants/color_constants.dart';
 import '/models/workout_model.dart';
 import '/screens/workout_details/workout_details_page.dart';
 
+// Workout card in workout tab
 class WorkoutCard extends StatelessWidget {
+  final WorkoutModel workout;
+
   const WorkoutCard({
     required this.workout,
     super.key,
   });
-
-  final WorkoutModel workout;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,7 @@ class WorkoutCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Fitted workout image
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Container(
@@ -38,7 +40,11 @@ class WorkoutCard extends StatelessWidget {
                 ),
               ),
             ),
+
+            // Space between workout image and workout title
             const SizedBox(height: 10),
+
+            // Workout title
             Text(
               workout.title,
               style: TextStyle(

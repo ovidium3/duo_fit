@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '/constants/text/general_texts.dart';
+import '/constants/data/general_data.dart';
+import '/constants/text/app_texts.dart';
 import '/controllers/calorie_log_controller.dart';
 
+import 'food_tab_bar.dart';
+
+// Contains circular calorie display, custom foods list, and foods eaten list
 class CalorieLog extends StatelessWidget {
   CalorieLog({super.key});
 
@@ -14,172 +18,91 @@ class CalorieLog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Calorie circle wrapped in observable widget
-          Obx(
-            () => buildCalorieCircle(context),
-          ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Calorie circle wrapped in observable widget
+        Obx(() => buildCalorieCircle(context)),
 
-          // Your foods text / edit foods button
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // Your foods text
-              Text(
-                'Your Foods:',
+        // Space between calorie circle and foods tab bar
+        const SizedBox(height: 20),
+
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // Foods tab bar
+            SizedBox(
+              height: 40,
+              child: TabBar(
+                labelColor: ColorConstants.tabBar,
+                isScrollable: true,
+                indicator: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: Theme.of(context).primaryColor,
+                    width: 2,
+                  ),
+                ),
+                controller: calorieLogController.foodsTabController,
+                tabs: DataConstants.foodTabs,
+              ),
+            ),
+
+            // Edit foods button
+            TextButton(
+              onPressed: () {
+                calorieLogController.editFoods();
+              },
+              child: const Text(
+                TextConstants.editFoods,
                 style: TextStyle(
-                  color: ColorConstants.textWhite.withOpacity(0.75),
+                  color: ColorConstants.primaryColor,
+                ),
+              ),
+            ),
+          ],
+        ),
+
+        // Space between food tab bar and food lists
+        const SizedBox(height: 10),
+
+        // Food lists
+        LimitedBox(
+          maxHeight: 300,
+          child: TabBarView(
+            controller: calorieLogController.foodsTabController,
+            children: [
+              // Your foods tab
+              Center(
+                child: Obx(
+                  () => FoodTabBar(
+                    title: TextConstants.yourFoods,
+                    foodList: calorieLogController.foods.toList(),
+                    foodFunction: calorieLogController.addFoodToEaten,
+                  ),
                 ),
               ),
 
-              ElevatedButton(
-                onPressed: () {
-                  calorieLogController.editFoods();
-                },
-                child: Text(
-                  'Edit Foods',
-                  style: TextStyle(
-                    color: ColorConstants.textWhite.withOpacity(0.75),
+              // Foods eaten tab
+              Center(
+                child: Obx(
+                  () => FoodTabBar(
+                    title: TextConstants.foodsEaten,
+                    foodList: calorieLogController.foodsEaten.toList(),
+                    foodFunction: calorieLogController.removeFoodFromEaten,
                   ),
                 ),
               ),
             ],
           ),
-
-          // Space between your foods / edit foods and custom foods list
-          const SizedBox(height: 10),
-
-          // Custom foods list wrapped in observable widget
-          Obx(
-            () => LimitedBox(
-              maxHeight: 300,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: ColorConstants.backgroundColor,
-                ),
-                child: calorieLogController.foods.toList().isNotEmpty
-                    ? ListView.builder(
-                        shrinkWrap: true,
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        itemCount: calorieLogController.foods.toList().length,
-                        itemBuilder: (context, index) {
-                          final food =
-                              calorieLogController.foods.toList()[index];
-                          return ListTile(
-                            trailing: GestureDetector(
-                              onTap: () {
-                                calorieLogController.addFoodToEaten(food);
-                              },
-                              child: const Icon(
-                                Icons.add,
-                                color: ColorConstants.iconGreen,
-                              ),
-                            ),
-                            title: Text(
-                              '${food.name} (${food.calories} calories)',
-                              style: const TextStyle(
-                                color: ColorConstants.textGrey,
-                                fontSize: 14,
-                              ),
-                            ),
-                          );
-                        },
-                      )
-                    : const SizedBox(
-                        height: 50,
-                        child: Center(
-                          child: Text(
-                            TextConstants.addFoodPlaceholder,
-                            style: TextStyle(
-                              color: ColorConstants.textGrey,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                      ),
-              ),
-            ),
-          ),
-
-          // Space between custom foods list and foods eaten text
-          const SizedBox(height: 20),
-
-          // Foods eaten text
-          Text(
-            'Foods Eaten:',
-            style: TextStyle(
-              color: ColorConstants.textWhite.withOpacity(0.75),
-            ),
-          ),
-
-          // Space between foods eaten text and foods eaten list
-          const SizedBox(height: 10),
-
-          // Foods eaten list
-          Obx(
-            () => LimitedBox(
-              maxHeight: 300,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: ColorConstants.backgroundColor,
-                ),
-                child: calorieLogController.foodsEaten.toList().isNotEmpty
-                    ? ListView.builder(
-                        shrinkWrap: true,
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        itemCount:
-                            calorieLogController.foodsEaten.toList().length,
-                        itemBuilder: (context, index) {
-                          final food =
-                              calorieLogController.foodsEaten.toList()[index];
-
-                          return ListTile(
-                            trailing: GestureDetector(
-                              onTap: () {
-                                calorieLogController.removeFoodFromEaten(food);
-                              },
-                              child: const Icon(
-                                Icons.remove,
-                                color: ColorConstants.iconRed,
-                              ),
-                            ),
-                            title: Text(
-                              '${food.name} (${food.calories} calories) x ${food.quantity}',
-                              style: const TextStyle(
-                                color: ColorConstants.textGrey,
-                                fontSize: 14,
-                              ),
-                            ),
-                          );
-                        },
-                      )
-                    : const SizedBox(
-                        height: 50,
-                        child: Center(
-                          child: Text(
-                            TextConstants.addFoodPlaceholder,
-                            style: TextStyle(
-                              color: ColorConstants.textGrey,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                      ),
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
+  // Calorie circle display build method
   Widget buildCalorieCircle(BuildContext context) {
+    // Calorie circle values extracted from calorie log controller
     int caloriesRemaining = calorieLogController.caloriesRemaining.value;
     int caloriesGoal = calorieLogController.caloriesGoal.value;
 
@@ -187,6 +110,7 @@ class CalorieLog extends StatelessWidget {
     Color progressColor = ColorConstants.primaryColor;
     Color? backgroundColor = ColorConstants.textGrey;
 
+    // Circle color display depending on calories remaining
     if (caloriesRemaining < 0) {
       if (caloriesRemaining <= -500) {
         progressColor = ColorConstants.wayWayOverCount;
@@ -197,6 +121,7 @@ class CalorieLog extends StatelessWidget {
       }
     }
 
+    // Widget build method
     return LayoutBuilder(
       builder: (context, constraints) {
         double size = constraints.maxWidth < constraints.maxHeight
@@ -204,14 +129,16 @@ class CalorieLog extends StatelessWidget {
             : constraints.maxHeight;
 
         return SizedBox(
+          // Aligns to center
           width: size,
-          height: size * 0.5,
+          height: size * 0.6,
           child: Stack(
             alignment: Alignment.center,
             children: [
+              // Calorie circle
               SizedBox(
-                width: size * 0.5,
-                height: size * 0.5,
+                width: size * 0.6,
+                height: size * 0.6,
                 child: CircularProgressIndicator(
                   value: progress / 100,
                   valueColor: AlwaysStoppedAnimation<Color?>(backgroundColor),
@@ -219,21 +146,26 @@ class CalorieLog extends StatelessWidget {
                   strokeWidth: size * 0.03,
                 ),
               ),
+
+              // Text inside calorie circle
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  // Calories remaining text
                   Text(
                     TextConstants.caloriesRemaining,
                     style: TextStyle(
-                      fontSize: size * 0.04,
+                      fontSize: size * 0.05,
                       fontWeight: FontWeight.bold,
                       color: ColorConstants.textWhite.withOpacity(0.75),
                     ),
                   ),
+
+                  // Number of calories remaining
                   Text(
                     '$caloriesRemaining',
                     style: TextStyle(
-                      fontSize: size * 0.1,
+                      fontSize: size * 0.12,
                       fontWeight: FontWeight.bold,
                       color: progressColor,
                     ),

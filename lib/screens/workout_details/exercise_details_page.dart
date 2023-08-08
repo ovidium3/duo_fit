@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 import '/constants/color_constants.dart';
-import '/constants/text/general_texts.dart';
+import '/constants/text/app_texts.dart';
 import '/models/exercise_model.dart';
 
 import 'components/details_app_bar.dart';
-//import 'components/exercise_details_video.dart';
+import 'components/exercise_details_video.dart';
 import 'components/exercise_step.dart';
 
+// Page containing a video of the exercise as well as the steps to perform it
 class ExerciseDetailsPage extends StatelessWidget {
   final ExerciseModel exercise;
 
@@ -32,16 +33,16 @@ class ExerciseDetailsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Video player
-                // Container(
-                //   height: 264,
-                //   width: double.infinity,
-                //   decoration: BoxDecoration(
-                //       borderRadius: BorderRadius.circular(20),
-                //       color: ColorConstants.backgroundColor),
-                //   child: ExerciseDetailsVideo(
-                //     exercise: exercise,
-                //   ),
-                // ),
+                Container(
+                  height: 264,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: ColorConstants.backgroundColor),
+                  child: ExerciseDetailsVideo(
+                    exercise: exercise,
+                  ),
+                ),
 
                 // Space between video player and rest of page text
                 const SizedBox(height: 8),
@@ -81,7 +82,7 @@ class ExerciseDetailsPage extends StatelessWidget {
                         children: [
                           for (int i = 0; i < exercise.steps.length; i++) ...[
                             ExerciseStep(
-                                number: "${i + 1}",
+                                number: '${i + 1}',
                                 description: exercise.steps[i]),
                             const SizedBox(height: 20),
                           ],

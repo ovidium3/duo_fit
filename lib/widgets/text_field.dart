@@ -4,18 +4,18 @@ import '/constants/color_constants.dart';
 
 // Custom text field widget used for taking user input
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({
-    required this.label,
-    this.obscureText = false,
-    required this.controller,
-    required this.keyboardType,
-    super.key,
-  });
-
   final String label;
-  final bool obscureText;
   final TextEditingController controller;
   final TextInputType keyboardType;
+  final bool obscureText;
+
+  const CustomTextField({
+    required this.label,
+    required this.controller,
+    required this.keyboardType,
+    this.obscureText = false,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -6,16 +6,17 @@ import '/controllers/get_started/goal_card_controller.dart';
 
 import 'card_check_mark.dart';
 
+// Class for goal card on get started page
 class GoalCard extends GetView<GoalCardController> {
+  final String text, description;
+  final int id;
+
   const GoalCard({
     required this.text,
     required this.description,
     required this.id,
     super.key,
   });
-
-  final String text, description;
-  final int id;
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +49,7 @@ class GoalCard extends GetView<GoalCardController> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // Check mark for card, default state is invisible
                 Align(
                   alignment: Alignment.centerRight,
                   child: CheckMark(
@@ -56,6 +58,8 @@ class GoalCard extends GetView<GoalCardController> {
                     isChecked: controller.isChecked,
                   ),
                 ),
+
+                // Title text for card
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -67,7 +71,11 @@ class GoalCard extends GetView<GoalCardController> {
                     ),
                   ),
                 ),
+
+                // Space between title text and description text
                 const SizedBox(height: 10),
+
+                // Description text
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(

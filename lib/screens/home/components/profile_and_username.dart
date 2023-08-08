@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-import '/constants/text/general_texts.dart';
+import '/constants/text/app_texts.dart';
 import '/constants/color_constants.dart';
 import 'avatar.dart';
 
-// Username and profile display on home page
+// Username and profile text display on home page
 class ProfileAndUsername extends StatelessWidget {
+  final String username;
+  final String profileImage;
+  final void Function()? onProfileImageTap;
+
   const ProfileAndUsername({
     required this.username,
     required this.profileImage,
     this.onProfileImageTap,
     super.key,
   });
-
-  final String username;
-  final String profileImage;
-  final void Function()? onProfileImageTap;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +25,7 @@ class ProfileAndUsername extends StatelessWidget {
       children: [
         // Hey, name
         RichText(
+          // Hey text
           text: TextSpan(
             text: TextConstants.hey,
             style: TextStyle(
@@ -32,6 +33,8 @@ class ProfileAndUsername extends StatelessWidget {
               color: Theme.of(context).primaryColor,
               fontSize: 25,
             ),
+
+            // Username text
             children: [
               TextSpan(
                 text: username,
@@ -43,6 +46,7 @@ class ProfileAndUsername extends StatelessWidget {
             ],
           ),
         ),
+
         // Profile picture
         Avatar(
           onProfileImgTap: onProfileImageTap,

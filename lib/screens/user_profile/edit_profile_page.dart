@@ -2,7 +2,7 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '/controllers/user_info/user_profile_options_controller.dart';
+import '/controllers/user/profile_options_controller.dart';
 import '/constants/color_constants.dart';
 import '/helpers/show_delay_mixin.dart';
 
@@ -13,8 +13,9 @@ import 'components/profile_app_bar.dart';
 class EditProfilePage extends StatelessWidget with ShowDelayMixin {
   EditProfilePage({super.key});
 
-  final UserProfileOptionsController userProfileOptionsController =
-      Get.put(UserProfileOptionsController());
+  // Dependency injection
+  final ProfileOptionsController userProfileOptionsController =
+      Get.put(ProfileOptionsController());
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +30,7 @@ class EditProfilePage extends StatelessWidget with ShowDelayMixin {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // User profile options
             ...List.generate(
               userProfileOptionsController.profileOptionsList.length,
               (i) => DelayedDisplay(
@@ -42,11 +44,11 @@ class EditProfilePage extends StatelessWidget with ShowDelayMixin {
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: InkWell(
                     onTap: userProfileOptionsController.profileOptionsList[i]
-                        ["optionFunction"],
+                        ['optionFunction'],
                     child: ListTile(
                       title: Text(
                         userProfileOptionsController.profileOptionsList[i]
-                            ["optionTitle"],
+                            ['optionTitle'],
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: i ==
@@ -59,7 +61,7 @@ class EditProfilePage extends StatelessWidget with ShowDelayMixin {
                       ),
                       leading: Icon(
                         userProfileOptionsController.profileOptionsList[i]
-                            ["optionIcon"],
+                            ['optionIcon'],
                         color: i ==
                                 userProfileOptionsController
                                         .profileOptionsList.length -

@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 
 import '/constants/color_constants.dart';
 
+// Creates either workout time widget or exercise count widget in top left
 class WorkoutDetailDisplay extends StatelessWidget {
+  final String text;
+  final bool isTime;
+
   const WorkoutDetailDisplay({
     required this.text,
     this.isTime = true,
     super.key,
   });
-
-  final String text;
-  final bool isTime;
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +26,14 @@ class WorkoutDetailDisplay extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.max,
         children: [
+          // Time icon or person icon
           Icon(
             isTime == true ? Icons.schedule : Icons.accessibility,
             color: ColorConstants.iconWhite,
             size: 16,
           ),
+
+          // Workout duration or exercise count
           Text(
             text,
             style: const TextStyle(

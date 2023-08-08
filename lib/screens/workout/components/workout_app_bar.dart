@@ -25,7 +25,9 @@ class WorkoutAppBar extends StatelessWidget {
       leading: RestTimerButton(
         title: 'Timer',
         isEnabled: false,
-        onTimerChanged: (newTimerValue) {},
+        onTimerChanged: (newTimerValue) {
+          // Not implemented yet
+        },
       ),
       actions: [
         // Finish button

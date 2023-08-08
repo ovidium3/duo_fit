@@ -8,12 +8,17 @@ import '/models/food_model.dart';
 
 import 'dialog_controller.dart';
 
-class CalorieLogController extends GetxController {
+// Controller for handling all calorie log related functionality
+class CalorieLogController extends GetxController
+    with GetSingleTickerProviderStateMixin {
   // Dependency injection
   final DialogController dialogController = Get.find();
 
   // Input controllers
   late TextEditingController foodNameController, caloriesController;
+
+  // Tab controller
+  late TabController foodsTabController;
 
   // Get current user and firestore instance
   final User? _user = FirebaseAuth.instance.currentUser;
@@ -78,13 +83,16 @@ class CalorieLogController extends GetxController {
 
       // Add foods from Firestore to foods eaten
       for (var food in foodsData) {
+        // Extract all 3 data values for each food
         final foodName = food['name'] as String;
         final foodCalories = food['calories'] as int;
         final foodQuantity = food['quantity'] as int;
 
         if (consumedFoodsMap.containsKey(foodName)) {
+          // Add one to existing food entry
           consumedFoodsMap[foodName]!.quantity += foodQuantity;
         } else {
+          // Create a new entry for the food
           consumedFoodsMap[foodName] = FoodModel(
             id: UniqueKey().toString(),
             name: foodName,
@@ -93,8 +101,10 @@ class CalorieLogController extends GetxController {
           );
         }
       }
+      // Update reactive foods list
       foodsEaten.value = consumedFoodsMap.values.toList();
     } else {
+      // Set everything to a default state
       caloriesRemaining.value = caloriesGoal.value;
       foodsEaten.value = [];
       updateCalorieLog();
@@ -112,9 +122,11 @@ class CalorieLogController extends GetxController {
           .get();
 
       if (snapshot.exists) {
+        // Extract data from Firestore
         final data = snapshot.data() as Map<String, dynamic>;
-
         final foodItemsData = data['foods'] as List<dynamic>;
+
+        // Update reactive foods list
         final items = foodItemsData
             .map((foodData) => FoodModel(
                   id: UniqueKey().toString(),
@@ -122,7 +134,6 @@ class CalorieLogController extends GetxController {
                   calories: foodData['calories'],
                 ))
             .toList();
-
         foods.value = items;
       }
     } catch (error) {
@@ -160,8 +171,10 @@ class CalorieLogController extends GetxController {
         foodsEaten.indexWhere((item) => item.name == food.name);
 
     if (existingFoodIndex != -1) {
+      // Add one to food count if count > 1
       foodsEaten[existingFoodIndex].quantity++;
     } else {
+      // Add a new food with a default count of 1
       foodsEaten.add(FoodModel(
         id: UniqueKey().toString(),
         name: food.name,
@@ -178,9 +191,11 @@ class CalorieLogController extends GetxController {
         foodsEaten.indexWhere((item) => item.name == food.name);
 
     if (existingFoodIndex != -1) {
+      // Reduce food count if more than 1
       if (foodsEaten[existingFoodIndex].quantity > 1) {
         foodsEaten[existingFoodIndex].quantity--;
       } else {
+        // Remove current food entirely
         foodsEaten.removeAt(existingFoodIndex);
       }
       caloriesRemaining += food.calories;
@@ -202,23 +217,27 @@ class CalorieLogController extends GetxController {
       final snapshot = await docRef.get();
 
       if (snapshot.exists) {
+        // Extract data from Firestore to get food list
         List<dynamic> existingFoods = snapshot.data()?['foods'] ?? [];
         final newFood = {
           'name': foodName,
           'calories': calories,
         };
-        existingFoods.add(newFood);
 
+        // Add new food and update food list in Firestore
+        existingFoods.add(newFood);
         await docRef.update({
           'foods': existingFoods,
         });
       } else {
+        // If no foods are in food list, set food list as current food item
         await docRef.set({
           'foods': [
             {'name': foodName, 'calories': calories}
           ]
         });
       }
+      // Re-initialize food lists for UI display
       await getFoodItems();
     } catch (error) {
       throw Exception(error);
@@ -236,22 +255,27 @@ class CalorieLogController extends GetxController {
       final docSnapshot = await docRef.get();
 
       if (docSnapshot.exists) {
+        // Extract food list data from Firestore and remove food
         List<dynamic> existingFoods = docSnapshot.data()?['foods'] ?? [];
         existingFoods
             .removeWhere((existingFood) => existingFood['name'] == food.name);
 
+        // Update foods list in Firestore
         await docRef.update({
           'foods': existingFoods,
         });
 
+        // Remove food from reactive food list
         foods.remove(food);
       }
+      // Update foods in UI
       await getFoodItems();
     } catch (error) {
       throw Exception(error);
     }
   }
 
+  // Function that calls dialog controller to show edit foods dialog
   void editFoods() {
     dialogController.showEditFoods(
       foodNameController,
@@ -268,6 +292,9 @@ class CalorieLogController extends GetxController {
     foodNameController = TextEditingController();
     caloriesController = TextEditingController();
 
+    // Tab controller creation
+    foodsTabController = TabController(vsync: this, length: 2);
+
     // Get necessary info to set up page
     await getUserStatistics();
     await getFoodsEaten();
@@ -280,6 +307,9 @@ class CalorieLogController extends GetxController {
     // Input controller disposal
     foodNameController.dispose();
     caloriesController.dispose();
+
+    // Tab controller disposal
+    foodsTabController.dispose();
     super.onClose();
   }
 }

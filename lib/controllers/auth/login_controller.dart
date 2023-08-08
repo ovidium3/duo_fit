@@ -2,10 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-import '../dialog_controller.dart';
+import '/controllers/dialog_controller.dart';
 import '/helpers/auth_validation.dart';
 import '/helpers/handle_errors.dart';
 
+// Controller that handles logging in to the app
 class LoginController extends GetxController {
   // Dependency injection
   final DialogController dialogController = Get.find();

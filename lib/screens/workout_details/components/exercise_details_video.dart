@@ -1,16 +1,20 @@
 import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
-import 'package:flutter/material.dart';
 
 import '/constants/color_constants.dart';
 import '/models/exercise_model.dart';
 
+// Creates video player for a specific exercise
 class ExerciseDetailsVideo extends StatefulWidget {
-  const ExerciseDetailsVideo({required this.exercise, super.key});
-
   final ExerciseModel exercise;
+
+  const ExerciseDetailsVideo({
+    required this.exercise,
+    super.key,
+  });
 
   @override
   ExerciseDetailsVideoState createState() => ExerciseDetailsVideoState();

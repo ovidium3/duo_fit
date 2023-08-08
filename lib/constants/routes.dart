@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 
 import '/configurations/bindings/auth_bindings.dart';
-import '/configurations/bindings/get_started_binding.dart';
 import '/screens/auth/email_verification_page.dart';
 import '/screens/auth/forgot_password_page.dart';
 import '/screens/auth/login_page.dart';
@@ -9,7 +8,8 @@ import '/screens/auth/sign_up_page.dart';
 import '/screens/get_started/get_started_page.dart';
 import '/screens/get_started/welcome_page.dart';
 
-class Routes {
+// Contains all routes and bindings for auth pages
+class AuthRoutes {
   static final List<GetPage> pages = [
     GetPage(
       name: '/',

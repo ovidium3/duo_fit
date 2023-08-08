@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
 import '/constants/media_constants.dart';
-import '/constants/text/general_texts.dart';
+import '/constants/text/app_texts.dart';
 import '/controllers/auth/email_verification_controller.dart';
 import '/controllers/auth/sign_out_controller.dart';
-import '/widgets/buttons/auth_button.dart';
+import '/widgets/action_button.dart';
 
 // Page where user prompted to verify email upon signing up
 class EmailVerificationPage extends GetView<EmailVerificationController> {
@@ -32,7 +32,7 @@ class EmailVerificationPage extends GetView<EmailVerificationController> {
                 onPressed: () {
                   signOutController.signOut();
                 },
-                child: const Text(TextConstants.logOut),
+                child: const Text(TextConstants.signOut),
               ),
 
               // Space between logout button and email verification message
@@ -73,7 +73,7 @@ class EmailVerificationPage extends GetView<EmailVerificationController> {
               const Spacer(),
 
               // Login button
-              AuthButton(
+              ActionButton(
                 text: TextConstants.done,
                 isOutlined: false,
                 onPressed: () {
@@ -81,10 +81,10 @@ class EmailVerificationPage extends GetView<EmailVerificationController> {
                 },
               ),
 
-              // Space between done button and re-send button
+              // Space between done button and re-send email verification button
               const SizedBox(height: 20),
 
-              // Re-send button
+              // Re-send email verification button
               GestureDetector(
                 onTap: () {
                   controller.sendVerificationEmail();

@@ -1,35 +1,37 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import '/constants/text/error_texts.dart';
+import '/constants/text/dialog_texts.dart';
 import '/controllers/dialog_controller.dart';
 
 import 'auth_validation.dart';
 
+// Extension on GetX controllers for handling common validation and auth errors
 extension HandleErrors on GetxController {
   void handleAuthErrors(FirebaseAuthException e) {
     // Dependency injection
     DialogController dialogController = Get.find();
 
+    // Extract error message and get error code from inside parentheses
     String specificErrorMessage = e.message!
         .substring(e.message!.indexOf('(') + 1, e.message!.indexOf(')'));
     switch (specificErrorMessage) {
       case 'auth/requires-recent-login':
-        dialogController.showError(ErrorTexts.requiresRecentLogin);
+        dialogController.showError(DialogTexts.requiresRecentLogin);
       case 'auth/invalid-email':
-        dialogController.showError(ErrorTexts.invalidEmail);
+        dialogController.showError(DialogTexts.invalidEmail);
       case 'auth/user-disabled':
-        dialogController.showError(ErrorTexts.userDisabled);
+        dialogController.showError(DialogTexts.userDisabled);
       case 'auth/user-not-found':
-        dialogController.showError(ErrorTexts.userNotFound);
+        dialogController.showError(DialogTexts.userNotFound);
       case 'auth/email-already-in-use':
-        dialogController.showError(ErrorTexts.emailInUse);
+        dialogController.showError(DialogTexts.emailInUse);
       case 'auth/wrong-password':
-        dialogController.showError(ErrorTexts.wrongPassword);
+        dialogController.showError(DialogTexts.wrongPassword);
       case 'auth/weak-password':
-        dialogController.showError(ErrorTexts.weakPassword);
+        dialogController.showError(DialogTexts.weakPassword);
       case 'auth/too-many-requests':
-        dialogController.showError(ErrorTexts.tooManyRequests);
+        dialogController.showError(DialogTexts.tooManyRequests);
       default:
         e.message ?? 'Error';
     }
@@ -41,17 +43,17 @@ extension HandleErrors on GetxController {
     DialogController dialogController = Get.find();
 
     if (email!.isEmpty) {
-      dialogController.showError(ErrorTexts.enterEmail);
+      dialogController.showError(DialogTexts.enterEmail);
     } else if (!email.isValidEmail) {
-      dialogController.showError(ErrorTexts.enterValidEmail);
+      dialogController.showError(DialogTexts.enterValidEmail);
     } else if (password!.isEmpty) {
-      dialogController.showError(ErrorTexts.enterPassword);
+      dialogController.showError(DialogTexts.enterPassword);
     } else if (!password.isValidPassword) {
-      dialogController.showError(ErrorTexts.enterValidPassword);
+      dialogController.showError(DialogTexts.enterValidPassword);
     } else if (username!.isEmpty) {
-      dialogController.showError(ErrorTexts.enterUsername);
+      dialogController.showError(DialogTexts.enterUsername);
     } else if (!username.isValidUsername) {
-      dialogController.showError(ErrorTexts.enterValidUsername);
+      dialogController.showError(DialogTexts.enterValidUsername);
     }
   }
 }

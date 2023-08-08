@@ -4,17 +4,18 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '/constants/text/general_texts.dart';
-import '/constants/user_profile_stats.dart';
+import '/constants/data/general_data.dart';
+import '/constants/text/app_texts.dart';
 import '/controllers/auth/sign_out_controller.dart';
-import '/controllers/user_info/user_info_controller.dart';
+import '/controllers/user/user_info_controller.dart';
 import '/helpers/show_delay_mixin.dart';
-import '../../widgets/buttons/auth_button.dart';
+import '/widgets/action_button.dart';
 
 import 'components/profile_app_bar.dart';
 import 'components/stat.dart';
 import 'edit_profile_page.dart';
 
+// Page where users can view their profile and achievements
 class UserProfile extends StatefulWidget {
   const UserProfile({super.key});
 
@@ -26,8 +27,6 @@ class _UserProfileState extends State<UserProfile> with ShowDelayMixin {
   // Dependency injections
   final UserInformationController userInformationController = Get.find();
   final SignOutController signOutController = Get.put(SignOutController());
-
-  //final bool hasProfilePic = false;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +48,7 @@ class _UserProfileState extends State<UserProfile> with ShowDelayMixin {
             const Spacer(flex: 1),
             Column(
               children: [
+                // Profile picture
                 DelayedDisplay(
                   delay: showDelay(),
                   child: SizedBox(
@@ -60,7 +60,6 @@ class _UserProfileState extends State<UserProfile> with ShowDelayMixin {
                         (() => Image(
                               image: NetworkImage(userInformationController
                                   .userProfileImage.value),
-                              // : NetworkImage(MediaConstants.defaultProfile),
                               fit: BoxFit.cover,
                               frameBuilder: (_, image, loadingBuilder, __) {
                                 if (loadingBuilder == null) {
@@ -82,7 +81,11 @@ class _UserProfileState extends State<UserProfile> with ShowDelayMixin {
                     ),
                   ),
                 ),
+
+                // Space between profile picture and username
                 const SizedBox(height: 20),
+
+                // Username
                 DelayedDisplay(
                   delay: showDelay(),
                   child: Obx(
@@ -98,7 +101,11 @@ class _UserProfileState extends State<UserProfile> with ShowDelayMixin {
                     ),
                   ),
                 ),
+
+                // Space between username and profile description
                 const SizedBox(height: 20),
+
+                // Profile description
                 DelayedDisplay(
                   delay: showDelay(),
                   child: Container(
@@ -113,28 +120,39 @@ class _UserProfileState extends State<UserProfile> with ShowDelayMixin {
                     ),
                   ),
                 ),
+
+                // Space between profile description and user statistics
                 const SizedBox(height: 40),
-                DelayedDisplay(
-                  delay: showDelay(),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ...List.generate(
-                        UserProfileStats.stats.length,
-                        (i) => UserStatistic(
-                          statValue: (UserProfileStats.stats[i]["value"]),
-                          statTitle: UserProfileStats.stats[i]["title"],
+
+                // User statistics
+                Obx(
+                  () => DelayedDisplay(
+                    delay: showDelay(),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ...List.generate(
+                          DataConstants.profileStatTitles.length,
+                          (i) => UserStatistic(
+                            statTitle: DataConstants.profileStatTitles[i],
+                            statValue: userInformationController
+                                .userProfileStats
+                                .toList()[i]
+                                .toString(),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
+
+            // Space between user statistics and edit profile button
             const Spacer(flex: 2),
             DelayedDisplay(
               delay: showDelay(),
-              child: AuthButton(
+              child: ActionButton(
                 text: TextConstants.editProfile,
                 isOutlined: true,
                 onPressed: () {
@@ -142,6 +160,8 @@ class _UserProfileState extends State<UserProfile> with ShowDelayMixin {
                 },
               ),
             ),
+
+            // Padding below edit profile button
             const SizedBox(height: 30),
           ],
         ),

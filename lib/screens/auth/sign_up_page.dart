@@ -4,13 +4,13 @@ import 'package:get/get.dart';
 
 import '/controllers/auth/sign_up_controller.dart';
 import '/constants/color_constants.dart';
-import '/constants/text/general_texts.dart';
+import '/constants/text/app_texts.dart';
 import '/helpers/show_delay_mixin.dart';
 import '/widgets/background_image.dart';
-import '../../widgets/buttons/auth_button.dart';
+import '/widgets/action_button.dart';
 import '/widgets/text_field.dart';
-import '../../widgets/text/app_title.dart';
-import '../../widgets/text/title_with_description.dart';
+import '/widgets/app_title.dart';
+import '/widgets/title_with_description.dart';
 
 import 'login_page.dart';
 
@@ -111,7 +111,7 @@ class SignUpPage extends GetView<SignUpController> with ShowDelayMixin {
                           // Sign up button
                           DelayedDisplay(
                             delay: showDelay(),
-                            child: AuthButton(
+                            child: ActionButton(
                               onPressed: () {
                                 controller.createNewAccount(
                                   controller.signUpEmailController.text.trim(),
@@ -125,20 +125,20 @@ class SignUpPage extends GetView<SignUpController> with ShowDelayMixin {
                             ),
                           ),
 
-                          // Space between sign up button and login page button
+                          // Space between sign up button and login page link
                           const SizedBox(height: 20),
 
-                          // Login page button
+                          // Login page link
                           DelayedDisplay(
                             delay: showDelay(),
                             child: GestureDetector(
                               onTap: () {
-                                Get.previousRoute == "/getStarted"
+                                Get.previousRoute == '/getStarted'
                                     ? Get.to(LoginPage())
                                     : Get.back();
                               },
                               child: Text(
-                                TextConstants.alreadyHaveAnAccount,
+                                TextConstants.alreadyHaveAccount,
                                 style: TextStyle(
                                   fontSize: 14,
                                   color: Theme.of(context).primaryColor,

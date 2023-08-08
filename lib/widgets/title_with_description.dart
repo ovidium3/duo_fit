@@ -4,14 +4,14 @@ import '/constants/color_constants.dart';
 
 // Text display widget for a monochromatic title and description
 class TitleWithDescription extends StatelessWidget {
+  final String title;
+  final String description;
+
   const TitleWithDescription({
     required this.title,
     required this.description,
     super.key,
   });
-
-  final String title;
-  final String description;
 
   @override
   Widget build(BuildContext context) {

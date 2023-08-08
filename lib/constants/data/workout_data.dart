@@ -119,7 +119,7 @@ class WorkoutData {
     ],
   );
 
-  // Placeholder
+  // Placeholder workout containing null data
   static final placeholder = WorkoutModel(
     title: WorkoutTexts.placeholderTitle,
     exercises: WorkoutTexts.placeholderExercises,
@@ -129,7 +129,7 @@ class WorkoutData {
   );
 
   // List of all valid workouts
-  static final List<WorkoutModel> workouts = [
+  static final List<WorkoutModel> allWorkouts = [
     upperBody,
     push,
     pull,

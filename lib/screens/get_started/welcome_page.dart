@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '/constants/text/general_texts.dart';
+import '/constants/text/app_texts.dart';
 import '/helpers/show_delay_mixin.dart';
 import '/widgets/background_image.dart';
-import '../../widgets/buttons/auth_button.dart';
-import '../../widgets/text/app_title.dart';
-import '../../widgets/text/title_with_description.dart';
+import '/widgets/action_button.dart';
+import '/widgets/app_title.dart';
+import '/widgets/title_with_description.dart';
 
 // The first page a new user sees upon opening the app
 // ignore: must_be_immutable
@@ -60,9 +60,9 @@ class WelcomePage extends StatelessWidget with ShowDelayMixin {
                       // Get started button
                       DelayedDisplay(
                         delay: showDelay(),
-                        child: AuthButton(
+                        child: ActionButton(
                           onPressed: () {
-                            Get.toNamed("/getStarted");
+                            Get.toNamed('/getStarted');
                           },
                           text: TextConstants.getStarted,
                           isOutlined: false,
@@ -75,9 +75,9 @@ class WelcomePage extends StatelessWidget with ShowDelayMixin {
                       // Login button
                       DelayedDisplay(
                         delay: showDelay(),
-                        child: AuthButton(
+                        child: ActionButton(
                           onPressed: () {
-                            Get.toNamed("/login");
+                            Get.toNamed('/login');
                           },
                           text: TextConstants.login,
                           isOutlined: true,

@@ -6,23 +6,22 @@ class MediaConstants {
   static const String absFlexOverlay = 'assets/images/abs_flex_overlay.png';
   static const String barbellOverlay = 'assets/images/barbell_overlay.png';
   static const String pullDownOverlay = 'assets/images/pull_down_overlay.png';
-  static const String sidePlankOverlay = 'assets/images/side_plank_overlay.png';
 
   // Other images
   static const String emailVerification =
-      "assets/images/email_verification.png";
-  static const String noImageAvailable = "assets/images/no_image_available.png";
-  static const String defaultProfile = 'assets/images/noprofile.png';
+      'assets/images/email_verification.png';
+  static const String noImageAvailable = 'assets/images/no_image_available.png';
+  static const String defaultProfile = 'assets/images/no_profile.png';
 
   // Workout images
-  static const String upper = 'assets/icons/workouts/upper.png';
-  static const String push = 'assets/icons/workouts/push.png';
-  static const String pull = 'assets/icons/workouts/pull.png';
-  static const String legs = 'assets/icons/workouts/legs.png';
-  static const String fullBody = 'assets/icons/workouts/full_body.png';
-  static const String arms = 'assets/icons/workouts/arms.png';
-  static const String abs = 'assets/icons/workouts/abs.png';
-  static const String shoulders = 'assets/icons/workouts/shoulders.png';
+  static const String upper = 'assets/images/workouts/upper.png';
+  static const String push = 'assets/images/workouts/push.png';
+  static const String pull = 'assets/images/workouts/pull.png';
+  static const String legs = 'assets/images/workouts/legs.png';
+  static const String fullBody = 'assets/images/workouts/full_body.png';
+  static const String arms = 'assets/images/workouts/arms.png';
+  static const String abs = 'assets/images/workouts/abs.png';
+  static const String shoulders = 'assets/images/workouts/shoulders.png';
 
   // Exercise images
   static const String shoulderPressImage =
@@ -48,7 +47,7 @@ class MediaConstants {
       'assets/images/exercises/skullcrusher.png';
   static const String barbellCurlImage =
       'assets/images/exercises/barbell_curl.png';
-  static const String legRaiseImage = 'assets/images/exercises/leg_rase.png';
+  static const String legRaiseImage = 'assets/images/exercises/leg_raise.png';
   static const String kneeRaiseImage = 'assets/images/exercises/knee_raise.png';
   static const String russianTwistImage =
       'assets/images/exercises/russian_twist.png';
@@ -75,12 +74,11 @@ class MediaConstants {
   static const String russianTwistVideo = 'assets/videos/russian_twist.mp4';
   static const String crunchVideo = 'assets/videos/crunch.mp4';
 
-  // List of images to display on auth screens
+  // List of images to display as background overlays
   static const List<String> overlayImages = <String>[
     MediaConstants.absFlexOverlay,
     MediaConstants.barbellOverlay,
     MediaConstants.pullDownOverlay,
-    MediaConstants.sidePlankOverlay,
   ];
 
   // Generate Random Image

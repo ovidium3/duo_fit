@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '/constants/color_constants.dart';
-import '/constants/text/general_texts.dart';
+import '/constants/text/app_texts.dart';
 
 // Text display widget for a dual color app title
 class AppTitle extends StatelessWidget {

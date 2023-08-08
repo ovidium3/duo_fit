@@ -28,19 +28,21 @@ class TextConstants {
   static const String goalCardTitle3 = 'Look Your Best';
   static const String goalCardDescription3 =
       'Together, we will help you achieve your best physique';
+  static const String rebuildId = 'rebuildID';
 
   // Auth -> Sign up page
   static const String signUp = 'Sign Up';
   static const String signUpDescription =
       'Join more than 100,000 warriors and train for the next big challenge';
   static const String username = 'Username';
-  static const String alreadyHaveAnAccount = 'Already have an account?';
+  static const String alreadyHaveAccount = 'Already have an account?';
 
   // Auth -> Login page
   static const String loginDescription =
       'Train and live the new experience of exercising at home';
   static const String email = 'Email';
   static const String password = 'Password';
+  static const String doNotHaveAccount = 'Don\'t have an account?';
 
   // Auth -> Forgot password page
   static const String forgotPassword = 'Forgot password?';
@@ -59,61 +61,68 @@ class TextConstants {
   static const String sent = 'Sent';
   static const String verifyEmail = 'Please verify your email first';
 
-  // Home page
+  // Home page -> User info
   static const String hey = 'Hey, ';
+  static const String anonymousUser = 'Anonymous User';
+  static const String defaultProfileImage =
+      'https://www.pngall.com/wp-content/uploads/12/Avatar-Profile.png';
 
+  // Home page -> Calorie log
   static const String caloriesRemaining = 'Calories Remaining:';
-  static const String addFoodPlaceholder = 'Add a food to get started!';
-  static const String remove = 'Remove Food';
-  static const String add = 'Add Food';
-  static const String foodAdded = 'has been added to your foods';
-  static const String foodRemoved = 'has been removed from your foods';
-  static const String confirmRemoveFood =
-      'Are you sure you want to permanently remove this food item?';
 
+  static const String editFoods = 'Edit Foods';
+  static const String yourFoods = 'Your Foods';
+  static const String foodsEaten = 'Foods Eaten';
+
+  static const String addFoodPlaceholder = 'Add a food to get started!';
+
+  // Home page -> Workout
   static const String find = 'Find';
   static const String yourWorkout = 'Your Workout';
 
+  static const String workoutTab1 = 'Popular';
+  static const String workoutTab2 = 'Minimalistic';
+  static const String workoutTab3 = 'Essential';
+  static const String workoutTab4 = 'Extra';
+
+  static const String workoutsTab1 = 'Popular Workouts';
+  static const String workoutsTab2 = 'Minimalistic Workouts';
+  static const String workoutsTab3 = 'Essential Workouts';
+  static const String workoutsTab4 = 'Extra Workouts';
+
   // User profile
   static const String profile = 'Profile';
-  static const String logOut = 'Log Out';
-  static const String profileDescription =
-      'This is the user profile description';
+  static const String signOut = 'Sign Out';
+  static const String profileDescription = 'Check out your progress:';
   static const String editProfile = 'Edit Profile';
+
+  static const String profileStat1 = 'Weeks Left';
+  static const String profileStat2 = 'Daily Calories';
+  static const String profileStat3 = 'Workouts';
 
   // Edit profile
   static const String update = 'Update';
 
   static const String changeUsername = 'Change Username';
   static const String usernameLabel = 'Username';
-  static const String usernameUpdated = 'Username updated successfully!';
 
   static const String changeProfilePicture = 'Change Profile Picture';
   static const String selectImage = 'Select an Image';
-  static const String profilePictureUpdated =
-      'Profile picture updated successfully!';
 
   static const String changeEmailAddress = 'Change Email Address';
   static const String emailLabel = 'Email';
-  static const String emailUpdated = 'Email updated successfully!';
 
   static const String changePassword = 'Change Password';
   static const String passwordLabel = 'Password';
-  static const String passwordUpdated = 'Password updated successfully!';
 
   static const String deleteAccount = 'Delete Account';
-  static const String confirmDeleteAccount =
-      'Are you sure you want to delete your account?';
-  static const String delete = 'Delete';
-  static const String accountDeleted = 'Account deleted successfully';
 
-  // Workout
+  // Workout details
   static const String workoutDetails = 'Workout Details';
   static const String exerciseDetails = 'Exercise Details';
   static const String startWorkout = 'Start Workout';
+
+  // Workout
   static const String finish = 'Finish';
   static const String cancelWorkout = 'Cancel Workout';
-  static const String finishedWorkout = 'Are you ready to finish your workout?';
-  static const String cancelWorkoutText =
-      'Are you sure you want to cancel your workout? All progress will be lost';
 }

@@ -9,6 +9,7 @@ import '/screens/workout/workout_page.dart';
 
 import 'workout_controller.dart';
 
+// Controller that routes the current user (if any) based on user's state
 class AuthStateController extends GetxController {
   // Dependency injection
   final WorkoutController workoutController = Get.put(WorkoutController());

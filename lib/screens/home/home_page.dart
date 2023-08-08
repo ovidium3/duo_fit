@@ -4,8 +4,9 @@ import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
 import '/constants/data/general_data.dart';
-import '/controllers/tabs/workout_tab_controller.dart';
-import '/controllers/user_info/user_info_controller.dart';
+import '/constants/text/app_texts.dart';
+import '/controllers/workout_tab_controller.dart';
+import '/controllers/user/user_info_controller.dart';
 import '/helpers/show_delay_mixin.dart';
 import '/screens/user_profile/user_profile_page.dart';
 import '/widgets/background_image.dart';
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> with ShowDelayMixin {
   // Dependency injections
   final UserInformationController userInformationController =
       Get.put(UserInformationController());
-  final CustomTabBarController _tabx = Get.put(CustomTabBarController());
+  final WorkoutTabController _tabx = Get.put(WorkoutTabController());
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,7 @@ class _HomePageState extends State<HomePage> with ShowDelayMixin {
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                stops: const [0.45, 1],
+                stops: const [0.65, 1],
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
                 colors: [
@@ -51,7 +52,7 @@ class _HomePageState extends State<HomePage> with ShowDelayMixin {
             child: SingleChildScrollView(
               child: ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxHeight: MediaQuery.of(context).size.height * 2,
+                  maxHeight: MediaQuery.of(context).size.height * 1.3,
                   maxWidth: MediaQuery.of(context).size.width,
                 ),
                 child: Container(
@@ -81,8 +82,8 @@ class _HomePageState extends State<HomePage> with ShowDelayMixin {
                         child: CalorieLog(),
                       ),
 
-                      // Space between calorie circle and find your workout
-                      const SizedBox(height: 50),
+                      // Space between calorie log and find your workout
+                      const SizedBox(height: 30),
 
                       // Find your workout
                       DelayedDisplay(
@@ -121,33 +122,35 @@ class _HomePageState extends State<HomePage> with ShowDelayMixin {
                           child: TabBarView(
                             controller: _tabx.workoutTabController,
                             children: [
+                              // Popular workouts tab
                               Center(
                                 child: WorkoutTabBar(
-                                  title: 'Popular Workouts',
+                                  title: TextConstants.workoutsTab1,
                                   workoutList: DataConstants.popularWorkouts,
                                 ),
                               ),
+
+                              // Minimalistic workouts tab
                               Center(
                                 child: WorkoutTabBar(
-                                  title: 'Upper Body Workouts',
-                                  workoutList: DataConstants.upperBodyWorkouts,
+                                  title: TextConstants.workoutsTab2,
+                                  workoutList:
+                                      DataConstants.minimalisticWorkouts,
                                 ),
                               ),
+
+                              // Essential workouts tab
                               Center(
                                 child: WorkoutTabBar(
-                                  title: 'Lower Body Workouts',
-                                  workoutList: DataConstants.lowerBodyWorkouts,
+                                  title: TextConstants.workoutsTab3,
+                                  workoutList: DataConstants.essentialWorkouts,
                                 ),
                               ),
+
+                              // Extra workouts tab
                               Center(
                                 child: WorkoutTabBar(
-                                  title: 'Full Body Workouts',
-                                  workoutList: DataConstants.fullBodyWorkouts,
-                                ),
-                              ),
-                              Center(
-                                child: WorkoutTabBar(
-                                  title: 'Extra',
+                                  title: TextConstants.workoutsTab4,
                                   workoutList: DataConstants.extraWorkouts,
                                 ),
                               ),

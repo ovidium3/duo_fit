@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 
 import '/constants/color_constants.dart';
 
-// Button used for auth functions like sign up and login
-class AuthButton extends StatelessWidget {
-  const AuthButton({
+// Dual style button used for actions like sign up, login, and edit profile
+class ActionButton extends StatelessWidget {
+  final String text;
+  final bool isOutlined;
+  final void Function()? onPressed;
+  final bool isRounded;
+
+  const ActionButton({
     required this.text,
     required this.isOutlined,
     required this.onPressed,
     this.isRounded = true,
     super.key,
   });
-
-  final void Function()? onPressed;
-  final String text;
-  final bool isOutlined;
-  final bool isRounded;
 
   @override
   Widget build(BuildContext context) {

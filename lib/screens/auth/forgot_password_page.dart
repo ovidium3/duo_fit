@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '/constants/text/general_texts.dart';
+import '/constants/text/app_texts.dart';
 import '/controllers/auth/forgot_password_controller.dart';
 import '/helpers/show_delay_mixin.dart';
-import '../../widgets/buttons/auth_button.dart';
+import '/widgets/action_button.dart';
 import '/widgets/text_field.dart';
-import '../../widgets/text/title_with_description.dart';
+import '/widgets/title_with_description.dart';
 import '/widgets/background_image.dart';
 
 // Page where user can reset password from login page
@@ -69,7 +69,7 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController>
                   // Reset password button
                   DelayedDisplay(
                     delay: showDelay(),
-                    child: AuthButton(
+                    child: ActionButton(
                       onPressed: () {
                         controller.recoverPassword(
                             controller.recoveryEmailController.text);

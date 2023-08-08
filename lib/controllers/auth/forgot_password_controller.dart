@@ -2,12 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-import '/constants/text/general_texts.dart';
-import '../dialog_controller.dart';
+import '/constants/text/dialog_texts.dart';
+import '/controllers/dialog_controller.dart';
 import '/helpers/auth_validation.dart';
 import '/helpers/handle_errors.dart';
 import '/screens/auth/login_page.dart';
 
+// Controller that handles password reset requests
 class ForgotPasswordController extends GetxController {
   // Dependency injection
   DialogController dialogController = Get.find();
@@ -27,7 +28,7 @@ class ForgotPasswordController extends GetxController {
         // Send reset password email, navigate to login page, show success dialog
         await auth.sendPasswordResetEmail(email: userEmail);
         Get.to(LoginPage());
-        dialogController.showSuccess(TextConstants.passwordResetEmailSent);
+        dialogController.showSuccess(DialogTexts.passwordResetEmailSent);
       } on FirebaseAuthException catch (e) {
         // Pop loading and show error message
         Get.back();

@@ -1,21 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '/constants/text/general_texts.dart';
+import '/constants/text/app_texts.dart';
 import '/controllers/workout_controller.dart';
 import '/models/set_model.dart';
 import '/models/workout_model.dart';
-import '/widgets/buttons/auth_button.dart';
+import '/widgets/action_button.dart';
 
 import 'components/exercise_card.dart';
 import 'components/workout_app_bar.dart';
 
+// Workout page where user can log their progress as they work out
 class WorkoutPage extends GetView<WorkoutController> {
-  const WorkoutPage({required this.workout, super.key});
-
   final WorkoutModel workout;
+
+  const WorkoutPage({required this.workout, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,16 +53,18 @@ class WorkoutPage extends GetView<WorkoutController> {
                           ? workout.exerciseDataList[index].sets + 1
                           : workout.exerciseDataList[index].sets;
 
+                      // Build method for each exercise's sets
                       return FutureBuilder<List<Map<String, dynamic>>>(
                         future:
                             controller.fetchPreviousWorkoutData(exercise.title),
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
+                            // Extract data from firestore and update set
                             final previousDataList = snapshot.data!;
                             List<SetModel> setDataList = [];
                             for (var i = 0; i < sets; i++) {
-                              String previousData = "-x-";
-                              String setType = "D";
+                              String previousData = '-x-';
+                              String setType = 'D';
                               if (i < previousDataList.length) {
                                 previousData = previousDataList
                                     .elementAt(i)
@@ -86,7 +89,10 @@ class WorkoutPage extends GetView<WorkoutController> {
                           } else if (snapshot.hasError) {
                             return Text('Error: ${snapshot.error}');
                           } else {
-                            return const CupertinoActivityIndicator();
+                            return const SpinKitThreeBounce(
+                              color: ColorConstants.primaryColor,
+                              duration: Duration(seconds: 1),
+                            );
                           }
                         },
                       );
@@ -99,7 +105,7 @@ class WorkoutPage extends GetView<WorkoutController> {
 
                 // Cancel workout button
                 Center(
-                  child: AuthButton(
+                  child: ActionButton(
                     text: TextConstants.cancelWorkout,
                     isOutlined: true,
                     onPressed: () {
@@ -115,10 +121,11 @@ class WorkoutPage extends GetView<WorkoutController> {
     );
   }
 
+  // Method to update set type in set data
   String _getSetType(int i, bool needsWarmup) {
     if (needsWarmup) {
       if (i == 0) {
-        return "W";
+        return 'W';
       }
       return i.toString();
     } else {

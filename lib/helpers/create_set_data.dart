@@ -8,21 +8,23 @@ extension GenerateSetDataList on ExerciseData {
       [bool needsWarmup = false]) {
     List<SetModel> setDataList = [];
     if (needsWarmup) {
+      // Return set data list that includes a warm-up set
       setDataList = [
-        SetModel(exerciseTitle: exerciseTitle, previousData: "-", setType: "W"),
+        SetModel(exerciseTitle: exerciseTitle, previousData: '-', setType: 'W'),
         ...List<SetModel>.generate(
-          3,
+          sets,
           (_) => SetModel(
-              exerciseTitle: exerciseTitle, previousData: "-", setType: "D"),
+              exerciseTitle: exerciseTitle, previousData: '-', setType: 'D'),
         ),
       ];
     } else {
+      // Return a default set data list
       setDataList = List<SetModel>.generate(
-        3,
+        sets,
         (_) => SetModel(
             exerciseTitle: ExerciseTexts.crunch,
-            previousData: "-",
-            setType: "D"),
+            previousData: '-',
+            setType: 'D'),
       );
     }
     return setDataList;

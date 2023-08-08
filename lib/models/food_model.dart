@@ -1,3 +1,4 @@
+// A class that represents a specific food item and its properties
 class FoodModel {
   final String id;
   final String name;

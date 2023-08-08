@@ -2,17 +2,22 @@ import 'package:flutter/material.dart';
 
 import '/constants/color_constants.dart';
 
+// Represents a step of a given exercise
 class ExerciseStep extends StatelessWidget {
   final String number;
   final String description;
 
-  const ExerciseStep(
-      {required this.number, required this.description, super.key});
+  const ExerciseStep({
+    required this.number,
+    required this.description,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
+        // Step number
         Container(
           height: 25,
           width: 25,
@@ -31,7 +36,11 @@ class ExerciseStep extends StatelessWidget {
             ),
           ),
         ),
+
+        // Space between step number and step description
         const SizedBox(width: 10),
+
+        // Step description
         Expanded(
             child: Text(
           description,

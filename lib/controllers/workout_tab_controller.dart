@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 
 import '/constants/data/general_data.dart';
 
-class CustomTabBarController extends GetxController
+// Controller for workout tab navigation
+class WorkoutTabController extends GetxController
     with GetSingleTickerProviderStateMixin {
   // Tab controller
   late TabController workoutTabController;

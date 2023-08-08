@@ -6,6 +6,7 @@ import '/models/goal_card_info.dart';
 
 import 'get_started_controller.dart';
 
+// Controller for goal cards
 class GoalCardController extends GetxController {
   GoalCardController(this.id);
 

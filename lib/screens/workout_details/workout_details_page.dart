@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/color_constants.dart';
-import '/constants/text/general_texts.dart';
+import '/constants/text/app_texts.dart';
 import '/helpers/show_delay_mixin.dart';
 import '/models/workout_model.dart';
 import '/screens/workout/workout_page.dart';
-import '/widgets/buttons/auth_button.dart';
+import '/widgets/action_button.dart';
 
 import 'components/details_app_bar.dart';
 import 'components/exercise_list.dart';
@@ -16,12 +16,12 @@ import 'components/workout_detail_display_widget.dart';
 // Workout details page where user can then start workout from
 // ignore: must_be_immutable
 class WorkoutDetailsPage extends StatelessWidget with ShowDelayMixin {
+  final WorkoutModel workout;
+
   WorkoutDetailsPage({
     required this.workout,
     super.key,
   });
-
-  final WorkoutModel workout;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +33,7 @@ class WorkoutDetailsPage extends StatelessWidget with ShowDelayMixin {
       ),
       body: Stack(
         children: [
+          // Workout image
           FractionallySizedBox(
             heightFactor: .7,
             child: SizedBox(
@@ -48,6 +49,7 @@ class WorkoutDetailsPage extends StatelessWidget with ShowDelayMixin {
             width: double.infinity,
             decoration: BoxDecoration(
               gradient: LinearGradient(
+                // Smoothly transition from image to background color
                 stops: const [0, 0.2, 0.4, 1],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -120,7 +122,7 @@ class WorkoutDetailsPage extends StatelessWidget with ShowDelayMixin {
                   // Start workout button
                   DelayedDisplay(
                     delay: showDelay(),
-                    child: AuthButton(
+                    child: ActionButton(
                       onPressed: () {
                         Get.to(WorkoutPage(workout: workout));
                       },
@@ -130,7 +132,7 @@ class WorkoutDetailsPage extends StatelessWidget with ShowDelayMixin {
                   ),
 
                   // Bottom padding
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 30),
                 ],
               ),
             ),
