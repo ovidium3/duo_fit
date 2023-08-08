@@ -13,6 +13,7 @@
 - adjust workout app bar to make timer have left padding
 - way to un-do check tap add to list, so that it can update a set if accidentally tapped on
 - hint autofill when tapping checkmark for a set in a workout
+- fix update workout ct from firestore with user info controller
 
 -- BONUS
 - implement show/hide for password field (showeye)

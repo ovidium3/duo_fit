@@ -14,7 +14,7 @@ class AuthRoutes {
     GetPage(
       name: '/',
       page: () => WelcomePage(),
-      // No binding required
+      binding: WelcomeBinding(),
     ),
     GetPage(
       name: '/getStarted',

@@ -40,3 +40,8 @@ class ForgotPasswordBinding implements Bindings {
     Get.lazyPut<ForgotPasswordController>(() => ForgotPasswordController());
   }
 }
+
+class WelcomeBinding implements Bindings {
+  @override
+  void dependencies() {}
+}

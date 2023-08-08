@@ -52,7 +52,7 @@ class UserInformationController extends GetxController {
 
   // Set profile image in firestore
   Future<void> setProfileImagePath() async {
-    // Assign new profile image path from Firestore
+    //Assign new profile image path from Firestore
     newImagePath = await _firestore
         .collection('Users')
         .doc(_user?.uid)

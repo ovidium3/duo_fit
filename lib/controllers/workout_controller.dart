@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 
 import '/constants/data/workout_data.dart';
 import '/constants/text/dialog_texts.dart';
-import '/controllers/user/user_info_controller.dart';
+//import '/controllers/user/user_info_controller.dart';
 import '/models/workout_model.dart';
 import '/screens/home/home_page.dart';
 
@@ -15,8 +15,8 @@ import 'dialog_controller.dart';
 class WorkoutController extends GetxController {
   // Dependency injections
   final DialogController dialogController = Get.put(DialogController());
-  final UserInformationController userInfoController =
-      Get.put(UserInformationController());
+  // final UserInformationController userInfoController =
+  //     Get.put(UserInformationController());
 
   // Firebase user instance
   final User? _user = FirebaseAuth.instance.currentUser;
@@ -235,10 +235,10 @@ class WorkoutController extends GetxController {
     }
   }
 
-  Future<void> updateWorkoutsCompleted() async {
-    await statsDocRef.update(
-        {'Workouts Completed': (userInfoController.userProfileStats[2] + 1)});
-  }
+  // Future<void> updateWorkoutsCompleted() async {
+  //   await statsDocRef.update(
+  //       {'Workouts Completed': (userInfoController.userProfileStats[2] + 1)});
+  // }
 
   Future<void> finishWorkout() async {
     // Ask user to confirm finishing workout
@@ -251,7 +251,7 @@ class WorkoutController extends GetxController {
       await updateWorkoutStatus();
 
       // Update workouts completed in firestore and go to home page
-      await updateWorkoutsCompleted();
+      //await updateWorkoutsCompleted();
       Get.to(const HomePage());
     });
   }

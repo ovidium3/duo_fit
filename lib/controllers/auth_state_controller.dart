@@ -23,13 +23,17 @@ class AuthStateController extends GetxController {
   // Auth state handler to direct user to correct page upon opening app
   handleUserState(User? user) async {
     if (user == null) {
+      print('user is null');
       // If user is null, send user to welcome page
       Get.offAll(WelcomePage());
     } else {
+      print('user aint null');
       if (!user.emailVerified) {
+        print('user aint verif');
         // If user is not verified, send to email verification page
         Get.offAll(EmailVerificationPage());
       } else {
+        print('user verif');
         if (await workoutController.isUserInWorkout() == true) {
           // If user is in a workout, send to workout page
           WorkoutModel workout = await workoutController.getCurrentWorkout();
