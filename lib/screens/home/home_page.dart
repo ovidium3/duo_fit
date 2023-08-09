@@ -130,12 +130,11 @@ class _HomePageState extends State<HomePage> with ShowDelayMixin {
                                 ),
                               ),
 
-                              // Minimalistic workouts tab
+                              // Minimalist workouts tab
                               Center(
                                 child: WorkoutTabBar(
                                   title: TextConstants.workoutsTab2,
-                                  workoutList:
-                                      DataConstants.minimalisticWorkouts,
+                                  workoutList: DataConstants.minimalistWorkouts,
                                 ),
                               ),
 

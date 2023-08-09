@@ -3,6 +3,9 @@
 - default home page has some spacing above the first element in the food lists, enough for another element (???)
 - foods tab bar has a lot of foods in it that are centered on vertical axis as well as horizontal, want to start from top of axis not center in case of foods not fillign entire list
 - when you remove a food, quantity doesnt update unless food is removed
+- change default icon from flutter's F to actual icon
+- add app bar to forgot password page
+- make error dialogs show properly for trying to update email or password
 
 -- WORKOUT STUFF
 - workout page refreshing and saving prev data

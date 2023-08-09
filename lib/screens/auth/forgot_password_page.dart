@@ -74,7 +74,6 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController>
                         controller.recoverPassword(
                             controller.recoveryEmailController.text);
                       },
-                      isRounded: false,
                       text: TextConstants.resetPassword,
                       isOutlined: true,
                     ),

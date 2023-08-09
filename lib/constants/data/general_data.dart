@@ -53,8 +53,8 @@ class DataConstants {
     WorkoutData.pull,
   ];
 
-  // List of 2 minimalistic workouts
-  static final List<WorkoutModel> minimalisticWorkouts = [
+  // List of 2 minimalist workouts
+  static final List<WorkoutModel> minimalistWorkouts = [
     WorkoutData.fullBody,
     WorkoutData.shoulders,
   ];

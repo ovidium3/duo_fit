@@ -45,7 +45,7 @@ class TextConstants {
   static const String doNotHaveAccount = 'Don\'t have an account?';
 
   // Auth -> Forgot password page
-  static const String forgotPassword = 'Forgot password?';
+  static const String forgotPassword = 'Forgot\npassword?';
   static const String resetPassword = 'Reset password';
   static const String yourEmail = 'Your email';
   static const String forgotPasswordDesccription =
@@ -81,12 +81,12 @@ class TextConstants {
   static const String yourWorkout = 'Your Workout';
 
   static const String workoutTab1 = 'Popular';
-  static const String workoutTab2 = 'Minimalistic';
+  static const String workoutTab2 = 'Minimalist';
   static const String workoutTab3 = 'Essential';
   static const String workoutTab4 = 'Extra';
 
   static const String workoutsTab1 = 'Popular Workouts';
-  static const String workoutsTab2 = 'Minimalistic Workouts';
+  static const String workoutsTab2 = 'Minimalist Workouts';
   static const String workoutsTab3 = 'Essential Workouts';
   static const String workoutsTab4 = 'Extra Workouts';
 
