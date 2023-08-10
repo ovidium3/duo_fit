@@ -4,7 +4,7 @@ A 2 in 1 fitness app built with Flutter, capable of running on iOS and Android.
 
 Inspiration taken from MyFitnessPal and Strong Workout apps.
 
-## Splash screen & Welcome
+## Splash Screen & Welcome
 
 <img src="./assets/images/screenshots/splash_screen.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/auth/welcome_page.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/auth/get_started.png" alt="Image Description" width="200">
 
@@ -24,9 +24,13 @@ Inspiration taken from MyFitnessPal and Strong Workout apps.
 
 <img src="./assets/images/screenshots/user profile/profile.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/user profile/edit_profile.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/user profile/update_username.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/user profile/username_updated.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/user profile/update_profile_picture.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/user profile/update_email.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/user profile/update_password.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/user profile/confirm_delete_account.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/user profile/account_deleted.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/user profile/email_updated.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/user profile/password_updated.png" alt="Image Description" width="200">
 
+## Workout Details
+
+<img src="./assets/images/screenshots/workout/workout_details.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/workout/exercise_details.png" alt="Image Description" width="200"> 
+
 ## Workout
 
-<img src="./assets/images/screenshots/workout/workout_details.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/workout/exercise_details.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/workout/workout_page.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/workout/finish_workout.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/workout/cancel_workout.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/workout/rest_timer.png" alt="Image Description" width="200">
+<img src="./assets/images/screenshots/workout/workout_page.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/workout/finish_workout.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/workout/cancel_workout.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/workout/rest_timer.png" alt="Image Description" width="200">
 
 ## Getting Started
 
