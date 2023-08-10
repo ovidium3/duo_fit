@@ -13,9 +13,16 @@ Inspiration taken from MyFitnessPal and Strong Workout apps.
 <img src="./assets/images/screenshots/auth/welcome_page.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/auth/get_started.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/auth/sign_up.png" alt="Image Description" width="200"> 
 <img src="./assets/images/screenshots/auth/login.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/auth/email_verification.png" alt="Image Description" width="200"> 
 
-## Home page
+## Home page -> Foods
 
-<img src="./assets/images/screenshots/home/your_foods.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/foods_eaten.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/edit_foods.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/add_food.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/remove_food.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/food_added.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/food_removed.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/popular_workouts.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/essential_workouts.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/extra_workouts.png" alt="Image Description" width="200">
+<img src="./assets/images/screenshots/home/your_foods.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/foods_eaten.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/edit_foods.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/add_food.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/remove_food.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/food_added.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/food_removed.png" alt="Image Description" width="200">
+
+## Home page -> Workouts
+
+<img src="./assets/images/screenshots/home/popular_workouts.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/essential_workouts.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/extra_workouts.png" alt="Image Description" width="200">
+
+## User profile
+<img src="./assets/images/screenshots/user profile/profile.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/user profile/edit_profile.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/user profile/update_username.png" alt="Image Description" width="200">
 
 ## Getting Started
 
