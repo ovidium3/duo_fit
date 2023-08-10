@@ -4,12 +4,18 @@ A 2 in 1 fitness app built with Flutter, capable of running on iOS and Android.
 
 Inspiration taken from MyFitnessPal and Strong Workout apps.
 
-## Images
+## Splash screen
 
-<img src="./assets/images/screenshots/splash_screen.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/auth/welcome_page.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/auth/get_started.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/auth/sign_up.png" alt="Image Description" width="200"> 
-<img src="./assets/images/screenshots/auth/login.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/auth/email_verification.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/your_foods.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/foods_eaten.png" alt="Image Description" width="200">
-<img src="./assets/images/screenshots/home/edit_foods.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/add_food.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/remove_food.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/food_added.png" alt="Image Description" width="200">
-<img src="./assets/images/screenshots/home/food_removed.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/popular_workouts.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/essential_workouts.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/extra_workouts.png" alt="Image Description" width="200">
+<img src="./assets/images/screenshots/splash_screen.png" alt="Image Description" width="200">
+
+## Welcome / auth pages 
+
+<img src="./assets/images/screenshots/auth/welcome_page.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/auth/get_started.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/auth/sign_up.png" alt="Image Description" width="200"> 
+<img src="./assets/images/screenshots/auth/login.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/auth/email_verification.png" alt="Image Description" width="200"> 
+
+## Home page
+
+<img src="./assets/images/screenshots/home/your_foods.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/foods_eaten.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/edit_foods.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/add_food.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/remove_food.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/food_added.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/food_removed.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/popular_workouts.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/essential_workouts.png" alt="Image Description" width="200"> <img src="./assets/images/screenshots/home/extra_workouts.png" alt="Image Description" width="200">
 
 ## Getting Started
 
