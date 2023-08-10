@@ -8,7 +8,7 @@ Inspiration taken from MyFitnessPal and Strong Workout apps.
 
 This project is a starting point for a Flutter application.
 
-<img src="https://github.com/ovidium3/duo_fit/assets/98719820/f40df349-ed33-4b3c-b031-fcc019c7c855" alt="Image Description" width="250">
+<img src="https://github.com/ovidium3/duo_fit/assets/screenshots/extra_workouts" alt="Image Description" width="250">
 
 
 ![extra_workouts](https://github.com/ovidium3/duo_fit/assets/98719820/f40df349-ed33-4b3c-b031-fcc019c7c855)
