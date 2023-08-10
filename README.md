@@ -1,15 +1,16 @@
-# duo_fit
+# Duo Fit
 
 A 2 in 1 fitness app built with Flutter, capable of running on iOS and Android.
 
 Inspiration taken from MyFitnessPal and Strong Workout apps.
 
+## Images
+
+<img src="./assets/images/screenshots/splash_screen.png" alt="Image Description" width="250"> <img src="./assets/images/screenshots/auth/welcome_page.png" alt="Image Description" width="250"> <img src="./assets/images/screenshots/auth/get_started.png" alt="Image Description" width="250"> <img src="./assets/images/screenshots/auth/sign_up.png" alt="Image Description" width="250"> <img src="./assets/images/screenshots/auth/login.png" alt="Image Description" width="250">
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
-
-<img src="./assets/images/screenshots/splash_screen.png" alt="Image Description" width="250"> <img src="./assets/images/screenshots/auth/welcome_page.png" alt="Image Description" width="250">
-
 
 ![extra_workouts](https://github.com/ovidium3/duo_fit/assets/98719820/f40df349-ed33-4b3c-b031-fcc019c7c855)
 ![essential_workouts](https://github.com/ovidium3/duo_fit/assets/98719820/ce5b5a0d-64b5-46de-b78b-a7e01d94c252)
@@ -32,9 +33,7 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-![splash_screen](https://github.com/ovidium3/duo_fit/assets/98719820/8b6bb076-f8e3-465f-9dd9-b1d5a6be833e)
 ![login](https://github.com/ovidium3/duo_fit/assets/98719820/09014978-d9d9-4412-b0e2-818d2978bdb9)
 ![sign_up](https://github.com/ovidium3/duo_fit/assets/98719820/d07ba4fa-b530-47b6-bcd0-918c0659cb95)
 ![get_started](https://github.com/ovidium3/duo_fit/assets/98719820/105550e3-e736-404d-a59e-dc477cd59ae0)
 ![email_verification](https://github.com/ovidium3/duo_fit/assets/98719820/ff2df348-d09e-4f24-9104-d99290357e03)
-![welcome_page](https://github.com/ovidium3/duo_fit/assets/98719820/3545d25f-2d1e-4913-89b7-e1d252ddf8bb)
